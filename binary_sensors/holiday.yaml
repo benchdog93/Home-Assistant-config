@@ -1,0 +1,8 @@
+# https://www.home-assistant.io/integrations/binary_sensor.workday/
+#
+platform: workday
+name: holiday
+country: US
+workdays:
+  - holiday
+excludes: []

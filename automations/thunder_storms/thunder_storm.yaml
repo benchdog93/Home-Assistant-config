@@ -1,0 +1,15 @@
+
+id: '1602209228367'
+alias: Thunder Storm
+description: ''
+trigger:
+- platform: geo_location
+  source: Biltzortung
+  zone: zone.lightning_zone
+  event: enter
+condition: []
+action:
+- service: notify.mobile_app_sm_n960u
+  data:
+    message: Thunder storm
+mode: single

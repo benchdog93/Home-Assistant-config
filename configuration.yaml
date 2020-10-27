@@ -1,0 +1,40 @@
+homeassistant:
+  packages: !include_dir_named integrations
+  name: GreyWolf
+  latitude: !secret lat
+  longitude: !secret long
+  elevation: 1395
+  unit_system: imperial
+  time_zone: America/New_York
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - !secret internal_ip
+        - !secret external_ip
+
+# Configure a default setup of Home Assistant
+default_config:
+
+binary_sensor: !include binary_sensor.yaml
+binary_sensor greywolf: !include_dir_list binary_sensors
+group: !include groups.yaml
+automation: !include automations.yaml
+automation greywolf: !include_dir_list automations
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensor.yaml
+sensor greywolf: !include_dir_list sensors
+frontend: !include frontend.yaml
+recorder: !include recorder.yaml
+
+stream:
+ffmpeg:
+system_health:
+discovery:
+map:
+cloud:
+config:
+sun:

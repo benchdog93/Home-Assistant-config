@@ -1,0 +1,7 @@
+# Traccar integration
+device_tracker:
+  - platform: traccar
+    host: !secret traccar_host
+    port: !secret traccar_port
+    username: !secret traccar_user
+    password: !secret traccar_password

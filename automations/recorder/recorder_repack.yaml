@@ -1,0 +1,15 @@
+
+description: Repack recorder database
+alias: system_recorder_repack
+mode: single
+trigger:
+  - platform: time
+    at: '05:55'
+condition:
+  - condition: time
+    weekday:
+      - sun
+action:
+  - service: recorder.purge
+    data:
+      repack: true

@@ -1,0 +1,3 @@
+# Downloaded - enable downloading and declare folder
+downloader:
+  download_dir: downloads

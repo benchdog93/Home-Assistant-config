@@ -1,0 +1,50 @@
+# Example .gitignore file for your config dir.
+# An * ensures that everything will be ignored.
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.dh-sha
+*.conf
+*.pyc
+*.gz
+*.backup
+._*
+__pycache__
+
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
+!*manifest.json
+!.gitkeep
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+deps
+node-red
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+.config_entries.json
+secrets.yaml
+.homekit.state
+.ios.conf
+.spotify-token-cache
+.tradfri_psk.conf
+.uuid
+core
+html5_push_registrations.conf
+image
+ip_bans.yaml
+known_devices.yaml
+neighbours
+options.xml
+OZW_Log.txt
+pyozw.sqlite
+scripts.yaml
+zwcfg_*
+zwscene.xml
+esphome/secrets.yaml
+esphome/**/

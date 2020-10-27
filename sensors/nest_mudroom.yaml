@@ -1,0 +1,20 @@
+# Nest Hello Doorbell Integration
+
+platform: rest
+name: nest_hello_doorbell_back_porch
+resource: !secret nest_back_porch_resource
+method: GET
+headers:
+  Content-Type: application/json
+  Authorization: !secret nest_secret_token
+value_template: "{{ value_json['type'] }}"
+json_attributes:
+- type
+- traits
+- sdm.devices.traits.CameraLiveStream
+- sdm.devices.traits.CameraMotion
+- sdm.devices.traits.CameraPerson
+- sdm.devices.traits.CameraSound
+- sdm.devices.traits.DoorbellChime
+- sdm.devices.traits.CameraEventImage
+- sdm.devices.traits.Info

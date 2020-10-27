@@ -1,0 +1,3 @@
+# Influxdb
+influxdb:
+  host: !secret infldb_host

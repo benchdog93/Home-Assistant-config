@@ -1,0 +1,16 @@
+# GitHub Integration
+platform: github
+access_token: !secret github_token
+repositories: 
+  - path: 'BeardedTinker/Home-Assistant_config'
+    name: BT's Home Assistant Config
+  - path: 'pesor/LilyGO-TTGO-HiGrow'
+    name: Pesor's HiGrow repo
+  - path: 'frenck/home-assistant-config'
+    name: Franck's HA Config
+  - path: 'home-assistant/core'
+    name: HA Core repo
+  - path: 'Snipercaine/home_assistant_config'
+    name: DrZzs Home Assistant Config
+  - path: 'arsaboo/homeassistant-config'
+    name: Alok Saboo Home Assistant config 

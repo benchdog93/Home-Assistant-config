@@ -1,0 +1,14 @@
+# Garbage Collection Integration
+garbage_collection:
+  sensors:
+  - name: "Hawkins Hurlbut" # Each week on Friday
+    frequency: "weekly"
+    verbose_state: true
+    verbose_format: "{date}, in {days} days"
+    collection_days: "fri"
+  - name: "Town Trash Day" # Third Monday each month only
+    frequency: "monthly"
+    verbose_state: true
+    verbose_format: "{date}, in {days} days"
+    collection_days: "mon"
+    weekday_order_number: 3
