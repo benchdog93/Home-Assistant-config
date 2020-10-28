@@ -1,0 +1,7 @@
+
+awesome_people:
+  name: Awesome People
+  icon: mdi:human-male-female
+  entities:
+    - person.colleen
+    - person.ed
