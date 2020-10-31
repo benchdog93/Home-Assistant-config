@@ -23,7 +23,7 @@ binary_sensor greywolf: !include_dir_list binary_sensors
 group: !include groups.yaml
 automation: !include automations.yaml
 automation greywolf: !include_dir_list automations
-#script: !include scripts.yaml
+script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include sensor.yaml
 sensor greywolf: !include_dir_list sensors
