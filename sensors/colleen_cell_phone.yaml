@@ -1,0 +1,6 @@
+
+platform: attributes
+friendly_name: "Colleen's Phone"
+attribute: connected_paired_devices
+entities:
+  - sensor.sm_n950u_bluetooth_connection
