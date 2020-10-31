@@ -29,7 +29,6 @@ node-red
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 .config_entries.json
 secrets.yaml
-scripts.yaml
 .uuid
 core
 image
