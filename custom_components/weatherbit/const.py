@@ -89,6 +89,24 @@ ALT_CONDITION_CLASSES = {
     "windy-variant": [],
 }
 
+MDI_CONDITION_CLASSES = {
+    "weather-night-partly-cloudy": [8010, 8020],
+    "weather-night": [8000],
+    "weather-cloudy": [803, 804],
+    "exceptional": [],
+    "weather-fog": [741],
+    "weather-hail": [623],
+    "weather-lightning": [230, 231],
+    "weather-lightning-rainy": [200, 201, 202],
+    "weather-partly-cloudy": [801, 802],
+    "weather-pouring": [502, 522],
+    "weather-rainy": [300, 301, 302, 500, 501, 511, 520, 521],
+    "weather-snowy": [600, 601, 602, 621, 622, 623],
+    "weather-snowy-rainy": [610, 611, 612],
+    "weather-sunny": [800],
+    "weather-windy": [],
+}
+
 DEFAULT_ATTRIBUTION = "Powered by Weatherbit.io"
 DEFAULT_SCAN_INTERVAL = 30
 DEFAULT_BRAND = "Weatherbit.io"
