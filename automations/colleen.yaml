@@ -1,10 +1,10 @@
 alias: Sync input_boolean.colleen_is_home with device_tracker
 trigger:
   platform: state
-  entity_id: device_tracker.sm_n950u
+  entity_id: device_tracker.life360_colleen_williams
 action:
   service_template: >
-    {% if is_state('device_tracker.sm_n950u', 'home') %}
+    {% if is_state('device_tracker.life360_colleen_williams', 'home') %}
       input_boolean.turn_on
     {% else %}
       input_boolean.turn_off
