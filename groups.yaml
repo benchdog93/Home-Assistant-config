@@ -3,5 +3,5 @@ awesome_people:
   name: Awesome People
   icon: mdi:human-male-female
   entities:
-    - person.colleen
-    - person.ed
+    - input_boolean.colleen_is_home
+    - input_boolean.ed_is_home
