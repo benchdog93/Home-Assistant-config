@@ -1,0 +1,41 @@
+
+panel_custom:
+  - name: ha_server_con
+    sidebar_title: ServerControl
+    sidebar_icon: mdi:server-network
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: 'config/server_control'
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: core_configurator  
+
+  - name: ha_mqtt_dev
+    sidebar_title: MQTT Devices
+    sidebar_icon: mdi:chip
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: !secret mqtt_url_path
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: core_configurator    
+
+  - name: ha_zha_dev
+    sidebar_title: Zigbee Devices
+    sidebar_icon: mdi:zigbee
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: !secret zha_url_path
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: core_configurator    
+    
+  - name: ha_integ
+    sidebar_title: Integrations
+    sidebar_icon: mdi:home-assistant
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: 'config/integrations'
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: core_configurator  

@@ -1,6 +1,6 @@
 homeassistant:
   packages: !include_dir_named integrations
-  name: GreyWolf
+  name: Home
   latitude: !secret lat
   longitude: !secret long
   elevation: 1395
@@ -16,7 +16,7 @@ homeassistant:
         - !secret external_ip
 
 # Configure a default setup of Home Assistant
-default_config:
+default_config: 
 
 binary_sensor: !include binary_sensor.yaml
 binary_sensor greywolf: !include_dir_list binary_sensors

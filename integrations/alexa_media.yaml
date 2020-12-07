@@ -4,3 +4,6 @@ alexa_media:
     - email: !secret amazon_email
       password: !secret amazon_password
       url: amazon.com
+notify:
+  - platform: alexa_media
+    name: alexa_media
