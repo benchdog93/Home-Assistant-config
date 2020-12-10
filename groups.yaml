@@ -1,7 +1,34 @@
 
+candles:
+  name: Window Candle Lights
+  icon: mdi:candle
+  entities:
+    - switch.nodeid_25_switch
+    - switch.nodeid_26_switch
+    - switch.nodeid_27_switch
+    - switch.nodeid_28_switch
+    - switch.nodeid_29_switch
+    - switch.nodeid_30_switch
+    - switch.nodeid_31_switch
+    - switch.nodeid_32_switch
+
 awesome_people:
   name: Awesome People
   icon: mdi:human-male-female
   entities:
     - input_boolean.colleen_is_home
     - input_boolean.ed_is_home
+
+back_outside:
+  name: BackYard Outside Lights
+  icon: mdi:outdoor-lamp
+  entities:
+    - switch.nodeid_19_switch
+    - switch.nodeid_20_switch
+
+frt_outside:
+  name: Front Outdoor Lights
+  icon: mdi:outdoor-lamp
+  entities:
+    - switch.nodeid_18_switch
+    - switch.nodeid_21_switch
