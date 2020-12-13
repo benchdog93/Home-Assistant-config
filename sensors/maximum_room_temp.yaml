@@ -1,0 +1,9 @@
+
+platform: min_max
+entity_ids:
+    - sensor.bedroom_2_current_temperature
+    - sensor.office_2_current_temperature
+    - sensor.living_room_2_current_temperature
+    - sensor.dining_room_2_current_temperature
+type: max
+name: Maximum temperature value
