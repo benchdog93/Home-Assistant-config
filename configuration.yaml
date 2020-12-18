@@ -1,9 +1,5 @@
 homeassistant:
   packages: !include_dir_named integrations
-  name: Home
-  latitude: !secret lat
-  longitude: !secret long
-  elevation: 1395
   unit_system: imperial
   time_zone: America/New_York
   external_url: !secret external_url
@@ -15,9 +11,12 @@ homeassistant:
         - !secret internal_ip
         - !secret external_ip
 
-# Configure a default setup of Home Assistant
-default_config: 
-
+zone:
+  - name: Home
+    latitude: !secret lat
+    longitude: !secret long
+    radius: 250
+    
 binary_sensor: !include binary_sensor.yaml
 binary_sensor greywolf: !include_dir_list binary_sensors
 group: !include groups.yaml
@@ -38,4 +37,4 @@ map:
 cloud:
 config:
 sun:
-zha_map:
+default_config: 

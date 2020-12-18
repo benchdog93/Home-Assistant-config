@@ -1,0 +1,25 @@
+
+wake_on_lan:
+
+webostv:
+  - name: ManCave-TV
+    host: 192.168.1.40
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: A8:23:FE:4E:CE:22
+        broadcast_address: 192.168.1.255
+        broadcast_port: 9
+
+  - name: Livingroom-TV
+    host: 192.168.1.41
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: 14:C9:13:CB:6B:47
+        broadcast_address: 192.168.1.255
+        broadcast_port: 9
+
+media_player:
+
+notify: 

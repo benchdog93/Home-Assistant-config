@@ -1,0 +1,3 @@
+
+shell_command:
+  ha_start: 'curl http://localhost:1880/endpoint/hastart'
