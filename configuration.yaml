@@ -20,6 +20,7 @@ zone:
 binary_sensor: !include binary_sensor.yaml
 binary_sensor greywolf: !include_dir_list binary_sensors
 group: !include groups.yaml
+group greywolf: !include_dir_list groups
 automation: !include automations.yaml
 automation greywolf: !include_dir_list automations
 script: !include scripts.yaml

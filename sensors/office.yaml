@@ -1,0 +1,6 @@
+
+  platform: attributes
+  friendly_name: "Office"
+  attribute: current_temperature
+  entities:
+    - climate.office_2
