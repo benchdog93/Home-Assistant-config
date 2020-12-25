@@ -1,6 +1,6 @@
 
 ddwrt:
-  - host: !secret ddwrt_hostname
+    host: !secret ddwrt_hostname
     name: My DD-WRT Router
     username: !secret ddwrt_username
     password: !secret ddwrt_password
@@ -8,7 +8,7 @@ ddwrt:
     verify_ssl: false
     resources:
       - arp_clients
-      - dhcp_clients
+      - dhcp_clients 
       - pppoe_clients
       - pptp_clients
       - wds_clients
