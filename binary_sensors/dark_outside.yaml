@@ -1,0 +1,5 @@
+
+platform: tod
+name: Dark Outside
+after: sunset
+before: sunrise

@@ -1,0 +1,6 @@
+
+platform: attributes
+friendly_name: "Ed's Text Messages"
+attribute: android.text
+entities:
+  -  sensor.sm_n960u_last_notification
