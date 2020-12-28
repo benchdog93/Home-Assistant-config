@@ -1,6 +1,6 @@
 
 platform: attributes
 friendly_name: "Livingroom"
-attribute: current_temperature
+attribute: hvac_action
 entities:
   - climate.living_room_2

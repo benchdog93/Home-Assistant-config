@@ -1,0 +1,6 @@
+
+platform: attributes
+friendly_name: "Master Bedroom"
+attribute: hvac_action
+entities:
+  - climate.bedroom_2
