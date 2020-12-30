@@ -1,0 +1,10 @@
+
+alias: Master bedroom heat is on
+trigger:
+  platform: state
+  entity_id: sensor.master_bedroom_heating
+action:
+  service_template: >
+      {% set trigger={'to_state':{'state': 'heating'}} %}
+      {% set option = trigger.to_state.state %}
+      {{ '1' if option == 'heating' else '0' }}

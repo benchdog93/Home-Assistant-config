@@ -5,7 +5,5 @@ entity_ids:
     - sensor.office_2_current_temperature
     - sensor.living_room_2_current_temperature
     - sensor.dining_room_2_current_temperature
-    - sensor.spare_bedroom_temperature
-    - sensor.spare_livingroom_temperature
 type: max
 name: Maximum temperature value

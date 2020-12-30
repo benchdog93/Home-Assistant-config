@@ -1,0 +1,10 @@
+
+alias: Office heat is on
+trigger:
+  platform: state
+  entity_id: sensor.office_heating
+action:
+  service_template: >
+      {% set trigger={'to_state':{'state': 'heating'}} %}
+      {% set option = trigger.to_state.state %}
+      {{ '1' if option == 'heating' else '0' }}
