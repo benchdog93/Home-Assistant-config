@@ -1,0 +1,13 @@
+
+candles:
+  name: Window Candle Lights
+  icon: mdi:candle
+  entities:
+    - switch.nodeid_25_switch
+    - switch.nodeid_26_switch
+    - switch.nodeid_27_switch
+    - switch.nodeid_28_switch
+    - switch.nodeid_29_switch
+    - switch.nodeid_30_switch
+    - switch.nodeid_31_switch
+    - switch.nodeid_32_switch

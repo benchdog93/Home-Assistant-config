@@ -1,6 +1,0 @@
-
-platform: template
-sensors:
-  master_bedroom_heating:
-    friendly_name: "Master is Heating"
-    value_template: "{{ state_attr('climate.bedroom_2', 'hvac_action') }}"

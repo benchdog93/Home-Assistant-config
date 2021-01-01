@@ -1,0 +1,7 @@
+
+garage_doors:
+  name: Garage Doors
+  icon: mdi:garage-open
+  entities:
+    - cover.ed_s
+    - cover.colleen_s

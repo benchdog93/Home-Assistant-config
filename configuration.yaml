@@ -19,10 +19,10 @@ zone:
     
 binary_sensor: !include binary_sensor.yaml
 binary_sensor greywolf: !include_dir_list binary_sensors
-group: !include groups.yaml
+group: !include_dir_merge_named group/
 automation: !include automations.yaml
 automation greywolf: !include_dir_list automations
-script: !include scripts.yaml
+script: !include_dir_merge_named script/
 scene: !include scenes.yaml
 sensor: !include sensor.yaml
 sensor greywolf: !include_dir_list sensors
@@ -32,9 +32,7 @@ recorder: !include recorder.yaml
 stream:
 ffmpeg:
 system_health:
-discovery:
 map:
-cloud:
 config:
 sun:
 default_config: 

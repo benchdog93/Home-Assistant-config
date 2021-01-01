@@ -1,0 +1,9 @@
+
+exterior_doors:
+  name: Exterior Doors
+  icon: mdi:door-open
+  entities:
+    - binary_sensor.tuyatec_trhrga6p_rh3001_27336ffe_ias_zone
+    - binary_sensor.ecolink_4655bc0_r_d1891311_ias_zone
+    - binary_sensor.ecolink_4655bc0_r_ac871511_ias_zone
+    - binary_sensor.tuyatec_trhrga6p_rh3001_0e336ffe_ias_zone

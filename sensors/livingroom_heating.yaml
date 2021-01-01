@@ -1,6 +1,0 @@
-
-platform: template
-sensors:
-  livingroom_heating:
-    friendly_name: "Livingroom is Heating"
-    value_template: "{{ state_attr('climate.living_room_2', 'hvac_action') }}"

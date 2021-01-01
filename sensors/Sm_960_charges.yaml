@@ -1,5 +1,0 @@
-
-platform: statistics
-entity_id: binary_sensor.sm_n960u_is_charging
-sampling_size: 200
-name: SM 960 charging cycles

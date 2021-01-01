@@ -1,0 +1,7 @@
+
+back_outside:
+  name: BackYard Outside Lights
+  icon: mdi:outdoor-lamp
+  entities:
+    - switch.nodeid_19_switch
+    - switch.nodeid_20_switch
