@@ -1,0 +1,15 @@
+
+alias: Power Failure
+trigger:
+- platform: state
+  entity_id: sensor.ups_status
+  to: On Battery Discharging
+
+action:
+- service: notify.mobile_app_sm_n960u
+  data:
+    message: "Power Failure! UPS running!"
+
+- service: input_boolean.turn_on
+  data: {}
+  entity_id: input_boolean.ups_on_batteries

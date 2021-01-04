@@ -1,0 +1,17 @@
+
+platform: template
+sensors:
+  solar_angle:
+    friendly_name: "Sun angle"
+    unit_of_measurement: '°'
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    icon_template: >-
+      {% if is_state('sun.sun', 'above_horizon') %}
+        mdi:weather-sunny
+      {% else %}
+        mdi:weather-night
+      {% endif %}
+
+  sunrise:
+    friendly_name: Sunrise
+    value_template: "{{ state_attr('sun.sun', 'next_rising') }}"

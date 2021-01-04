@@ -1,0 +1,4 @@
+sensor.total_distance_mtr:
+  last_synced: '2021-01-03T13:35:27.129'
+  unit_of_measurement: miles
+  friendly_name: Total Distance Mtr

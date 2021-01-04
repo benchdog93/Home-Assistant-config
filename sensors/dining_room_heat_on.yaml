@@ -4,5 +4,6 @@ name: Dining Room Heat On
 entity_id: sensor.dining_room_2_hvac_action_2
 state: 'heating'
 type: time
-start: '{{ now().replace(hour=0, minute=0, second=0) }}'
 end: '{{ now() }}'
+duration:
+  days: 30

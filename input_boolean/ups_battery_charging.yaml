@@ -1,0 +1,4 @@
+
+ups_battery_charging:
+  name: UPS Battery Charging
+  icon: mdi:battery-charging-high

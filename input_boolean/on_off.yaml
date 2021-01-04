@@ -1,0 +1,4 @@
+
+on_off:
+  name: On/Off
+  icon: mdi:gesture-tap-button

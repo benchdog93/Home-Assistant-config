@@ -1,0 +1,11 @@
+
+interior_lights:
+  name: Interior Lights
+  icon: mdi:lightbulb-group-outline
+  entities:
+    - switch.nodeid_15_switch
+    - switch.ihome_smartplug_e9f727
+    - switch.nodeid_17_switch
+    - switch.nodeid_22_switch
+    - light.jasco_products_43102_8a5d6efe_on_off
+    - switch.ihome_smartplug_e992fe

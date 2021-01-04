@@ -23,6 +23,7 @@ group: !include_dir_merge_named group/
 automation: !include automations.yaml
 automation greywolf: !include_dir_list automations
 script: !include_dir_merge_named script/
+input_boolean: !include_dir_merge_named input_boolean/
 scene: !include scenes.yaml
 sensor: !include sensor.yaml
 sensor greywolf: !include_dir_list sensors
