@@ -1,6 +1,6 @@
 
 platform: history_stats
-name: Livingroom Heat On
+name: Livingroom Heat On Today
 entity_id: sensor.living_room_2_hvac_action
 state: 'heating'
 type: time

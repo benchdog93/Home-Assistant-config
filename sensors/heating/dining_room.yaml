@@ -1,6 +1,6 @@
 
 platform: attributes
-friendly_name: "Dining Room"
+friendly_name: "Dining Room Temperature"
 attribute: current_temperature
 entities:
   -  climate.dining_room_2

@@ -1,6 +1,6 @@
 
 platform: attributes
-friendly_name: "Master Bedroom"
+friendly_name: "Master Bedroom Temperature"
 attribute: current_temperature
 entities:
   - climate.bedroom_2

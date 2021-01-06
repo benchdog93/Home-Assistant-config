@@ -1,6 +1,6 @@
 
 platform: attributes
-friendly_name: "Dining Room"
+friendly_name: "Dining Room Humidity"
 attribute: current_humidity
 entities:
   - climate.dining_room_2

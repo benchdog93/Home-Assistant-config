@@ -1,6 +1,6 @@
 
 platform: attributes
-friendly_name: "Office"
+friendly_name: "Office Humidity"
 attribute: current_humidity
 entities:
   - climate.office_2

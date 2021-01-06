@@ -1,6 +1,6 @@
 
 platform: attributes
-friendly_name: "Livingroom"
+friendly_name: "Livingroom Humidity"
 attribute: current_humidity
 entities:
   - climate.living_room_2

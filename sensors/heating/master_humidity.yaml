@@ -1,6 +1,6 @@
 
 platform: attributes
-friendly_name: "Master Bedroom"
+friendly_name: "Master Bedroom Humidity"
 attribute: current_humidity
 entities:
   - climate.bedroom_2

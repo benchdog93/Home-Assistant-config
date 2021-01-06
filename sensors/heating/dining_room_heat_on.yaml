@@ -1,5 +1,5 @@
 platform: history_stats
-name: Dining Room Heat On
+name: Dining Room Heat On Today
 entity_id: sensor.dining_room_2_hvac_action_2
 state: 'heating'
 type: time

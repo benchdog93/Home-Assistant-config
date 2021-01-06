@@ -1,6 +1,6 @@
 
 platform: history_stats
-name: Office Heat On
+name: Office Heat On Today
 entity_id: sensor.office_2_hvac_action
 state: 'heating'
 type: time

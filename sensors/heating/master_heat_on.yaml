@@ -1,6 +1,6 @@
 
 platform: history_stats
-name: Master Bedroom Heat On
+name: Master Bedroom Heat On Today
 entity_id: sensor.bedroom_2_hvac_action
 state: 'heating'
 type: time
