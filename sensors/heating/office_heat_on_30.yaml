@@ -1,7 +1,7 @@
 
 platform: history_stats
-name: Master Bedroom Heat On
-entity_id: sensor.bedroom_2_hvac_action
+name: Office Heat On 30 Days
+entity_id: sensor.office_2_hvac_action
 state: 'heating'
 type: time
 end: '{{ now() }}'

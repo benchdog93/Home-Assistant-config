@@ -1,11 +1,6 @@
-# https://www.home-assistant.io/integrations/binary_sensor.workday/
-#
+
 platform: workday
-name: workday
+name: Workdays 
 country: US
-workdays:
-  - mon
-  - tue
-  - wed
-  - thu
-  - fri
+workdays: [mon, tue, wed, thu, fri]
+excludes: [sat, sun, holiday]

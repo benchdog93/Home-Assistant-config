@@ -1,9 +1,5 @@
-# https://www.home-assistant.io/integrations/binary_sensor.workday/
-#
+
 platform: workday
-name: weekend
+name: Weekend
 country: US
-workdays:
-  - sat
-  - sun
-excludes: []
+workdays: [sat, sun]

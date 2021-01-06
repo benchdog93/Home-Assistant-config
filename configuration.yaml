@@ -17,16 +17,13 @@ zone:
     longitude: !secret long
     radius: 400
     
-binary_sensor: !include binary_sensor.yaml
-binary_sensor greywolf: !include_dir_list binary_sensors
+binary_sensor manual: !include_dir_list binary_sensors
 group: !include_dir_merge_named group/
-automation: !include automations.yaml
-automation greywolf: !include_dir_list automations
+automation: !include_dir_list automations
 script: !include_dir_merge_named script/
 input_boolean: !include_dir_merge_named input_boolean/
 scene: !include scenes.yaml
-sensor: !include sensor.yaml
-sensor greywolf: !include_dir_list sensors
+sensor: !include_dir_list sensors
 frontend: !include frontend.yaml
 recorder: !include recorder.yaml
 

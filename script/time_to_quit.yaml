@@ -1,0 +1,12 @@
+
+timetoquit:
+  sequence:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.ed_s_echo_dot
+      volume_level: 0.4
+  
+  - service: notify.alexa_media
+    entity_id: media_player.ed_s_echo_dot
+    data:
+      message: 11:30 lets shut things down

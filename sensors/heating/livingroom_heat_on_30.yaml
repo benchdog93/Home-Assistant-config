@@ -1,9 +1,9 @@
 
 platform: history_stats
-name: Livingroom Heating Ratio
+name: Livingroom Heat On 30 days
 entity_id: sensor.living_room_2_hvac_action
 state: 'heating'
-type: ratio
+type: time
 end: '{{ now() }}'
 duration:
   days: 30
