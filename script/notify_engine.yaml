@@ -1,0 +1,32 @@
+
+notify_engine:
+  sequence:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_boolean.text_notifications
+          state: 'on'
+    - service: >
+          {% if who == 'ed' %}
+            notify.mobile_app_sm_n960u
+          {% elif who == 'colleen' %}
+            notify.mobile_app_sm_n950u
+          {% endif %}
+      data:
+        title: "{{ title }}"
+        message: "{{ value1 }} {{ value2 }} {{ value3 }}"
+        target: "{{ target_id }}"
+        data:
+          attachment:
+            url: "{{ clickAction }}"
+            content-type: "{{ content_type }}"
+            hide-thumbnail: false
+          clickAction: "{{ clickAction }}"
+          apns_headers:
+            'apns-collapse-id': "{{ tag_id }}"
+          tag: "{{ tag_id }}"
+          group: "{{ group }}"
+          sticky: "{{ sticky }}"
+          color: "{{ color }}"
+          channel: "{{ channel_id }}"
+          importance: "{{ importance_id }}"

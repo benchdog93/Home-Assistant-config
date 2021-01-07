@@ -1,0 +1,4 @@
+
+platform: version
+name: Current Version
+source: local

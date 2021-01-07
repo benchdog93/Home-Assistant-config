@@ -1,0 +1,34 @@
+
+alias: Home Assistant Update Notification
+
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: sensor.latest_version
+
+condition:
+  - condition: template
+    value_template: >
+      {{
+      states("sensor.latest_version") != states("sensor.current_version")
+      and states("sensor.latest_version") != "unknown"
+      and states("sensor.latest_version") != states("input_text.version_latest_notified")
+      }}
+
+action:
+- service: input_text.set_value
+  data:
+    entity_id: input_text.version_latest_notified
+    value: '{{ states("sensor.latest_version") }}'
+
+- service: script.notify_engine
+  data:
+    who: 'ed'
+    title: '*Update Home Assistant*'
+    value1: 'There is an update to Home Assistant Supervise'
+    value2: '{{ states("sensor.current_version") }} -> {{ states("sensor.latest_version") }}'
+    tag_id: 'update_ha'
+    sticky: 'true'
+    group: ha_status
+    color: '#ff8c00'

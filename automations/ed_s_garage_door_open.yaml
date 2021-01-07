@@ -1,0 +1,27 @@
+
+alias: Notify apps when the garage door opens
+trigger:
+  platform: state
+  entity_id: cover.ed_s
+  from: 'closed'
+  to: 'open'
+  for: ‘0:30:00’
+action:
+  service: notify.mobile_app_sm_n960u
+  data:
+    message: "The garage has been left open"
+    title: Ed's Garage Door
+    data:
+      actions:
+        - action: "close_cover" 
+          title: "Close Garage Door" 
+
+alias: Close the garage when notification action is tapped
+trigger:
+  platform: event
+  event_type: mobile_app_notification_action
+  event_data:
+    action: close_cover
+action:
+  service: cover.close_cover
+  entity_id: cover.ed_s
