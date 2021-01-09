@@ -1,0 +1,14 @@
+
+alias: Home Assistant Update Available
+trigger:
+  platform: state
+  entity_id: sensor.hacs
+
+action:
+  service_template: >
+    {% if is_state('sensor.hacs', '> 0') %}
+      input_boolean.turn_on
+    {% else %}
+      input_boolean.turn_off
+    {% endif %}
+  entity_id: input_boolean.hacs_updates_available

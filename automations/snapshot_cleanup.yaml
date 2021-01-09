@@ -1,0 +1,10 @@
+
+alias: Daily snapshot clean up
+initial_state: 'on'
+trigger: 
+  platform: time
+  at: '03:00:00'
+condition:
+action:
+  - service: clean_up_snapshots_service.clean_up
+

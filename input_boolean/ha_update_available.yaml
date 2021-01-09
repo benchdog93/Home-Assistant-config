@@ -1,0 +1,4 @@
+
+ha_update_available:
+  name: Home Assistant Update Available
+  icon: mdi:home-assistant

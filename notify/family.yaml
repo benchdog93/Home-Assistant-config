@@ -1,0 +1,6 @@
+
+platform: group
+name: family
+services:
+  - service: mobile_app_sm_n960u
+  - service: mobile_app_sm_n950u

@@ -11,6 +11,8 @@ notify_engine:
             notify.mobile_app_sm_n960u
           {% elif who == 'colleen' %}
             notify.mobile_app_sm_n950u
+          {% elif who == 'family' %}
+            notify.family
           {% endif %}
       data:
         title: "{{ title }}"
