@@ -1,0 +1,21 @@
+
+alias: Today is town trash day 
+trigger:
+- platform: state
+  entity_id: input_boolean.trash_town
+  from: "off"
+  to: "on"
+- platform: time
+  at: 08:30:00
+  
+action:
+  service: notify.mobile_app_sm_n960u
+  data:
+    message: Is there any debris for the town collection!
+    title: Today is Town Collection Day
+    data:
+      actions:
+      - action: out_yes
+        title: 'Yes'
+      - action: out_no
+        title: 'No'

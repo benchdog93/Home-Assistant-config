@@ -1,0 +1,21 @@
+
+alias: Today is trash day 
+trigger:
+- platform: state
+  entity_id: input_boolean.trash_day
+  from: "off"
+  to: "on"
+- platform: time
+  at: 08:30:00
+  
+action:
+  service: notify.mobile_app_sm_n960u
+  data:
+    message: Did you take the trash out!
+    title: Today is Trash Day
+    data:
+      actions:
+      - action: out_yes
+        title: 'Yes'
+      - action: out_no
+        title: 'No'

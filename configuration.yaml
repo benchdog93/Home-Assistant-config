@@ -27,7 +27,7 @@ scene: !include scenes.yaml
 sensor: !include_dir_list sensors
 frontend: !include frontend.yaml
 recorder: !include recorder.yaml
-notify: !include_dir_merge_named notify/
+notify: !include_dir_list notify
 
 calendar:
 stream:
