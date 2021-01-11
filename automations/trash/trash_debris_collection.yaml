@@ -3,7 +3,6 @@ alias: Today is town trash day
 trigger:
 - platform: state
   entity_id: input_boolean.trash_town
-  from: "off"
   to: "on"
 - platform: time
   at: 08:30:00

@@ -1,0 +1,16 @@
+alias: "Notify apps when the garage door opens"
+trigger:
+  platform: state
+  entity_id: cover.ed_s 
+  to: open 
+  for: 00:30:00
+action:
+  service: notify.android
+  data:
+    message: "Ed's garage door has been left open"
+    data:
+      actions:
+        - action: "close_yes"
+          title:  "Yes"
+        - action: "close_nope"
+          title: "Nope"

@@ -1,10 +1,10 @@
 
 platform: smtp
-name: Email
+name: email
 server: smtp.gmail.com
 port: 587
 timeout: 15
-sender: !secret ha_email
+sender: !secret benchdog_email
 encryption: starttls
 username: !secret ha_email
 password: !secret ha_email_pw

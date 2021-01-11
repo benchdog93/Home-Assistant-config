@@ -1,0 +1,12 @@
+
+alias: "Notify apps when the garage door opens"
+trigger:
+- event_data:
+    action: close_yes
+  event_type: fcm_android_notifications.clicked
+  platform: event
+condition: []
+action:
+- data:
+    entity_id: cover.ed_s 
+  service: cover.close_cover
