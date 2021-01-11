@@ -15,6 +15,6 @@ action:
       actions:
         - action: "URI"
           title: "Yes"
-          uri: http://74.41.160.118:8123/lovelace/garage
+          uri: !secret open_cover
         - action: "close_covernope"
           title: "Nope"
