@@ -1,0 +1,23 @@
+
+timetoquit:
+  sequence:
+    - service: media_player.volume_set
+      entity_id: media_player.ed_s_echo_dot
+      data:
+        volume_level: '0.4'
+    - delay: 00:00:01
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target: 
+          - media_player.ed_s_echo_dot
+        message: >
+          {{ [
+          "11:30 lets shut things down",
+          "Midnight is close, save your work",
+          "Wind down, midnight is almost here",
+          "Get ready to go to bed",
+          "Hey, look at the time, it's late",
+          "Did you take the cat out?",
+          ] | random }}

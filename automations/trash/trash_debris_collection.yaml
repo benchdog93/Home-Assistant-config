@@ -1,17 +1,19 @@
 
-alias: Today is town trash day 
+alias: Today is trash day 
 trigger:
-- platform: state
-  entity_id: input_boolean.trash_town
-  to: "on"
-- platform: time
-  at: 08:30:00
+  - platform: time
+    at: '08:30:00'
+  
+condition:
+- condition: state
+  entity_id: sensor.town_trash_day
+  state: 'today'
   
 action:
   service: notify.mobile_app_sm_n960u
   data:
-    message: Is there any debris for the town collection!
-    title: Today is Town Collection Day
+    message: Did you take the trash out!
+    title: Today is Trash Day
     data:
       actions:
       - action: out_yes

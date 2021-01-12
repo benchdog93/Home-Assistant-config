@@ -8,7 +8,8 @@ trigger:
 action:
   service: notify.android
   data:
-    message: "Colleen's garage door has been left open"
+    message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Close Door? Tap yes."
+    title:  "Colleen's garage door has been left open"
     data:
       actions:
         - action: "close_yes"

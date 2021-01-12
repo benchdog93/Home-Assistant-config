@@ -1,0 +1,13 @@
+
+alias: Bed time old man 
+trigger:
+  platform: time
+  at: '23:00:00'
+
+condition:
+- condition: state
+  entity_id: switch.nodeid_15_switch
+  state: 'on'
+
+action:
+- service: script.timetoquit

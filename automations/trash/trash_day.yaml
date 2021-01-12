@@ -1,11 +1,13 @@
 
 alias: Today is trash day 
 trigger:
-- platform: state
-  entity_id: input_boolean.trash_day
-  to: "on"
-- platform: time
-  at: 08:30:00
+  - platform: time
+    at: '08:30:00'
+  
+condition:
+- condition: state
+  entity_id: sensor.hawkins_hurlbut
+  state: 'today'
   
 action:
   service: notify.mobile_app_sm_n960u

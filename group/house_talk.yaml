@@ -1,0 +1,8 @@
+
+house_talk:
+  name: House Talk
+  icon: mdi:account-voice
+  entities:
+    - media_player.ed_s_echo_dot
+    - media_player.livingroom_echo_dot
+    - media_player.colleen_s_echo_dot
