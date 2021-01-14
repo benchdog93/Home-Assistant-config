@@ -32,3 +32,5 @@ action:
     sticky: 'true'
     group: ha_status
     color: '#ff8c00'
+- service: input_boolean.turn_on
+  entity_id: input_boolean.ha_update_available

@@ -1,0 +1,19 @@
+
+alias: 'Ink Alert'
+
+trigger:
+  platform: numeric_state
+  entity_id:
+    - sensor.epson_xp_830_series_black_ink
+    - sensor.epson_xp_830_series_photo_black_ink
+    - sensor.epson_xp_830_series_cyan_ink
+    - sensor.epson_xp_830_series_magenta_ink
+    - sensor.epson_xp_830_series_yellow_ink
+  below: 15
+
+action:
+  service: persistent_notification.create
+  data:
+    message: "{{ trigger.to_state.attributes.friendly_name }} is at {{ trigger.to_state.state }}%"
+    title: 'Ink level low'
+    notification_id:

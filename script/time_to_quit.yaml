@@ -4,7 +4,7 @@ timetoquit:
     - service: media_player.volume_set
       entity_id: media_player.ed_s_echo_dot
       data:
-        volume_level: '0.4'
+        volume_level: '0.2'
     - delay: 00:00:01
     - service: notify.alexa_media
       data:
