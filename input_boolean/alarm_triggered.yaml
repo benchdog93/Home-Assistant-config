@@ -1,0 +1,3 @@
+alarm_triggered:
+  name: Alarm Triggered
+  icon: mdi:alarm-bell

@@ -1,0 +1,17 @@
+
+alias: "Notify apps when home security activated"
+trigger:
+  platform: state
+  entity_id: input_boolean.alarm_triggered
+  to: "on"
+action:
+  service: notify.android
+  data:
+    message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Disarm system? Tap yes."
+    title:  "Home security system has been activated "
+    data:
+      actions:
+        - action: "disarm_yes"
+          title:  "Yes"
+        - action: "disarm_nope"
+          title: "Nope"

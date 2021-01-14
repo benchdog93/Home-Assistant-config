@@ -7,7 +7,7 @@ trigger:
 condition:
 - condition: state
   entity_id: sensor.hawkins_hurlbut
-  state: 'today'
+  state: "today"
   
 action:
   service: notify.mobile_app_sm_n960u
