@@ -1,6 +1,6 @@
 
-platform: attributes
-friendly_name: "Office"
-attribute: hvac_action
-entities:
-  - climate.office_2
+platform: template
+sensors:
+  office:
+    friendly_name: "Office"
+    value_template: "{{ state_attr('office.bedroom_2', 'hvac_action') }}"

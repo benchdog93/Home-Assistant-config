@@ -1,6 +1,6 @@
 
-platform: attributes
-friendly_name: "Master Bedroom"
-attribute: hvac_action
-entities:
-  - climate.bedroom_2
+platform: template
+sensors:
+  master_bedroom:
+    friendly_name: "Master Bedroom"
+    value_template: "{{ state_attr('climate.bedroom_2', 'hvac_action') }}"

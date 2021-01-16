@@ -1,6 +1,6 @@
 
-platform: attributes
-friendly_name: "Livingroom Humidity"
-attribute: current_humidity
-entities:
-  - climate.living_room_2
+platform: template
+sensors:
+  livingroom_humidity:
+    friendly_name: "Livingroom Humidity"
+    value_template: "{{ state_attr('climate.living_room_2', 'current_humidity') }}"

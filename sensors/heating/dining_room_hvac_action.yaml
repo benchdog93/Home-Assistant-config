@@ -1,6 +1,6 @@
 
-platform: attributes
-friendly_name: "Dining Room"
-attribute: hvac_action
-entities:
-  - climate.dining_room_2
+platform: template
+sensors:
+  diningroom:
+    friendly_name: "Dining Room"
+    value_template: "{{ state_attr('climate.dining_room_2', 'hvac_action') }}"

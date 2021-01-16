@@ -1,6 +1,6 @@
 
-platform: attributes
-friendly_name: "Master Bedroom Temperature"
-attribute: current_temperature
-entities:
-  - climate.bedroom_2
+platform: template
+sensors:
+  master_bedroom_temperature:
+    friendly_name: "Master Bedroom Temperature"
+    value_template: "{{ state_attr('climate.bedroom_2', 'current_temperature') }}"
