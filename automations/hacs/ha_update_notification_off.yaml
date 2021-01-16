@@ -1,5 +1,5 @@
 
-alias: Home Assistant Update Notification
+alias: Home Assistant Update Notification Off
 
 trigger:
   - platform: homeassistant

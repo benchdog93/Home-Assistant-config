@@ -1,3 +1,4 @@
+
 alias: Sync input_boolean.colleen_is_home with device_tracker
 trigger:
   platform: state
@@ -5,7 +6,5 @@ trigger:
   to: home
 
 action:
-  service:
-      input_boolean.turn_on  
-      
+  service: input_boolean.turn_on  
   entity_id: input_boolean.colleen_is_home
