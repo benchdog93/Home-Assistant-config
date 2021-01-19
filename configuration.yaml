@@ -28,7 +28,6 @@ sensor: !include_dir_list sensors
 frontend: !include frontend.yaml
 recorder: !include recorder.yaml
 notify: !include_dir_list notify
-input_text: !include_dir_merge_named input_texts/
 
 calendar:
 stream:
