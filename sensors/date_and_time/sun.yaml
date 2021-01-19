@@ -11,7 +11,3 @@ sensors:
       {% else %}
         mdi:weather-night
       {% endif %}
-
-  sunrise:
-    friendly_name: Sunrise
-    value_template: "{{ state_attr('sun.sun', 'next_rising') }}"

@@ -1,0 +1,6 @@
+
+platform: template
+sensors:
+  last_build_committed_date:
+    friendly_name: "Travis Last Build Committed Date"
+    value_template: "{{ state_attr('sensor.benchdog93_home_assistant_config_last_build_finished_at', 'Committed Date') }}"

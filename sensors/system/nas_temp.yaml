@@ -1,6 +1,0 @@
-
-platform: statistics
-entity_id: sensor.ewvisualarts_temperature
-sampling_size: 60
-precision: 2
-name: Synology Temperature

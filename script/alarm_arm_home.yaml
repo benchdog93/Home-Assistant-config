@@ -1,0 +1,5 @@
+
+alarm_arm_home:
+  sequence:
+    service: alarm_control_panel.alarm_arm_home
+    entity_id: alarm_control_panel.alarmo

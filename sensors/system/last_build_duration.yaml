@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  last_build_duration_mins:
+    friendly_name: Travis CI Last Build Duration
+    unit_of_measurement: 'mins'
+    value_template: "{{ (states('sensor.benchdog93_home_assistant_config_last_build_duration') | float / 60) | round(2) }}"

@@ -12,8 +12,8 @@ condition:
 action:
   service: notify.mobile_app_sm_n960u
   data:
-    message: Did you take the trash out!
-    title: Today is Trash Day
+    message: Do we have debris for the town!
+    title: Today is Town Trash Day
     data:
       actions:
       - action: out_yes

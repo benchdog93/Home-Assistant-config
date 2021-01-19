@@ -1,6 +1,0 @@
-
-platform: statistics
-entity_id: sensor.ewvisualarts_cpu_load_total
-max_age:
-  minutes: 60
-name: Synology CPU Load
