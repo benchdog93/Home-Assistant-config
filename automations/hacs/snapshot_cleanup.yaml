@@ -1,10 +1,10 @@
 
 alias: Daily snapshot clean up
-initial_state: 'on'
+initial_state: "on"
 trigger: 
   platform: time
   at: '03:00:00'
-condition:
+condition: []
 action:
   - service: clean_up_snapshots_service.clean_up
 

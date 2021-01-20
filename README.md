@@ -1,7 +1,12 @@
 # Home-Assistant-config
-This repository contains my work-in-progress HASS.io configuration. This is another step in my journey 
+This repository contains my work-in-progress home Assistant configuration. This is another step in my journey 
 to host my photography journey, website, home security, and automations. A lot to learn
 for a photographer, but lots of fun, maybe some fustration thrown in for laughs. Many thanks to BreadedThinker for his help and commitment to Synology and Frenck Nijhof and DrZzs for thier introduction to .yaml and other videos.
+
+My Dashboard
+
+
+
 # My set up
 Synology NAS 918+
 - hardware
