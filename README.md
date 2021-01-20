@@ -5,7 +5,7 @@ for a photographer, but lots of fun, maybe some fustration thrown in for laughs.
 
 My Dashboard
 
-/config/www/images/Dashboard.GIF
+
 
 # My set up
 Synology NAS 918+
