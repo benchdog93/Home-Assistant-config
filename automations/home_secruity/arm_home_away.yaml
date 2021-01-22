@@ -1,0 +1,12 @@
+
+alias: "Activate Arm Home Away"
+trigger:
+  platform: state
+  entity_id: input_boolean.alarm_away
+  from: "off"
+  to: "on"
+
+action:
+- service: ascript.alarm_arm_away
+- service: input_boolean.turn_off
+  entity_id: input_boolean.disarmed

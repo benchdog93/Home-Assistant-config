@@ -1,0 +1,16 @@
+
+alias: "Disarm Arm Home"
+trigger:
+  platform: state
+  entity_id: input_boolean.disarmed
+  from: "off"
+  to: "on"
+
+action:
+- service: script.alarm_disarm
+- service: input_boolean.turn_off
+  entity_id: input_boolean.alarm_away
+- service: input_boolean.turn_off
+  entity_id: input_boolean.alarm_home
+- service: input_boolean.turn_off
+  entity_id: input_boolean.alarm_night

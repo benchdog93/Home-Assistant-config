@@ -14,10 +14,10 @@ timetoquit:
           - media_player.ed_s_echo_dot
         message: >
           {{ [
-          "11:30 lets shut things down",
-          "Midnight is close, save your work",
-          "Wind down, midnight is almost here",
-          "Get ready to go to bed",
+          "Hey buck o,,,,, 11:00 lets shut things down",
+          "Ed,, Midnight is close, save your work",
+          "Please Wind down, midnight is almost here",
+          "Get ready to go to bed now",
           "Hey, look at the time, it's late",
           "Did you take the cat out?",
           ] | random }}

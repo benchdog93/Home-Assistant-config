@@ -1,0 +1,8 @@
+
+all_lights:
+  name: All Lights
+  icon: mdi:outdoor-lamp
+  entities:
+    - group.back_outside
+    - group.frt_outside
+    - group.interior_lights

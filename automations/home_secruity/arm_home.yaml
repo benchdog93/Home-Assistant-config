@@ -1,0 +1,12 @@
+
+alias: "Activate Arm Home"
+trigger:
+  platform: state
+  entity_id: input_boolean.alarm_home 
+  from: "off"
+  to: "on"
+
+action:
+- service: script.alarm_arm_home
+- service: input_boolean.turn_off
+  entity_id: input_boolean.disarmed

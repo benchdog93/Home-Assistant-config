@@ -3,7 +3,8 @@ alias: Sync input_boolean.colleen_is_home with device_tracker
 trigger:
   platform: state
   entity_id: device_tracker.life360_colleen_williams
-  to: "not_home"
+  from: home
+  to: not_home
 
 action:
   service: input_boolean.turn_off 

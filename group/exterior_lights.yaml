@@ -1,0 +1,7 @@
+
+exterior_lights:
+  name: Exterior Lights
+  icon: mdi:outdoor-lamp
+  entities:
+    - group.frt_outside
+    - group.back_outside

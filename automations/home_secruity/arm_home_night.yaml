@@ -1,0 +1,12 @@
+
+alias: "Activate Arm Home Night"
+trigger:
+  platform: state
+  entity_id: input_boolean.alarm_night
+  from: "off"
+  to: "on"
+
+action:
+- service: script.alarm_arm_night
+- service: input_boolean.turn_off
+  entity_id: input_boolean.disarmed
