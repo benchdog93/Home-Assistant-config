@@ -28,6 +28,8 @@ sensor: !include_dir_list sensors
 frontend: !include frontend.yaml
 recorder: !include recorder.yaml
 notify: !include_dir_list notify
+alert: !include alerts.yaml
+
 
 calendar:
 stream:

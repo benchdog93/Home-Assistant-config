@@ -1,0 +1,10 @@
+
+# Alternate updater sensor for core since binary_sensor.updater is very slow to recognize updates
+platform: command_line
+name: Updater Core
+command: 'curl http://supervisor/core/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version, "update_available":.data.update_available}'''
+value_template: "{% if value_json.update_available %}on{% else %}off{% endif %}"
+json_attributes:
+- update_available
+- newest_version
+- current_version

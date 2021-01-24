@@ -1,0 +1,5 @@
+
+platform: group
+name: Me
+services:
+  - service: mobile_app_sm_n960u

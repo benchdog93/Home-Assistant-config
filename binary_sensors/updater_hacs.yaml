@@ -1,0 +1,5 @@
+
+platform: threshold
+name: Updater HACS
+entity_id: sensor.hacs_updates
+upper: 0.5

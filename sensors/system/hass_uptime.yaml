@@ -1,5 +1,4 @@
 
-
 platform: template
 sensors:
     uptime_ha:
