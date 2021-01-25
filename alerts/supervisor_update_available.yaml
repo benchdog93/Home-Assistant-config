@@ -1,0 +1,14 @@
+
+supervisor_update_available:
+  name: Supervisor has an update
+  entity_id: binary_sensor.updater_supervisor
+  state: 'on'
+  can_acknowledge: false
+  repeat: 
+    - 5
+    - 360
+  skip_first: true
+  title: 'Update for HA Supervisor available'
+  message: "New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}"
+  notifiers:
+  - me
