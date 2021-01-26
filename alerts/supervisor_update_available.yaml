@@ -11,4 +11,4 @@ supervisor_update_available:
   title: 'Update for HA Supervisor available'
   message: "New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}"
   notifiers:
-  - me
+    - mobile_app_sm_n960u

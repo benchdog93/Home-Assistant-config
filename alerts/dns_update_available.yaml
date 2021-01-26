@@ -11,4 +11,4 @@ dns_update_available:
   title: 'Update for HA DNS available'
   message: "New version is {{ state_attr('sensor.updater_dns', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_dns', 'current_version') }}"
   notifiers:
-  - me
+    - mobile_app_sm_n960u

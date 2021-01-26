@@ -9,7 +9,7 @@ trigger:
     - sensor.epson_xp_830_series_cyan_ink
     - sensor.epson_xp_830_series_magenta_ink
     - sensor.epson_xp_830_series_yellow_ink
-  below: 15
+  below: 5
 
 action:
   service: persistent_notification.create

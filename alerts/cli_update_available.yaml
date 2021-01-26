@@ -11,4 +11,4 @@ cli_update_available:
   title: 'Update for HA CLI available'
   message: "New version is {{ state_attr('sensor.updater_cli', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_cli', 'current_version') }}"
   notifiers:
-  - me
+    - mobile_app_sm_n960u

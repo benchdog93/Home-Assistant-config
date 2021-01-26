@@ -1,6 +1,6 @@
 
 platform: smtp
-name: group email
+name: Ed's email
 server: smtp.gmail.com
 port: 587
 timeout: 15
@@ -10,6 +10,4 @@ username: !secret ha_email
 password: !secret ha_email_pw
 recipient:
   - !secret ed_email
-  - !secret colleen_email
-  - !secret benchdog_email
 sender_name: My Home Assistant

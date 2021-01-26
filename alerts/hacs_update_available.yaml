@@ -11,4 +11,4 @@ hacs_update_available:
   title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
   message: ""
   notifiers:
-    - me
+    - mobile_app_sm_n960u

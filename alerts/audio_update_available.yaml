@@ -11,4 +11,4 @@ audio_update_available:
   title: 'Update for HA Audio available'
   message: "New version is {{ state_attr('sensor.updater_audio', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_audio', 'current_version') }}"
   notifiers:
-  - me
+    - mobile_app_sm_n960u
