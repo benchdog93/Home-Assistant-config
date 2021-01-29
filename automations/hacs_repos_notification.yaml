@@ -1,0 +1,30 @@
+alias: HACS Updates Noticication
+mode: single
+
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.hacs
+    above: 0
+
+action:
+  service: script.notify_engine
+  data:
+    who: 'ed'
+    title:  " HACS updates available"
+    message: > 
+      {
+      
+          HACS updates available: {{ states.sensor.hacs.state }}
+          {% for repo in states.sensor.hacs.attributes.repositories %}
+          {{ repo.display_name }} {{ repo["installed_version"] }} -> {{repo["available_version"] }}
+          
+          Update repos? Tap yes.
+          {% endfor %}
+      
+      }
+    data:
+      - action: URI
+        title:  "Yes"
+        uri: '/hacs/entry'
+      - action: "update_nope"
+        title: "Nope"

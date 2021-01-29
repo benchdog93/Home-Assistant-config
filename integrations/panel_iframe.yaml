@@ -13,3 +13,9 @@ panel_iframe:
 #    title: AppDaemon
 #    url: !secret appdaemon_url
 #    icon: mdi:home-group
+
+#My Media
+  my_media:
+    title: 'My Media'
+    url: !secret mymedia_url
+    icon: mdi:play-network
