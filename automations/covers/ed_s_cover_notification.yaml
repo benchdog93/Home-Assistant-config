@@ -3,7 +3,7 @@ trigger:
   platform: state
   entity_id: cover.ed_s 
   to: open 
-  for: 00:30:00
+  for: 00:02:00
 action:
   service: notify.android
   data:
