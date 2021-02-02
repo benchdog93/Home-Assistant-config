@@ -1,0 +1,29 @@
+
+alias: Supervisor Updates
+mode: single
+
+trigger:
+  - platform: state
+    entity_id: sensor.supervisor_updates
+
+condition:
+  - condition: numeric_state
+    entity_id: sensor.supervisor_updates
+    above: 0
+
+action:
+- service: script.notify_engine
+  data:
+    who: 'ed'
+    title: 'Supervisor Update'
+    value1: 'Supervisor has {{ states.sensor.supervisor_updates.state }} update(s) available:'
+    value2: >
+          {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+          {{ addon.name }} {{ addon.version }} -> {{ addon.version_latest }}
+
+          {% endfor %}
+    tag_id: 'update_supervisor'
+    sticky: 'false'
+    group: ha_status
+    color: '#ff8c0'
+    clickAction: '/hassio/dashboard'

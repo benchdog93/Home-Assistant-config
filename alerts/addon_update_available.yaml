@@ -5,7 +5,6 @@ addon_update_available:
   state: 'on'
   can_acknowledge: false
   repeat:
-    - 5
     - 360
   skip_first: true
   title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
