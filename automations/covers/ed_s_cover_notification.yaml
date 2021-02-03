@@ -1,17 +1,20 @@
-alias: "Notify apps when the garage door opens"
+
+alias: "Notify apps when the garage door left open"
 trigger:
-  platform: state
-  entity_id: cover.ed_s 
-  to: open 
-  for: 00:02:00
+    platform: state
+    entity_id: cover.ed_s 
+    to: open 
+    for: 00:30:00
 action:
-  service: notify.android
-  data:
-    message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Close Door? Tap yes."
-    title:  "Ed's garage door has been left open"
+  - service: notify.mobile_app_sm_n960u
     data:
-      actions:
-        - action: "close_yes"
-          title:  "Yes"
-        - action: "close_nope"
-          title: "Nope"
+      message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Close Door? Tap yes."
+      title:  "Ed's garage door has been left open"
+      data:
+        actions:
+          - action: URI
+            title:  "Yes"
+            uri: '/lovelace/home'
+          - action: "close_nope"
+            title: "Nope"
+
