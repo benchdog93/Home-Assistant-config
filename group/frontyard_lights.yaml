@@ -3,5 +3,5 @@ frt_outside:
   name: Front Outdoor Lights
   icon: mdi:outdoor-lamp
   entities:
-    - switch.nodeid_18_switch
-    - switch.nodeid_21_switch
+    - switch.in_wall_toggle_switch_current_value_5
+    - switch.in_wall_toggle_switch_current_value_8

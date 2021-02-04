@@ -1,7 +1,7 @@
 # Adding Panel_iFrame
 panel_iframe:
   zigbeezwave:
-    title: 'Z-Wave to MQTT'
+    title: 'Z-Wave'
     url: !secret zwmqtt_url
     icon: 'mdi:z-wave'
   portainer:
