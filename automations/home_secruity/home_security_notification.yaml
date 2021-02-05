@@ -5,13 +5,14 @@ trigger:
   entity_id: input_boolean.alarm_triggered
   to: "on"
 action:
-  service: notify.android
+  service: notify.mobile_app_sm_n960u
   data:
     message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Disarm system? Tap yes."
     title:  "Home security system has been activated "
     data:
       actions:
-        - action: "disarm_yes"
+        - action: URI
           title:  "Yes"
-        - action: "disarm_nope"
+          uri: '/lovelace/home'
+        - action: "close_nope"
           title: "Nope"

@@ -1,0 +1,17 @@
+
+alias: Office heat timer paused
+
+description: ''
+trigger:
+- platform: state
+  entity_id: sensor.office_heating
+  to: idle
+condition:
+- condition: time
+  after: 00:00:00
+  before: '23:59:59'
+action:
+- service: timer.pause
+  data: {}
+  entity_id: timer.office_heat
+mode: single

@@ -1,0 +1,18 @@
+
+alias: Office heat timer started
+
+description: ''
+trigger:
+- platform: state
+  entity_id: sensor.office_heating
+  to: heating
+condition:
+- condition: time
+  after: 00:00:00
+  before: '23:59:59'
+action:
+- service: timer.start
+  data: {}
+  entity_id: timer.office_heat
+mode: single
+  
