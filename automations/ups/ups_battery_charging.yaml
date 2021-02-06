@@ -1,0 +1,14 @@
+
+
+alias: Power restored UPS battery charging
+
+trigger:
+- platform: state
+  entity_id: sensor.ups_status
+  from: On Battery Battery Discharging
+  to: Online Battery Charging
+
+action:
+- service: input_boolean.turn_on
+  data: {}
+  entity_id: input_boolean.ups_battery_charging

@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  # True if there's an update available for core
+  core_update_available:
+    friendly_name: 'Core Update'
+    value_template: "{{ state_attr('sensor.updater_core', 'update_available') }}"
