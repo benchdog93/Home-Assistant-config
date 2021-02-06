@@ -3,14 +3,10 @@ alias: UPS battery charged
 
 trigger:
 - platform: state
-  entity_id: sensor.ups_status
-  from: Online Battery Charging
-  to: "Online"
+  entity_id: sensor.ups_battery_charge
+  to: '100'
 
 action:
-- service: notify.mobile_app_sm_n960u
-  data:
-    message: "Battery full"
 - service: input_boolean.turn_off
   data: {}
   entity_id: input_boolean.ups_battery_charging

@@ -1,18 +1,9 @@
 # Adding Panel_iFrame
 panel_iframe:
-  zigbeezwave:
-    title: 'Z-Wave'
-    url: !secret zwmqtt_url
-    icon: 'mdi:z-wave'
   portainer:
     title: 'Portainer.io'
     url: !secret port_url
     icon: 'mdi:docker'
-
-#  appdaemon:
-#    title: AppDaemon
-#    url: !secret appdaemon_url
-#    icon: mdi:home-group
 
 #My Media
   my_media:

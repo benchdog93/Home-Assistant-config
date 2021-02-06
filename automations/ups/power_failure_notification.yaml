@@ -1,9 +1,10 @@
 
 alias: Power Failure
+
 trigger:
 - platform: state
   entity_id: sensor.ups_status
-  to: "On Battery Discharging"
+  to: On Battery Battery Discharging
 
 action:
 - service: notify.mobile_app_sm_n960u
