@@ -1,0 +1,12 @@
+
+alias: 'Shutdown EWVisualArts NAS'
+
+trigger:
+  platform: numeric_state
+  entity_id: sensor.ups_battery_charge
+  below: 10
+
+  action:
+    service: synology_dsm.shutdown
+    data:
+      '{ serial: 1NDVC86409 }'

@@ -1,0 +1,22 @@
+
+platform: template
+sensors:
+  temperature:
+    friendly_name: "Temperature"
+    value_template: "{{ state_attr('weather.home_2', 'temperature') }}"
+
+  humidity:
+    friendly_name: "Humidity"
+    value_template: "{{ state_attr('weather.home_2', 'humidity') }}"
+
+  pressure:
+    friendly_name: "Pressure"
+    value_template: "{{ state_attr('weather.home_2', 'pressure') }}"
+
+  wind_speed:
+    friendly_name: "Wind Speed"
+    value_template: "{{ state_attr('weather.home_2', 'wind_speed') }}"
+
+  wind_bearing:
+    friendly_name: "Wind Bearing"
+    value_template: "{{ state_attr('weather.home_2', 'wind_bearing') }}"

@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  garmin_total_distance_miles:
+    friendly_name: Total Distance
+    unit_of_measurement: 'miles'
+    value_template: "{{ (states('sensor.total_distance_mtr') | float / 1609.34) | round(2) }}"
