@@ -9,11 +9,11 @@ trigger:
     - sensor.epson_xp_830_series_cyan_ink
     - sensor.epson_xp_830_series_magenta_ink
     - sensor.epson_xp_830_series_yellow_ink
-  below: 5
+  below: 05
 
 action:
   service: persistent_notification.create
   data:
     message: "{{ trigger.to_state.attributes.friendly_name }} is at {{ trigger.to_state.state }}%"
     title: 'Ink level low'
-    notification_id:
+    notification_id: xyz
