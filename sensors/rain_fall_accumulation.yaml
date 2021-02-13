@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  rain_fall_accumulation:
+    friendly_name: RainFall
+    unit_of_measurement: 'in'
+    value_template: "{{ (states('sensor.openweathermap_rain') | float / 25.4) | round(2) }}"

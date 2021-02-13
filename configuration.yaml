@@ -29,6 +29,7 @@ frontend: !include frontend.yaml
 recorder: !include recorder.yaml
 notify: !include_dir_list notify
 alert: !include_dir_merge_named alerts
+switch: !include_dir_merge_named switches
 
 
 calendar:
@@ -38,4 +39,7 @@ system_health:
 map:
 config:
 sun:
+wake_on_lan:
 default_config: 
+
+
