@@ -1,0 +1,4 @@
+
+nas_power_off:
+  name: NAS Power Off
+  icon: mdi:gesture-tap-button
