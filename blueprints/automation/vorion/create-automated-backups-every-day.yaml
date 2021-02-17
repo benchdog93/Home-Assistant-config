@@ -38,7 +38,7 @@ trigger:
 action:
 - service: hassio.snapshot_full
   data:
-    name: '{type} HomeAssistant {version_ha} {date}'
+    name: '{{type} HomeAssistant {version_ha} {date}}'
 - choose:
   - conditions: '{{ send_notification }}'
     sequence:
