@@ -1,0 +1,19 @@
+
+alias: Disarm Night
+
+description: 'Disarms security system each morning'
+
+trigger:
+- platform: time
+  at: '06:30:00'
+
+condition:
+- condition: state
+  entity_id: input_boolean.alarm_night
+  state: 'on'
+
+action:
+- service: input_boolean.turn_on
+  entity_id: input_boolean.disarmed
+
+mode: single
