@@ -1,9 +1,9 @@
 
-  alias: Automated Daily Snapshot
+  alias: HomeAssistant Full Backup
   description: ''
   use_blueprint:
     path: vorion/create-automated-backups-every-day.yaml
     input:
       trigger_time: '5:30:00'
-      notify_device: 029155270a6a4223899e28e4bdb7789b
       send_notification: true
+      notify_device: 029155270a6a4223899e28e4bdb7789b
