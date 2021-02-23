@@ -1,0 +1,15 @@
+{
+    "domain": "astroweather",
+    "name": "AstroWeather",
+    "version": "0.0.17",
+    "documentation": "https://github.com/mawinkler/astroweather",
+    "issue_tracker": "https://github.com/mawinkler/astroweather/issues",
+    "config_flow": true,
+    "dependencies": [],
+    "codeowners": [
+        "@mawinkler"
+    ],
+    "requirements": [
+        "pyastroweatherio==0.0.17"
+    ]
+}
