@@ -26,7 +26,7 @@ blueprint:
 mode: single
 max_exceeded: silent
 variables:
-  backup_filename: HomeAssistant Full{{ now().strftime('%F') }}
+  backup_filename: HomeAssistant {{ now().strftime('%F') }}
   send_notification: !input 'send_notification'
   notify_device: !input 'notify_device'
   notification_title: Automated Daily Backup

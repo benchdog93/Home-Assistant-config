@@ -9,8 +9,8 @@ homeassistant:
     - type: homeassistant
     - type: trusted_networks
       trusted_networks:
-        - !secret internal_ip
-        - !secret external_ip
+      - !secret internal_ip
+      - !secret external_ip
 
 zone:
   - name: Home
