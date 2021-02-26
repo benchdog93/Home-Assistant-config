@@ -4,11 +4,10 @@ alias: 'Ink Alert'
 trigger:
   platform: numeric_state
   entity_id:
-    - sensor.epson_xp_830_series_black_ink
-    - sensor.epson_xp_830_series_photo_black_ink
-    - sensor.epson_xp_830_series_cyan_ink
-    - sensor.epson_xp_830_series_magenta_ink
-    - sensor.epson_xp_830_series_yellow_ink
+    - sensor.hp_officejet_pro_9010_series_black_cartridge
+    - sensor.hp_officejet_pro_9010_series_cyan_cartridge
+    - sensor.hp_officejet_pro_9010_series_magenta_cartridge
+    - sensor.hp_officejet_pro_9010_series_yellow_cartridge
   below: 05
 
 action:

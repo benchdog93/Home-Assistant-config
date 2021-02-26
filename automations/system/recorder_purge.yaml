@@ -8,4 +8,4 @@ trigger:
 action:
   - service: recorder.purge
     data:
-      repack: false
+      repack: true
