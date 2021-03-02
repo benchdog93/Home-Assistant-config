@@ -1,12 +1,6 @@
 # Adding Panel_iFrame
-panel_iframe:
-  portainer:
-    title: 'Portainer.io'
-    url: !secret port_url
-    icon: 'mdi:docker'
-
-#My Media
-  my_media:
-    title: 'My Media'
-    url: !secret mymedia_url
-    icon: mdi:play-network
+#panel_iframe:
+#  portainer:
+#    title: 'Portainer.io'
+#    url: !secret port_url
+#     icon: 'mdi:docker'

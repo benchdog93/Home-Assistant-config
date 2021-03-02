@@ -2,8 +2,8 @@
 import logging
 
 import homeassistant.helpers.config_validation as cv
-import voluptuous as vol
 import homeassistant.util.dt as dt_util
+import voluptuous as vol
 from homeassistant.components.media_player import (
     ENTITY_ID_FORMAT,
     PLATFORM_SCHEMA,
@@ -34,6 +34,7 @@ from homeassistant.components.template.template_entity import TemplateEntity
 from homeassistant.const import (
     ATTR_ENTITY_ID,
     ATTR_FRIENDLY_NAME,
+    CONF_DEVICE_CLASS,
     CONF_ENTITY_PICTURE_TEMPLATE,
     CONF_ICON_TEMPLATE,
     CONF_VALUE_TEMPLATE,
@@ -81,6 +82,7 @@ TITLE_TEMPLATE = "title_template"
 ARTIST_TEMPLATE = "artist_template"
 ALBUM_TEMPLATE = "album_template"
 CURRENT_VOLUME_TEMPLATE = "current_volume_template"
+CURRENT_IS_MUTED_TEMPLATE = "current_is_muted_template"
 ALBUM_ART_TEMPLATE = "album_art_template"
 SET_VOLUME_ACTION = "set_volume"
 PLAY_MEDIA_ACTION = "play_media"
@@ -102,6 +104,7 @@ MEDIA_PLAYER_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_VALUE_TEMPLATE): cv.template,
         vol.Optional(CONF_ICON_TEMPLATE): cv.template,
+        vol.Optional(CONF_DEVICE_CLASS): cv.string,
         vol.Optional(CONF_UNIQUE_ID): cv.string,
         vol.Optional(CONF_ENTITY_PICTURE_TEMPLATE): cv.template,
         vol.Optional(CONF_AVAILABILITY_TEMPLATE): cv.template,
@@ -125,6 +128,7 @@ MEDIA_PLAYER_SCHEMA = vol.Schema(
         vol.Optional(ARTIST_TEMPLATE): cv.template,
         vol.Optional(ALBUM_TEMPLATE): cv.template,
         vol.Optional(CURRENT_VOLUME_TEMPLATE): cv.template,
+        vol.Optional(CURRENT_IS_MUTED_TEMPLATE): cv.template,
         vol.Optional(ALBUM_ART_TEMPLATE): cv.template,
         vol.Optional(MEDIA_CONTENT_TYPE_TEMPLATE): cv.template,
         vol.Optional(MEDIA_IMAGE_URL_TEMPLATE): cv.template,
@@ -142,8 +146,7 @@ MEDIA_PLAYER_SCHEMA = vol.Schema(
 SUPPORT_TEMPLATE = SUPPORT_TURN_OFF | SUPPORT_TURN_ON
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {vol.Required(CONF_MEDIAPLAYER)
-                  : cv.schema_with_slug_keys(MEDIA_PLAYER_SCHEMA)}
+    {vol.Required(CONF_MEDIAPLAYER): cv.schema_with_slug_keys(MEDIA_PLAYER_SCHEMA)}
 )
 
 
@@ -160,11 +163,11 @@ async def _async_create_entities(hass, config):
 
     for device, device_config in config[CONF_MEDIAPLAYER].items():
         friendly_name = device_config.get(ATTR_FRIENDLY_NAME, device)
+        device_class = device_config.get(CONF_DEVICE_CLASS, device)
         state_template = device_config[CONF_VALUE_TEMPLATE]
         icon_template = device_config.get(CONF_ICON_TEMPLATE)
         unique_id = device_config.get(CONF_UNIQUE_ID)
-        entity_picture_template = device_config.get(
-            CONF_ENTITY_PICTURE_TEMPLATE)
+        entity_picture_template = device_config.get(CONF_ENTITY_PICTURE_TEMPLATE)
         availability_template = device_config.get(CONF_AVAILABILITY_TEMPLATE)
         current_source_template = device_config.get(CURRENT_SOURCE_TEMPLATE)
         on_action = device_config[ON_ACTION]
@@ -182,31 +185,28 @@ async def _async_create_entities(hass, config):
         artist_template = device_config.get(ARTIST_TEMPLATE)
         album_template = device_config.get(ALBUM_TEMPLATE)
         current_volume_template = device_config.get(CURRENT_VOLUME_TEMPLATE)
+        current_is_muted_template = device_config.get(CURRENT_IS_MUTED_TEMPLATE)
         album_art_template = device_config.get(ALBUM_ART_TEMPLATE)
         set_volume_action = device_config.get(SET_VOLUME_ACTION)
         play_media_action = device_config.get(PLAY_MEDIA_ACTION)
-        media_content_type_template = device_config.get(
-            MEDIA_CONTENT_TYPE_TEMPLATE)
+        media_content_type_template = device_config.get(MEDIA_CONTENT_TYPE_TEMPLATE)
         media_image_url_template = device_config.get(MEDIA_IMAGE_URL_TEMPLATE)
         media_episode_template = device_config.get(MEDIA_EPISODE_TEMPLATE)
         media_season_template = device_config.get(MEDIA_SEASON_TEMPLATE)
-        media_series_title_template = device_config.get(
-            MEDIA_SERIES_TITLE_TEMPLATE)
-        media_album_artist_template = device_config.get(
-            MEDIA_ALBUM_ARTIST_TEMPLATE)
+        media_series_title_template = device_config.get(MEDIA_SERIES_TITLE_TEMPLATE)
+        media_album_artist_template = device_config.get(MEDIA_ALBUM_ARTIST_TEMPLATE)
         seek_action = device_config.get(SEEK_ACTION)
-        current_position_template = device_config.get(
-            CURRENT_POSITION_TEMPLATE)
+        current_position_template = device_config.get(CURRENT_POSITION_TEMPLATE)
         media_duration_template = device_config.get(MEDIA_DURATION_TEMPLATE)
         sound_mode_templates = device_config[CONF_SOUND_MODES]
-        current_sound_mode_template = device_config.get(
-            CURRENT_SOUND_MODE_TEMPLATE)
+        current_sound_mode_template = device_config.get(CURRENT_SOUND_MODE_TEMPLATE)
 
         media_players.append(
             MediaPlayerTemplate(
                 hass,
                 device,
                 friendly_name,
+                device_class,
                 state_template,
                 icon_template,
                 unique_id,
@@ -228,6 +228,7 @@ async def _async_create_entities(hass, config):
                 artist_template,
                 album_template,
                 current_volume_template,
+                current_is_muted_template,
                 album_art_template,
                 set_volume_action,
                 play_media_action,
@@ -255,6 +256,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
         hass,
         device_id,
         friendly_name,
+        device_class,
         state_template,
         icon_template,
         unique_id,
@@ -276,6 +278,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
         artist_template,
         album_template,
         current_volume_template,
+        current_is_muted_template,
         album_art_template,
         set_volume_action,
         play_media_action,
@@ -302,30 +305,26 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
             ENTITY_ID_FORMAT, device_id, hass=hass
         )
         self._name = friendly_name
+        self._device_class = device_class
         self._template = state_template
         self._domain = __name__.split(".")[-2]
         self._on_script = Script(hass, on_action, friendly_name, self._domain)
-        self._off_script = Script(
-            hass, off_action, friendly_name, self._domain)
+        self._off_script = Script(hass, off_action, friendly_name, self._domain)
         self._play_script = None
         if play_action is not None:
-            self._play_script = Script(
-                hass, play_action, friendly_name, self._domain)
+            self._play_script = Script(hass, play_action, friendly_name, self._domain)
 
         self._stop_script = None
         if stop_action is not None:
-            self._stop_script = Script(
-                hass, stop_action, friendly_name, self._domain)
+            self._stop_script = Script(hass, stop_action, friendly_name, self._domain)
 
         self._pause_script = None
         if pause_action is not None:
-            self._pause_script = Script(
-                hass, pause_action, friendly_name, self._domain)
+            self._pause_script = Script(hass, pause_action, friendly_name, self._domain)
 
         self._next_script = None
         if next_action is not None:
-            self._next_script = Script(
-                hass, next_action, friendly_name, self._domain)
+            self._next_script = Script(hass, next_action, friendly_name, self._domain)
 
         self._previous_script = None
         if previous_action is not None:
@@ -347,8 +346,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
 
         self._mute_script = None
         if mute_action is not None:
-            self._mute_script = Script(
-                hass, mute_action, friendly_name, self._domain)
+            self._mute_script = Script(hass, mute_action, friendly_name, self._domain)
 
         self._set_volume_script = None
         if set_volume_action is not None:
@@ -363,8 +361,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
 
         self._seek_script = None
         if seek_action is not None:
-            self._seek_script = Script(
-                hass, seek_action, friendly_name, self._domain)
+            self._seek_script = Script(hass, seek_action, friendly_name, self._domain)
 
         self._state = False
         self._icon = None
@@ -382,6 +379,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
         self._artist_template = artist_template
         self._album_template = album_template
         self._current_volume_template = current_volume_template
+        self._current_is_muted_template = current_is_muted_template
         self._album_art_template = album_art_template
         self._media_content_type_template = media_content_type_template
         self._media_image_url_template = media_image_url_template
@@ -403,6 +401,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
         self._track_album_name = None
         self._album_art = None
         self._volume = None
+        self._is_muted = None
         self._media_image_url = None
         self._media_episode = None
         self._media_season = None
@@ -415,8 +414,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
 
     async def async_added_to_hass(self):
         """Register callbacks."""
-        self.add_template_attribute(
-            "_state", self._template, None, self._update_state)
+        self.add_template_attribute("_state", self._template, None, self._update_state)
 
         if self._current_source_template is not None:
             self.add_template_attribute(
@@ -430,12 +428,13 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
             self.add_template_attribute("_track_artist", self._artist_template)
 
         if self._album_template is not None:
-            self.add_template_attribute(
-                "_track_album_name", self._album_template)
+            self.add_template_attribute("_track_album_name", self._album_template)
 
         if self._current_volume_template is not None:
-            self.add_template_attribute(
-                "_volume", self._current_volume_template)
+            self.add_template_attribute("_volume", self._current_volume_template)
+
+        if self._current_is_muted_template is not None:
+            self.add_template_attribute("_is_muted", self._current_is_muted_template)
 
         if self._album_art_template is not None:
             self.add_template_attribute("_album_art", self._album_art_template)
@@ -448,11 +447,9 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
                 "_media_image_url", self._media_image_url_template
             )
         if self._media_episode_template is not None:
-            self.add_template_attribute(
-                "_media_episode", self._media_episode_template)
+            self.add_template_attribute("_media_episode", self._media_episode_template)
         if self._media_season_template is not None:
-            self.add_template_attribute(
-                "_media_season", self._media_season_template)
+            self.add_template_attribute("_media_season", self._media_season_template)
         if self._media_series_title_template is not None:
             self.add_template_attribute(
                 "_media_series_title", self._media_series_title_template
@@ -485,6 +482,11 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
     def name(self):
         """Return the name of the switch."""
         return self._name
+    
+    @property
+    def device_class(self):
+        """Return the class of this device."""
+        return self._device_class
 
     @property
     def is_on(self):
@@ -566,8 +568,13 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
         await self._volume_down_script.async_run(context=self._context)
 
     async def async_mute_volume(self, mute):
-        """Fire the off action."""
-        await self._mute_script.async_run(context=self._context)
+        """Set the is_muted state."""
+        if self._current_is_muted_template is None:
+            self._is_muted = mute
+            self.async_write_ha_state()
+        await self._mute_script.async_run(
+            {"is_muted": mute}, context=self._context
+        )
 
     async def async_media_play(self):
         """Fire the off action."""
@@ -649,6 +656,11 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
     def volume_level(self):
         """Volume level of the media player (0..1)."""
         return self._volume
+
+    @property
+    def is_volume_muted(self):
+        """Boolean if volume is currently muted."""
+        return self._is_muted
 
     @property
     def media_title(self):
@@ -782,6 +794,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
             ("_entity_picture", self._entity_picture_template),
             ("_available", self._availability_template),
             ("_volume", self._current_volume_template),
+            ("_is_muted", self._current_is_muted_template),
             ("_track_name", self._title_template),
             ("_track_artist", self._artist_template),
             ("_track_album_name", self._album_template),
@@ -816,8 +829,7 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
                     return
 
                 try:
-                    setattr(self, property_name, getattr(
-                        super(), property_name))
+                    setattr(self, property_name, getattr(super(), property_name))
                 except AttributeError:
                     _LOGGER.error(
                         "Could not render %s template %s: %s",
