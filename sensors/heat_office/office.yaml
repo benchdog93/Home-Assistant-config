@@ -3,4 +3,5 @@ platform: template
 sensors:
   office_temperature:
     friendly_name: "Office Temperature"
-    value_template: "{{ state_attr('office.bedroom_2', 'current_temperature') }}"
+    unit_of_measurement: "F"
+    value_template: "{{ state_attr('climate.office_2', 'current_temperature') }}"

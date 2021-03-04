@@ -1,0 +1,48 @@
+
+platform: template
+sensors:
+  color_pages:
+    friendly_name: "HP OfficeJet Pro Color"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_printer', 'Color') }}"
+
+  monochrome_pages:
+    friendly_name: "HP OfficeJet Pro Monochrome"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_printer', 'Monochrome') }}"
+
+  jams:
+    friendly_name: "HP OfficeJet Pro Jams"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_printer', 'Jams') }}"
+
+  cancelled:
+    friendly_name: "HP OfficeJet Pro Cancelled"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_printer', 'Cancelled') }}"
+
+  adf:
+    friendly_name: "HP OfficeJet Pro ADF"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_scanner', 'ADF') }}"
+
+  duplex:
+    friendly_name: "HP OfficeJet Pro Duplex"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_scanner', 'Duplex') }}"
+    
+  flatbed:
+    friendly_name: "HP OfficeJet Pro Flatbed"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_scanner', 'Flatbed') }}"
+    
+  scanner_jams:
+    friendly_name: "HP OfficeJet Pro Jamed"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_scanner', 'Jams') }}"
+    
+  mispick:
+    friendly_name: "HP OfficeJet Pro Mispick"
+    unit_of_measurement: Pages
+    value_template: "{{ state_attr('sensor.hp_officejet_pro_9015_scanner', 'Mispick') }}"
+  

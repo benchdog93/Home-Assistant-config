@@ -3,4 +3,5 @@ platform: template
 sensors:
   diningroom_temperature:
     friendly_name: "Dining Room Temperature"
+    unit_of_measurement: "F"
     value_template: "{{ state_attr('climate.dining_room_2', 'current_temperature') }}"

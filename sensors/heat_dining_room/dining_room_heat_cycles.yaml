@@ -6,4 +6,4 @@ state: 'heating'
 type: count
 end: '{{ now() }}'
 duration:
-  days: 30
+  days: 14
