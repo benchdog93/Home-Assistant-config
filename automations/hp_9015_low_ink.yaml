@@ -4,10 +4,10 @@ alias: 'Ink Alert'
 trigger:
   platform: numeric_state
   entity_id:
-    - sensor.hp_officejet_pro_9010_series_black_cartridge
-    - sensor.hp_officejet_pro_9010_series_cyan_cartridge
-    - sensor.hp_officejet_pro_9010_series_magenta_cartridge
-    - sensor.hp_officejet_pro_9010_series_yellow_cartridge
+    - sensor.hp_officejet_pro_9015_ink_black
+    - sensor.hp_officejet_pro_9015_ink_cyan
+    - sensor.hp_officejet_pro_9015_ink_magenta
+    - sensor.hp_officejet_pro_9015_ink_yellow
   below: 05
 
 action:

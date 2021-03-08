@@ -9,3 +9,4 @@ interior_lights:
     - light.in_wall_dimmer_switch_current_value
     - switch.ihome_smartplug_e9f727
     - switch.ihome_smartplug_e992fe
+    - switch.z_wave_plus_on_off_toggle_switch_v4

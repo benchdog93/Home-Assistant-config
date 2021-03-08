@@ -10,16 +10,6 @@ panel_custom:
     config:
       ingress: core_configurator  
 
-  - name: ha_mqtt_dev
-    sidebar_title: MQTT Devices
-    sidebar_icon: mdi:chip
-    js_url: /api/hassio/app/entrypoint.js
-    url_path: !secret mqtt_url_path
-    embed_iframe: true
-    require_admin: true
-    config:
-      ingress: core_configurator    
-
   - name: ha_zha_dev
     sidebar_title: Zigbee
     sidebar_icon: mdi:zigbee

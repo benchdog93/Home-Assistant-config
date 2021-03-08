@@ -31,7 +31,8 @@ notify: !include_dir_list notify
 alert: !include_dir_merge_named alerts
 switch: !include_dir_merge_named switches
 
-
+http:
+websocket_api:
 calendar:
 stream:
 ffmpeg:
