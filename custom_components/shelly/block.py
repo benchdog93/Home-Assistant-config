@@ -19,7 +19,7 @@ class ShellyBlock(RestoreEntity):
         conf = instance.conf
         id_prefix = conf.get(CONF_OBJECT_ID_PREFIX)
         self._unique_id = slugify(id_prefix + "_" + block.type + "_" +
-                                  block.id + prefix)
+                                block.id + prefix)
         self.entity_id = "." + self._unique_id
         entity_id = \
             instance._get_specific_config(CONF_ENTITY_ID, None, block.id)
@@ -71,8 +71,8 @@ class ShellyBlock(RestoreEntity):
     def device_state_attributes(self):
         """Show state attributes in HASS"""
         attrs = {'shelly_type': self._block.type_name(),
-                 'shelly_id': self._block.id,
-                 'ip_address': self._block.ip_addr
+                    'shelly_id': self._block.id,
+                    'ip_address': self._block.ip_addr
                 }
 
         room = self._block.room_name()
