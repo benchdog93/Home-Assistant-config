@@ -39,6 +39,10 @@ map:
 config:
 sun:
 wake_on_lan:
+camera:
+    - platform: local_file
+      file_path: /custom_components/mail_and_packages/mail_none.gif
+      name: mail_usps
 default_config: 
 
 
