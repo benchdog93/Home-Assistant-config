@@ -1,7 +1,7 @@
 
 platform: history_stats
 name: Master Bedroom Heating Ratio
-entity_id: sensor.bedroom_2_hvac_action
+entity_id: sensor.master_bedroom
 state: 'heating'
 type: ratio
 start: '{{ now().replace(hour=0, minute=0, second=0) }}'

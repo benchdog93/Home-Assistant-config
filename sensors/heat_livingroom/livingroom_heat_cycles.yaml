@@ -1,7 +1,7 @@
 
 platform: history_stats
 name: Livingroom Heat Cycles
-entity_id: sensor.living_room_2_hvac_action
+entity_id: sensor.livingroom
 state: 'heating'
 type: count
 end: '{{ now() }}'

@@ -1,6 +1,6 @@
 platform: history_stats
 name: Dining Room Heat On Today
-entity_id: sensor.dining_room_2_hvac_action_2
+entity_id: sensor.diningroom
 state: 'heating'
 type: time
 start: '{{ now().replace(hour=0, minute=0, second=0) }}'

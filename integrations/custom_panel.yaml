@@ -29,13 +29,3 @@ panel_custom:
     require_admin: true
     config:
       ingress: core_configurator  
-
-#  - name: z-wave_js
-#    sidebar_title: Z-Wave
-#    sidebar_icon: mdi:z-wave
-#    js_url: /api/hassio/app/entrypoint.js
-#    url_path: 'config/zwave_js/dashboard?config_entry=dc147a5ac08ac8666809fe75055f38c1'
-#    embed_iframe: true
-#    require_admin: true
-#    config:
-#      ingress: core_configurator

@@ -1,7 +1,7 @@
 
 platform: history_stats
 name: Office Heating Ratio
-entity_id: sensor.office_2_hvac_action
+entity_id: sensor.office
 state: 'heating'
 type: ratio
 start: '{{ now().replace(hour=0, minute=0, second=0) }}'

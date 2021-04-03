@@ -1,7 +1,7 @@
 
 platform: history_stats
 name: Livingroom Heat On Today
-entity_id: sensor.living_room_2_hvac_action
+entity_id: sensor.livingroom
 state: 'heating'
 type: time
 start: '{{ now().replace(hour=0, minute=0, second=0) }}'

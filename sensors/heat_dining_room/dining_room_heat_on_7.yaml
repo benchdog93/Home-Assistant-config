@@ -1,7 +1,7 @@
 
 platform: history_stats
 name: Dining Room Heat On 7 Days
-entity_id: sensor.dining_room_2_hvac_action_2
+entity_id: sensor.diningroom
 state: 'heating'
 type: time
 end: '{{ now() }}'

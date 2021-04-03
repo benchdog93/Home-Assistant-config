@@ -1,6 +1,0 @@
-
-platform: template
-sensors:
-  office_heat_timer:
-    friendly_name: "Office Heat On Duration"
-    value_template: "{{ state_attr('timer.office_heat', 'duration') }}"

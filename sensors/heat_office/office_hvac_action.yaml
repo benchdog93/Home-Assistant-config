@@ -3,4 +3,4 @@ platform: template
 sensors:
   office:
     friendly_name: "Office"
-    value_template: "{{ state_attr('office.bedroom_2', 'hvac_action') }}"
+    value_template: "{{ state_attr('climate.office', 'hvac_action') }}"

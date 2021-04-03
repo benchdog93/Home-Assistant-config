@@ -3,4 +3,4 @@ platform: template
 sensors:
   master_bedroom_humidity:
     friendly_name: "Master Bedroom Humidity"
-    value_template: "{{ state_attr('climate.bedroom_2', 'current_humidity') }}"
+    value_template: "{{ state_attr('climate.bedroom', 'current_humidity') }}"
