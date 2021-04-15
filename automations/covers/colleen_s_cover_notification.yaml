@@ -1,4 +1,5 @@
 
+
 alias: "Notify apps when the garage door opens"
 trigger:
     platform: state

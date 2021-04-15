@@ -1,0 +1,7 @@
+
+basement_ventilation:
+  name: basement Fans
+  icon: mdi:fan
+  entities:
+    - switch.in_wall_tamper_resistant_smart_outlet
+    - switch.in_wall_tamper_resistant_smart_outlet_2

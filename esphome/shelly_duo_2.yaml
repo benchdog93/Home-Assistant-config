@@ -1,0 +1,46 @@
+esphome:
+  name: shelly_duo_2
+  platform: ESP8266
+  board: esp01_1m
+  
+  arduino_version: latest
+  board_flash_mode: dout
+  on_boot:
+    priority: 100
+    then:
+      - light.turn_on: shelly_duo_2
+
+wifi:
+  ssid: !secret wifi_iot_ssid
+  password: !secret wifi_iot_password
+  ap:
+    ssid: "Shelly Duo 2 Fallback Hotspot"
+    password: !secret esphome_fallback_ap_password
+
+captive_portal:
+
+logger:
+
+api:
+  password: !secret esphome_api_password
+
+ota:
+  password: !secret esphome_ota_password
+
+output:
+  - platform: esp8266_pwm
+    id: output_warm_white
+    pin: GPIO4
+  - platform: esp8266_pwm
+    id: output_daylight
+    pin: GPIO5
+
+light:
+  - platform: cwww
+    name: "Shelly Duo 2"
+    id: shelly_duo_2
+    cold_white: output_daylight
+    warm_white: output_warm_white
+    cold_white_color_temperature: 6500 K
+    warm_white_color_temperature: 2700 K
+    restore_mode: ALWAYS_ON
