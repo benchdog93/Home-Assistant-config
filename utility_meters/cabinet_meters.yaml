@@ -1,0 +1,8 @@
+
+cabinet_lights_daily_consumption:
+  source: sensor.cabinet_lights_consumption
+  cycle: daily
+
+cabinet_lights_monthly_consumption:
+  source: sensor.cabinet_lights_consumption
+  cycle: monthly

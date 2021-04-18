@@ -22,10 +22,10 @@ captive_portal:
 logger:
 
 api:
-  password: !secret esphome_api_password
+  password: !secret esphome_password
 
 ota:
-  password: !secret esphome_ota_password
+  password: !secret esphome_password
 
 output:
   - platform: esp8266_pwm

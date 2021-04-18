@@ -1,0 +1,8 @@
+
+sink_light_daily_consumption:
+  source: sensor.sink_light_consumption
+  cycle: daily
+
+sink_light_monthly_consumption:
+  source: sensor.sink_light_consumption
+  cycle: monthly
