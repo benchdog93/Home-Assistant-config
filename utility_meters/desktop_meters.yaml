@@ -1,0 +1,8 @@
+
+desktop_circuit_daily_consumption:
+  source: sensor.desktop_circuit_consumption
+  cycle: daily
+
+desktop_circuit_monthly_consumption:
+  source: sensor.desktop_circuit_consumption
+  cycle: monthly

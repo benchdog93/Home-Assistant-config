@@ -1,0 +1,23 @@
+esphome:
+  name: shelly_1_1
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "Visual_Arts"
+  password: "7038011070"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Shelly 1 1 Fallback Hotspot"
+    password: "NxKp7HSTezT4"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
