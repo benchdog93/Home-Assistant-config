@@ -40,6 +40,10 @@ map:
 config:
 sun:
 wake_on_lan:
+logger:
+  default: warning
+  logs:
+    custom_components.mail_and_packages: debug
 camera:
     - platform: local_file
       file_path: /custom_components/mail_and_packages/mail_none.gif

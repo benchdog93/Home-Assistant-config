@@ -43,4 +43,5 @@ light:
     warm_white: output_warm_white
     cold_white_color_temperature: 6500 K
     warm_white_color_temperature: 2700 K
+    #restore_mode: ALWAYS_ON
     

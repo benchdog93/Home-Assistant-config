@@ -1,23 +1,62 @@
+substitutions:
+  device: kitchen_light
+  Name: Kitchen Light
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+  IP_Addr: 192.168.30.32
+
 esphome:
-  name: shelly_1_1
+  name: ${device}
   platform: ESP8266
   board: esp01_1m
 
 wifi:
-  ssid: "Visual_Arts"
-  password: "7038011070"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ssid: ${SSID}
+  password: ${SSID_PWD}
   ap:
-    ssid: "Shelly 1 1 Fallback Hotspot"
-    password: "NxKp7HSTezT4"
+    ssid: "${Name} Fallback Hotspot"
+    password: "${FB_PWD}"
+
+#  manual_ip:
+#    static_ip: ${IP_Addr}
+#    gateway: 192.168.1.1
+#    subnet: 255.255.255.0
+#    dns1: 192.168.1.1
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
 
 captive_portal:
 
-# Enable logging
 logger:
 
-# Enable Home Assistant API
 api:
+  password: ${ESP_PWD}
 
 ota:
+  password: ${ESP_PWD}
+
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: gpio_4
+
+light:
+  - platform: binary
+    name: "${Name}"
+    output: gpio_4
+    id: lightid
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO5
+      #mode: INPUT_PULLUP
+      #inverted: True
+    name: "${Name}"
+    on_state:
+      - light.toggle: lightid
+    internal: true

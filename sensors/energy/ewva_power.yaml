@@ -1,6 +1,6 @@
 
 platform: integration
-source: sensor.ewva_power
+source: sensor.ewva_power_2
 name: EWVA Circuit Consumption
 unit_prefix: k
 round: 2

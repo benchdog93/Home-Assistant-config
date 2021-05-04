@@ -1,0 +1,43 @@
+substitutions:
+  device: office_network
+  Name: Office Shelly
+  channel_1: Desktop
+  channel_2: EWVA
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+  IP_Addr: 192.168.1.121
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: ${SSID:}
+  password: ${SSID_PWD}
+  ap:
+    ssid: "${Name} Fallback Hotspot"
+    password: ${FB_PWD}
+#    manual_ip:
+#      static_ip: ${IP_Addr}
+#      gateway: 0.0.0.0
+#      subnet: 255.255.255.0
+#      dns1: 0.0.0.0
+#      dns2: 0.0.0.0
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+    
+captive_portal:
+
+logger:
+  level: DEBUG
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}

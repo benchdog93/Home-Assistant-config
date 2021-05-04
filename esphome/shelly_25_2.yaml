@@ -1,5 +1,5 @@
 substitutions:
-  device: office_circuit
+  device: kitchen_lights
   Name: Office Shelly
   channel_1: Desktop
   channel_2: EWVA
@@ -44,11 +44,9 @@ sensor:
       name: ${Name} Voltage
     current_a:
       name: ${channel_2} Current
-      #internal: true
       id: current_channel_2
     current_b:
       name: ${channel_1} Current
-      #internal: true
       id: current_channel_1
     active_power_a:
       name: ${channel_2} Power

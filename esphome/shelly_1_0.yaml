@@ -1,0 +1,75 @@
+substitutions:
+  device: garage_loft
+  Name: Garage Loft
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+  IP_Addr: 192.168.30.32
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: ${SSID}
+  password: ${SSID_PWD}
+  ap:
+    ssid: "${Name} Fallback Hotspot"
+    password: "${FB_PWD}"
+
+#  manual_ip:
+#    static_ip: ${IP_Addr}
+#    gateway: 192.168.1.1
+#    subnet: 255.255.255.0
+#    dns1: 192.168.1.1
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+captive_portal:
+
+logger:
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}
+
+sensor:
+  - platform: wifi_signal
+    name: "${Name} WiFi Signal"
+    update_interval: 60s
+
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: shelly_1_relay
+
+light:
+  - platform: binary
+    name: "${Name}"
+    output: shelly_1_relay
+    id: lightid
+
+binary_sensor:
+  - platform: status
+    name: "${Name} Status"
+
+  - platform: gpio
+    pin:
+      number: GPIO5
+      #mode: INPUT_PULLUP
+      #inverted: True
+    name: "${Name}"
+    on_state:
+      - light.toggle: lightid
+    #on_press:
+    #  - switch.turn_on: lightid
+    #on_release:
+    #  - switch.turn_off: lightid
+    internal: true
+    id: switchid
