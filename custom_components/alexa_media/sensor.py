@@ -53,7 +53,7 @@ async def async_setup_platform(hass, config, add_devices_callback, discovery_inf
     SENSOR_TYPES = {
         "Alarm": AlarmSensor,
         "Timer": TimerSensor,
-        "Reminder": ReminderSensor
+        "Reminder": ReminderSensor,
     }
     account = config[CONF_EMAIL] if config else discovery_info["config"][CONF_EMAIL]
     include_filter = config.get(CONF_INCLUDE_DEVICES, [])
@@ -116,8 +116,12 @@ async def async_setup_platform(hass, config, add_devices_callback, discovery_inf
 
     temperature_sensors = []
     temperature_entities = account_dict.get("devices", {}).get("temperature", [])
-    if temperature_entities and account_dict["options"].get(CONF_EXTENDED_ENTITY_DISCOVERY):
-        temperature_sensors = await create_temperature_sensors(account_dict, temperature_entities)
+    if temperature_entities and account_dict["options"].get(
+        CONF_EXTENDED_ENTITY_DISCOVERY
+    ):
+        temperature_sensors = await create_temperature_sensors(
+            account_dict, temperature_entities
+        )
 
     return await add_devices(
         hide_email(account),
@@ -126,6 +130,7 @@ async def async_setup_platform(hass, config, add_devices_callback, discovery_inf
         include_filter,
         exclude_filter,
     )
+
 
 async def async_setup_entry(hass, config_entry, async_add_devices):
     """Set up the Alexa sensor platform by config_entry."""
@@ -150,14 +155,17 @@ async def create_temperature_sensors(account_dict, temperature_entities):
     devices = []
     coordinator = account_dict["coordinator"]
     for temp in temperature_entities:
-        _LOGGER.debug("Creating entity %s for a temperature sensor with name %s", temp["id"], temp["name"])
+        _LOGGER.debug(
+            "Creating entity %s for a temperature sensor with name %s",
+            temp["id"],
+            temp["name"],
+        )
         serial = temp["device_serial"]
         device_info = lookup_device_info(account_dict, serial)
         sensor = TemperatureSensor(coordinator, temp["id"], temp["name"], device_info)
         account_dict["entities"]["sensor"].setdefault(serial, {})
         account_dict["entities"]["sensor"][serial]["Temperature"] = sensor
         devices.append(sensor)
-        await coordinator.async_request_refresh()
     return devices
 
 
@@ -174,7 +182,7 @@ def lookup_device_info(account_dict, device_serial):
 
 
 class TemperatureSensor(CoordinatorEntity):
-    """A temperature sensor reported by an Echo. """
+    """A temperature sensor reported by an Echo."""
 
     def __init__(self, coordinator, entity_id, name, media_player_device_id):
         super().__init__(coordinator)
@@ -202,7 +210,9 @@ class TemperatureSensor(CoordinatorEntity):
 
     @property
     def state(self):
-        return parse_temperature_from_coordinator(self.coordinator, self.alexa_entity_id)
+        return parse_temperature_from_coordinator(
+            self.coordinator, self.alexa_entity_id
+        )
 
     @property
     def unique_id(self):
@@ -261,7 +271,10 @@ class AlexaMediaNotificationSensor(Entity):
             else []
         )
         self._next = self._active[0][1] if self._active else None
-        alarm = next((alarm[1] for alarm in self._all if alarm[1].get("id") == self._amz_id), None)
+        alarm = next(
+            (alarm[1] for alarm in self._all if alarm[1].get("id") == self._amz_id),
+            None,
+        )
         if alarm_just_dismissed(alarm, self._status, self._version):
             self._dismissed = dt.now().isoformat()
         self._state = self._process_state(self._next)
@@ -357,7 +370,7 @@ class AlexaMediaNotificationSensor(Entity):
         while (
             alarm_on
             and recurring_pattern
-            and RECURRING_PATTERN_ISO_SET[recurring_pattern]
+            and RECURRING_PATTERN_ISO_SET.get(recurring_pattern)
             and alarm.isoweekday not in RECURRING_PATTERN_ISO_SET[recurring_pattern]
             and alarm < dt.now()
         ):
@@ -525,16 +538,14 @@ class AlexaMediaNotificationSensor(Entity):
 
         attr = {
             "recurrence": self.recurrence,
-            "process_timestamp": dt.as_local(
-                datetime.datetime.fromtimestamp(self._timestamp.timestamp())
-            ).isoformat(),
+            "process_timestamp": dt.as_local(self._timestamp).isoformat(),
             "prior_value": self._process_state(self._prior_value),
             "total_active": len(self._active),
             "total_all": len(self._all),
             "sorted_active": json.dumps(self._active, default=str),
             "sorted_all": json.dumps(self._all, default=str),
             "status": self._status,
-            "dismissed": self._dismissed
+            "dismissed": self._dismissed,
         }
         return attr
 
@@ -573,10 +584,8 @@ class TimerSensor(AlexaMediaNotificationSensor):
         return (
             dt.as_local(
                 super()._round_time(
-                    datetime.datetime.fromtimestamp(
-                        self._timestamp.timestamp()
-                        + value[self._sensor_property] / 1000
-                    )
+                    self._timestamp
+                    + datetime.timedelta(milliseconds=value[self._sensor_property])
                 )
             ).isoformat()
             if value and self._timestamp

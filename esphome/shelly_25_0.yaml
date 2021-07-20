@@ -20,12 +20,6 @@ wifi:
   ap:
     ssid: "${Name} Fallback Hotspot"
     password: ${FB_PWD}
-#    manual_ip:
-#      static_ip: ${IP_Addr}
-#      gateway: 0.0.0.0
-#      subnet: 255.255.255.0
-#      dns1: 0.0.0.0
-#      dns2: 0.0.0.0
 
 time:
   - platform: homeassistant

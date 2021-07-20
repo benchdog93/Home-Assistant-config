@@ -3,7 +3,7 @@ candles:
   name: Window Candle Lights
   icon: mdi:candle
   entities:
-    - switch.in_wall_outlet_current_value_4
+    - switch.in_wall_tamper_resistant_smart_outlet_3
     - switch.in_wall_outlet_current_value_5
     - switch.in_wall_outlet_current_value_6
     - switch.in_wall_outlet_current_value_7
