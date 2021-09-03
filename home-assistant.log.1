@@ -1,0 +1,1358 @@
+2021-08-24 10:02:20 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration weatherbit which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration average which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_6) [homeassistant.loader] We found a custom integration blitzortung which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_7) [homeassistant.loader] We found a custom integration hpprinter which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_11) [homeassistant.loader] We found a custom integration shelly which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_5) [homeassistant.loader] We found a custom integration alexa_media which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_13) [homeassistant.loader] We found a custom integration ddwrt which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 ERROR (SyncWorker_13) [homeassistant.loader] The custom integration 'ddwrt' does not have a valid version key (None) in the manifest file and was blocked from loading. See https://developers.home-assistant.io/blog/2021/01/29/custom-integration-changes#versions for more details
+2021-08-24 10:02:20 WARNING (SyncWorker_8) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration lovelace_gen which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_12) [homeassistant.loader] We found a custom integration myq which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration nodered which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 ERROR (SyncWorker_1) [homeassistant.loader] The custom integration 'nodered' does not have a valid version key (None) in the manifest file and was blocked from loading. See https://developers.home-assistant.io/blog/2021/01/29/custom-integration-changes#versions for more details
+2021-08-24 10:02:20 WARNING (SyncWorker_14) [homeassistant.loader] We found a custom integration mail_and_packages which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_9) [homeassistant.loader] We found a custom integration alarmo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration clean_up_snapshots_service which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_10) [homeassistant.loader] We found a custom integration media_player_template which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:02:20 WARNING (SyncWorker_15) [homeassistant.loader] We found a custom integration garbage_collection which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-08-24 10:03:09 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'None' has no attribute 'state' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-08-24 10:03:09 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'None' has no attribute 'attributes' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-08-24 10:03:09 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'None' has no attribute 'state' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-08-24 10:03:09 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'None' has no attribute 'attributes' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-08-24 10:03:15 WARNING (SyncWorker_8) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: /custom_components/mail_and_packages/mail_none.gif
+2021-08-24 10:03:15 WARNING (MainThread) [alexapy.alexalogin] No access token found; falling back to credential login instead of oauth.
+2021-08-24 10:03:20 WARNING (MainThread) [homeassistant.setup] Setup of zone is taking over 10 seconds.
+2021-08-24 10:03:21 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Netgear R6400 v2:EWVisualArts' for upnp integration not ready yet: None; Retrying in background
+2021-08-24 10:03:29 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for garage_loft (192.168.1.120): Error connecting to ('192.168.1.120', 6053): [Errno 113] Connect call failed ('192.168.1.120', 6053)
+2021-08-24 10:03:29 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for kitchen_light (192.168.1.173): Error connecting to ('192.168.1.173', 6053): [Errno 113] Connect call failed ('192.168.1.173', 6053)
+2021-08-24 10:03:29 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for kitchen_lights (192.168.1.183): Error connecting to ('192.168.1.183', 6053): [Errno 113] Connect call failed ('192.168.1.183', 6053)
+2021-08-24 10:03:29 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for shelly_duo_2 (192.168.1.153): Error connecting to ('192.168.1.153', 6053): [Errno 113] Connect call failed ('192.168.1.153', 6053)
+2021-08-24 10:03:30 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.ConcentratorInd.Callback(NWK=0x57BB, IEEE=08:6b:d7:ff:fe:6e:62:3f, PktCost=4)
+2021-08-24 10:03:30 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.SrcRtgInd.Callback(DstAddr=0xE3A8, Relays=[0x57BB])
+2021-08-24 10:03:30 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: AF.IncomingMsg.Callback(GroupId=0x0000, ClusterId=1026, SrcAddr=0xE3A8, SrcEndpoint=1, DstEndpoint=1, WasBroadcast=<Bool.false: 0>, LQI=39, SecurityUse=<Bool.false: 0>, TimeStamp=4748205, TSN=0, Data=b'\x08\x28\x0A\x00\x00\x29\x98\x08', MacSrcAddr=0x57BB, MsgResultRadius=28)
+2021-08-24 10:03:30 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.ConcentratorInd.Callback(NWK=0x81E2, IEEE=08:6b:d7:ff:fe:6e:62:1b, PktCost=1)
+2021-08-24 10:03:35 WARNING (MainThread) [zigpy_znp.zigbee.application] Your network is using the insecure Zigbee2MQTT network key!
+2021-08-24 14:25:06 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-24 14:25:06 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-24 14:25:06 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-24 14:25:06 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-24 14:25:06 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-24 14:25:06 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:05:55 ERROR (SyncWorker_6) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f50be8b9910>: Failed to establish a new connection: [Errno -3] Try again'))
+2021-08-24 16:05:56 ERROR (MainThread) [homeassistant.components.upnp] Timeout fetching Netgear R6400 v2:EWVisualArts data
+2021-08-24 16:06:09 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.benchdog93_home_assistant_config_last_build_id is taking over 10 seconds
+2021-08-24 16:06:09 ERROR (SyncWorker_24) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f50b975f130>: Failed to establish a new connection: [Errno -3] Try again'))
+2021-08-24 16:06:22 ERROR (SyncWorker_19) [pyecobee] Error connecting to ecobee while attempting to get thermostats. Possible connectivity outage.
+2021-08-24 16:06:24 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for entryway_light (192.168.1.144): Timeout while connecting to ('192.168.1.144', 6053)
+2021-08-24 16:06:29 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:06:38 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-24 16:06:39 ERROR (MainThread) [homeassistant.components.speedtestdotnet] Error fetching speedtestdotnet data: Unable to connect to servers to test latency.
+2021-08-24 16:06:59 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:07:29 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:07:59 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:08:29 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:32 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:08:59 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:09:01 WARNING (MainThread) [homeassistant.components.version.sensor] Error fetching version information from supervisor Cannot connect to host version.home-assistant.io:443 ssl:default [Try again]
+2021-08-24 16:09:22 ERROR (SyncWorker_19) [pyecobee] Error connecting to ecobee while attempting to get thermostats. Possible connectivity outage.
+2021-08-24 16:09:24 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:24 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:24 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:24 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:24 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:24 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:25 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:25 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-24 16:09:29 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:09:59 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
+2021-08-24 16:10:19 ERROR (SyncWorker_16) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-24 16:10:21 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.benchdog93_home_assistant_config_last_build_id fails
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 445, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 440, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.9/http/client.py", line 1349, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.9/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.9/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 532, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 445, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 440, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.9/http/client.py", line 1349, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.9/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.9/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 446, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 662, in async_device_update
+    await task
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/src/homeassistant/homeassistant/components/travisci/sensor.py", line 153, in update
+    repo = self._data.repo(self._repo_name)
+  File "/usr/local/lib/python3.9/site-packages/travispy/travispy.py", line 269, in repo
+    return Repo.find_one(self._session, id_or_slug)
+  File "/usr/local/lib/python3.9/site-packages/travispy/entities/repo.py", line 72, in find_one
+    result = super(Repo, cls).find_one(session, entity_id, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/travispy/entities/_entity.py", line 85, in find_one
+    response = session.get(
+  File "/usr/local/lib/python3.9/site-packages/requests/sessions.py", line 555, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/requests/sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/requests/sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/requests/adapters.py", line 498, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2021-08-24 16:10:41 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-24 16:10:41 WARNING (SyncWorker_21) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-24 16:10:50 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-24 16:11:03 WARNING (SyncWorker_10) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-24 16:11:08 WARNING (MainThread) [homeassistant.components.websocket_api.http.connection] [139984668092736] Disconnected: Did not receive auth message within 10 seconds
+2021-08-24 16:11:30 WARNING (SyncWorker_19) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-24 16:11:35 WARNING (SyncWorker_13) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-24 16:11:38 WARNING (SyncWorker_23) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-24 16:12:37 WARNING (SyncWorker_19) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-24 16:13:15 WARNING (SyncWorker_21) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-24 16:26:40 ERROR (SyncWorker_25) [custom_components.mail_and_packages.helpers] Network error while connecting to server: [Errno 110] Operation timed out
+2021-08-24 17:32:26 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-24 17:32:26 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-24 17:32:26 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-24 17:32:26 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-24 17:32:26 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-24 21:00:55 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/8ed0c0e0-475d-4399-b367-af1a25e83e14.gif
+2021-08-24 23:48:37 WARNING (MainThread) [zeroconf] Choked at offset 109 while unpacking b'\x00\x00\x84\x00\x00\x00\x00\x04\x00\x00\x00\x01\x00\x00\x0c\x00\x01\x00\x00\x01,\x00\x04\x02\x880\x00\x02\x880\x00\x00!\x80\x01\x00\x00\x01,\x00\x0b\xf3\x08\x80\xef\xf3\t\x03\x81rF\x00\nMyQ-1EB-16\x05local\x00\x00\x01\x80\x01\x00\x00\x01,\x00\x04\xc0\xa8\x01>\x02\x880\x00\x00/\x80\x01\x00\x00\x01,\x00\x0b\x02\x880\x00\x00\x05\x00\x08\x00\x00@'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 111, in __init__
+    self.read_others()
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 178, in read_others
+    domain = self.read_name()
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 268, in read_name
+    self.offset = self._decode_labels_at_offset(self.offset, labels)
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 309, in _decode_labels_at_offset
+    raise IncomingDecodeError("Corrupt packet received while decoding name")
+zeroconf._exceptions.IncomingDecodeError: Corrupt packet received while decoding name
+2021-08-25 01:46:14 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-08-25 04:00:39 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-25 04:10:34 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-25 04:32:44 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-25 04:45:48 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://devices.myq-cloud.com/api/v5.2/Accounts/694b6e64-1ad4-4a31-a8f6-5554fd35c2e4/Devices: [Errno 104] Connection reset by peer
+2021-08-25 05:08:35 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-08-25 05:09:33 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-25 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-08-25 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-08-25 06:26:22 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-25 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-25 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-25 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-25 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-25 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-25 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-25 06:40:26 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-25 07:12:09 ERROR (MainThread) [homeassistant.components.zwave_js] Failed to connect: Cannot connect to host a0d7b954-zwavejs2mqtt:3000 ssl:default [Connect call failed ('172.30.33.0', 3000)]
+2021-08-25 07:12:09 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Z-Wave JS' for zwave_js integration not ready yet: Cannot connect to host a0d7b954-zwavejs2mqtt:3000 ssl:default [Connect call failed ('172.30.33.0', 3000)]; Retrying in background
+2021-08-25 07:21:52 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-25 08:32:29 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-25 08:32:29 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-25 08:32:29 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-25 08:32:29 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-25 08:32:29 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-25 09:59:11 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-25 09:59:11 WARNING (SyncWorker_8) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-25 11:32:31 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-25 11:32:31 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-25 11:32:31 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-25 11:32:31 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-25 11:32:31 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-25 12:20:21 ERROR (MainThread) [homeassistant.components.zwave_js] Failed to connect: Cannot connect to host a0d7b954-zwavejs2mqtt:3000 ssl:default [Connect call failed ('172.30.33.0', 3000)]
+2021-08-25 12:20:21 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Z-Wave JS' for zwave_js integration not ready yet: Cannot connect to host a0d7b954-zwavejs2mqtt:3000 ssl:default [Connect call failed ('172.30.33.0', 3000)]; Retrying in background
+2021-08-25 15:36:14 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.benchdog93_home_assistant_config_last_build_finished_at is taking over 10 seconds
+2021-08-25 18:06:41 ERROR (SyncWorker_10) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 18:06:50 ERROR (SyncWorker_7) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 18:58:46 ERROR (SyncWorker_18) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 18:58:59 ERROR (SyncWorker_15) [homeassistant.components.life360.device_tracker] get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 18:59:14 ERROR (SyncWorker_5) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:06:59 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:06:59 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:07:17 ERROR (SyncWorker_5) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:07:20 ERROR (SyncWorker_8) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:08:00 ERROR (SyncWorker_23) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:08:08 ERROR (SyncWorker_4) [homeassistant.components.life360.device_tracker] get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:08:09 ERROR (SyncWorker_23) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:08:29 ERROR (SyncWorker_9) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": OK again
+2021-08-25 19:08:41 ERROR (SyncWorker_5) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:08:54 ERROR (SyncWorker_21) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:09:57 ERROR (SyncWorker_10) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:09:57 ERROR (SyncWorker_10) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:10:23 ERROR (SyncWorker_15) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:10:30 ERROR (SyncWorker_9) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:10:42 ERROR (SyncWorker_4) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:11:13 ERROR (SyncWorker_21) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:11:20 ERROR (SyncWorker_3) [homeassistant.components.life360.device_tracker] get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:11:54 ERROR (SyncWorker_14) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:12:11 ERROR (SyncWorker_6) [homeassistant.components.life360.device_tracker] get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:12:29 ERROR (SyncWorker_16) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:13:04 ERROR (SyncWorker_9) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:13:18 ERROR (SyncWorker_22) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:13:20 ERROR (SyncWorker_25) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:14:48 ERROR (SyncWorker_3) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:15:05 ERROR (SyncWorker_21) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:15:18 ERROR (SyncWorker_19) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:15:59 ERROR (SyncWorker_19) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:16:18 ERROR (SyncWorker_10) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:16:30 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:17:14 ERROR (SyncWorker_22) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:17:20 ERROR (SyncWorker_13) [homeassistant.components.life360.device_tracker] get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:17:41 ERROR (SyncWorker_8) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:18:25 ERROR (SyncWorker_18) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:18:42 ERROR (SyncWorker_8) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:18:54 ERROR (SyncWorker_14) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:19:32 ERROR (SyncWorker_22) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:19:54 ERROR (SyncWorker_7) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:20:03 ERROR (SyncWorker_6) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 502 Server Error: Bad Gateway for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:20:35 ERROR (SyncWorker_6) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-25 19:20:54 ERROR (SyncWorker_15) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
+2021-08-25 19:21:11 ERROR (SyncWorker_13) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": OK again
+2021-08-25 19:30:28 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/f31c0ecf-59af-470b-a8bf-7f2fcb940c73.gif
+2021-08-25 19:32:08 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:36:44 ERROR (SyncWorker_17) [homeassistant.components.life360.device_tracker] get_circles: CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:38:56 ERROR (SyncWorker_12) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:41:09 ERROR (SyncWorker_14) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:43:44 ERROR (SyncWorker_18) [homeassistant.components.life360.device_tracker] get_circles: CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:44:20 ERROR (SyncWorker_15) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:46:56 ERROR (SyncWorker_10) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:48:56 ERROR (SyncWorker_18) [homeassistant.components.life360.device_tracker] get_circles: CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles.json
+2021-08-25 19:55:20 ERROR (SyncWorker_1) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-25 19:59:45 ERROR (SyncWorker_2) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 500 Server Error: Internal Server Error for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-08-26 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-08-26 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-08-26 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-26 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-26 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-26 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-26 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-26 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-26 08:42:25 ERROR (MainThread) [homeassistant] Error doing job: Fatal error: protocol.eof_received() call failed.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/asyncio/selector_events.py", line 882, in _read_ready__on_eof
+    keep_open = self._protocol.eof_received()
+  File "/usr/local/lib/python3.9/site-packages/aiohomekit/controller/ip/connection.py", line 112, in eof_received
+    self.close()
+  File "/usr/local/lib/python3.9/site-packages/aiohomekit/controller/ip/connection.py", line 120, in close
+    result.set_exception(AccessoryDisconnectedError("Connection closed"))
+asyncio.exceptions.InvalidStateError: invalid state
+2021-08-26 10:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-26 10:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-26 10:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-26 10:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-26 10:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-26 11:39:32 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/610107ce-b3b4-4f19-a71d-ad70360500bd.gif
+2021-08-26 13:06:59 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-26 13:06:59 WARNING (SyncWorker_22) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-26 14:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-26 14:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-26 14:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-26 14:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-26 14:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-26 14:22:54 ERROR (SyncWorker_9) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f503ee55700>: Failed to establish a new connection: [Errno -3] Try again'))
+2021-08-26 14:23:08 ERROR (SyncWorker_5) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f50b663ea30>: Failed to establish a new connection: [Errno -3] Try again'))
+2021-08-26 14:23:14 ERROR (SyncWorker_12) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-26 18:08:33 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/610107ce-b3b4-4f19-a71d-ad70360500bd.gif
+2021-08-26 19:53:57 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 19:54:44 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:08:05 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:11:19 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:12:13 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:16:32 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:18:24 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:22:40 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:36:02 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:38:12 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:43:50 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:48:47 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:55:43 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 20:56:30 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:01:15 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:07:35 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-26 21:16:56 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:18:33 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:27:27 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 422, in _handle_request
+    resp = await self._request_handler(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_app.py", line 468, in _handle
+    match_info = await self._router.resolve(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_urldispatcher.py", line 1004, in resolve
+    match_dict, allowed = await resource.resolve(request)
+  File "/usr/src/homeassistant/homeassistant/components/frontend/__init__.py", line 543, in resolve
+    and request.url.parts[1] not in self.hass.data[DATA_PANELS]
+IndexError: tuple index out of range
+2021-08-26 21:27:33 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/610107ce-b3b4-4f19-a71d-ad70360500bd.gif
+2021-08-26 21:29:48 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:31:06 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:33:15 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:34:38 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-26 21:39:47 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-27 04:07:18 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-27 04:25:44 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-27 04:53:04 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-08-27 04:57:00 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-27 04:57:00 WARNING (SyncWorker_8) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-27 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-08-27 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-08-27 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-27 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-27 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-27 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-27 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-27 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-27 09:50:51 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-27 09:50:51 WARNING (SyncWorker_16) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-27 11:11:47 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-27 11:46:52 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-27 11:46:52 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-27 11:46:52 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-27 11:46:52 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-27 11:46:52 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-27 11:46:52 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-27 12:02:04 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-27 13:14:14 ERROR (MainThread) [custom_components.hacs] PTST/O365-HomeAssistant - Repository is archived.
+2021-08-27 15:52:51 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-27 16:32:07 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-27 16:32:07 WARNING (SyncWorker_10) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-27 17:58:50 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-27 18:38:55 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-27 18:38:55 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-27 18:38:55 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-27 18:38:55 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-27 18:38:55 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-27 18:38:55 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-27 21:28:08 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/610107ce-b3b4-4f19-a71d-ad70360500bd.gif
+2021-08-28 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-08-28 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-08-28 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-28 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-28 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-28 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-28 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-28 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-28 14:05:44 ERROR (MainThread) [custom_components.hacs] <Integration reharmsen/hass-youless-component> GitHub returned 404 for https://api.github.com/repos/reharmsen/hass-youless-component
+2021-08-28 14:05:44 ERROR (MainThread) [custom_components.hacs] reharmsen/hass-youless-component - GitHub returned 404 for https://api.github.com/repos/reharmsen/hass-youless-component
+2021-08-28 17:12:01 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-28 17:12:01 WARNING (SyncWorker_25) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-28 20:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-28 20:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-28 20:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-28 20:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-28 20:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-29 02:02:28 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://devices.myq-cloud.com/api/v5.2/Accounts/694b6e64-1ad4-4a31-a8f6-5554fd35c2e4/Devices: 503 - Service Unavailable
+2021-08-29 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-08-29 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-08-29 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-29 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-29 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-29 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-29 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-29 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-29 12:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-29 12:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-29 12:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-29 12:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-29 12:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-29 13:53:30 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-29 13:53:30 WARNING (SyncWorker_8) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-29 15:14:23 ERROR (MainThread) [custom_components.hacs] <Integration reharmsen/hass-youless-component> GitHub returned 404 for https://api.github.com/repos/reharmsen/hass-youless-component
+2021-08-29 15:14:23 ERROR (MainThread) [custom_components.hacs] reharmsen/hass-youless-component - GitHub returned 404 for https://api.github.com/repos/reharmsen/hass-youless-component
+2021-08-29 18:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-29 18:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-29 18:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-29 18:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-29 18:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-29 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-29 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-29 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-29 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-29 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-30 00:19:00 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-30 05:31:38 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-08-30 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-08-30 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-08-30 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-30 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-30 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-30 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-30 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-30 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-30 14:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-30 14:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-30 14:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-30 14:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-30 14:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-30 16:51:38 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 16:58:27 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:04:30 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:09:09 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:14:20 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:18:22 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:26:55 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:35:15 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:36:02 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:38:29 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:43:42 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:52:34 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 17:55:24 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:00:04 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:03:42 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:05:00 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:14:20 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:20:15 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:23:40 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:26:12 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:27:38 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:29:25 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:30:51 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:32:29 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:35:51 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:43:38 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-30 18:44:28 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:48:40 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:58:01 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 18:59:22 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:18:12 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:23:55 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:32:41 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:37:27 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:38:28 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:45:06 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-30 19:47:53 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:51:54 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:54:10 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 19:55:29 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:05:34 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:10:10 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:11:01 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:12:43 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:19:26 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:22:57 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:28:55 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-30 20:31:53 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:32:44 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:37:52 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:39:17 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:42:22 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:49:26 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:53:22 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:54:25 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 20:59:54 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:04:10 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:05:34 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.latest_version is taking over 10 seconds
+2021-08-30 21:05:34 WARNING (MainThread) [homeassistant.components.version.sensor] Timeout of 10 seconds was reached while fetching version for supervisor
+2021-08-30 21:09:58 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:12:20 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:13:10 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:17:04 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:20:55 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:28:11 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:31:03 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:38:30 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:39:52 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:40:57 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:42:34 WARNING (SyncWorker_21) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: /config/custom_components/mail_and_packages/images/3af177a6-9243-47ef-a318-13eae709f1f3.gif
+2021-08-30 21:44:52 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 21:45:39 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-30 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-30 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-30 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-30 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-30 22:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-31 03:16:21 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/2ae37b1b-9a9e-4741-94b1-f856d67fc8ff.gif
+2021-08-31 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-08-31 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-08-31 06:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-31 06:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-31 06:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-31 06:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-31 06:03:59 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-31 06:29:45 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://devices.myq-cloud.com/api/v5.2/Accounts/694b6e64-1ad4-4a31-a8f6-5554fd35c2e4/Devices: [Errno 104] Connection reset by peer
+2021-08-31 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-31 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-31 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-31 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-31 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-31 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-31 06:50:34 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-31 06:51:26 ERROR (SyncWorker_3) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
+2021-08-31 06:51:47 ERROR (SyncWorker_2) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
+2021-08-31 06:51:59 ERROR (SyncWorker_10) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
+2021-08-31 06:52:11 ERROR (SyncWorker_5) [homeassistant.components.life360.device_tracker] get_circles: OK again
+2021-08-31 07:00:59 ERROR (SyncWorker_1) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
+2021-08-31 07:33:01 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-08-31 07:59:02 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-08-31 07:59:02 WARNING (SyncWorker_23) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-31 08:03:37 WARNING (SyncWorker_9) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-08-31 10:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
+2021-08-31 10:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
+2021-08-31 10:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
+2021-08-31 10:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
+2021-08-31 10:03:41 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
+2021-08-31 12:13:02 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-31 12:13:02 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-31 12:13:02 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-31 12:13:02 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-31 12:13:02 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-31 12:13:02 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-31 12:33:21 ERROR (MainThread) [homeassistant.components.openweathermap.weather_update_coordinator] Error fetching openweathermap data: HTTPSConnectionPool(host='api.openweathermap.org', port=443): Max retries exceeded with url: /data/2.5/onecall?APPID=d8e627e727e3af13fdea3ae64c6e2197&lang=en&lon=-75.2242556&lat=43.3529213 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+2021-08-31 13:27:27 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-08-31 13:27:27 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-08-31 13:27:27 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-08-31 13:27:27 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-31 13:27:27 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-08-31 13:27:27 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-08-31 14:55:07 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.living_room_temperature is taking over 10 seconds
+2021-08-31 14:55:27 WARNING (MainThread) [homeassistant.components.sensor] Updating ecobee sensor took longer than the scheduled update interval 0:00:30
+2021-08-31 14:55:28 ERROR (SyncWorker_26) [pyecobee] Connection to ecobee timed out while attempting to refresh tokens. Possible connectivity outage.
+2021-08-31 14:55:28 ERROR (MainThread) [homeassistant.components.ecobee] Error refreshing ecobee tokens
+2021-08-31 17:10:27 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:12:50 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:21:10 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:23:50 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:27:38 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:29:45 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:33:00 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:34:07 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:40:01 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 17:49:05 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-31 17:56:28 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:04:34 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-31 18:11:24 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:13:32 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:14:22 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:16:53 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:18:53 ERROR (MainThread) [homeassistant] Error doing job: Fatal error: protocol.eof_received() call failed.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/asyncio/selector_events.py", line 882, in _read_ready__on_eof
+    keep_open = self._protocol.eof_received()
+  File "/usr/local/lib/python3.9/site-packages/aiohomekit/controller/ip/connection.py", line 112, in eof_received
+    self.close()
+  File "/usr/local/lib/python3.9/site-packages/aiohomekit/controller/ip/connection.py", line 120, in close
+    result.set_exception(AccessoryDisconnectedError("Connection closed"))
+asyncio.exceptions.InvalidStateError: invalid state
+2021-08-31 18:20:44 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:22:20 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:30:46 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:33:47 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:37:01 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:45:53 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 18:57:46 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 19:05:35 ERROR (MainThread) [custom_components.myq] Timeout fetching myq devices data
+2021-08-31 20:11:19 ERROR (MainThread) [custom_components.myq] Error fetching myq devices data: Error requesting data from https://accounts.myq-cloud.com/api/v6.0/accounts: [Errno 104] Connection reset by peer
+2021-08-31 20:37:53 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for entryway_light (192.168.1.144): Timeout while connecting to ('192.168.1.144', 6053)
+2021-08-31 20:43:40 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for entryway_light (192.168.1.144): Timeout while waiting for API response!
+2021-08-31 20:44:20 WARNING (MainThread) [homeassistant.components.esphome] Error getting initial data for 192.168.1.144: Timeout while waiting for API response!
+2021-08-31 20:44:55 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for entryway_light (192.168.1.144): Timeout while connecting to ('192.168.1.144', 6053)
+2021-08-31 20:45:07 WARNING (MainThread) [homeassistant.components.esphome] Error getting initial data for 192.168.1.144: Timeout while waiting for API response!
+2021-08-31 20:45:42 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for entryway_light (192.168.1.144): Timeout while connecting to ('192.168.1.144', 6053)
+2021-09-01 02:18:28 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:29 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:29 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:29 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:33 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:34 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:34 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:34 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:38 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:43 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:58 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:59 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:59 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:18:59 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:13 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:14 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:14 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:14 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:43 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:19:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:20:43 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:20:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:20:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:20:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:21:43 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:21:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:21:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:21:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:23:43 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:23:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:23:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:23:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:26:43 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:26:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:26:44 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 02:26:45 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /snapshots/new/full request
+2021-09-01 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Hass.io API: 
+2021-09-01 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
+2021-09-01 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
+2021-09-01 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
+2021-09-01 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-09-01 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
+2021-09-01 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
+2021-09-01 06:48:26 ERROR (SyncWorker_24) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
+2021-09-01 07:01:24 ERROR (SyncWorker_8) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
+2021-09-01 07:35:28 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-09-01 07:35:34 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadHttpMessage: 400, message='invalid constant string'
+2021-09-01 07:35:37 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:35:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:35:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:35:41 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:35:42 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:35:43 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:35:54 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.InvalidURLError: 400, message='invalid URL'
+2021-09-01 07:36:56 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:37:08 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:37:09 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 422, in _handle_request
+    resp = await self._request_handler(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_app.py", line 468, in _handle
+    match_info = await self._router.resolve(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_urldispatcher.py", line 1004, in resolve
+    match_dict, allowed = await resource.resolve(request)
+  File "/usr/src/homeassistant/homeassistant/components/frontend/__init__.py", line 543, in resolve
+    and request.url.parts[1] not in self.hass.data[DATA_PANELS]
+IndexError: tuple index out of range
+2021-09-01 07:37:29 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
+2021-09-01 07:37:30 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 422, in _handle_request
+    resp = await self._request_handler(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_app.py", line 468, in _handle
+    match_info = await self._router.resolve(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_urldispatcher.py", line 1004, in resolve
+    match_dict, allowed = await resource.resolve(request)
+  File "/usr/src/homeassistant/homeassistant/components/frontend/__init__.py", line 543, in resolve
+    and request.url.parts[1] not in self.hass.data[DATA_PANELS]
+IndexError: tuple index out of range
+2021-09-01 07:37:38 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 422, in _handle_request
+    resp = await self._request_handler(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_app.py", line 468, in _handle
+    match_info = await self._router.resolve(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_urldispatcher.py", line 1004, in resolve
+    match_dict, allowed = await resource.resolve(request)
+  File "/usr/src/homeassistant/homeassistant/components/frontend/__init__.py", line 543, in resolve
+    and request.url.parts[1] not in self.hass.data[DATA_PANELS]
+IndexError: tuple index out of range
+2021-09-01 08:55:49 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
+2021-09-01 08:55:49 WARNING (SyncWorker_26) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
+2021-09-01 11:37:12 ERROR (MainThread) [homeassistant.components.hassio.handler] Client error on /supervisor/info request Cannot connect to host 172.30.32.2:80 ssl:default [Connect call failed ('172.30.32.2', 80)]
+2021-09-01 11:37:12 ERROR (MainThread) [homeassistant.components.hassio] Failed to to call /supervisor/info - 
+2021-09-01 11:37:57 ERROR (SyncWorker_25) [homeassistant.components.command_line] Command failed: curl http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq '{"newest_version":.data.version_latest,"current_version":.data.version,"update_available":.data.update_available,"addons":[.data.addons[] | select(.update_available)]}'
+2021-09-01 11:37:57 WARNING (SyncWorker_25) [homeassistant.components.command_line.sensor] Empty reply found when expecting JSON data
+2021-09-01 11:37:57 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:37:57 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:06 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:06 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:20 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:20 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:23 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:23 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:32 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:38:32 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'addons' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
+
+> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
+> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
+> {% endfor %}
+
+<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
+
+> {% for repo in states.sensor.hacs.attributes.repositories %}
+>  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
+> {% endfor %}'
+2021-09-01 11:56:26 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/2ae37b1b-9a9e-4741-94b1-f856d67fc8ff.gif
+2021-09-01 12:20:34 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-09-01 13:01:37 ERROR (MainThread) [homeassistant.components.uptimerobot.binary_sensor] Error fetching uptimerobot data: Error communicating with Uptime Robot API
+2021-09-01 13:44:26 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/2ae37b1b-9a9e-4741-94b1-f856d67fc8ff.gif
+2021-09-01 18:54:02 ERROR (MainThread) [homeassistant.components.hassio.handler] Client error on /core/update request Server disconnected
+2021-09-01 18:54:02 ERROR (MainThread) [homeassistant.components.hassio] Failed to to call /core/update - 
+2021-09-01 18:54:02 WARNING (Thread-30965) [homeassistant.util.executor] Thread[SyncWorker_18] is still running at shutdown: File "/usr/local/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/local/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 77, in _worker
+    work_item.run()
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 115, in process_emails
+    selectfolder(account, folder)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 377, in selectfolder
+    account.select(folder)
+  File "/usr/local/lib/python3.9/imaplib.py", line 756, in select
+    typ, dat = self._simple_command(name, mailbox)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1230, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+  File "/usr/local/lib/python3.9/imaplib.py", line 1047, in _command_complete
+    typ, data = self._get_tagged_response(tag, expect_bye=logout)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1173, in _get_tagged_response
+    self._get_response()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1075, in _get_response
+    resp = self._get_line()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1183, in _get_line
+    line = self.readline()
+  File "/usr/local/lib/python3.9/imaplib.py", line 323, in readline
+    line = self.file.readline(_MAXLINE + 1)
+  File "/usr/local/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+2021-09-01 18:54:03 WARNING (Thread-30965) [homeassistant.util.executor] Thread[SyncWorker_18] is still running at shutdown: File "/usr/local/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/local/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 77, in _worker
+    work_item.run()
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 115, in process_emails
+    selectfolder(account, folder)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 377, in selectfolder
+    account.select(folder)
+  File "/usr/local/lib/python3.9/imaplib.py", line 756, in select
+    typ, dat = self._simple_command(name, mailbox)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1230, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+  File "/usr/local/lib/python3.9/imaplib.py", line 1047, in _command_complete
+    typ, data = self._get_tagged_response(tag, expect_bye=logout)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1173, in _get_tagged_response
+    self._get_response()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1075, in _get_response
+    resp = self._get_line()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1183, in _get_line
+    line = self.readline()
+  File "/usr/local/lib/python3.9/imaplib.py", line 323, in readline
+    line = self.file.readline(_MAXLINE + 1)
+  File "/usr/local/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+2021-09-01 18:54:04 ERROR (MainThread) [custom_components.myq] Unexpected error fetching myq devices data: Session is closed
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 187, in _async_refresh
+    self.data = await self._async_update_data()
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 147, in _async_update_data
+    return await self.update_method()
+  File "/config/custom_components/myq/__init__.py", line 37, in async_update_data
+    return await myq.update_device_info()
+  File "/usr/local/lib/python3.9/site-packages/pymyq/api.py", line 544, in update_device_info
+    accounts = await self._get_accounts()
+  File "/usr/local/lib/python3.9/site-packages/pymyq/api.py", line 511, in _get_accounts
+    _, accounts_resp = await self.request(
+  File "/usr/local/lib/python3.9/site-packages/pymyq/api.py", line 250, in request
+    return await call_method(
+  File "/usr/local/lib/python3.9/site-packages/pymyq/request.py", line 228, in request_json
+    resp = await self._send_request(
+  File "/usr/local/lib/python3.9/site-packages/pymyq/request.py", line 136, in _send_request
+    resp = await websession.request(
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/client.py", line 381, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2021-09-01 18:54:04 ERROR (MainThread) [homeassistant.components.upnp] Unexpected error fetching Netgear R6400 v2:EWVisualArts data: Session is closed
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 187, in _async_refresh
+    self.data = await self._async_update_data()
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 147, in _async_update_data
+    return await self.update_method()
+  File "/usr/src/homeassistant/homeassistant/components/upnp/device.py", line 188, in async_get_traffic_data
+    values = await asyncio.gather(
+  File "/usr/local/lib/python3.9/site-packages/async_upnp_client/profiles/igd.py", line 93, in async_get_total_bytes_received
+    result = await action.async_call()
+  File "/usr/local/lib/python3.9/site-packages/async_upnp_client/client.py", line 545, in async_call
+    ) = await self.service.requester.async_http_request("POST", url, headers, body)
+  File "/usr/local/lib/python3.9/site-packages/async_upnp_client/client.py", line 81, in async_http_request
+    ) = await self.async_do_http_request(
+  File "/usr/local/lib/python3.9/site-packages/async_upnp_client/aiohttp.py", line 125, in async_do_http_request
+    async with self._session.request(
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/client.py", line 1117, in __aenter__
+    self._resp = await self._coro
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/client.py", line 381, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2021-09-01 18:54:06 ERROR (MainThread) [homeassistant] Error doing job: Exception in callback async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...7f50b9133040>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1176
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/src/homeassistant/homeassistant/helpers/event.py", line 1195, in run_action
+    hass.async_run_hass_job(job, utc_point_in_time)
+  File "/usr/src/homeassistant/homeassistant/core.py", line 432, in async_run_hass_job
+    hassjob.target(*args)
+  File "/usr/src/homeassistant/homeassistant/helpers/event.py", line 1255, in interval_listener
+    hass.async_run_hass_job(job, now)
+  File "/usr/src/homeassistant/homeassistant/core.py", line 435, in async_run_hass_job
+    return self.async_add_hass_job(hassjob, *args)
+  File "/usr/src/homeassistant/homeassistant/core.py", line 367, in async_add_hass_job
+    task = self.loop.run_in_executor(  # type: ignore
+  File "/usr/local/lib/python3.9/asyncio/base_events.py", line 807, in run_in_executor
+    self._check_default_executor()
+  File "/usr/local/lib/python3.9/asyncio/base_events.py", line 514, in _check_default_executor
+    raise RuntimeError('Executor shutdown has been called')
+RuntimeError: Executor shutdown has been called
+2021-09-01 18:54:12 WARNING (MainThread) [homeassistant.util.executor] Thread[SyncWorker_18] is still running at shutdown: File "/usr/local/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/local/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 77, in _worker
+    work_item.run()
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 115, in process_emails
+    selectfolder(account, folder)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 377, in selectfolder
+    account.select(folder)
+  File "/usr/local/lib/python3.9/imaplib.py", line 756, in select
+    typ, dat = self._simple_command(name, mailbox)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1230, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+  File "/usr/local/lib/python3.9/imaplib.py", line 1047, in _command_complete
+    typ, data = self._get_tagged_response(tag, expect_bye=logout)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1173, in _get_tagged_response
+    self._get_response()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1075, in _get_response
+    resp = self._get_line()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1183, in _get_line
+    line = self.readline()
+  File "/usr/local/lib/python3.9/imaplib.py", line 323, in readline
+    line = self.file.readline(_MAXLINE + 1)
+  File "/usr/local/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+2021-09-01 18:54:13 WARNING (MainThread) [homeassistant.util.executor] Thread[SyncWorker_18] is still running at shutdown: File "/usr/local/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/local/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 77, in _worker
+    work_item.run()
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 115, in process_emails
+    selectfolder(account, folder)
+  File "/config/custom_components/mail_and_packages/helpers.py", line 377, in selectfolder
+    account.select(folder)
+  File "/usr/local/lib/python3.9/imaplib.py", line 756, in select
+    typ, dat = self._simple_command(name, mailbox)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1230, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+  File "/usr/local/lib/python3.9/imaplib.py", line 1047, in _command_complete
+    typ, data = self._get_tagged_response(tag, expect_bye=logout)
+  File "/usr/local/lib/python3.9/imaplib.py", line 1173, in _get_tagged_response
+    self._get_response()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1075, in _get_response
+    resp = self._get_line()
+  File "/usr/local/lib/python3.9/imaplib.py", line 1183, in _get_line
+    line = self.readline()
+  File "/usr/local/lib/python3.9/imaplib.py", line 323, in readline
+    line = self.file.readline(_MAXLINE + 1)
+  File "/usr/local/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
