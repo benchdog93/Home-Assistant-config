@@ -6,4 +6,4 @@ alexa_media:
       url: amazon.com
 notify:
   - platform: alexa_media
-    name: alexa_media
+    name: Alexa Media 
