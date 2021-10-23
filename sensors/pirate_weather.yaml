@@ -1,0 +1,22 @@
+platform: pirateweather
+api_key: !secret privateweather
+scan_interval: '00:15:00'
+forecast:
+  - 0
+monitored_conditions:
+  - daily_summary 
+  - icon 
+  - temperature
+  - apparent_temperature
+  - dew_point
+  - precip_probability
+  - precip_type
+  - precip_intensity
+  - precip_accumulation
+  - humidity
+  - cloud_cover
+  - nearest_storm_distance
+  - nearest_storm_bearing 
+  - wind_speed
+  - wind_gust
+  - wind_bearing

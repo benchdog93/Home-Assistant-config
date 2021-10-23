@@ -12,3 +12,7 @@ interior_lights:
     - switch.z_wave_plus_on_off_toggle_switch_v4
     - light.shelly_shbduo_1_d0cd10
     - light.shelly_shbduo_1_d1225f
+    - light.kitchen_light_2
+    - switch.counter_lights_relay
+    - switch.sink_light_relay_2
+    - switch.cabinet_lights_relay_2

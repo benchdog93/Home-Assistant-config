@@ -127,7 +127,7 @@ class AutomationHandler:
             async_dispatcher_connect(self.hass, "alarmo_event", async_handle_event)
         )
 
-    async def __del__(self):
+    def __del__(self):
         """prepare for removal"""
         while len(self._subscriptions):
             self._subscriptions.pop()()
@@ -165,7 +165,7 @@ class AutomationHandler:
                     bypassed_sensors = ""
                     if alarm_entity.bypassed_sensors and len(alarm_entity.bypassed_sensors):
                         parts = []
-                        for entity_id in alarm_entity.sensors.bypassed_sensors:
+                        for entity_id in alarm_entity.bypassed_sensors:
                             name = friendly_name_for_entity_id(entity_id, self.hass)
                             parts.append(name)
                         bypassed_sensors = ", ".join(parts)

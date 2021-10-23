@@ -6,3 +6,4 @@ all_lights:
     - group.back_outside
     - group.frt_outside
     - group.interior_lights
+    - group.garage_lights

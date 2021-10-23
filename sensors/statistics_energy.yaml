@@ -1,0 +1,15 @@
+platform: statistics
+entity_id: sensor.cabinet_lights_consumption
+name: Cabinet Lights
+
+platform: statistics
+entity_id: sensor.desktop_circuit_consumption
+name: Desktop Circuit
+
+platform: statistics
+entity_id: sensor.ewva_circuit_consumption
+name: EWVA Circuit
+
+platform: statistics
+entity_id: sensor.sink_light_consumption
+name: Sink Light

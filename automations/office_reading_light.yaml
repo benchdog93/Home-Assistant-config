@@ -1,0 +1,10 @@
+alias: office reading light
+description: ''
+use_blueprint:
+  path: denperss/SNZB-01.yaml
+  input:
+    remote: 7da3e11ed5cf669198b37ebda46b7a0e
+    single_press:
+    - service: light.toggle
+      target:
+        device_id: 5e9b64594060bb2fdff9e3a85a548f79

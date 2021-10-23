@@ -1,7 +1,0 @@
-
-platform: template
-sensors:
-  garmin_sleep_time_hrs:
-    friendly_name: Sleep Time Hrs
-    unit_of_measurement: 'hrs'
-    value_template: "{{ (states('sensor.sleeping_time') | float / 60) | round(2) }}"

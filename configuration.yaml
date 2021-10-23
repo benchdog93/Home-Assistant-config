@@ -42,11 +42,19 @@ config:
 sun:
 wake_on_lan:
 history:
+my:
+energy:
 
 camera:
     - platform: local_file
       file_path: /custom_components/mail_and_packages/mail_none.gif
       name: mail_usps
 
-
-
+weather:
+  - platform: pirateweather
+    api_key: !secret privateweather
+    # Additional optional values:
+    latitude: !secret lat
+    longitude: !secret long 
+    mode: "hourly" 
+    name: Pirate Weather 

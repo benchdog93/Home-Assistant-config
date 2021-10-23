@@ -1,0 +1,208 @@
+substitutions:
+  device: aerator
+  Name: Aerator
+  channel_1: NA
+  channel_2: Pond Aerator
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+  IP_Addr: 192.168.1.185
+  max_power: "2000.0"
+  max_temp: "176.0"
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: ${SSID}
+  password: ${SSID_PWD}
+  manual_ip:
+    static_ip: ${IP_Addr}
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    dns1: 192.168.1.1
+  ap:
+    ssid: "${Name} Fallback Hotspot"
+    password: ${FB_PWD}
+
+captive_portal:
+
+web_server:
+  port: 80
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+logger:
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}
+
+i2c:
+  sda: GPIO12
+  scl: GPIO14
+
+sensor:
+  - platform: wifi_signal
+    name: "${Name} WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: ${Name} Uptime
+
+  - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
+
+    voltage:
+      name: ${Name} Voltage
+    current_a:
+      name: ${channel_2} Current
+      #internal: true
+      id: current_channel_2
+    current_b:
+      name: ${channel_1} Current
+      #internal: true
+      id: current_channel_1
+    active_power_a:
+      name: ${channel_2} Power
+      id: power_channel_2
+      # active_power_a is normal, so don't multiply by -1
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - switch.turn_off: shelly_relay_2
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: Message from ${Name}
+                data_template:
+                  message: Switch turned off because power exceeded ${max_power}W
+    active_power_b:
+      name: ${channel_1} power
+      id: power_channel_1
+      # active_power_b is inverted, so multiply by -1
+      filters:
+        - multiply: -1
+      on_value_range:
+        - above: ${max_power}
+          then:
+            - switch.turn_off: shelly_relay_1
+            - homeassistant.service:
+                service: persistent_notification.create
+                data:
+                  title: Message from ${Name}
+                data_template:
+                  message: Switch turned off because power exceeded ${max_power}W
+    update_interval: 10s
+
+  - platform: total_daily_energy
+    name: ${channel_1} Daily Energy
+    power_id: power_channel_1
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kW
+
+  - platform: total_daily_energy
+    name: ${channel_2} Daily Energy
+    power_id: power_channel_2
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kW
+
+  # NTC Temperature
+  - platform: ntc
+    sensor: temp_resistance_reading
+    filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+    name: ${Name} Temperature
+    unit_of_measurement: "°F"
+    accuracy_decimals: 1
+    icon: "mdi:thermometer"
+    calibration:
+      b_constant: 3350
+      reference_resistance: 10kOhm
+      reference_temperature: 298.15K
+    on_value_range:
+      - above: ${max_temp}
+        then:
+          - switch.turn_off: shelly_relay_1
+          - switch.turn_off: shelly_relay_2
+          - homeassistant.service:
+              service: persistent_notification.create
+              data:
+                title: Message from ${Name}
+              data_template:
+                message: Switch turned off because temperature exceeded ${max_temp}°F
+
+  - platform: resistance
+    id: temp_resistance_reading
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 32kOhm
+
+  - platform: adc
+    id: temp_analog_reading
+    pin: A0
+    update_interval: 10s
+
+binary_sensor:
+  - platform: status
+    name: "${Name} Status"
+
+  - platform: gpio
+    pin:
+      number: GPIO13
+    name: "${channel_1} Input"
+    on_state:
+      then:
+        - switch.toggle: shelly_relay_1
+
+  - platform: gpio
+    pin:
+      number: GPIO5
+    name: "${channel_2} Input"
+    on_state:
+      then:
+        - switch.toggle: shelly_relay_2
+
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: ${Name} ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: ${Name} IP
+    ssid:
+      name: ${Name} SSID
+    bssid:
+      name: ${Name} BSSID
+
+status_led:
+  pin:
+    number: GPIO0
+    inverted: yes
+
+switch:
+  - platform: gpio
+    id: shelly_relay_1
+    name: ${channel_1} Relay
+    pin: GPIO4
+    icon: "mdi:electric-switch"
+    restore_mode: restore_default_OFF
+
+  - platform: gpio
+    id: shelly_relay_2
+    name: ${channel_2} Relay
+    pin: GPIO15
+    icon: "mdi:electric-switch"
+    restore_mode: RESTORE_DEFAULT_OFF

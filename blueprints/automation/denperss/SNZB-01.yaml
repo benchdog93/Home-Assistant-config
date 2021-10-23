@@ -1,0 +1,63 @@
+blueprint:
+  name: ZHA - Sonoff SNZB-01
+  description: 'Perform actions with the Sonoff SNZB-01 Button.
+
+    You can set functions for single press, double press and hold. This allows you
+    to assign, e.g., a scene or anything else.'
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      description: Sonoff Button to use
+      selector:
+        device:
+          integration: zha
+          manufacturer: eWeLink
+          model: WB01
+    single_press:
+      name: Single press
+      description: Action to run on single press
+      default: []
+      selector:
+        action: {}
+    double_press:
+      name: Double press
+      description: Action to run on double press
+      default: []
+      selector:
+        action: {}
+    hold:
+      name: Hold
+      description: Action to run on hold
+      default: []
+      selector:
+        action: {}
+  source_url: https://gist.github.com/denperss/1641d14d5415ae932b79b199775f2d65
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: event
+  event_type: zha_event
+  event_data:
+    device_id: !input 'remote'
+action:
+- variables:
+    command: '{{ trigger.event.data.command }}'
+    cluster_id: '{{ trigger.event.data.cluster_id }}'
+    endpoint_id: '{{ trigger.event.data.endpoint_id }}'
+- choose:
+  - conditions:
+    - '{{ command == "toggle" }}'
+    - '{{ cluster_id == 6 }}'
+    - '{{ endpoint_id == 1 }}'
+    sequence: !input 'single_press'
+  - conditions:
+    - '{{ command == "on" }}'
+    - '{{ cluster_id == 6 }}'
+    - '{{ endpoint_id == 1 }}'
+    sequence: !input 'double_press'
+  - conditions:
+    - '{{ command == "off" }}'
+    - '{{ cluster_id == 6 }}'
+    - '{{ endpoint_id == 1 }}'
+    sequence: !input 'hold'

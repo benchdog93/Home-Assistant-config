@@ -1,0 +1,14 @@
+sensor.cabinet_lights_daily_energy:
+  device_class: power
+sensor.sink_light_daily_energy:
+  device_class: power
+sensor.master_bath_fan_daily_energy:
+  device_class: power
+sensor.master_bath_light_daily_energy:
+  device_class: power
+sensor.pond_aerator_daily_energy:
+  device_class: power
+sensor.washing_machine_daily_energy:
+  device_class: power
+sensor.cloths_dryer_daily_energy:
+  device_class: power

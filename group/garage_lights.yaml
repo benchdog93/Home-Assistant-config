@@ -1,0 +1,7 @@
+garage_lights:
+  name: Garage Lights
+  icon: mdi:lightbulb-group-outline
+  entities:
+    - switch.z_wave_plus_on_off_toggle_switch_v4
+    - switch.garage_loft_stairway_lights_2
+    - switch.garage_loft_lights_2

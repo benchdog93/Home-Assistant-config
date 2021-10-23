@@ -1,0 +1,10 @@
+alias: counter light
+description: ''
+use_blueprint:
+  path: denperss/SNZB-01.yaml
+  input:
+    remote: 072d33ef5eb5d115bf63e1a66693a65f
+    single_press:
+    - service: switch.toggle
+      target:
+        device_id: 06551beb38035dd49ecf302bec06e95d

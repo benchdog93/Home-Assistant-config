@@ -1,11 +1,11 @@
 substitutions:
-  device: garage_loft
-  Name: Garage Loft
+  device: office-picture-lights
+  Name: Office Picture Lights
   SSID: !secret wifi_iot_ssid
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-  IP_Addr: 192.168.30.32
+  IP_Addr: 192.168.1.120
 
 esphome:
   name: ${device}
@@ -15,21 +15,23 @@ esphome:
 wifi:
   ssid: ${SSID}
   password: ${SSID_PWD}
+  manual_ip:
+    static_ip: ${IP_Addr}
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    dns1: 192.168.1.1
   ap:
-    ssid: "${Name} Fallback Hotspot"
-    password: "${FB_PWD}"
+    ssid: "${Name} Fallback"
+    password: ${FB_PWD}
 
-#  manual_ip:
-#    static_ip: ${IP_Addr}
-#    gateway: 192.168.1.1
-#    subnet: 255.255.255.0
-#    dns1: 192.168.1.1
+captive_portal:
+
+web_server:
+  port: 80
 
 time:
   - platform: homeassistant
     id: homeassistant_time
-
-captive_portal:
 
 logger:
 
@@ -44,16 +46,8 @@ sensor:
     name: "${Name} WiFi Signal"
     update_interval: 60s
 
-output:
-  - platform: gpio
-    pin: GPIO4
-    id: shelly_1_relay
-
-light:
-  - platform: binary
-    name: "${Name}"
-    output: shelly_1_relay
-    id: lightid
+  - platform: uptime
+    name: ${Name} Uptime
 
 binary_sensor:
   - platform: status
@@ -66,10 +60,41 @@ binary_sensor:
       #inverted: True
     name: "${Name}"
     on_state:
-      - light.toggle: lightid
+      - switch.toggle: shelly_relay
     #on_press:
     #  - switch.turn_on: lightid
     #on_release:
     #  - switch.turn_off: lightid
     internal: true
     id: switchid
+
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: ${Name} ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: ${Name} IP
+    ssid:
+      name: ${Name} SSID
+    bssid:
+      name: ${Name} BSSID
+
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: shelly_1_relay
+
+status_led:
+  pin:
+    number: GPIO13
+    inverted: yes
+
+switch:
+  - platform: gpio
+    id: shelly_relay
+    name: ${Name} Relay
+    pin: GPIO4
+    icon: "mdi:electric-switch"
+    restore_mode: restore_default_off

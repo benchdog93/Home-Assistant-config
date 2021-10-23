@@ -1,294 +1,191 @@
-2021-09-12 08:07:31 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration average which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration nodered which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 ERROR (SyncWorker_1) [homeassistant.loader] The custom integration 'nodered' does not have a valid version key (None) in the manifest file and was blocked from loading. See https://developers.home-assistant.io/blog/2021/01/29/custom-integration-changes#versions for more details
-2021-09-12 08:07:31 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration weatherbit which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration lovelace_gen which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration alexa_media which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration clean_up_snapshots_service which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration blitzortung which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration ddwrt which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 ERROR (SyncWorker_4) [homeassistant.loader] The custom integration 'ddwrt' does not have a valid version key (None) in the manifest file and was blocked from loading. See https://developers.home-assistant.io/blog/2021/01/29/custom-integration-changes#versions for more details
-2021-09-12 08:07:31 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration shelly which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration media_player_template which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration hpprinter which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_5) [homeassistant.loader] We found a custom integration alarmo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration myq which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_5) [homeassistant.loader] We found a custom integration mail_and_packages which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:07:31 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration garbage_collection which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2021-09-12 08:08:50 WARNING (MainThread) [homeassistant.config] Invalid internal_url set. It's not allowed to have a path (/bla)
-2021-09-12 08:08:50 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
-2021-09-12 08:08:54 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'None' has no attribute 'state' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
-
-> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
-> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
-> {% endfor %}
-
-<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
-
-> {% for repo in states.sensor.hacs.attributes.repositories %}
->  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
-> {% endfor %}'
-2021-09-12 08:08:54 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'None' has no attribute 'attributes' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
-
-> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
-> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
-> {% endfor %}
-
-<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
-
-> {% for repo in states.sensor.hacs.attributes.repositories %}
->  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
-> {% endfor %}'
-2021-09-12 08:08:54 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'None' has no attribute 'state' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
-
-> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
-> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
-> {% endfor %}
-
-<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
-
-> {% for repo in states.sensor.hacs.attributes.repositories %}
->  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
-> {% endfor %}'
-2021-09-12 08:08:54 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'None' has no attribute 'attributes' when rendering '<ha-icon icon="mdi:home-assistant"></ha-icon>&nbsp;**Add-on update:** &nbsp;&nbsp; {{ states.sensor.supervisor_updates.state }}
-
-> {% for addon in states.sensor.supervisor_updates.attributes.addons %}
-> {{ addon.name }}&nbsp; {{ addon.version }} -> {{ addon.version_latest }}
-> {% endfor %}
-
-<ha-icon icon="hacs:hacs"></ha-icon>&nbsp;**HACS updates:** &nbsp;&nbsp; {{ states.sensor.hacs.state }}
-
-> {% for repo in states.sensor.hacs.attributes.repositories %}
->  **{{ repo.display_name }}** _{{ repo["installed_version"] }}_ -> _{{repo["available_version"] }}_
-> {% endfor %}'
-2021-09-12 08:08:56 WARNING (SyncWorker_5) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: /custom_components/mail_and_packages/mail_none.gif
-2021-09-12 08:08:56 WARNING (MainThread) [alexapy.alexalogin] No access token found; falling back to credential login instead of oauth.
-2021-09-12 08:08:56 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook 34cf86c0b787150663ccd67f1f4949b1e2c916a1eaeb0bb6c3fe85a823a891f6 from 192.168.1.199
-2021-09-12 08:08:56 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook 34cf86c0b787150663ccd67f1f4949b1e2c916a1eaeb0bb6c3fe85a823a891f6 from 192.168.1.1
-2021-09-12 08:11:02 WARNING (MainThread) [homeassistant.bootstrap] Waiting on integrations to complete setup: life360, hacs, speedtestdotnet, ecobee
-2021-09-12 08:11:36 WARNING (MainThread) [homeassistant.components.uptimerobot] Already configured. This YAML configuration has already been imported. Please remove it
-2021-09-12 08:12:19 WARNING (MainThread) [homeassistant.bootstrap] Waiting on integrations to complete setup: shelly, zha, esphome, homekit_controller
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: AF.IncomingMsg.Callback(GroupId=0x0000, ClusterId=25, SrcAddr=0xC424, SrcEndpoint=11, DstEndpoint=1, WasBroadcast=<Bool.false: 0>, LQI=0, SecurityUse=<Bool.false: 0>, TimeStamp=13556339, TSN=0, Data=b'\x01\x60\x01\x00\x7E\x11\x00\x00\x01\x00\x00\x00', MacSrcAddr=0xC424, MsgResultRadius=29)
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.ConcentratorInd.Callback(NWK=0x81E2, IEEE=08:6b:d7:ff:fe:6e:62:1b, PktCost=1)
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.SrcRtgInd.Callback(DstAddr=0xC424, Relays=[])
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: AF.IncomingMsg.Callback(GroupId=0x0000, ClusterId=25, SrcAddr=0xC424, SrcEndpoint=11, DstEndpoint=1, WasBroadcast=<Bool.false: 0>, LQI=0, SecurityUse=<Bool.false: 0>, TimeStamp=13612638, TSN=0, Data=b'\x01\x73\x01\x00\x7E\x11\x00\x00\x01\x00\x00\x00', MacSrcAddr=0xC424, MsgResultRadius=29)
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.ConcentratorInd.Callback(NWK=0x57BB, IEEE=08:6b:d7:ff:fe:6e:62:3f, PktCost=1)
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.SrcRtgInd.Callback(DstAddr=0xC424, Relays=[])
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.SrcRtgInd.Callback(DstAddr=0xC424, Relays=[])
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.SrcRtgInd.Callback(DstAddr=0xC424, Relays=[])
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.SrcRtgInd.Callback(DstAddr=0xC424, Relays=[])
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: AF.IncomingMsg.Callback(GroupId=0x0000, ClusterId=25, SrcAddr=0xC424, SrcEndpoint=11, DstEndpoint=1, WasBroadcast=<Bool.false: 0>, LQI=0, SecurityUse=<Bool.false: 0>, TimeStamp=13765727, TSN=0, Data=b'\x01\xA5\x01\x00\x7E\x11\x00\x00\x01\x00\x00\x00', MacSrcAddr=0xC424, MsgResultRadius=29)
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.ConcentratorInd.Callback(NWK=0x81E2, IEEE=08:6b:d7:ff:fe:6e:62:1b, PktCost=1)
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: ZDO.SrcRtgInd.Callback(DstAddr=0x345C, Relays=[0x57BB])
-2021-09-12 08:12:21 WARNING (MainThread) [zigpy_znp.api] Received an unhandled command: AF.IncomingMsg.Callback(GroupId=0x0000, ClusterId=1026, SrcAddr=0x345C, SrcEndpoint=1, DstEndpoint=1, WasBroadcast=<Bool.false: 0>, LQI=60, SecurityUse=<Bool.false: 0>, TimeStamp=13790666, TSN=0, Data=b'\x08\x49\x0A\x00\x00\x29\x40\x06', MacSrcAddr=0x57BB, MsgResultRadius=28)
-2021-09-12 08:12:24 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for garage_loft (192.168.1.120): Error connecting to ('192.168.1.120', 6053): [Errno 113] Connect call failed ('192.168.1.120', 6053)
-2021-09-12 08:12:24 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for kitchen_lights (192.168.1.183): Error connecting to ('192.168.1.183', 6053): [Errno 113] Connect call failed ('192.168.1.183', 6053)
-2021-09-12 08:12:24 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for kitchen_light (192.168.1.173): Error connecting to ('192.168.1.173', 6053): [Errno 113] Connect call failed ('192.168.1.173', 6053)
-2021-09-12 08:12:24 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for shelly_duo_2 (192.168.1.153): Error connecting to ('192.168.1.153', 6053): [Errno 113] Connect call failed ('192.168.1.153', 6053)
-2021-09-12 08:12:27 WARNING (MainThread) [zigpy_znp.zigbee.application] Your network is using the insecure Zigbee2MQTT network key!
-2021-09-12 09:31:16 WARNING (MainThread) [zeroconf] Choked at offset 106 while unpacking b'\x00\x00\x84\x00\x00\x00\x00\x04\x00\x00\x00\x01\x00\x00\x0c\x00\x01\x00\x00\x01,\x00\x04\x02\x880\x00\x02\x880\x00\x00!\x80\x01\x00\x00\x01,\x00\x0b\xf3\x08\x80\xef\xf3\t\x03\x81rF\x00\x07MyQ-873\x05local\x00\x00\x01\x80\x01\x00\x00\x01,\x00\x04\xc0\xa8\x01?\x02\x880\x00\x00/\x80\x01\x00\x00\x01,\x00\x0b\x02\x880\x00\x00\x05\x00\x08\x00\x00@'
+2021-10-23 11:08:04 WARNING (SyncWorker_0) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 3
+2021-10-23 11:08:04 WARNING (SyncWorker_0) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 4
+2021-10-23 11:08:04 WARNING (SyncWorker_0) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 3 and 6
+2021-10-23 11:08:04 WARNING (SyncWorker_0) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 4 and 7
+2021-10-23 11:08:04 WARNING (SyncWorker_0) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 6 and 9
+2021-10-23 11:08:04 WARNING (SyncWorker_0) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 7 and 10
+2021-10-23 11:08:06 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration average which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration powercalc which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration nodered which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 ERROR (SyncWorker_2) [homeassistant.loader] The custom integration 'nodered' does not have a version key in the manifest file and was blocked from loading. See https://developers.home-assistant.io/blog/2021/01/29/custom-integration-changes#versions for more details
+2021-10-23 11:08:06 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration lovelace_gen which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration clean_up_snapshots_service which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration weatherbit which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration presence_simulation which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration alexa_media which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration alarmo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_5) [homeassistant.loader] We found a custom integration hpprinter which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration myenergi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:06 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration media_player_template which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:07 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration shelly which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:07 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration temperature_feels_like which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:07 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration myq which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:07 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration mail_and_packages which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:07 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration garbage_collection which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:07 WARNING (SyncWorker_5) [homeassistant.loader] We found a custom integration pirateweather which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-10-23 11:08:26 WARNING (MainThread) [homeassistant.config] Invalid internal_url set. It's not allowed to have a path (/bla)
+2021-10-23 11:08:26 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 11:08:32 WARNING (Recorder) [homeassistant.components.recorder.util] Ended unfinished session (id=73 from 2021-10-23 13:23:07)
+2021-10-23 11:08:37 ERROR (SyncWorker_3) [homeassistant.components.influxdb] Cannot connect to InfluxDB due to 'HTTPConnectionPool(host='a0d7b954-influxdb', port=8086): Max retries exceeded with url: /write?db=homeassistant (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f217959c0d0>: Failed to establish a new connection: [Errno 111] Connection refused'))'. Please check that the provided connection details (host, port, etc.) are correct and that your InfluxDB server is running and accessible. Retrying in 60 seconds.
+2021-10-23 11:08:54 WARNING (MainThread) [homeassistant.setup] Setup of input_boolean is taking over 10 seconds.
+2021-10-23 11:08:54 WARNING (MainThread) [homeassistant.setup] Setup of zone is taking over 10 seconds.
+2021-10-23 11:08:54 WARNING (MainThread) [homeassistant.components.weather] Setup of weather platform pirateweather is taking over 10 seconds.
+2021-10-23 11:08:56 WARNING (MainThread) [homeassistant.config_entries] Config entry 'benchdog93@gmail.com' for uptimerobot integration not ready yet: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'; Retrying in background
+2021-10-23 11:08:56 WARNING (MainThread) [homeassistant.config_entries] Config entry 'Home' for accuweather integration not ready yet; Retrying in background
+2021-10-23 11:08:56 WARNING (MainThread) [homeassistant.components.alarm_control_panel] Setup of alarm_control_panel platform manual is taking over 10 seconds.
+2021-10-23 11:08:56 WARNING (MainThread) [homeassistant.setup] Setup of webostv is taking over 10 seconds.
+2021-10-23 11:08:56 WARNING (MainThread) [homeassistant.components.weather] Setup of weather platform openweathermap is taking over 10 seconds.
+2021-10-23 11:08:56 WARNING (SyncWorker_5) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: /custom_components/mail_and_packages/mail_none.gif
+2021-10-23 11:08:56 WARNING (MainThread) [alexapy.alexalogin] No access token found; falling back to credential login instead of oauth.
+2021-10-23 11:08:59 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook 34cf86c0b787150663ccd67f1f4949b1e2c916a1eaeb0bb6c3fe85a823a891f6 from 192.168.1.1
+2021-10-23 11:09:01 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook 34cf86c0b787150663ccd67f1f4949b1e2c916a1eaeb0bb6c3fe85a823a891f6 from 192.168.1.1
+2021-10-23 11:09:05 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook 18c5cb337b92361e3c2bedca7a9415625191a874607fa635050bccb53054adbe from 192.168.1.1
+2021-10-23 11:09:08 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook 34cf86c0b787150663ccd67f1f4949b1e2c916a1eaeb0bb6c3fe85a823a891f6 from 192.168.1.1
+2021-10-23 11:09:13 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform pirateweather is taking over 10 seconds.
+2021-10-23 11:09:13 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform command_line is taking over 10 seconds.
+2021-10-23 11:09:13 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for nook-light (192.168.1.124): Error connecting to ('192.168.1.124', 6053): [Errno 113] Connect call failed ('192.168.1.124', 6053)
+2021-10-23 11:09:13 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for shelly-vintage-1 (192.168.1.115): Error connecting to ('192.168.1.115', 6053): [Errno 113] Connect call failed ('192.168.1.115', 6053)
+2021-10-23 11:09:13 WARNING (MainThread) [homeassistant.components.esphome] Can't connect to ESPHome API for washer-dryer (192.168.1.132): Error connecting to ('192.168.1.132', 6053): [Errno 113] Connect call failed ('192.168.1.132', 6053)
+2021-10-23 11:09:23 WARNING (MainThread) [homeassistant.components.webhook] Received message for unregistered webhook 34cf86c0b787150663ccd67f1f4949b1e2c916a1eaeb0bb6c3fe85a823a891f6 from 192.168.1.1
+2021-10-23 11:09:28 WARNING (MainThread) [zigpy_znp.zigbee.application] Your network is using the insecure Zigbee2MQTT network key!
+2021-10-23 11:09:29 WARNING (MainThread) [homeassistant.helpers.template] Template warning: 'float' got invalid input 'unknown' when rendering template '{{ (states('sensor.benchdog93_home_assistant_config_last_build_duration') | float / 60) | round(2) }}' but no default was specified. Currently 'float' will return '0', however this template will fail to render in Home Assistant core 2021.12
+2021-10-23 11:09:29 WARNING (MainThread) [homeassistant.helpers.template] Template warning: 'float' got invalid input 'unknown' when rendering template '{{ (states('sensor.benchdog93_home_assistant_config_last_build_duration') | float / 60) | round(2) }}' but no default was specified. Currently 'float' will return '0', however this template will fail to render in Home Assistant core 2021.12
+2021-10-23 11:09:30 ERROR (MainThread) [homeassistant.config_entries] Error unloading entry 192.168.1.24 for binary_sensor
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 111, in __init__
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 443, in async_unload
+    result = await component.async_unload_entry(hass, self)  # type: ignore
+  File "/usr/src/homeassistant/homeassistant/components/binary_sensor/__init__.py", line 154, in async_unload_entry
+    return await component.async_unload_entry(entry)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_component.py", line 181, in async_unload_entry
+    raise ValueError("Config entry was never loaded!")
+ValueError: Config entry was never loaded!
+2021-10-23 11:09:30 ERROR (MainThread) [homeassistant.config_entries] Error unloading entry 192.168.1.24 for camera
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 443, in async_unload
+    result = await component.async_unload_entry(hass, self)  # type: ignore
+  File "/usr/src/homeassistant/homeassistant/components/camera/__init__.py", line 368, in async_unload_entry
+    return await component.async_unload_entry(entry)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_component.py", line 181, in async_unload_entry
+    raise ValueError("Config entry was never loaded!")
+ValueError: Config entry was never loaded!
+2021-10-23 11:09:30 ERROR (MainThread) [homeassistant.config_entries] Error unloading entry 192.168.1.24 for sensor
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 443, in async_unload
+    result = await component.async_unload_entry(hass, self)  # type: ignore
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 134, in async_unload_entry
+    return await component.async_unload_entry(entry)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_component.py", line 181, in async_unload_entry
+    raise ValueError("Config entry was never loaded!")
+ValueError: Config entry was never loaded!
+2021-10-23 11:09:30 ERROR (MainThread) [homeassistant.config_entries] Error unloading entry 192.168.1.24 for switch
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 443, in async_unload
+    result = await component.async_unload_entry(hass, self)  # type: ignore
+  File "/usr/src/homeassistant/homeassistant/components/switch/__init__.py", line 85, in async_unload_entry
+    return await component.async_unload_entry(entry)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_component.py", line 181, in async_unload_entry
+    raise ValueError("Config entry was never loaded!")
+ValueError: Config entry was never loaded!
+2021-10-23 11:09:34 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.cabinet_lights_consumption (kWh) does not match the unit of already compiled statistics (None). Generation of long term statistics will be suppressed unless the unit changes back to None
+2021-10-23 11:09:34 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.desktop_circuit_consumption (kWh) does not match the unit of already compiled statistics (None). Generation of long term statistics will be suppressed unless the unit changes back to None
+2021-10-23 11:09:34 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.ewva_circuit_consumption (kWh) does not match the unit of already compiled statistics (None). Generation of long term statistics will be suppressed unless the unit changes back to None
+2021-10-23 11:09:34 WARNING (Recorder) [homeassistant.components.sensor.recorder] The unit of sensor.sink_light_consumption (kWh) does not match the unit of already compiled statistics (None). Generation of long term statistics will be suppressed unless the unit changes back to None
+2021-10-23 11:09:36 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.desktop_daily_energy has unknown unit W
+2021-10-23 11:09:36 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.ewva_daily_energy has unknown unit W
+2021-10-23 11:09:36 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.sink_light_daily_energy has unknown unit W
+2021-10-23 11:09:36 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.cabinet_lights_daily_energy has unknown unit W
+2021-10-23 11:09:36 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.master_bath_light_daily_energy has unknown unit W
+2021-10-23 11:09:36 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.master_bath_fan_daily_energy has unknown unit W
+2021-10-23 11:09:37 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.pond_aerator_daily_energy has unknown unit kW
+2021-10-23 11:09:54 WARNING (MainThread) [homeassistant.components.camera] Setup of camera platform synology_dsm is taking over 10 seconds.
+2021-10-23 11:09:54 WARNING (MainThread) [homeassistant.components.switch] Setup of switch platform synology_dsm is taking over 10 seconds.
+2021-10-23 11:10:02 WARNING (MainThread) [homeassistant.components.media_player] Updating webostv media_player took longer than the scheduled update interval 0:00:10
+2021-10-23 11:10:07 WARNING (MainThread) [homeassistant.helpers.entity] Update of media_player.livingroom_tv is taking over 10 seconds
+2021-10-23 11:10:07 WARNING (MainThread) [homeassistant.helpers.entity] Update of media_player.mancave_tv is taking over 10 seconds
+2021-10-23 11:10:10 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
+2021-10-23 11:10:15 WARNING (MainThread) [homeassistant.components.media_player] Updating webostv media_player took longer than the scheduled update interval 0:00:10
+2021-10-23 11:10:21 ERROR (MainThread) [homeassistant.components.upnp] Error requesting Netgear R6400 v2:EWVisualArts data: [Errno None] Can not write request body for http://192.168.1.1:1780/control?WANCommonInterfaceConfig
+2021-10-23 11:27:07 WARNING (MainThread) [zeroconf] Received invalid packet from ('192.168.1.62', 5353) at offset 106 while unpacking b'\x00\x00\x84\x00\x00\x00\x00\x04\x00\x00\x00\x01\x00\x00\x0c\x00\x01\x00\x00\x01,\x00\x04\x02\x880\x00\x02\x880\x00\x00!\x80\x01\x00\x00\x01,\x00\x0b\xf3\x08\x80\xef\xf3\t\x03\x81rF\x00\x07MyQ-1EB\x05local\x00\x00\x01\x80\x01\x00\x00\x01,\x00\x04\xc0\xa8\x01>\x02\x880\x00\x00/\x80\x01\x00\x00\x01,\x00\x0b\x02\x880\x00\x00\x05\x00\x08\x00\x00@'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol/incoming.py", line 111, in _parse_data
+    parser_call()
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol/incoming.py", line 105, in _initial_parse
     self.read_others()
-  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 178, in read_others
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol/incoming.py", line 185, in read_others
     domain = self.read_name()
-  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 268, in read_name
-    self.offset = self._decode_labels_at_offset(self.offset, labels)
-  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol.py", line 309, in _decode_labels_at_offset
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol/incoming.py", line 275, in read_name
+    self.offset = self._decode_labels_at_offset(self.offset, labels, seen_pointers)
+  File "/usr/local/lib/python3.9/site-packages/zeroconf/_protocol/incoming.py", line 315, in _decode_labels_at_offset
     raise IncomingDecodeError("Corrupt packet received while decoding name")
 zeroconf._exceptions.IncomingDecodeError: Corrupt packet received while decoding name
-2021-09-12 18:51:12 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
-2021-09-12 18:51:12 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
-2021-09-12 18:51:12 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
-2021-09-12 18:51:12 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-12 18:51:12 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-12 18:51:12 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
-2021-09-13 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /backups/new/full request
-2021-09-13 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Supervisor API: 
-2021-09-13 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
-2021-09-13 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
-2021-09-13 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
-2021-09-13 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-13 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-13 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
-2021-09-13 09:23:14 ERROR (MainThread) [custom_components.hacs] scottyphillips/mitsubishi_hass - 
-2021-09-13 10:20:53 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/94c01f95-54d5-48c8-a82f-89eb96764fa6.gif
-2021-09-13 11:50:21 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2021-09-13 11:50:21 WARNING (SyncWorker_33) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
-2021-09-13 12:32:24 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2021-09-13 12:32:24 WARNING (SyncWorker_17) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
-2021-09-13 13:19:23 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/94c01f95-54d5-48c8-a82f-89eb96764fa6.gif
-2021-09-13 13:38:05 ERROR (MainThread) [aiohttp.server] Error handling request
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
-    messages, upgraded, tail = self._request_parser.feed_data(data)
-  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
-aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
-2021-09-13 16:03:34 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
-2021-09-13 16:03:34 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
-2021-09-13 16:03:34 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
-2021-09-13 16:03:34 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-13 16:03:34 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-13 16:03:34 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
-2021-09-13 18:22:51 WARNING (MainThread) [homeassistant.helpers.entity] Updating state for calendar.garbage_collection (<class 'custom_components.garbage_collection.calendar.GarbageCollectionCalendar'>) took 0.889 seconds. Please report it to the custom component author.
-2021-09-13 20:01:03 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request for 'https://api.uptimerobot.com/v2/getMonitors' failed with status code '502'
-2021-09-13 21:09:21 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
-Traceback (most recent call last):
-  File "/usr/src/homeassistant/homeassistant/helpers/discovery.py", line 158, in async_load_platform
-    assert hass_config, "You need to pass in the real hass config"
-AssertionError: You need to pass in the real hass config
-2021-09-13 21:09:21 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
-Traceback (most recent call last):
-  File "/usr/src/homeassistant/homeassistant/helpers/discovery.py", line 158, in async_load_platform
-    assert hass_config, "You need to pass in the real hass config"
-AssertionError: You need to pass in the real hass config
-2021-09-13 21:09:21 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
-Traceback (most recent call last):
-  File "/usr/src/homeassistant/homeassistant/helpers/discovery.py", line 158, in async_load_platform
-    assert hass_config, "You need to pass in the real hass config"
-AssertionError: You need to pass in the real hass config
-2021-09-13 21:09:21 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
-Traceback (most recent call last):
-  File "/usr/src/homeassistant/homeassistant/helpers/discovery.py", line 158, in async_load_platform
-    assert hass_config, "You need to pass in the real hass config"
-AssertionError: You need to pass in the real hass config
-2021-09-13 21:09:21 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
-Traceback (most recent call last):
-  File "/usr/src/homeassistant/homeassistant/helpers/discovery.py", line 158, in async_load_platform
-    assert hass_config, "You need to pass in the real hass config"
-AssertionError: You need to pass in the real hass config
-2021-09-13 21:13:50 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2021-09-13 21:13:50 WARNING (SyncWorker_5) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
-2021-09-13 23:40:05 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2021-09-13 23:40:05 WARNING (SyncWorker_21) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
-2021-09-14 01:29:56 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 01:30:01 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.benchdog93_home_assistant_config_last_build_id is taking over 10 seconds
-2021-09-14 01:30:18 WARNING (MainThread) [homeassistant.helpers.entity] Update of climate.living_room is taking over 10 seconds
-2021-09-14 01:30:21 WARNING (MainThread) [homeassistant.components.sensor] Updating travisci sensor took longer than the scheduled update interval 0:00:30
-2021-09-14 01:31:56 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 02:19:00 ERROR (MainThread) [homeassistant.components.openweathermap.weather_update_coordinator] Error fetching openweathermap data: HTTPSConnectionPool(host='api.openweathermap.org', port=443): Max retries exceeded with url: /data/2.5/onecall?APPID=d8e627e727e3af13fdea3ae64c6e2197&lang=en&lon=-75.2242556&lat=43.3529213 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
-2021-09-14 04:30:03 ERROR (MainThread) [homeassistant.components.speedtestdotnet] Error fetching speedtestdotnet data: Unable to connect to servers to test latency.
-2021-09-14 04:52:08 ERROR (MainThread) [aiohttp.server] Error handling request
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
-    messages, upgraded, tail = self._request_parser.feed_data(data)
-  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
-aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
-2021-09-14 05:06:50 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request exception for 'https://api.uptimerobot.com/v2/getMonitors' with - [Errno 104] Connection reset by peer
-2021-09-14 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /backups/new/full request
-2021-09-14 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Supervisor API: 
-2021-09-14 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
-2021-09-14 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
-2021-09-14 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
-2021-09-14 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-14 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-14 06:30:00 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
-2021-09-14 07:28:50 ERROR (SyncWorker_0) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 07:31:52 ERROR (SyncWorker_34) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:36:32 ERROR (SyncWorker_34) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:36:44 ERROR (SyncWorker_6) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:36:53 ERROR (SyncWorker_11) [homeassistant.components.life360.device_tracker] get_circles: OK again
-2021-09-14 07:37:54 ERROR (SyncWorker_0) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 07:40:53 ERROR (SyncWorker_0) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:45:53 ERROR (SyncWorker_39) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 07:46:08 ERROR (SyncWorker_16) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:47:01 ERROR (SyncWorker_12) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 07:47:05 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:49:35 ERROR (SyncWorker_23) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:50:02 ERROR (SyncWorker_37) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 07:51:41 ERROR (SyncWorker_30) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:56:50 ERROR (SyncWorker_20) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 07:56:53 ERROR (SyncWorker_32) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:57:08 ERROR (SyncWorker_31) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 07:57:19 ERROR (SyncWorker_11) [homeassistant.components.life360.device_tracker] get_circles: OK again
-2021-09-14 08:02:15 ERROR (SyncWorker_1) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 08:02:17 ERROR (SyncWorker_32) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:02:30 ERROR (SyncWorker_1) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": OK again
-2021-09-14 08:04:02 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 08:07:41 ERROR (SyncWorker_32) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:08:05 ERROR (SyncWorker_42) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:08:24 ERROR (SyncWorker_6) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:08:44 ERROR (SyncWorker_13) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:08:56 ERROR (SyncWorker_18) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:09:18 ERROR (SyncWorker_25) [homeassistant.components.life360.device_tracker] get_circles: OK again
-2021-09-14 08:13:00 ERROR (SyncWorker_15) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:15:29 ERROR (SyncWorker_21) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:17:02 ERROR (SyncWorker_1) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 08:17:09 ERROR (SyncWorker_2) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:17:17 ERROR (SyncWorker_35) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:17:41 ERROR (SyncWorker_1) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:20:05 ERROR (SyncWorker_11) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:20:17 ERROR (SyncWorker_21) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:20:41 ERROR (SyncWorker_25) [homeassistant.components.life360.device_tracker] get_circles: OK again
-2021-09-14 08:25:53 ERROR (SyncWorker_7) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:32:29 ERROR (SyncWorker_28) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:32:41 ERROR (SyncWorker_24) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:33:06 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] get_circles: OK again
-2021-09-14 08:33:06 ERROR (SyncWorker_26) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:34:56 ERROR (SyncWorker_20) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:35:05 ERROR (SyncWorker_8) [homeassistant.components.life360.device_tracker] Suppressing further errors until OK: get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:35:17 ERROR (SyncWorker_15) [homeassistant.components.life360.device_tracker] get_circles: OK again
-2021-09-14 08:36:41 ERROR (SyncWorker_0) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:37:50 ERROR (SyncWorker_22) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 08:40:35 ERROR (SyncWorker_21) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:41:42 ERROR (SyncWorker_29) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-14 08:42:05 ERROR (SyncWorker_41) [homeassistant.components.life360.device_tracker] get_circles: CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles.json
-2021-09-14 08:47:54 ERROR (SyncWorker_16) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 09:07:54 ERROR (SyncWorker_12) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 09:08:03 ERROR (SyncWorker_32) [homeassistant.components.life360.device_tracker] get_circles: CommError: HTTPSConnectionPool(host='api.life360.com', port=443): Max retries exceeded with url: /v3/circles.json (Caused by ReadTimeoutError("HTTPSConnectionPool(host='api.life360.com', port=443): Read timed out. (read timeout=3.05)"))
-2021-09-14 09:30:11 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 09:36:44 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 09:42:41 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 09:48:42 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 10:02:57 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/949fe651-568e-4199-9665-e617e4e55917.gif
-2021-09-14 10:53:43 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 10:59:56 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 12:06:17 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
-2021-09-14 12:12:51 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
-2021-09-14 12:12:51 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
-2021-09-14 12:12:51 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
-2021-09-14 12:12:51 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
-2021-09-14 12:12:51 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
-2021-09-14 14:12:40 ERROR (MainThread) [custom_components.hacs] Villhellm/custom-sidebar - GitHub returned 502 for https://api.github.com/repos/Villhellm/custom-sidebar/branches/master
-2021-09-14 14:12:40 ERROR (MainThread) [custom_components.hacs] <Integration moralmunky/Home-Assistant-Mail-And-Packages> GitHub returned 502 for https://api.github.com/repos/moralmunky/Home-Assistant-Mail-And-Packages
-2021-09-14 14:12:40 ERROR (MainThread) [custom_components.hacs] moralmunky/Home-Assistant-Mail-And-Packages - GitHub returned 502 for https://api.github.com/repos/moralmunky/Home-Assistant-Mail-And-Packages
-2021-09-14 18:12:32 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'value3' is undefined when rendering '{{ value1 }} {{ value2 }} {{ value3 }}'
-2021-09-14 18:12:32 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'target_id' is undefined when rendering '{{ target_id }}'
-2021-09-14 18:12:32 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'content_type' is undefined when rendering '{{ content_type }}'
-2021-09-14 18:12:32 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'channel_id' is undefined when rendering '{{ channel_id }}'
-2021-09-14 18:12:32 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'importance_id' is undefined when rendering '{{ importance_id }}'
-2021-09-14 19:23:59 ERROR (MainThread) [aiohttp.server] Error handling request
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_protocol.py", line 314, in data_received
-    messages, upgraded, tail = self._request_parser.feed_data(data)
-  File "aiohttp/_http_parser.pyx", line 546, in aiohttp._http_parser.HttpParser.feed_data
-aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'invalid HTTP method'"
-2021-09-14 20:10:59 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/949fe651-568e-4199-9665-e617e4e55917.gif
-2021-09-15 05:35:00 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /backups/new/full request
-2021-09-15 05:35:00 ERROR (MainThread) [homeassistant.components.hassio] Error on Supervisor API: 
-2021-09-15 06:30:01 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_21_switch
-2021-09-15 06:30:01 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_18_switch
-2021-09-15 06:30:01 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_19_switch
-2021-09-15 06:30:01 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-15 06:30:01 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities switch.nodeid_20_switch
-2021-09-15 06:30:01 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced entities light.balcony_chandelier, light.livingroom_outlet_1_on_off, light.shelly_shbduo_1_d0cd10, light.shelly_shbduo_1_d1225f
-2021-09-15 07:25:33 ERROR (SyncWorker_28) [homeassistant.components.life360.device_tracker] get_circle_members "Williams Family": CommError: 503 Server Error: Service Unavailable: Back-end server is at capacity for url: https://api.life360.com/v3/circles/4c340e4c-071f-4763-923b-88af805a0fd2/members
-2021-09-15 14:49:02 WARNING (MainThread) [custom_components.mail_and_packages.camera] Could not read camera Mail USPS Camera image from file: /config/custom_components/mail_and_packages/images/23878423-45d9-4fe0-943e-d16eba263b63.gif
-2021-09-15 15:11:16 ERROR (MainThread) [homeassistant.components.hassio] Failed to to call /os/info - System is not ready with state: shutdown
-2021-09-15 15:11:37 WARNING (MainThread) [zigpy.appdb] Discarding _save_device_relays event
-2021-09-15 15:11:37 ERROR (MainThread) [zigpy.zcl] [0xc424:11:0x0019] Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/zigpy/zcl/clusters/general.py", line 1031, in _handle_cluster_request
-    await self._handle_query_next_image(*args, tsn=tsn)
-  File "/usr/local/lib/python3.9/site-packages/zigpy/zcl/clusters/general.py", line 1099, in _handle_query_next_image
-    await self.query_next_image_response(
-  File "/usr/local/lib/python3.9/site-packages/zigpy/device.py", line 265, in request
-    result, msg = await self._application.request(
-  File "/usr/local/lib/python3.9/site-packages/zigpy_znp/zigbee/application.py", line 627, in request
-    return await self._send_request(
-  File "/usr/local/lib/python3.9/site-packages/zigpy_znp/zigbee/application.py", line 1588, in _send_request
-    response = await self._send_request_raw(
-  File "/usr/local/lib/python3.9/site-packages/zigpy_znp/zigbee/application.py", line 1473, in _send_request_raw
-    response = await asyncio.shield(
-asyncio.exceptions.CancelledError
-
+2021-10-23 12:10:11 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.washing_machine_daily_energy has unknown unit kW
+2021-10-23 12:10:11 WARNING (Recorder) [homeassistant.components.sensor.recorder] sensor.cloths_dryer_daily_energy has unknown unit kW
+2021-10-23 12:16:28 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request exception for 'https://api.uptimerobot.com/v2/getMonitors' with - [Errno 104] Connection reset by peer
+2021-10-23 13:16:43 WARNING (SyncWorker_2) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 3
+2021-10-23 13:16:43 WARNING (SyncWorker_2) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 4
+2021-10-23 13:16:43 WARNING (SyncWorker_2) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 3 and 6
+2021-10-23 13:16:43 WARNING (SyncWorker_2) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 4 and 7
+2021-10-23 13:16:43 WARNING (SyncWorker_2) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 6 and 9
+2021-10-23 13:16:43 WARNING (SyncWorker_2) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 7 and 10
+2021-10-23 13:16:44 WARNING (MainThread) [homeassistant.config] Invalid internal_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:16:44 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:17:21 WARNING (SyncWorker_15) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 3
+2021-10-23 13:17:21 WARNING (SyncWorker_15) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 4
+2021-10-23 13:17:21 WARNING (SyncWorker_15) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 3 and 6
+2021-10-23 13:17:21 WARNING (SyncWorker_15) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 4 and 7
+2021-10-23 13:17:21 WARNING (SyncWorker_15) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 6 and 9
+2021-10-23 13:17:21 WARNING (SyncWorker_15) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 7 and 10
+2021-10-23 13:17:22 WARNING (MainThread) [homeassistant.config] Invalid internal_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:17:22 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:17:30 WARNING (SyncWorker_9) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 3
+2021-10-23 13:17:30 WARNING (SyncWorker_9) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 4
+2021-10-23 13:17:30 WARNING (SyncWorker_9) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 3 and 6
+2021-10-23 13:17:30 WARNING (SyncWorker_9) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 4 and 7
+2021-10-23 13:17:30 WARNING (SyncWorker_9) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 6 and 9
+2021-10-23 13:17:30 WARNING (SyncWorker_9) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 7 and 10
+2021-10-23 13:17:31 WARNING (MainThread) [homeassistant.config] Invalid internal_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:17:31 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 4
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 5
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 2 and 6
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 4 and 8
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 5 and 9
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 6 and 10
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 8 and 12
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 9 and 13
+2021-10-23 13:23:53 WARNING (SyncWorker_6) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 10 and 14
+2021-10-23 13:23:54 WARNING (MainThread) [homeassistant.config] Invalid internal_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:23:54 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 4
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 5
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 2 and 6
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 4 and 8
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 5 and 9
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 6 and 10
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 8 and 12
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 9 and 13
+2021-10-23 13:30:41 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 10 and 14
+2021-10-23 13:30:44 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 13:40:29 ERROR (MainThread) [homeassistant.components.websocket_api.http.connection] [139781550040784] Client unable to keep up with pending messages. Stayed over 512 for 5 seconds
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 4
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 5
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 2 and 6
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 4 and 8
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 5 and 9
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 6 and 10
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 8 and 12
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 9 and 13
+2021-10-23 15:35:58 WARNING (SyncWorker_25) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 10 and 14
+2021-10-23 15:35:59 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 0 and 4
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 1 and 5
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 2 and 6
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 4 and 8
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 5 and 9
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 6 and 10
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "platform". Check lines 8 and 12
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "entity_id". Check lines 9 and 13
+2021-10-23 15:36:04 WARNING (SyncWorker_5) [homeassistant.util.yaml.loader] YAML file /config/sensors/statistics_energy.yaml contains duplicate key "name". Check lines 10 and 14
+2021-10-23 15:36:05 WARNING (MainThread) [homeassistant.config] Invalid external_url set. It's not allowed to have a path (/bla)
+2021-10-23 15:36:10 ERROR (MainThread) [homeassistant.components.hassio.handler] Client error on /homeassistant/restart request Server disconnected
