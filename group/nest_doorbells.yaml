@@ -1,0 +1,6 @@
+nest_doorbell:
+  name: Nest Doorbells
+  icon: mdi:doorbell-video
+  entities:
+    - switch.front_door_doorbell
+    - switch.back_door_doorbell

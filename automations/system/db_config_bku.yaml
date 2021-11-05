@@ -9,5 +9,5 @@
       addons:
         - core_mariadb # It doesn't matter if you use the addon slug or name. Name is easier.
       folders:
-        - homeassistant
+      
       keep_days: 2

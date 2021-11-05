@@ -1,3 +1,0 @@
-
-platform: uptimerobot
-api_key: !secret robot_api_key
