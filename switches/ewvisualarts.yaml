@@ -1,8 +1,0 @@
-
-
-platform: wake_on_lan
-name: "EWVisualArts"
-mac: !secret ewvisualarts_mac
-host: !secret infldb_host
-turn_off:
-  service: synology_dsm.shutdown

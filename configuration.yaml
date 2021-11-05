@@ -29,7 +29,6 @@ sensor: !include_dir_list sensors
 frontend: !include frontend.yaml
 recorder: !include recorder.yaml
 notify: !include_dir_list notify
-alert: !include_dir_merge_named alerts
 switch: !include_dir_merge_named switches
 utility_meter: !include_dir_merge_named utility_meters
 
@@ -44,6 +43,8 @@ wake_on_lan:
 history:
 my:
 energy:
+http:
+websocket_api:
 
 camera:
     - platform: local_file

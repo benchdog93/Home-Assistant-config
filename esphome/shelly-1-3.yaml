@@ -1,6 +1,6 @@
 substitutions:
-  device: over-counter-lights
-  Name: Counter Lights
+  device: nook-light-shelly1
+  Name: Nook Shelly1
   SSID: !secret wifi_iot_ssid
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
@@ -21,7 +21,7 @@ wifi:
     subnet: 255.255.255.0
     dns1: 192.168.1.1
   ap:
-    ssid: "${Name} Fallback Hotspot"
+    ssid: "${Name} Hotspot"
     password: ${FB_PWD}
 
 captive_portal:
@@ -41,33 +41,49 @@ api:
 ota:
   password: ${ESP_PWD}
 
+# Sensors with general information.
 sensor:
-  - platform: wifi_signal
-    name: "${Name} WiFi Signal"
-    update_interval: 60s
-
+  # Uptime sensor.
   - platform: uptime
     name: ${Name} Uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: ${Name} WiFi Signal
+    update_interval: 60s
 
 binary_sensor:
   - platform: status
     name: "${Name} Status"
 
   - platform: gpio
+    name: ${Name} Input
     pin:
       number: GPIO5
-      #mode: INPUT_PULLUP
-      #inverted: True
-    name: "${Name}"
+    # small delay to prevent debouncing
+    filters:
+      - delayed_on_off: 50ms
+    # config for state change of input button
     on_state:
-      - switch.toggle: shelly_relay
-    #on_press:
-    #  - switch.turn_on: lightid
-    #on_release:
-    #  - switch.turn_off: lightid
-    internal: true
-    id: switchid
+        then:
+          - if:
+              condition:
+                and:
+                  - wifi.connected:
+                  - api.connected:
+                  - switch.is_on: shelly_relay
+              # toggle smart light if wifi and api are connected and relay is on
+              then:
+                - homeassistant.service:
+                    service: light.toggle
+                    data:
+                      entity_id: xxxxx.xxxx_xxxxx
+              # else, toggle relay
+              else:
+                - switch.toggle: shelly_relay
+    id: button
 
+# Text sensors with general information.
 text_sensor:
   # Expose ESPHome version as sensor.
   - platform: version
@@ -81,19 +97,13 @@ text_sensor:
     bssid:
       name: ${Name} BSSID
 
-output:
-  - platform: gpio
-    pin: GPIO4
-    id: shelly_1_relay
-
-status_led:
-  pin:
-    number: GPIO13
-    inverted: yes
+# Shelly 1 detached switch config with fallback in case of wifi or api fail
 
 switch:
   - platform: gpio
-    id: shelly_relay
-    name: ${Name} Relay
+    name: ${Name}
     pin: GPIO4
+    id: shelly_relay
     icon: "mdi:electric-switch"
+    # after reboot, keep the relay off. this prevents light turning on after a power outage
+    restore_mode: ALWAYS_OFF

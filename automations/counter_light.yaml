@@ -1,4 +1,4 @@
-alias: counter light
+alias: Counter Lights
 description: ''
 use_blueprint:
   path: denperss/SNZB-01.yaml
@@ -7,4 +7,4 @@ use_blueprint:
     single_press:
     - service: switch.toggle
       target:
-        device_id: 06551beb38035dd49ecf302bec06e95d
+        entity_id: switch.counter_lights_relay

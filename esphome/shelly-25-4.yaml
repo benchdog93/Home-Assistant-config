@@ -1,8 +1,8 @@
 substitutions:
-  device: washer-dryer
-  Name: Laundry Room
-  channel_1: Washing Machine
-  channel_2: Cloths Dryer
+  device: kitchen-circuit-0
+  Name: Kitchen Circuit 0
+  channel_1: Counter Lights
+  channel_2: Tooster
   SSID: !secret wifi_iot_ssid
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
@@ -25,7 +25,7 @@ wifi:
     subnet: 255.255.255.0
     dns1: 192.168.1.1
   ap:
-    ssid: "${Name} Fallback Hotspot"
+    ssid: "${Name} Hotspot"
     password: ${FB_PWD}
 
 captive_portal:
@@ -198,7 +198,7 @@ switch:
     name: ${channel_1} Relay
     pin: GPIO4
     icon: "mdi:electric-switch"
-    restore_mode: restore_default_ON
+    restore_mode: restore_default_OFF
 
   - platform: gpio
     id: shelly_relay_2

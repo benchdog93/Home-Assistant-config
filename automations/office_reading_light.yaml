@@ -1,4 +1,4 @@
-alias: office reading light
+alias: ZHA - Sonoff SNZB-01
 description: ''
 use_blueprint:
   path: denperss/SNZB-01.yaml
@@ -8,3 +8,7 @@ use_blueprint:
     - service: light.toggle
       target:
         device_id: 5e9b64594060bb2fdff9e3a85a548f79
+    double_press:
+    - service: switch.toggle
+      target:
+        device_id: e0576bb5aaf737e1a9e458968561c085
