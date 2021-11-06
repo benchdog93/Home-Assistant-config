@@ -5,9 +5,7 @@
   action:
     service: auto_backup.backup_partial # Only perform a partial backup to save storage.
     data:
-      name: "AutoBackup: {{ now().strftime('%a, %-I:%M %p (%d/%m/%Y)') }}"
+      name: "Ma: {{ now().strftime('%a, %-I:%M %p (%d/%m/%Y)') }}"
       addons:
         - core_mariadb # It doesn't matter if you use the addon slug or name. Name is easier.
-      folders:
-      
       keep_days: 2

@@ -8,18 +8,8 @@ panel_custom:
     embed_iframe: true
     require_admin: true
     config:
-      ingress: core_configurator  
+      ingress: core_configurator    
 
-#  - name: ha_zha_dev
-#    sidebar_title: Zigbee
-#    sidebar_icon: mdi:zigbee
-#    js_url: /api/hassio/app/entrypoint.js
-#    url_path: !secret zha_url_path
-#    embed_iframe: true
-#    require_admin: true
-#    config:
-#      ingress: core_configurator    
-    
   - name: ha_integ
     sidebar_title: Integrations
     sidebar_icon: mdi:home-assistant

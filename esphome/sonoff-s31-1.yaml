@@ -1,0 +1,276 @@
+substitutions:
+  device: cloths-dryer
+  name: Dryer 
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+#  IP_Addr: 192.168.x.xxx
+  start: '105'
+  end: '7'
+  consider_finished: '21s'
+  consider_idle: '2min'
+  update_interval: '3s'
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+  esp8266_restore_from_flash: yes
+  on_boot:
+    then:
+    - lambda:
+        id(text_last_run).publish_state(id(last_run));
+        id(text_last_run_time).publish_state(id(last_run_time));
+        if (id(prev_running))
+        {
+          id(text_status).publish_state("Running");
+        }
+        else
+        {
+          id(text_status).publish_state("Idle");
+        }
+
+wifi:
+  ssid: ${SSID}
+  password: ${SSID_PWD}
+#  manual_ip:
+#    static_ip: ${IP_Addr}
+#    gateway: 192.168.1.1
+#    subnet: 255.255.255.0
+#    dns1: 192.168.1.1
+  ap:
+    ssid: "${name} Hotspot"
+    password: ${FB_PWD}
+
+captive_portal:
+
+web_server:
+  port: 80
+
+time:
+  - platform: homeassistant
+    id: ha_time
+
+logger:
+  baud_rate: 0
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
+globals:
+  - id: duration
+    type: int
+    restore_value: yes
+    initial_value: '0'
+  - id: last_run_time
+    type: char[28]
+    restore_value: yes
+  - id: prev_running
+    type: int
+    restore_value: yes
+    initial_value: '0'
+  - id: last_run
+    type: char[12]
+    restore_value: yes
+script:
+  - id: record
+    then:
+      - lambda:
+            snprintf(id(last_run), 12, "%d-%02d-%02d", id(ha_time).now().year, id(ha_time).now().month, id(ha_time).now().day_of_month);
+            id(text_last_run).publish_state(id(last_run));
+            id(duration) = id(ha_time).now().timestamp - id(duration);
+            if (id(duration) / 3600)
+            {
+              snprintf(id(last_run_time), 28, "%d hour%s and %d minute%s", ((id(duration) / 3600)>442570)?1:(id(duration) / 3600), ((id(duration) / 3600) > 1) ? "s":"", (id(duration) / 60) % 60, (((id(duration) / 60) % 60) != 1)? "s":"");
+            }
+            else if (id(duration) / 60)
+            {
+              snprintf(id(last_run_time), 28, "%d minute%s and %d second%s", id(duration) / 60, ((id(duration) / 60) > 1) ? "s":"", id(duration) % 60, ((id(duration) % 60) != 1)? "s":"");
+            }
+            else
+            {
+              snprintf(id(last_run_time), 28, "%d second%s", id(duration) % 60, ((id(duration) % 60) != 1)? "s":"");
+            }
+            id(text_last_run_time).publish_state(id(last_run_time));
+          id(prev_running) = 0;
+          id(text_status).publish_state("Finished");
+switch:
+  - platform: gpio
+    name: Power Monitor Plug ${name}
+    pin: GPIO12
+    id: plug
+    icon: "mdi:power-plug"
+    restore_mode: RESTORE_DEFAULT_ON
+    on_turn_off:
+    - if:
+        condition:
+          - text_sensor.state:
+              id: text_status
+              state: "Running"
+        then:
+          - script.execute: record
+sensor:
+  - platform: wifi_signal
+    name: "${name} WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: ${name} Uptime
+    
+  - platform: cse7766
+    update_interval: ${update_interval}
+    power:
+      id: power
+      icon: "mdi:flash-circle"
+      name: Power Monitor Plug ${name}
+      filters:
+        - lambda:
+            if (id(plug).state) {
+              return x;
+            } else {
+              return 0;
+            }
+      on_value_range:
+        - above: ${start}
+          then:
+            - if:
+                condition:
+                  not:
+                    - text_sensor.state:
+                        id: text_status
+                        state: "Running"
+                then:
+                  - lambda:
+                        id(duration) = id(ha_time).now().timestamp;
+                        id(prev_running) = 1;
+                        id(text_status).publish_state("Running");
+
+      on_value:
+        - if:
+            condition:
+              and:
+                - text_sensor.state:
+                    id: text_status
+                    state: "Running"
+                - for:
+                    time: ${consider_finished}
+                    condition:
+                      sensor.in_range:
+                        id: power
+                        below: ${end}
+            then:
+              - script.execute: record
+        - if:
+            condition:
+              and:
+                - text_sensor.state:
+                      id: text_status
+                      state: "Finished"
+                - for:
+                    time: ${consider_idle}
+                    condition:
+                      switch.is_off: plug
+                - for:
+                    time: ${consider_idle}
+                    condition:
+                      sensor.in_range:
+                        id: power
+                        below: ${end}
+            then:
+              - lambda:
+                  id(text_status).publish_state("Idle");
+        - if:
+            condition:
+              and:
+                - or:
+                  - text_sensor.state:
+                      id: text_status
+                      state: "Idle"
+                  - text_sensor.state:
+                      id: text_status
+                      state: "Finished"
+                - for:
+                    time: ${consider_idle}
+                    condition:
+                      switch.is_on: plug
+                - for:
+                    time: ${consider_idle}
+                    condition:
+                      sensor.in_range:
+                        id: power
+                        below: ${end}
+            then:
+              - switch.turn_on: plug
+text_sensor:
+  - platform: version
+    name: ${name} ESPHome Version
+  # Expose WiFi information as sensors.
+  
+  - platform: wifi_info
+    ip_address:
+      name: ${name} IP
+    ssid:
+      name: ${name} SSID
+    bssid:
+      name: ${name} BSSID
+      
+  - platform: template
+    name: Power Monitor Plug ${name} Status
+    id: text_status
+    lambda: |-
+      return {};
+      
+  - platform: template
+    name: Power Monitor Plug ${name} Last Run Time
+    icon: "mdi:timelapse"
+    id: text_last_run_time
+    lambda: |-
+      return {};
+      
+  - platform: template
+    name: Power Monitor Plug ${name} Last Run
+    id: text_last_run
+    icon: "mdi:clock-outline"
+    lambda: |-
+      return {};
+      
+output:
+  - platform: esp8266_pwm
+    id: led
+    pin:
+      number: GPIO13
+      inverted: True
+light:
+  - platform: monochromatic
+    id: status_led
+    output: led
+    restore_mode: ALWAYS_OFF
+    
+binary_sensor:
+  - platform: status
+    name: "${name} Status"
+    id: connection_status
+    on_press:
+      then:
+        - light.turn_on: status_led
+    on_release:
+      then:
+        - light.turn_off: status_led
+        
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    id: button
+    on_press:
+      then:
+        - switch.toggle: plug
