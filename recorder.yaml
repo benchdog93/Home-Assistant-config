@@ -1,4 +1,15 @@
 
 db_url: !secret recorder_db_url
-purge_keep_days: 14
+purge_keep_days: 7
 auto_purge: false
+exclude:
+  entities:
+    - sun.sun
+  entity_globs:
+    - sensor.*_time  
+    - sensor.*time* 
+    - sensor.*uptim*
+    - sensor.*_current 
+    - sensor.weather_*
+  event_types:
+    - call_service # Don't record service calls

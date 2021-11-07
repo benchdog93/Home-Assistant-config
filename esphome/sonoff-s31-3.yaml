@@ -1,0 +1,103 @@
+substitutions:
+  device: spare-plug
+  Name: Spare Plug 
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+#  IP_Addr: 192.168.1.173
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: ${SSID}
+  password: ${SSID_PWD}
+#  manual_ip:
+#    static_ip: ${IP_Addr}
+#    gateway: 192.168.1.1
+#    subnet: 255.255.255.0
+#    dns1: 192.168.1.1
+  ap:
+    ssid: "${Name} Hotspot"
+    password: ${FB_PWD}
+
+captive_portal:
+
+web_server:
+  port: 80
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+logger:
+  baud_rate: 0 # (UART logging interferes with cse7766)
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
+sensor:
+  - platform: wifi_signal
+    name: "${Name} WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: ${Name} Uptime
+    
+  - platform: cse7766
+    current:
+      name: "${Name} Current"
+      accuracy_decimals: 1
+    voltage:
+      name: "${Name} Voltage"
+      accuracy_decimals: 1
+    power:
+      name: "${Name} Power"
+      accuracy_decimals: 1
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "${Name} Button"
+    on_press:
+      - switch.toggle: relay
+      
+  - platform: status
+    name: "${Name} Status"
+
+text_sensor:
+  - platform: version
+    name: ${Name} ESPHome Version
+
+  - platform: wifi_info
+    ip_address:
+      name: ${Name} IP
+    ssid:
+      name: ${Name} SSID
+    bssid:
+      name: ${Name} BSSID
+
+switch:
+  - platform: gpio
+    name: "${Name} Relay"
+    icon: "mdi:electric-switch"
+    pin: GPIO12
+    id: relay
+    restore_mode: RESTORE_DEFAULT_OFF
+
+status_led:
+  pin: GPIO13
+

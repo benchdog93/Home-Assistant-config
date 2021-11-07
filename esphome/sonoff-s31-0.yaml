@@ -9,8 +9,8 @@ substitutions:
   start: '105'
   end: '7'
   consider_finished: '21s'
-  consider_idle: '2min'
-  update_interval: '3s'
+  consider_idle: '5min'
+  update_interval: '10s'
 
 esphome:
   name: ${device}
@@ -109,7 +109,7 @@ switch:
     id: plug
     icon: "mdi:power-plug"
     restore_mode: RESTORE_DEFAULT_ON
-    on_turn_on:
+    on_turn_off:
     - if:
         condition:
           - text_sensor.state:
@@ -124,12 +124,17 @@ sensor:
 
   - platform: uptime
     name: ${name} Uptime
-    
+
   - platform: cse7766
     update_interval: ${update_interval}
+    current:
+      name: "${name} Current"
+      accuracy_decimals: 1
+    voltage:
+      name: "${name} Voltage"
+      accuracy_decimals: 1
     power:
       id: power
-      icon: "mdi:flash-circle"
       name: Power Monitor Plug ${name}
       filters:
         - lambda:

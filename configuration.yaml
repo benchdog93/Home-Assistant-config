@@ -32,24 +32,21 @@ notify: !include_dir_list notify
 switch: !include_dir_merge_named switches
 utility_meter: !include_dir_merge_named utility_meters
 
+
+default_config:
 calendar:
-stream:
 ffmpeg:
-system_health:
 map:
 config:
-sun:
 wake_on_lan:
 history:
-my:
-energy:
 http:
 websocket_api:
 
 camera:
-    - platform: local_file
-      file_path: /custom_components/mail_and_packages/mail_none.gif
-      name: mail_usps
+  - platform: local_file
+    file_path: /custom_components/mail_and_packages/mail_none.gif
+    name: mail_usps
 
 weather:
   - platform: pirateweather
