@@ -2,7 +2,7 @@
   alias: Perform Daily Backup
   trigger:
     platform: time
-    at: "05:30:00"
+    at: "04:00:00"
   condition:
     condition: time # Perform backup every day except Mondays.
     weekday:
@@ -17,4 +17,4 @@
     service: auto_backup.backup_full
     data:
       name: "HomeAssistant: {{ now().strftime('%A, %B %-d, %Y') }}"
-      keep_days: 14
+      keep_days: 7

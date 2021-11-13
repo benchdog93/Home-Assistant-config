@@ -41,6 +41,8 @@ config:
 wake_on_lan:
 history:
 http:
+#  ip_ban_enabled: false
+#  login_attempts_threshold: 5
 websocket_api:
 
 camera:
@@ -53,6 +55,6 @@ weather:
     api_key: !secret privateweather
     # Additional optional values:
     latitude: !secret lat
-    longitude: !secret long 
-    mode: "hourly" 
-    name: Pirate Weather 
+    longitude: !secret long
+    mode: "hourly"
+    name: Pirate Weather

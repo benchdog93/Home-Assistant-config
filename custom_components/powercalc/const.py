@@ -1,4 +1,4 @@
-"""The Hue Power constants."""
+"""The Powercalc constants."""
 
 DOMAIN = "powercalc"
 DOMAIN_CONFIG = "config"
@@ -57,6 +57,10 @@ MANUFACTURER_DIRECTORY_MAPPING = {
     "Signify Netherlands B.V.": "signify",
 }
 
+MANUFACTURER_ALIASES = {
+    "Philips": "Signify Netherlands B.V.",
+}
+
 MODEL_DIRECTORY_MAPPING = {
     "IKEA of Sweden": {
         "TRADFRI bulb E14 WS opal 400lm": "LED1536G5",
@@ -71,5 +75,8 @@ MODEL_DIRECTORY_MAPPING = {
         "TRADFRI bulb GU10 WW 400lm": "LED1837R5",
         "TRADFRI bulb E27 WW 806lm": "LED1836G9",
     },
-    "Signify Netherlands B.V.": {"440400982841": "LCT024"},
+    "Signify Netherlands B.V.": {
+        "440400982841": "LCT024",
+        "8718696449691": "LWB010",
+    },
 }

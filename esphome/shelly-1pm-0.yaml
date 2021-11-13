@@ -1,0 +1,199 @@
+substitutions:
+  device: refrigerator-kitchen
+  Name: Kitchen Refrigerator
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+  IP_Addr: 192.168.1.80
+  max_temp: "176.0"
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: ${SSID}
+  password: ${SSID_PWD}
+  manual_ip:
+    static_ip: ${IP_Addr}
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    dns1: 192.168.1.1
+  ap:
+    ssid: "${Name} Hotspot"
+    password: ${FB_PWD}
+
+captive_portal:
+
+web_server:
+  port: 80
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+logger:
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}
+
+sensor:
+  - platform: wifi_signal
+    name: "${Name} WiFi Signal"
+    device_class: signal_strength
+    update_interval: 60s
+
+  - platform: uptime
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
+    
+  - platform: hlw8012
+    cf_pin: GPIO05
+    cf1_pin: GPIO13 # not used because it is not available on the 1PM but it is needed to compile
+    sel_pin: GPIO14 # not used because it is not available on the 1PM but it is needed to compile
+    power:
+      name: "${Name} Power"
+      unit_of_measurement: W
+      id: "shelly1pm_power"
+      device_class: power
+      state_class: measurement
+      accuracy_decimals: 0
+      filters:
+      # Map from sensor -> measured value
+      - calibrate_linear:
+          - 0.0 -> 1.0
+          - 110.33186 -> 20.62
+          - 131.01909 -> 24.32
+          - 341.33920 -> 62.08
+          - 5561.41553 -> 1000.0
+          - 2975.51221 -> 535.7
+          - 9612.66309 -> 1720.0
+          - 14891.35352 -> 2679.0
+      # Make everything below 2W appear as just 0W.
+      - lambda: if (x < 2) return 0; else return x;
+    update_interval: 10s
+    
+#    current:
+#      name: "${Name} Current"
+#      accuracy_decimals: 1
+#    voltage:
+#      name: "${Name} Voltage"
+#      accuracy_decimals: 1
+
+  - platform: total_daily_energy
+    name: "${Name} Daily Energy"
+    power_id: "shelly1pm_power"
+    device_class: energy
+    state_class: measurement
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
+  - platform: ntc
+    sensor: temp_resistance_reading
+    filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+    name: ${Name} Temperature
+    unit_of_measurement: "°F"
+    accuracy_decimals: 1
+    icon: "mdi:thermometer"
+    calibration:
+      b_constant: 3350
+      reference_resistance: 10kOhm
+      reference_temperature: 298.15K
+    on_value_range:
+      - above: ${max_temp}
+        then:
+          - switch.turn_off: shelly_relay
+          - homeassistant.service:
+              service: persistent_notification.create
+              data:
+                title: Message from ${Name}
+              data_template:
+                message: Switch turned off because temperature exceeded ${max_temp}°F
+                
+  - platform: resistance
+    id: temp_resistance_reading
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 32kOhm
+    
+  - platform: adc
+    id: temp_analog_reading
+    pin: A0
+
+binary_sensor:
+  - platform: status
+    name: "${Name} Status"
+    
+  - platform: gpio
+    pin:
+      number: GPIO4
+    filters:
+      - delayed_on_off: 50ms # small delay to prevent debouncing
+    name: "${Name} Switch"
+    on_press:
+      then:
+        - switch.toggle: shelly_relay
+    internal: true
+    id: switchid
+
+text_sensor:
+  - platform: version
+    name: ${Name} ESPHome Version
+
+  - platform: wifi_info
+    ip_address:
+      name: ${Name} IP
+    ssid:
+      name: ${Name} SSID
+    bssid:
+      name: ${Name} BSSID
+
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+
+output:
+  - platform: esp8266_pwm
+    id: state_led
+    pin:
+      number: GPIO00
+      inverted: true
+
+switch:
+  - platform: restart
+    name: "${Name} Restart"
+
+  - platform: gpio
+    name: "${Name} Relay"
+    icon: "mdi:electric-switch"
+    pin: GPIO15
+    id: shelly_relay
+    restore_mode: RESTORE_DEFAULT_ON
+    

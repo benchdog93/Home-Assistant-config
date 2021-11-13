@@ -6,9 +6,6 @@ exclude:
   entities:
     - sun.sun
   entity_globs:
-    - sensor.*_time  
-    - sensor.*time* 
-    - sensor.*uptim*
     - sensor.weather_*
   event_types:
     - call_service # Don't record service calls

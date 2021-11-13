@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  ddwart_run_time_mins:
+    friendly_name: DDWart Run Time
+    unit_of_measurement: 'mins'
+    value_template: "{{ (states('sensor.netgear_r6400_v2_ewvisualarts_uptime') | float / 60) | round(2) }}"

@@ -45,7 +45,27 @@ ota:
 sensor:
   # Uptime sensor.
   - platform: uptime
-    name: ${Name} Uptime
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
 
   # WiFi Signal sensor.
   - platform: wifi_signal
@@ -77,7 +97,7 @@ binary_sensor:
                 - homeassistant.service:
                     service: light.toggle
                     data:
-                      entity_id: xxxxx.xxxx_xxxxx
+                      entity_id: light.nook_light
               # else, toggle relay
               else:
                 - switch.toggle: shelly_relay
@@ -97,9 +117,17 @@ text_sensor:
     bssid:
       name: ${Name} BSSID
 
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+    
 # Shelly 1 detached switch config with fallback in case of wifi or api fail
 
 switch:
+  - platform: restart
+    name: "${Name} Restart"
+    
   - platform: gpio
     name: ${Name}
     pin: GPIO4

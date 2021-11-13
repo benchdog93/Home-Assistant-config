@@ -52,8 +52,28 @@ sensor:
     update_interval: 60s
 
   - platform: uptime
-    name: ${Name} Uptime
-    
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
+
   - platform: cse7766
     current:
       name: "${Name} Current"
@@ -74,7 +94,7 @@ binary_sensor:
     name: "${Name} Button"
     on_press:
       - switch.toggle: relay
-      
+
   - platform: status
     name: "${Name} Status"
 
@@ -90,14 +110,21 @@ text_sensor:
     bssid:
       name: ${Name} BSSID
 
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+
 switch:
+  - platform: restart
+    name: "${Name} Restart"
+
   - platform: gpio
     name: "${Name} Relay"
     icon: "mdi:electric-switch"
     pin: GPIO12
     id: relay
-    restore_mode: RESTORE_DEFAULT_OFF
+    restore_mode: RESTORE_DEFAULT_ON
 
 status_led:
   pin: GPIO13
-
