@@ -1,6 +1,6 @@
 substitutions:
   device: cloths-dryer
-  name: Dryer 
+  Name: Dryer 
   SSID: !secret wifi_iot_ssid
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
@@ -40,7 +40,7 @@ wifi:
 #    subnet: 255.255.255.0
 #    dns1: 192.168.1.1
   ap:
-    ssid: "${name} Hotspot"
+    ssid: "${Name} Hotspot"
     password: ${FB_PWD}
 
 captive_portal:
@@ -102,40 +102,46 @@ script:
             id(text_last_run_time).publish_state(id(last_run_time));
           id(prev_running) = 0;
           id(text_status).publish_state("Finished");
-switch:
-  - platform: gpio
-    name: Power Monitor Plug ${name}
-    pin: GPIO12
-    id: plug
-    icon: "mdi:power-plug"
-    restore_mode: RESTORE_DEFAULT_ON
-    on_turn_off:
-    - if:
-        condition:
-          - text_sensor.state:
-              id: text_status
-              state: "Running"
-        then:
-          - script.execute: record
+
 sensor:
   - platform: wifi_signal
-    name: "${name} WiFi Signal"
+    name: "${Name} WiFi Signal"
     update_interval: 60s
 
   - platform: uptime
-    name: ${name} Uptime
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
 
   - platform: cse7766
     update_interval: ${update_interval}
     current:
-      name: "${name} Current"
+      name: "${Name} Current"
       accuracy_decimals: 1
     voltage:
-      name: "${name} Voltage"
+      name: "${Name} Voltage"
       accuracy_decimals: 1
     power:
       id: power
-      name: Power Monitor Plug ${name}
+      name: Power Monitor Plug ${Name}
       filters:
         - lambda:
             if (id(plug).state) {
@@ -214,54 +220,10 @@ sensor:
                         below: ${end}
             then:
               - switch.turn_on: plug
-text_sensor:
-  - platform: version
-    name: ${name} ESPHome Version
-  # Expose WiFi information as sensors.
-  
-  - platform: wifi_info
-    ip_address:
-      name: ${name} IP
-    ssid:
-      name: ${name} SSID
-    bssid:
-      name: ${name} BSSID
-      
-  - platform: template
-    name: Power Monitor Plug ${name} Status
-    id: text_status
-    lambda: |-
-      return {};
-      
-  - platform: template
-    name: Power Monitor Plug ${name} Last Run Time
-    icon: "mdi:timelapse"
-    id: text_last_run_time
-    lambda: |-
-      return {};
-      
-  - platform: template
-    name: Power Monitor Plug ${name} Last Run
-    id: text_last_run
-    icon: "mdi:clock-outline"
-    lambda: |-
-      return {};
-      
-output:
-  - platform: esp8266_pwm
-    id: led
-    pin:
-      number: GPIO13
-      inverted: True
-light:
-  - platform: monochromatic
-    id: status_led
-    output: led
-    restore_mode: ALWAYS_OFF
-    
+
 binary_sensor:
   - platform: status
-    name: "${name} Status"
+    name: "${Name} Status"
     id: connection_status
     on_press:
       then:
@@ -269,7 +231,7 @@ binary_sensor:
     on_release:
       then:
         - light.turn_off: status_led
-        
+
   - platform: gpio
     pin:
       number: GPIO0
@@ -279,3 +241,73 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: plug
+        
+text_sensor:
+  - platform: version
+    name: ${Name} ESPHome Version
+  # Expose WiFi information as sensors.
+
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+
+  - platform: wifi_info
+    ip_address:
+      name: ${Name} IP
+    ssid:
+      name: ${Name} SSID
+    bssid:
+      name: ${Name} BSSID
+
+  - platform: template
+    name: Power Monitor Plug ${Name} Status
+    id: text_status
+    lambda: |-
+      return {};
+
+  - platform: template
+    name: Power Monitor Plug ${Name} Last Run Time
+    icon: "mdi:timelapse"
+    id: text_last_run_time
+    lambda: |-
+      return {};
+
+  - platform: template
+    name: Power Monitor Plug ${Name} Last Run
+    id: text_last_run
+    icon: "mdi:clock-outline"
+    lambda: |-
+      return {};
+
+output:
+  - platform: esp8266_pwm
+    id: led
+    pin:
+      number: GPIO13
+      inverted: True
+
+switch:
+  - platform: restart
+    name: "${Name} Restart"
+
+  - platform: gpio
+    name: Power Monitor Plug ${Name}
+    pin: GPIO12
+    id: plug
+    icon: "mdi:power-plug"
+    restore_mode: RESTORE_DEFAULT_ON
+    on_turn_off:
+    - if:
+        condition:
+          - text_sensor.state:
+              id: text_status
+              state: "Running"
+        then:
+          - script.execute: record
+
+light:
+  - platform: monochromatic
+    id: status_led
+    output: led
+    restore_mode: ALWAYS_OFF

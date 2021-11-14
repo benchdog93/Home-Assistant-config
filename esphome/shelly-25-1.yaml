@@ -25,7 +25,7 @@ wifi:
     subnet: 255.255.255.0
     dns1: 192.168.1.1
   ap:
-    ssid: "${Name} Fallback Hotspot"
+    ssid: "${Name} Hotspot"
     password: ${FB_PWD}
 
 captive_portal:
@@ -55,7 +55,28 @@ sensor:
     update_interval: 60s
 
   - platform: uptime
-    name: ${Name} Uptime
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
+
 
   - platform: ade7953
     irq_pin: GPIO16 # Prevent overheating by setting this
@@ -100,17 +121,21 @@ sensor:
                   title: Message from ${Name}
                 data_template:
                   message: Switch turned off because power exceeded ${max_power}W
-    update_interval: 1s
+    update_interval: 60s
 
   - platform: total_daily_energy
     name: ${channel_1} Daily Energy
     power_id: power_channel_1
-    unit_of_measurement: W
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
 
   - platform: total_daily_energy
     name: ${channel_2} Daily Energy
     power_id: power_channel_2
-    unit_of_measurement: W
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
 
   # NTC Temperature
   - platform: ntc
@@ -146,10 +171,9 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: A0
-    update_interval: 1s
+    update_interval: 60s
 
 binary_sensor:
-
   - platform: status
     name: "${Name} Status"
 
@@ -170,9 +194,10 @@ binary_sensor:
         - switch.toggle: shelly_relay_2
 
 text_sensor:
+  # Expose ESPHome version as sensor.
   - platform: version
-    name: "${Name} ESPHome Version"
-
+    name: ${Name} ESPHome Version
+  # Expose WiFi information as sensors.
   - platform: wifi_info
     ip_address:
       name: ${Name} IP
@@ -181,22 +206,30 @@ text_sensor:
     bssid:
       name: ${Name} BSSID
 
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+
 status_led:
   pin:
     number: GPIO0
     inverted: yes
 
 switch:
+  - platform: restart
+    name: "${Name} Restart"
+
   - platform: gpio
     id: shelly_relay_1
     name: ${channel_1} Relay
     pin: GPIO4
     icon: "mdi:electric-switch"
-    restore_mode: RESTORE_DEFAULT_ON
+    restore_mode: restore_default_ON
 
   - platform: gpio
     id: shelly_relay_2
     name: ${channel_2} Relay
     pin: GPIO15
     icon: "mdi:electric-switch"
-    restore_mode: RESTORE_DEFAULT_ON
+    restore_mode: restore_default_ON

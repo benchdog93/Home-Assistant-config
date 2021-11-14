@@ -134,4 +134,4 @@ switch:
     id: shelly_relay
     icon: "mdi:electric-switch"
     # after reboot, keep the relay off. this prevents light turning on after a power outage
-    restore_mode: ALWAYS_OFF
+    restore_mode: ALWAYS_On
