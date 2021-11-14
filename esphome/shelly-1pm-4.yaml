@@ -1,11 +1,11 @@
 substitutions:
-  device: heating-sysytem
-  Name: Boiler
+  device: livingroom-tv
+  Name: Livingroom TV 
   SSID: !secret wifi_iot_ssid
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-  IP_Addr: 192.168.1.198
+  IP_Addr: 192.168.1.84
   max_temp: "176.0"
   current_resistor: '0.001' # Powermeter Current Resistor
   voltage_divider: '910' # Powermeter Voltage Devider
@@ -203,4 +203,3 @@ switch:
     pin: GPIO15
     id: shelly_relay
     restore_mode: RESTORE_DEFAULT_ON
-
