@@ -4,5 +4,5 @@ name: Livingroom Heating Ratio
 entity_id: sensor.livingroom
 state: 'heating'
 type: ratio
-start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+start: '{{ now().replace(hour=0, minute=0, second=0) }} %'
 end: '{{ now() }}'

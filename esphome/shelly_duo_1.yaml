@@ -5,7 +5,7 @@ substitutions:
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-  IP_Addr: 192.168.1.144
+  IP_Addr: 192.168.1.48
 
 esphome:
   name: ${device}
@@ -15,24 +15,23 @@ esphome:
 wifi:
   ssid: ${SSID}
   password: ${SSID_PWD}
-  ap:
-    ssid: "${Name} Fallback Hotspot"
-    password: "${FB_PWD}"
-
   manual_ip:
     static_ip: ${IP_Addr}
     gateway: 192.168.1.1
     subnet: 255.255.255.0
     dns1: 192.168.1.1
-
-time:
-  - platform: homeassistant
-    id: homeassistant_time
+  ap:
+    ssid: "${Name} Hotspot"
+    password: ${FB_PWD}
 
 captive_portal:
 
 web_server:
   port: 80
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
 
 logger:
 
@@ -46,14 +45,34 @@ sensor:
   - platform: wifi_signal
     name: "${Name} WiFi Signal"
     update_interval: 60s
-    
+
   - platform: uptime
-    name: ${Name} Uptime
-    
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
+
 binary_sensor:
   - platform: status
     name: "${Name} Status"
-    
+
 text_sensor:
   # Expose ESPHome version as sensor.
   - platform: version
@@ -66,7 +85,12 @@ text_sensor:
       name: ${Name} SSID
     bssid:
       name: ${Name} BSSID
-    
+
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+
 output:
   - platform: esp8266_pwm
     id: output_warm_white
@@ -75,10 +99,14 @@ output:
     id: output_daylight
     pin: GPIO5
 
+switch:
+  - platform: restart
+    name: "${Name} Restart"
+
 light:
   - platform: cwww
     name: "${Name}"
-    id: lightid
+    id: lightid 
     cold_white: output_daylight
     warm_white: output_warm_white
     cold_white_color_temperature: 6500 K

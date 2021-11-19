@@ -3,4 +3,4 @@ platform: template
 sensors:
   office_humidity:
     friendly_name: "Office Humidity"
-    value_template: "{{ state_attr('climate.office', 'current_humidity') }}"
+    value_template: "{{ state_attr('climate.office', 'current_humidity') }} %"

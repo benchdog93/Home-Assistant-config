@@ -1,0 +1,4 @@
+platform: statistics
+entity_id: sensor.home_tank_current_capacity
+name: Home Tank Usage
+sampling_size: 2

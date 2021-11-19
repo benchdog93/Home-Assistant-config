@@ -7,7 +7,7 @@ substitutions:
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-  IP_Addr: 192.168.1.131
+  IP_Addr: 192.168.1.73
   max_power: "2000.0"
   max_temp: "176.0"
 

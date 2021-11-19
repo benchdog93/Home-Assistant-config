@@ -3,5 +3,5 @@ platform: template
 sensors:
   livingroom_temperature:
     friendly_name: "Livingroom Temperature"
-    unit_of_measurement: "F"
-    value_template: "{{ state_attr('climate.living_room', 'current_temperature') }}"
+    unit_of_measurement: "°F"
+    value_template: "{{ state_attr('climate.living_room', 'current_temperature') }} °F"

@@ -5,7 +5,7 @@ substitutions:
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-#  IP_Addr: 192.168.x.xxx
+#  IP_Addr: 192.168.1.65
   start: '105'
   end: '7'
   consider_finished: '21s'
@@ -221,6 +221,13 @@ sensor:
             then:
               - switch.turn_on: plug
 
+  - platform: total_daily_energy
+    name: "${Name} Daily Energy"
+    power_id: "power"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
 binary_sensor:
   - platform: status
     name: "${Name} Status"
@@ -241,7 +248,7 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: plug
-        
+
 text_sensor:
   - platform: version
     name: ${Name} ESPHome Version

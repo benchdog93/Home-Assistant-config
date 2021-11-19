@@ -3,5 +3,5 @@ platform: template
 sensors:
   master_bedroom_temperature:
     friendly_name: "Master Bedroom Temperature"
-    unit_of_measurement: "F"
-    value_template: "{{ state_attr('climate.bedroom', 'current_temperature') }}"
+    unit_of_measurement: "°F"
+    value_template: "{{ state_attr('climate.bedroom', 'current_temperature') }} °F"

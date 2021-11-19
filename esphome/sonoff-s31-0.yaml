@@ -221,6 +221,13 @@ sensor:
             then:
               - switch.turn_on: plug
 
+  - platform: total_daily_energy
+    name: "${Name} Daily Energy"
+    power_id: "power"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
 binary_sensor:
   - platform: status
     name: "${Name} Status"
@@ -241,7 +248,7 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: plug
-        
+
 text_sensor:
   - platform: version
     name: ${Name} ESPHome Version

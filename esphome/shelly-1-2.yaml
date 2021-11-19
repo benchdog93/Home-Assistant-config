@@ -5,7 +5,7 @@ substitutions:
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-  IP_Addr: 192.168.1.128
+#  IP_Addr: 192.168.1.44
 
 esphome:
   name: ${device}
@@ -15,13 +15,13 @@ esphome:
 wifi:
   ssid: ${SSID}
   password: ${SSID_PWD}
-  manual_ip:
-    static_ip: ${IP_Addr}
-    gateway: 192.168.1.1
-    subnet: 255.255.255.0
-    dns1: 192.168.1.1
+#  manual_ip:
+#    static_ip: ${IP_Addr}
+#    gateway: 192.168.1.1
+#    subnet: 255.255.255.0
+#    dns1: 192.168.1.1
   ap:
-    ssid: "${Name} Fallback Hotspot"
+    ssid: "${Name} Hotspot"
     password: ${FB_PWD}
 
 captive_portal:
@@ -47,7 +47,27 @@ sensor:
     update_interval: 60s
 
   - platform: uptime
-    name: ${Name} Uptime
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
 
 binary_sensor:
 
@@ -68,6 +88,7 @@ text_sensor:
   # Expose ESPHome version as sensor.
   - platform: version
     name: ${Name} ESPHome Version
+    
   # Expose WiFi information as sensors.
   - platform: wifi_info
     ip_address:
@@ -76,11 +97,20 @@ text_sensor:
       name: ${Name} SSID
     bssid:
       name: ${Name} BSSID
+      
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
 
 output:
   - platform: gpio
     pin: GPIO4
     id: shelly_1_relay
+    
+switch:
+  - platform: restart
+    name: "${Name} Restart"
 
 light:
   - platform: binary

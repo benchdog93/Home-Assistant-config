@@ -5,7 +5,7 @@ substitutions:
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-#  IP_Addr: 192.168.1.173
+#  IP_Addr: 192.168.1.64
 
 esphome:
   name: ${device}
@@ -83,7 +83,15 @@ sensor:
       accuracy_decimals: 1
     power:
       name: "${Name} Power"
+      id: power_monitor_value
       accuracy_decimals: 1
+
+  - platform: total_daily_energy
+    name: "${Name} Daily Energy"
+    power_id: "power_monitor_value"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
 
 binary_sensor:
   - platform: gpio

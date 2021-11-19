@@ -1,7 +1,7 @@
   alias: Perform Auto Backup
   trigger:
     platform: time_pattern # Perform backup every 3 hours.
-    hours: "/3"
+    hours: "/6"
   action:
     service: auto_backup.backup_partial # Only perform a partial backup to save storage.
     data:

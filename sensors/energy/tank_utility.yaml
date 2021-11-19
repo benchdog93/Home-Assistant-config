@@ -1,0 +1,5 @@
+platform: tank_utility
+email: !secret tu_email
+password: !secret tu_password
+devices:
+  - !secret tu_devices
