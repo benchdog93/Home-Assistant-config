@@ -1,0 +1,6 @@
+sensor:
+  - name: Home Tank KWh
+    unit_of_measurement: kWh
+    state_class: total_increasing
+    device_class: energy
+    state: "{{ (states('sensor.home_tank_cubic_feet') | float(default=none) * 0.293) | round(3) }}"

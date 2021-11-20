@@ -2,5 +2,5 @@ platform: template
 sensors:
   home_propane_tank_draw:
     friendly_name: "Home Propane Consumption"
-    value_template: "{{ state_attr('sensor.home_tank_usage', 'change') | float * (-1) | round(2) | default(0, true)}} gals"
+    value_template: "{{ state_attr('sensor.home_tank_usage', 'change') | float * (-1) | round(2) | default(0, true)}}"
     unit_of_measurement: gal

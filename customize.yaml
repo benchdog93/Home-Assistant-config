@@ -12,5 +12,3 @@ sensor.washing_machine_daily_energy:
   device_class: power
 sensor.cloths_dryer_daily_energy:
   device_class: power
-sensor.tank_utility_002c003c3130363101473130:
-  friendly_name: 'Home Propane Tank Utility '

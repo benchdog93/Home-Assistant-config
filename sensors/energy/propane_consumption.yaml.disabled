@@ -1,5 +1,0 @@
-platform: integration
-source: sensor.home_tank_current_capacity
-name: Home Propane Consumption
-unit_prefix: gal
-round: 2

@@ -1,0 +1,4 @@
+platform: statistics
+entity_id: sensor.home_tank_convert_ft_3
+name: Home Tank Consumption
+sampling_size: 2
