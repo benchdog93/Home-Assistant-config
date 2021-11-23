@@ -4,7 +4,7 @@ sensors:
       friendly_name: 'Synology Uptime'
       icon_template: phu:nas-v2
       value_template: >-
-        {% set up_time =  as_timestamp(now()) - as_timestamp(states('sensor.ewvisualarts_last_boot')) %}
+        {% set up_time = 0 if is_state('sensor.ewvisualarts_last_boot', 'unavailable') else (as_timestamp(now()) - as_timestamp(states('sensor.ewvisualarts_last_boot'))) %}
 
         {% if up_time == 0 %}
           Just restarted...

@@ -1,0 +1,205 @@
+substitutions:
+  device: tooster
+  Name: Tooster
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+  IP_Addr: 192.168.1.86
+  max_temp: "176.0"
+  current_resistor: '0.001' # Powermeter Current Resistor
+  voltage_divider: '910' # Powermeter Voltage Devider
+  button_pin: GPIO04 # Power Button
+  power_cf_pin: GPIO05 # Powermeter
+  power_cf1_pin: GPIO13 # Powermeter
+  power_sel_pin: GPIO14 # Powermeter
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+  esp8266_restore_from_flash: True
+
+wifi:
+  ssid: ${SSID}
+  password: ${SSID_PWD}
+  manual_ip:
+    static_ip: ${IP_Addr}
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    dns1: 192.168.1.1
+  ap:
+    ssid: "${Name} Hotspot"
+    password: ${FB_PWD}
+
+captive_portal:
+
+web_server:
+  port: 80
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+logger:
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}
+
+sensor:
+  - platform: wifi_signal
+    name: "${Name} WiFi Signal"
+    device_class: signal_strength
+    update_interval: 60s
+
+  - platform: uptime
+    name: ${Name} Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + " days " : "") +
+                (hours ? to_string(hours) + " hrs " : "") +
+                (minutes ? to_string(minutes) + " mins " : "") +
+                (to_string(seconds) + " secs")
+              ).c_str();
+
+  - platform: hlw8012
+    sel_pin:
+      number: ${power_sel_pin}
+      inverted: True
+    cf_pin: ${power_cf_pin}
+    cf1_pin: ${power_cf1_pin}
+
+    power:
+      name: "${Name} Power"
+      id: power_monitor_value
+      accuracy_decimals: 1
+      filters:
+      # Reading from the ESPHome log (from the device) -> actual measured value (different combinations of bulbs on 3 bulb chandelier)
+      # Polynomial calibration works best in my case. I created an excel graph with polynomial trend line in Excel based on the datapoints bellow and degree of 5 or 6 works best.
+        - calibrate_polynomial:
+            degree: 5
+            datapoints:
+              - 27.9 -> 5.0
+              - 43.4 -> 7.0
+              - 55.9 -> 10.0
+              - 65.2 -> 11.0
+              - 82.7 -> 15.0
+              - 128.3 -> 21.0
+              - 212 -> 35.0
+              - 382.7 -> 60.0
+              - 451 -> 75.0
+              - 768.5 -> 120.0
+              - 937.1 -> 150.0
+              - 1217.4 -> 195.0
+              - 1410.9 -> 225.0
+        # Make everything below 2W appear as just 0W.
+        # Furthermore it corrects 1.0W for the power usage of the plug.
+        - lambda: if (x < (2 + 1)) return 0; else return (x - 1);
+#       - lambda: return (x / 2.2);
+
+  - platform: total_daily_energy
+    name: "${Name} Daily Energy"
+    power_id: "power_monitor_value"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
+  - platform: ntc
+    sensor: temp_resistance_reading
+    filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+    name: ${Name} Temperature
+    unit_of_measurement: "°F"
+    accuracy_decimals: 1
+    icon: "mdi:thermometer"
+    calibration:
+      b_constant: 3350
+      reference_resistance: 10kOhm
+      reference_temperature: 298.15K
+    on_value_range:
+      - above: ${max_temp}
+        then:
+          - switch.turn_off: shelly_relay
+          - homeassistant.service:
+              service: persistent_notification.create
+              data:
+                title: Message from ${Name}
+              data_template:
+                message: Switch turned off because temperature exceeded ${max_temp}°F
+
+  - platform: resistance
+    id: temp_resistance_reading
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 32kOhm
+
+  - platform: adc
+    id: temp_analog_reading
+    pin: A0
+
+binary_sensor:
+  - platform: status
+    name: "${Name} Status"
+
+  - platform: gpio
+    pin:
+      number: GPIO4
+#    filters:
+#      - delayed_on_off: 50ms # small delay to prevent debouncing
+    name: "${Name} Switch"
+    on_state:
+      then:
+        - switch.toggle: shelly_relay
+#    internal: true
+    id: switchid
+
+text_sensor:
+  - platform: version
+    name: ${Name} ESPHome Version
+
+  - platform: wifi_info
+    ip_address:
+      name: ${Name} IP
+    ssid:
+      name: ${Name} SSID
+    bssid:
+      name: ${Name} BSSID
+
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+
+output:
+  - platform: esp8266_pwm
+    id: state_led
+    pin:
+      number: GPIO00
+      inverted: true
+
+switch:
+  - platform: restart
+    name: "${Name} Restart"
+
+  - platform: gpio
+    name: "${Name} Relay"
+    icon: "mdi:electric-switch"
+    pin: GPIO15
+    id: shelly_relay
+    restore_mode: RESTORE_DEFAULT_ON
