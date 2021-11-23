@@ -24,7 +24,7 @@ sensors:
                     {{- '{} {}{}'.format(value, name, end) if value | int > 0 else '' }}
           {%- endmacro %}
 
-          {% set text = [ phrase(weeks, 'week'), phrase(days, 'day'), phrase(hours, 'hr'), phrase(minutes, 'min') ] | select('!=','') | list | join(', ') %}
+          {% set text = [ phrase(weeks, 'wk'), phrase(days, 'day'), phrase(hours, 'hr'), phrase(minutes, 'min') ] | select('!=','') | list | join(', ') %}
           {% set last_comma = text.rfind(',') %}
           {% if last_comma != -1 %}
             {% set text = text[:last_comma] + '' + text[last_comma + 1:] %}

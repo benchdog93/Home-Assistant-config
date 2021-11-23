@@ -4,5 +4,5 @@ name: Master Bedroom Heat On Today
 entity_id: sensor.master_bedroom
 state: 'heating'
 type: time
-start: '{{ now().replace(hour=0, minute=0, second=0) }} hrs'
+start: '{{ now().replace(hour=0, minute=0, second=0) }}'
 end: '{{ now() }}'

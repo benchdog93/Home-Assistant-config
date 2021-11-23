@@ -17,4 +17,4 @@
     service: auto_backup.backup_full
     data:
       name: "HomeAssistant: {{ now().strftime('%A, %B %-d, %Y') }}"
-      keep_days: 6
+      keep_days: 7

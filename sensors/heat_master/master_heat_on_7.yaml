@@ -1,9 +1,0 @@
-
-platform: history_stats
-name: Master Bedroom Heat On 7 Days
-entity_id: sensor.master_bedroom
-state: 'heating'
-type: time
-end: '{{ now() }}'
-duration:
-  days: 7

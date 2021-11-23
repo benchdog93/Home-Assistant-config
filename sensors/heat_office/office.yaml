@@ -4,4 +4,4 @@ sensors:
   office_temperature:
     friendly_name: "Office Temperature"
     unit_of_measurement: "°F"
-    value_template: "{{ state_attr('climate.office', 'current_temperature') }} °F"
+    value_template: "{{ state_attr('climate.office', 'current_temperature') }}"

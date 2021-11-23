@@ -1,9 +1,0 @@
-
-platform: history_stats
-name: Livingroom Heat On 7 Days
-entity_id: sensor.livingroom
-state: 'heating'
-type: time
-end: '{{ now() }}'
-duration:
-  days: 7

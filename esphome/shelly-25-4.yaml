@@ -2,7 +2,7 @@ substitutions:
   device: kitchen-circuit-0
   Name: Kitchen Circuit 0
   channel_1: Counter Lights
-  channel_2: Tooster
+  channel_2: Appliance A 
   SSID: !secret wifi_iot_ssid
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password

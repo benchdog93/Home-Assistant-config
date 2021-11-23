@@ -4,4 +4,4 @@ sensors:
   ups_battery_runtime_hrs:
     friendly_name: Ups Battery Runtime Hrs
     unit_of_measurement: 'hrs'
-    value_template: "{{ (states('sensor.ups_battery_runtime') | float / 3600) | round(2) }}"
+    value_template: "{{ (states('sensor.ups_battery_runtime') | float(default=none) / 3600) | round(2) }}"
