@@ -1,0 +1,13 @@
+sensor:
+  - name: "Home Propane Tank Draw"
+    unit_of_measurement: "gal"
+    state: >
+      {% set propane_usage = state_attr('sensor.home_tank_usage', 'change') | float %}
+      {% if propane_usage < 0 %}
+      {{ propane_usage | float(default=none) * (-1) | round(2) }}
+      {% else %}
+      {{ 0 }}
+      {% endif %}
+    device_class: gas
+    state_class: measurement
+    unique_id: sense_home_propane_tank_draw
