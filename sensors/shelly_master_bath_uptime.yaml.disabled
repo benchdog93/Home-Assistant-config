@@ -1,7 +1,0 @@
-
-platform: template
-sensors:
-  shelly_master_bath_uptime:
-    friendly_name: Shelly Master Bath Uptime
-    unit_of_measurement: 'Days'
-    value_template: "{{ (states('sensor.mb_shelly_uptime') | float / 86400) | round(2) }}"

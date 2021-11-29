@@ -1,7 +1,0 @@
-
-alias: homeassistant_start
-trigger:
-  - platform: homeassistant
-    event: start
-action:
-  - service: shell_command.ha_start

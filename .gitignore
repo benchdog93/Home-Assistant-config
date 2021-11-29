@@ -1,6 +1,8 @@
 # Example .gitignore file for your config dir.
 # An * ensures that everything will be ignored.
 *.log
+*.log.fault
+*.log.1
 *.db
 *.db-shm
 *.db-wal

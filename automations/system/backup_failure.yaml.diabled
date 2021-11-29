@@ -1,9 +1,0 @@
-  alias: "Notify Backup Failure"
-  trigger:
-    platform: event
-    event_type: auto_backup.backup_failed
-  action:
-    service: persistent_notification.create
-    data:
-      title: "Backup Failed."
-      message: "Name: {{ trigger.event.data.name }}\nError: {{ trigger.event.data.error }}"
