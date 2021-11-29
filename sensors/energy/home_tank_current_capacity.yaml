@@ -1,6 +1,6 @@
 platform: template
 sensors:
   home_tank_current_capacity:
-    friendly_name: Home Propane Tank 
+    friendly_name: Home Propane Tank
     unit_of_measurement: 'gal'
-    value_template: "{{ (states('sensor.home_tank_convert_decimal') | float * 400) | round(2) | default(0, true) }}"
+    value_template: "{{ (states('sensor.home_tank_convert_decimal') | float * 500) | round(2) | default(0, true) }}"

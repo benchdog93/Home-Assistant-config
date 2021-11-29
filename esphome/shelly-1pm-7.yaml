@@ -1,0 +1,26 @@
+substitutions:
+  device: xxxxxx_xxxxx_xxxx
+  Name: xxxxx xxxx xxxxx 
+
+  SSID: !secret wifi_iot_ssid
+  SSID_PWD: !secret wifi_iot_password
+  FB_PWD: !secret esphome_fallback_ap_password
+  ESP_PWD: !secret esphome_password
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: ${SSID}
+  password: ${SSID_PWD}
+  ap:
+    ssid: "${device} Hotspot"
+    password: ${FB_PWD}
+
+api:
+  password: ${ESP_PWD}
+
+ota:
+  password: ${ESP_PWD}

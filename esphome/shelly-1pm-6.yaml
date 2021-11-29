@@ -90,28 +90,18 @@ sensor:
       id: power_monitor_value
       accuracy_decimals: 1
       filters:
-      # Reading from the ESPHome log (from the device) -> actual measured value (different combinations of bulbs on 3 bulb chandelier)
-      # Polynomial calibration works best in my case. I created an excel graph with polynomial trend line in Excel based on the datapoints bellow and degree of 5 or 6 works best.
-        - calibrate_polynomial:
-            degree: 5
-            datapoints:
-              - 27.9 -> 5.0
-              - 43.4 -> 7.0
-              - 55.9 -> 10.0
-              - 65.2 -> 11.0
-              - 82.7 -> 15.0
-              - 128.3 -> 21.0
-              - 212 -> 35.0
-              - 382.7 -> 60.0
-              - 451 -> 75.0
-              - 768.5 -> 120.0
-              - 937.1 -> 150.0
-              - 1217.4 -> 195.0
-              - 1410.9 -> 225.0
-        # Make everything below 2W appear as just 0W.
-        # Furthermore it corrects 1.0W for the power usage of the plug.
-        - lambda: if (x < (2 + 1)) return 0; else return (x - 1);
-#       - lambda: return (x / 2.2);
+      - calibrate_linear:
+          - 0.0 -> 1.0
+          - 110.33186 -> 20.62
+          - 131.01909 -> 24.32
+          - 341.33920 -> 62.08
+          - 5561.41553 -> 1000.0
+          - 2975.51221 -> 535.7
+          - 9612.66309 -> 1720.0
+          - 14891.35352 -> 2679.0
+      # Make everything below 2W appear as just 0W.
+      - lambda: if (x < 2) return 0; else return x;
+    update_interval: 10s
 
   - platform: total_daily_energy
     name: "${Name} Daily Energy"

@@ -1,0 +1,10 @@
+  alias: Colleen Disarm Home
+  description: ''
+  use_blueprint:
+    path: denperss/SNZB-01.yaml
+    input:
+      remote: 22560d7ea590206951f14122f3eefee4
+      single_press:
+      - service: input_boolean.toggle
+        target:
+          entity_id: input_boolean.disarmed

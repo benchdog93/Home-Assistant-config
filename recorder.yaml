@@ -7,5 +7,7 @@ exclude:
     - sun.sun
   entity_globs:
     - sensor.weather_*
+    - sensor.sm_n960u_*
+    - sensor.sm_n950u_*
   event_types:
     - call_service # Don't record service calls
