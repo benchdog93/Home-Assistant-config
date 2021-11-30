@@ -1,0 +1,11 @@
+binary_sensor:
+  - name: Garage Entry Door
+    device_class: opening
+    state: >
+      {{ is_state("binary_sensor.dome_door_window_sensor_access_control_window_door_is_open", "on") }}
+    icon: >
+      {% if is_state("binary_sensor.dome_door_window_sensor_access_control_window_door_is_open", "on") %}
+        mdi:door-open
+      {% else %}
+        mdi:door-closed
+      {% endif %}

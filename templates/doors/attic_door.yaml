@@ -1,0 +1,11 @@
+binary_sensor:
+  - name: Attic Door
+    device_class: opening
+    state: >
+      {{ is_state("binary_sensor.ewelink_ds01_5f10901f_ias_zone", "on") }}
+    icon: >
+      {% if is_state("binary_sensor.ewelink_ds01_5f10901f_ias_zone", "on") %}
+        mdi:door-open
+      {% else %}
+        mdi:door-closed
+      {% endif %}

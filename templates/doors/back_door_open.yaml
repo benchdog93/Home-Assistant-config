@@ -1,0 +1,20 @@
+binary_sensor:
+  - name: Back Door
+    device_class: opening
+    state: >
+      {{ is_state("binary_sensor.back_door_ias_zone", "on") }}
+    icon: >
+      {% if is_state("binary_sensor.back_door_ias_zone", "on") %}
+        mdi:door-open
+      {% else %}
+        mdi:door-closed
+      {% endif %}
+      
+
+
+
+      
+
+      
+
+      

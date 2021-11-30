@@ -1,0 +1,11 @@
+binary_sensor:
+  - name: Master Bedroom Window 1
+    device_class: opening
+    state: >
+      {{ is_state("binary_sensor.ewelink_ds01_43a69623_ias_zone", "on") }}
+    icon: >
+      {% if is_state("binary_sensor.ewelink_ds01_43a69623_ias_zone", "on") %}
+        mdi:window-open
+      {% else %}
+        mdi:window-closed  
+      {% endif %}
