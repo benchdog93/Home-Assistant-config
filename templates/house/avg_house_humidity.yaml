@@ -1,0 +1,10 @@
+sensor:
+  - name: "Average House Humidity"
+    state: >
+      {{ [states('sensor.dining_room_humidity'),
+      states('sensor.living_room_humidity'),
+      states('sensor.master_bedroom_humidity'),
+      states('sensor.office_humidity')]|map('float', default=0)|sum | float / 4 |round(2) }}
+    device_class: humidity 
+    unit_of_measurement: '%'
+    state_class: total

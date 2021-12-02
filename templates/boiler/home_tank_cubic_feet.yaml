@@ -3,4 +3,4 @@ sensor:
     unit_of_measurement: 'ft³'
     state_class: total_increasing
     device_class: gas
-    state: "{{ (states('sensor.home_propane_tank_draw') | float(default=none) * 0.133681) | round(6) }}"
+    state: "{{ (states('sensor.home_propane_tank_draw') | float(default=0) * 0.133681) | round(6) }}"
