@@ -5,5 +5,3 @@ auto_purge: false
 exclude:
   entities:
     - sun.sun
-  entity_globs:
-    - sensor.weather_*

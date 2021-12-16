@@ -1,4 +1,4 @@
-  alias: Colleen Disarm Home
+  alias: Livingroom
   description: ''
   use_blueprint:
     path: denperss/SNZB-01.yaml
@@ -8,3 +8,7 @@
       - service: input_boolean.toggle
         target:
           entity_id: input_boolean.disarmed
+      double_press:
+      - service: light.toggle
+        target:
+          entity_id: light.livingroom_receptacle_3f626efe_on_off

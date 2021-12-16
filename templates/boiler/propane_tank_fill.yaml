@@ -4,7 +4,7 @@ sensor:
     state: >
       {% set propane_usage = state_attr('sensor.home_tank_usage', 'change') | float %}
       {% if propane_usage > 0 %}
-      {{ propane_usage | float(default=0) | round(2) }}
+      {{ propane_usage | float(default=none) | round(2) }}
       {% else %}
       {{ 0 }}
       {% endif %}
