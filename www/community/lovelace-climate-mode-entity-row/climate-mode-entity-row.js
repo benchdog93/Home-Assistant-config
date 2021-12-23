@@ -54,7 +54,7 @@
       const hass = this._hass;
 
       return html`
-        <hui-generic-entity-row .hass="${hass}" .config="${config}">
+        <hui-generic-entity-row .hass="${hass}" .config="${config}" .catchInteraction=${false}>
           <div class="flex">
             ${config.modes.map((mode) => this.renderMode(mode))}
           </div>
@@ -73,7 +73,9 @@
         (mode.temperature == null ||
           mode.temperature === this.state.temperature);
 
-      const onClick = () => this.setMode(mode);
+      const onClick = () => {
+        this.setMode(mode);
+      }
 
       const defaultColor = defaultColors[mode.preset_mode || mode.hvac_mode];
       const defaultIcon = defaultIcons[mode.preset_mode || mode.hvac_mode];
