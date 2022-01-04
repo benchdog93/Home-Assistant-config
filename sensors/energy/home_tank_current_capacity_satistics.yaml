@@ -1,4 +1,8 @@
 platform: statistics
 entity_id: sensor.home_tank_current_capacity
 name: Home Tank Usage
+state_characteristic: change
+max_age:
+  hours: 24
 sampling_size: 2
+precision: 2
