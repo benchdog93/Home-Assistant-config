@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  home_tank_convert_decimal:
+    friendly_name: Home Tank Conversion
+    unit_of_measurement: '%'
+    value_template: "{{ (states('sensor.tank_utility_002c003c3130363101473130') | float / 100) | round(3) | default(0, true) }}"

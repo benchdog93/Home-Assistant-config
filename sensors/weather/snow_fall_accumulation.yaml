@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  snow_fall_accumulation:
+    friendly_name: SnowFall
+    unit_of_measurement: 'in'
+    value_template: "{{ (states('sensor.openweathermap_snow') | float / 25.4) | round(2) | default(0, true) }}"

@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  wind_speed:
+    friendly_name: Wind Speed
+    unit_of_measurement: 'mph'
+    value_template: "{{ (states('sensor.openweathermap_wind_speed') | float * 2.2369) | round(2) | default(0, true) }}"
