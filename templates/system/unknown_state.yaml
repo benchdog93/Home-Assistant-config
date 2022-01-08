@@ -1,0 +1,4 @@
+binary_sensor:
+  - name: Has Unknown States
+    state: >
+      {{ states.sensor | selectattr('state', 'in', ['unknown']) | list | count }}
