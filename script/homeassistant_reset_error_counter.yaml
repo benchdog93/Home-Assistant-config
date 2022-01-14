@@ -1,0 +1,6 @@
+homeassistant_reset_error_counter:
+  alias: 'Reset errors'
+  sequence:
+    service: counter.reset
+    data:
+      entity_id: counter.homeassistant_errors

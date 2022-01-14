@@ -32,6 +32,7 @@ recorder: !include recorder.yaml
 notify: !include_dir_list notify
 switch: !include_dir_merge_named switches
 utility_meter: !include_dir_merge_named utility_meters
+counter: !include_dir_merge_named counters
 
 
 default_config:
@@ -45,6 +46,8 @@ http:
 #  ip_ban_enabled: false
 #  login_attempts_threshold: 5
 websocket_api:
+system_log:
+  fire_event: true
 
 camera:
   - platform: local_file

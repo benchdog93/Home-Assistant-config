@@ -1,0 +1,6 @@
+homeassistant_reset_warning_counter:
+  alias: 'Reset alerts'
+  sequence:
+    service: counter.reset
+    data:
+      entity_id: counter.homeassistant_warnings

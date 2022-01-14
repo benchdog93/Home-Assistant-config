@@ -1,0 +1,4 @@
+homeassistant_errors:
+  name: Errors
+  icon: mdi:alert-octagram
+  restore: false
