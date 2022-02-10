@@ -1,0 +1,10 @@
+alias: Livingroom-TV
+trigger:
+  - platform: webostv.turn_on
+    entity_id: media_player.livingroom_tv
+action:
+  - service: wake_on_lan.send_magic_packet
+    data:
+      mac: A8:23:FE:4E:CE:22
+      broadcast_address: 192.168.1.255
+      broadcast_port: 9
