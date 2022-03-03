@@ -5,6 +5,6 @@ trigger:
 action:
   - service: wake_on_lan.send_magic_packet
     data:
-      mac: A8:23:FE:4E:CE:22
+      mac: 14:C9:13:CB:6B:47
       broadcast_address: 192.168.1.255
       broadcast_port: 9
