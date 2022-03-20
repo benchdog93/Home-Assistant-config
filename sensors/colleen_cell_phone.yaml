@@ -3,4 +3,4 @@ platform: template
 sensors:
   colleen_s_phone_bt_conections:
     friendly_name: "Colleen's Phone"
-    value_template: "{{ state_attr('sensor.sm_n950u_bluetooth_connection', 'connected_paired_devices') }}"
+    value_template: "{{ state_attr('sensor.colleen_s_cell_phone_bluetooth_connection', 'connected_paired_devices') }}"
