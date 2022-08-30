@@ -2,7 +2,7 @@ import binascii
 import logging
 
 import bellows
-import bellows.types
+import bellows.types as bt
 import zigpy.zdo.types
 from zigpy import types as t
 
@@ -33,9 +33,7 @@ async def ezsp_set_channel(
     status, _, network_params = await app._ezsp.getNetworkParameters()
     if status != bellows.types.EmberStatus.SUCCESS:
         msg = (
-            "Couldn't get network parameters, abort channel change: {}".format(
-                status,
-            )
+            f"Couldn't get network parameters, abort channel change: {status}"
         )
         event_data["errors"].append(msg)
         raise Exception(msg)
@@ -134,8 +132,8 @@ async def ezsp_get_keys(
 
     event_data["warnings"] = warnings
     event_data["result"] = result
-    for idx in result:
-        LOGGER.info("EZSP %s key: %s", idx, result[idx])
+    for idx, item in result.items():
+        LOGGER.info("EZSP %s key: %s", idx, item)
     _, _, nwkParams = await app._ezsp.getNetworkParameters()
     LOGGER.info("Current network: %s", nwkParams)
     event_data["network"] = nwkParams
@@ -173,7 +171,7 @@ async def ezsp_get_policy(
     policy = int(data)
 
     LOGGER.info("Getting EZSP %s policy id", policy)
-    status, value = await app._ezsp.getPolicy(policy)
+    _status, value = await app._ezsp.getPolicy(policy)
     LOGGER.debug(
         "policy: %s, value: %s", app._ezsp.types.EzspPolicyId(policy), value
     )
@@ -247,9 +245,6 @@ async def ezsp_backup_legacy(
 
     # Import stuff we need
     import json
-    import os
-
-    import bellows.types as bt
 
     from bellows.cli.backup import (  # isort:skip
         ATTR_NODE_TYPE,
@@ -305,9 +300,7 @@ async def ezsp_backup_legacy(
     # Store backup information to file
 
     # Set name with regards to local path
-    out_dir = os.path.dirname(__file__) + "/local/"
-    if not os.path.isdir(out_dir):
-        os.mkdir(out_dir)
+    out_dir = u.get_local_dir()
 
     # Ensure that data is an empty string when not set
     if data is None:
@@ -315,9 +308,8 @@ async def ezsp_backup_legacy(
 
     fname = out_dir + "nwk_backup" + str(data) + ".json"
 
-    f = open(fname, "w")
-    f.write(json.dumps(result, indent=4))
-    f.close()
+    with open(fname, "w", encoding="utf_8") as jsonfile:
+        jsonfile.write(json.dumps(result, indent=4))
 
 
 async def ezsp_backup(
@@ -330,18 +322,15 @@ async def ezsp_backup(
 
     # Import stuff we need
     import json
-    import os
 
-    from bellows.cli import backup as ezsp_backup
+    from bellows.cli import backup as bellows_backup
 
-    result = await ezsp_backup._backup(app._ezsp)
+    result = await bellows_backup._backup(app._ezsp)
 
     # Store backup information to file
 
     # Set name with regards to local path
-    out_dir = os.path.dirname(__file__) + "/local/"
-    if not os.path.isdir(out_dir):
-        os.mkdir(out_dir)
+    out_dir = u.get_local_dir()
 
     # Ensure that data is an empty string when not set
     if data is None:
@@ -349,6 +338,5 @@ async def ezsp_backup(
 
     fname = out_dir + "nwk_backup" + str(data) + ".json"
 
-    f = open(fname, "w")
-    f.write(json.dumps(result, indent=4))
-    f.close()
+    with open(fname, "w", encoding="utf_8") as jsonfile:
+        jsonfile.write(json.dumps(result, indent=4))

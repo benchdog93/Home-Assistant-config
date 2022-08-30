@@ -2,6 +2,6 @@
 platform: group
 name: Me
 services:
-  - service: mobile_app_sm_n960u
+  - service: mobile_app_ed_s_cell_phone
   - service: ed_s_email
   

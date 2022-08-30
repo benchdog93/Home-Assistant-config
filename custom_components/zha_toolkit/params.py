@@ -2,7 +2,7 @@
 
 
 # Constants representing input parameter keys
-class USER_PARAMS_consts:
+class USER_PARAMS_consts:  # pylint: disable=too-few-public-methods
     __slots__ = ()
     CMD = "cmd"
     ENDPOINT = "endpoint"
@@ -31,9 +31,11 @@ class USER_PARAMS_consts:
     WRITE_IF_EQUAL = "write_if_equal"
     OUTCSV = "csvout"
     CSVLABEL = "csvlabel"
+    DOWNLOAD = "download"
+    PATH = "path"
 
 
-class SERVICE_consts:
+class SERVICE_consts:  # pylint: disable=too-few-public-methods
     __slots__ = ()
     # General
     EXECUTE = "execute"
@@ -91,7 +93,7 @@ class SERVICE_consts:
 
 
 # Constants representing internal parameters keys
-class INTERNAL_PARAMS_consts:
+class INTERNAL_PARAMS_consts:  # pylint: disable=too-few-public-methods
     __slots__ = ()
     ALLOW_CREATE = "allow_create"
     ARGS = "args"
@@ -120,6 +122,8 @@ class INTERNAL_PARAMS_consts:
     WRITE_IF_EQUAL = "write_if_equal"
     CSV_FILE = "csvfile"
     CSV_LABEL = "csvlabel"
+    DOWNLOAD = "download"
+    PATH = "path"
 
 
 INTERNAL_PARAMS = INTERNAL_PARAMS_consts()

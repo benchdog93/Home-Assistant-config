@@ -37,7 +37,7 @@ async def scan_results(device, endpoints=None, manufacturer=None):
         "nwk": f"0x{device.nwk:04x}",
     }
 
-    LOGGER.debug("Scanning device 0x{:04x}", device.nwk)
+    LOGGER.debug("Scanning device 0x{%04x}", device.nwk)
 
     # Get list of endpoints
     #  None -> all endpoints
@@ -60,12 +60,12 @@ async def scan_results(device, endpoints=None, manufacturer=None):
     for epid in endpoints:
         if epid == 0:
             continue
-        LOGGER.debug("scanning endpoint #%i", epid)
         if epid in device.endpoints:
+            LOGGER.debug("scanning endpoint #%i", epid)
             ep = device.endpoints[epid]
             result["model"] = ep.model
             result["manufacturer"] = ep.manufacturer
-            if ep.manufacturer_id is not None:
+            if u.isManf(ep.manufacturer_id):
                 result["manufacturer_id"] = f"0x{ep.manufacturer_id}"
             else:
                 result["manufacturer_id"] = None
@@ -75,12 +75,20 @@ async def scan_results(device, endpoints=None, manufacturer=None):
                 "profile": f"0x{ep.profile_id:04x}",
             }
             if epid != 242:
+                LOGGER.debug(
+                    "Scanning endpoint #%i with manf '%r'", epid, manufacturer
+                )
                 endpoint.update(await scan_endpoint(ep, manufacturer))
-                if manufacturer is None and ep.manufacturer_id is not None:
+                if not u.isManf(manufacturer) and u.isManf(ep.manufacturer_id):
+                    LOGGER.debug(
+                        "Scanning endpoint #%i with manf '%r'",
+                        epid,
+                        ep.manufacturer_id,
+                    )
                     endpoint.update(
                         await scan_endpoint(ep, ep.manufacturer_id)
                     )
-        ep_result.append(endpoint)
+            ep_result.append(endpoint)
 
     result["endpoints"] = ep_result
     return result
@@ -125,8 +133,12 @@ async def scan_cluster(cluster, is_server=True, manufacturer=None):
         cmds_gen = "commands_received"
     attributes = await discover_attributes_extended(cluster, None)
     LOGGER.debug("scan_cluster attributes (none): %s", attributes)
-    if manufacturer is not None and manufacturer != b"" and manufacturer != 0:
-        LOGGER.debug("scan_cluster attributes (none): %s", attributes)
+    if u.isManf(manufacturer):
+        LOGGER.debug(
+            "scan_cluster attributes (none) with manf '%s': %s",
+            manufacturer,
+            attributes,
+        )
         attributes.update(
             await discover_attributes_extended(cluster, manufacturer)
         )
@@ -161,12 +173,12 @@ async def discover_attributes_extended(cluster, manufacturer=None):
                 manufacturer=manufacturer,
             )
             await asyncio.sleep(0.2)
-        except (DeliveryError, asyncio.TimeoutError) as ex:
+        except (ValueError, DeliveryError, asyncio.TimeoutError) as ex:
             LOGGER.error(
                 (
                     "Failed 'discover_attributes_extended'"
-                    + " starting 0x%04x/0x%04x."
-                    + " Error: %s"
+                    " starting 0x%04x/0x%04x."
+                    " Error: %s"
                 ),
                 cluster.cluster_id,
                 attr_id,
@@ -220,27 +232,17 @@ async def discover_attributes_extended(cluster, manufacturer=None):
                 "access": access,
                 "access_acl": access_acl,
             }
-            if (
-                manufacturer is not None
-                and manufacturer != b""
-                and manufacturer != 0
-            ):
+            if u.isManf(manufacturer):
                 result[attr_id]["manf_id"] = manufacturer
             attr_id += 1
         await asyncio.sleep(0.2)
 
     LOGGER.debug("Reading attrs: %s", to_read)
     chunk, to_read = to_read[:4], to_read[4:]
-    # TODO: Force manufacturer b"" when manufacturer is None,
-    #       depending on Zigpy version
-    if manufacturer is None:
-        manf = b""
-    else:
-        manf = manufacturer
     while chunk:
         try:
             chunk = sorted(chunk)
-            success, failed = await read_attr(cluster, chunk, manf)
+            success, failed = await read_attr(cluster, chunk, manufacturer)
             LOGGER.debug(
                 "Reading attr success: %s, failed %s", success, failed
             )
@@ -268,7 +270,7 @@ async def discover_commands_received(cluster, is_server, manufacturer=None):
     from zigpy.zcl.foundation import Status
 
     LOGGER.debug("Discovering commands received")
-    direction = "received" if is_server else "generated"  # noqa: F841
+    # direction = "received" if is_server else "generated"  # noqa: F841
     result = {}
     cmd_id = 0  # Discover commands starting from 0
     done = False
@@ -282,9 +284,10 @@ async def discover_commands_received(cluster, is_server, manufacturer=None):
                 manufacturer=manufacturer,
             )
             await asyncio.sleep(0.2)
-        except (DeliveryError, asyncio.TimeoutError) as ex:
+        except (ValueError, DeliveryError, asyncio.TimeoutError) as ex:
             LOGGER.error(
-                "Failed to discover %s commands starting %s. Error: %s",
+                "Failed to discover 0x{%04x} commands starting %s. Error: %s",
+                cluster.cluster_id,
                 cmd_id,
                 ex,
             )
@@ -299,8 +302,14 @@ async def discover_commands_received(cluster, is_server, manufacturer=None):
                 cmd_id, (str(cmd_id), "not_in_zcl", None)
             )
             cmd_name, cmd_args, _ = cmd_data
+
             if not isinstance(cmd_args, str):
-                cmd_args = [arg.__name__ for arg in cmd_args]
+                try:
+                    cmd_args = [arg.__name__ for arg in cmd_args]
+                except TypeError:
+                    # Unexpected type, get repr to make sure it is ok for json
+                    cmd_args = f"{cmd_args!r}"
+
             key = f"0x{cmd_id:02x}"
             result[key] = {
                 "command_id": f"0x{cmd_id:02x}",
@@ -316,7 +325,7 @@ async def discover_commands_generated(cluster, is_server, manufacturer=None):
     from zigpy.zcl.foundation import Status
 
     LOGGER.debug("Discovering commands generated")
-    direction = "generated" if is_server else "received"  # noqa: F841
+    # direction = "generated" if is_server else "received"  # noqa: F841
     result = {}
     cmd_id = 0  # Initial index of commands to discover
     done = False
@@ -330,7 +339,7 @@ async def discover_commands_generated(cluster, is_server, manufacturer=None):
                 manufacturer=manufacturer,
             )
             await asyncio.sleep(0.2)
-        except (DeliveryError, asyncio.TimeoutError) as ex:
+        except (ValueError, DeliveryError, asyncio.TimeoutError) as ex:
             LOGGER.error(
                 "Failed to discover commands starting %s. Error: %s",
                 cmd_id,
@@ -347,8 +356,12 @@ async def discover_commands_generated(cluster, is_server, manufacturer=None):
                 cmd_id, (str(cmd_id), "not_in_zcl", None)
             )
             cmd_name, cmd_args, _ = cmd_data
-            if not isinstance(cmd_args, str):
+            try:
                 cmd_args = [arg.__name__ for arg in cmd_args]
+            except (TypeError, AttributeError):
+                # Unexpected type, get repr to make sure it is ok for json
+                cmd_args = f"{cmd_args!r}"
+
             key = f"0x{cmd_id:02x}"
             result[key] = {
                 "command_id": f"0x{cmd_id:02x}",
@@ -365,9 +378,9 @@ async def scan_device(
 ):
     if ieee is None:
         LOGGER.error("missing ieee")
-        return
+        raise Exception("missing ieee")
 
-    LOGGER.debug("running 'scan_device' command: %s", service)
+    LOGGER.debug("Running 'scan_device'")
 
     device = app.get_device(ieee)
 
@@ -399,7 +412,7 @@ async def scan_device(
 
     # Set a unique filename for each device, using the manf name and
     # the variable part of the device mac address
-    if model is not None and manufacturer is not None:
+    if model is not None and u.isManf(manufacturer):
         ieee_tail = "".join([f"{o:02x}" for o in ieee[4::-1]])
         file_name = f"{model}_{manufacturer}_{ieee_tail}{postfix}"
     else:

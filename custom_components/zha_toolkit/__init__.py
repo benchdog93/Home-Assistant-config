@@ -13,7 +13,6 @@ from . import utils as u
 DEPENDENCIES = ["zha"]
 
 DOMAIN = "zha_toolkit"
-REGISTERED_VERSION = ""
 
 # Legacy parameters
 ATTR_COMMAND = "command"
@@ -22,8 +21,18 @@ ATTR_IEEE = "ieee"
 
 DATA_ZHATK = "zha_toolkit"
 
-
 LOGGER = logging.getLogger(__name__)
+
+try:
+    LOADED_VERSION
+except NameError:
+    LOADED_VERSION = ""
+
+try:
+    DEFAULT_OTAU
+except NameError:
+    DEFAULT_OTAU = "/config/zigpy_ota"
+
 
 importlib.reload(PARDEFS)
 p = PARDEFS.INTERNAL_PARAMS
@@ -338,6 +347,8 @@ SERVICE_SCHEMAS = {
             vol.Required(ATTR_IEEE): vol.Any(
                 cv.entity_id_or_uuid, t.EUI64.convert
             ),
+            vol.Optional(P.PATH): cv.string,
+            vol.Optional(P.DOWNLOAD): cv.boolean,
         },
         extra=vol.ALLOW_EXTRA,
     ),
@@ -530,12 +541,24 @@ CMD_TO_INTERNAL_MAP = {
     S.ZCL_CMD: ["zcl_cmd", S.ZCL_CMD],
 }
 
+ZHA_DOMAIN = "zha"
+
 
 async def async_setup(hass, config):
     """Set up ZHA from config."""
 
     if DOMAIN not in config:
         return True
+
+    try:
+        global DEFAULT_OTAU  # pylint: disable=global-statement
+        DEFAULT_OTAU = config[ZHA_DOMAIN]["zigpy_config"]["ota"][
+            "otau_directory"
+        ]
+        LOGGER.debug("DEFAULT_OTAU = %s", DEFAULT_OTAU)
+    except KeyError:
+        # Ignore if the value is not set
+        pass
 
     try:
         if hass.data["zha"]["zha_gateway"] is None:
@@ -550,11 +573,13 @@ async def async_setup(hass, config):
 
 
 def register_services(hass):  # noqa: C901
+    global LOADED_VERSION  # pylint: disable=global-statement
     zha_gw = hass.data["zha"]["zha_gateway"]
 
     async def toolkit_service(service):
         """Run command from toolkit module."""
         LOGGER.info("Running ZHA Toolkit service: %s", service)
+        global LOADED_VERSION  # pylint: disable=global-variable-not-assigned
 
         # importlib.reload(PARDEFS)
         # S = PARDEFS.SERVICES
@@ -572,10 +597,10 @@ def register_services(hass):  # noqa: C901
         LOGGER.debug("module is %s", module)
         importlib.reload(u)
 
-        if u.getVersion() != REGISTERED_VERSION:
+        if u.getVersion() != LOADED_VERSION:
             LOGGER.debug(
-                "Reload services because version changed from %s to %s",
-                REGISTERED_VERSION,
+                "Reload services because VERSION changed from %s to %s",
+                LOADED_VERSION,
                 u.getVersion(),
             )
             await command_handler_register_services(
@@ -601,10 +626,16 @@ def register_services(hass):  # noqa: C901
         ieee = await u.get_ieee(app, zha_gw, ieee_str)
 
         slickParams = params.copy()
-        for k in params.keys():
-            LOGGER.debug(f"Key {p}")
+        for k in params:
             if slickParams[k] is None or slickParams[k] is False:
                 del slickParams[k]
+
+        service_cmd = service.service  # Lower case service name in domain
+
+        # This method can be called as the 'execute' service or
+        # with the specific service
+        if cmd is None:
+            cmd = service_cmd
 
         # Preload event_data
         event_data = {
@@ -624,13 +655,6 @@ def register_services(hass):  # noqa: C901
             LOGGER.debug(
                 "'ieee' parameter: '%s' -> IEEE Addr: '%s'", ieee_str, ieee
             )
-
-        service_cmd = service.service  # Lower case service name in domain
-
-        # This method can be called as the 'execute' service or
-        # with the specific service
-        if cmd is None:
-            cmd = service_cmd
 
         handler = None
         try:
@@ -710,7 +734,7 @@ def register_services(hass):  # noqa: C901
             schema=value,
         )
 
-    REGISTERED_VERSION = u.getVersion()
+    LOADED_VERSION = u.getVersion()
 
 
 async def command_handler_default(
@@ -737,7 +761,7 @@ async def command_handler_default(
 
         # Use default handler for generic command loading
         if cmd in CMD_TO_INTERNAL_MAP:
-            cmd = CMD_TO_INTERNAL_MAP[cmd]
+            cmd = CMD_TO_INTERNAL_MAP.get(cmd)
 
         await default.default(
             app, listener, ieee, cmd, data, service, params, event_data

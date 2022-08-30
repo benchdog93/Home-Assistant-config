@@ -16,7 +16,7 @@ from .params import SERVICES as S
 
 LOGGER = logging.getLogger(__name__)
 
-if True or not hasattr(Cluster, "_read_reporting_configuration"):
+if not hasattr(Cluster, "_read_reporting_configuration"):
     if hasattr(f, "GeneralCommand"):
         GeneralCommand = f.GeneralCommand
     else:
@@ -25,8 +25,16 @@ if True or not hasattr(Cluster, "_read_reporting_configuration"):
     def read_reporting_configuration(
         self, cfg: t.List[f.ReadReportingConfigRecord], **kwargs
     ):
-        schema = f.COMMANDS[0x08][0]
+        command = f.COMMANDS[0x08]
+        if isinstance(command, f.ZCLCommandDef):
+            # Since zigpy 0.44.0
+            schema = command.schema
+        else:
+            # Before zigpy 0.44.0
+            schema = command[0]
+
         # LOGGER.error(f"SELF:{self!r}")
+        # LOGGER.error(f"COMMAND:{command!r}")
         # LOGGER.error(f"SCHEMA:{schema!r}")
         # data = t.serialize([cfg], schema)
         # LOGGER.error(f"SERIALIZED:{data!r}")
@@ -68,18 +76,18 @@ async def my_read_reporting_configuration_multiple(
         record = f.ReadReportingConfigRecord()
         record.attrid = attrid
         record.direction = direction
-        LOGGER.warn(f"Record {record.direction} {record.attrid}")
+        # LOGGER.warning(f"Record {record.direction} {record.attrid}")
         cfg.append(record)
-    LOGGER.warn("Read reporting with %s", cfg)
-    try:
-        res = await self._read_reporting_configuration(
-            t.List[f.ReadReportingConfigRecord](cfg)
-        )
-    except Exception as e:
-        LOGGER.exception(f"Exception {e!r}")
-        return []
+    LOGGER.warning("Read reporting with %s", cfg)
+    param = t.List[f.ReadReportingConfigRecord](cfg)
+    LOGGER.debug("Resolves to %s", param)
 
-    LOGGER.warn("Read reporting with %s result %s", cfg, res)
+    # Exception is propagated to caller if any
+    res = await self._read_reporting_configuration(
+        t.List[f.ReadReportingConfigRecord](cfg)
+    )
+
+    LOGGER.warning("Read reporting with %s result %s", cfg, res)
 
     # Parse configure reporting result for unsupported attributes
     records = res[0]
@@ -109,7 +117,7 @@ async def conf_report_read(
     dev = app.get_device(ieee=ieee)
     cluster = u.get_cluster_from_params(dev, params, event_data)
 
-    if False:
+    if False:  # pylint: disable=using-constant-test
         schema = f.COMMANDS[0x08][0]
         LOGGER.error(f"SCHEMA:{schema!r}")
 
@@ -121,7 +129,7 @@ async def conf_report_read(
         cfg.append(record)
 
         param = t.List[f.ReadReportingConfigRecord](cfg)
-        LOGGER.warn("Read reporting with %s", param)
+        LOGGER.warning("Read reporting with %s", param)
 
         # data = t.serialize([param,], schema)
         # LOGGER.error(f"SERIALIZED:{data!r}")
@@ -137,13 +145,14 @@ async def conf_report_read(
         return
 
     triesToGo = params[p.TRIES]
-    event_data["success"] = False
+    event_data["success"] = True
     result_conf = None
+    event_data["result_conf"] = []
 
     if not isinstance(params[p.ATTR_ID], list):
         params[p.ATTR_ID] = [params[p.ATTR_ID]]
 
-    while triesToGo >= 1:
+    while triesToGo >= 1:  # pylint: disable=too-many-nested-blocks
         triesToGo = triesToGo - 1
         try:
             LOGGER.debug(
@@ -153,7 +162,6 @@ async def conf_report_read(
                 params[p.ATTR_ID],
                 params[p.MANF],
             )
-            LOGGER.debug("Before call")
             result_conf = (
                 await cluster.my_read_reporting_configuration_multiple(
                     params[p.ATTR_ID],
@@ -161,16 +169,38 @@ async def conf_report_read(
                 )
             )
             LOGGER.debug("Got result %s", result_conf)
-            event_data["result_conf"] = result_conf
             triesToGo = 0  # Stop loop
+
             LOGGER.info("Read Report Configuration result: %s", result_conf)
             if result_conf is None:
                 event_data["success"] = False
             else:
-                pass
-                # event_data["success"] = (
-                #    result_conf[0][0].status == f.Status.SUCCESS
-                # )
+                for cfg_with_status in result_conf.attribute_configs:
+                    rcfg: f.AttributeReportingConfig = cfg_with_status.config
+                    attr_id = rcfg.attrid
+                    r_conf = {
+                        "cluster": cluster.name,
+                        "cluster_id": f"0x{cluster.cluster_id:04X}",
+                        "ep": cluster.endpoint.endpoint_id,
+                        "attr_id": f"0x{attr_id:04X}",
+                        "direction": rcfg.direction,
+                        "type": f"0x{rcfg.datatype:02X}",
+                        "min_interval": rcfg.min_interval,
+                        "max_interval": rcfg.max_interval,
+                        "reportable_change": rcfg.reportable_change,
+                        "status": cfg_with_status.status,
+                    }
+                    try:
+                        # Try to add name of the attribute
+                        attr_name = cluster.attributes.get(
+                            attr_id, (str(attr_id), None)
+                        )[0]
+                        if attr_name is not None and attr_name != "":
+                            r_conf["attr"] = attr_name
+                    except Exception:  # nosec
+                        pass
+
+                    event_data["result_conf"].append(r_conf)
         except (DeliveryError, asyncio.CancelledError, asyncio.TimeoutError):
             continue
         except Exception as e:
@@ -281,6 +311,7 @@ async def attr_write(  # noqa: C901
         or (cmd != S.ATTR_WRITE)
     ):
         LOGGER.debug("Request attr read %s", attr_read_list)
+        # pylint: disable=unexpected-keyword-arg
         result_read = await u.cluster_read_attributes(
             cluster,
             attr_read_list,
@@ -361,6 +392,7 @@ async def attr_write(  # noqa: C901
             result_read = None
 
         LOGGER.debug("Request attr write %s", attr_write_list)
+        # pylint: disable=unexpected-keyword-arg
         result_write = await u.cluster__write_attributes(
             cluster,
             attr_write_list,
@@ -382,6 +414,7 @@ async def attr_write(  # noqa: C901
 
         if params[p.READ_AFTER_WRITE]:
             LOGGER.debug(f"Request attr read {attr_read_list!r}")
+            # pylint: disable=unexpected-keyword-arg
             result_read = await u.cluster_read_attributes(
                 cluster,
                 attr_read_list,
@@ -421,21 +454,21 @@ async def attr_write(  # noqa: C901
     if params[p.STATE_ID] is not None:
         if len(result_read[1]) == 0 and len(result_read[0]) == 1:
             # No error and one result
-            for id, val in result_read[0].items():
+            for attr_id, val in result_read[0].items():
                 if params[p.STATE_ATTR] is not None:
                     LOGGER.debug(
                         "Set state %s[%s] -> %s from attr_id %s",
                         params[p.STATE_ID],
                         params[p.STATE_ATTR],
                         val,
-                        id,
+                        attr_id,
                     )
                 else:
                     LOGGER.debug(
                         "Set state %s -> %s from attr_id %s",
                         params[p.STATE_ID],
                         val,
-                        id,
+                        attr_id,
                     )
                 u.set_state(
                     listener._hass,
@@ -467,7 +500,7 @@ async def attr_write(  # noqa: C901
         fields.append(cluster.endpoint.endpoint_id)
         fields.append(str(cluster.endpoint.device.ieee))
         fields.append(
-            ("0x%04X" % (params[p.MANF])) if params[p.MANF] is not None else ""
+            (f"0x{params[p.MANF]:04X}",) if params[p.MANF] is not None else ""
         )
         u.append_to_csvfile(
             fields,

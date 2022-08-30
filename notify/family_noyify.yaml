@@ -2,5 +2,5 @@
 platform: group
 name: Family
 services:
-  - service: mobile_app_sm_n960u
-  - service: mobile_app_sm_n950u
+  - service: mobile_app_ed_s_cell_phone
+  - service: mobile_app_colleen_s_cell_phone

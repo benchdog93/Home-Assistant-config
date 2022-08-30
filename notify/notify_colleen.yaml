@@ -1,0 +1,5 @@
+platform: group
+name: Me
+services:
+  - service: mobile_app_colleen_s_cell_phone
+  - service: colleen_s_email

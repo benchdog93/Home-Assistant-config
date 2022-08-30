@@ -68,9 +68,7 @@ async def backup(app, listener, ieee, cmd, data, service, params, event_data):
             params=params,
         )
     else:
-        raise Exception(
-            "Radio type %s not supported for backup" % (radio_type)
-        )
+        raise Exception(f"Radio type {radio_type} not supported for backup")
 
 
 async def handle_join(
@@ -84,19 +82,17 @@ async def handle_join(
     if ieee is None:
         LOGGER.debug("Provide 'ieee' parameter for %s", cmd)
         raise ValueError("ieee parameter missing")
+
+    dev = app.get_device(ieee=ieee)
+
     if data is None:
-        dev = None
-        try:
-            dev = app.get_device(ieee=ieee)
-            data = dev.nwk
-            if data is None:
-                raise Exception(f"Missing NWK for device '{ieee}'")
-            LOGGER.debug(f"Using NWK '{data}' for '{ieee!r}'")
-        except Exception as e:
+        if dev is None:
             LOGGER.debug(
                 f"Device {ieee!r} missing in device table, provide NWK address"
             )
-            raise e
+            raise Exception(f"Missing NWK for unknown device '{ieee}'")
+
+        data = dev.nwk
 
     # Handle join will initialize the device if it isn't yet, otherwise
     # only scan groups
@@ -194,4 +190,4 @@ async def rejoin(app, listener, ieee, cmd, data, service, params, event_data):
         res = "Not executed, no valid 'method' defined in code"
 
     event_data["result"] = res
-    LOGGER.debug("%s: leave and rejoin result: %s", src, ieee, res)
+    LOGGER.debug("%s -> %s: leave and rejoin result: %s", src, ieee, res)

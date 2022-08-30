@@ -4,8 +4,11 @@ import asyncio
 import json
 import logging
 import os
+import re
+import typing
 from enum import Enum
 
+from homeassistant.const import __version__ as HA_VERSION
 from homeassistant.util.json import save_json
 from zigpy import types as t
 from zigpy.exceptions import DeliveryError
@@ -17,30 +20,34 @@ from .params import USER_PARAMS as P
 
 LOGGER = logging.getLogger(__name__)
 
-VERSION_TIME: float
-VERSION: str
-MANIFEST: dict[str, str | list[str]]
+if typing.TYPE_CHECKING:
+    VERSION_TIME: float = 0.0
+    VERSION: str = "Unknown"
+    MANIFEST: dict[str, str | list[str]] = {}
 
 
 def getVersion() -> str:
-    # Set name with regards to local path
+    # pylint: disable=global-variable-undefined,used-before-assignment
+    # pylint: disable=global-statement
     global VERSION_TIME
     global VERSION
     global MANIFEST
 
-    fname = os.path.dirname(__file__) + "/manifest.json"
-
-    ftime: float = 0
     try:
-        VERSION_TIME
+        VERSION
     except NameError:
-        VERSION_TIME = 0
+        VERSION_TIME = 0.0
         VERSION = "Unknown"
         MANIFEST = {}
 
+    fname = os.path.dirname(__file__) + "/manifest.json"
+
+    ftime: float = VERSION_TIME
+
     try:
-        ftime = os.path.getmtime(fname)
-        if ftime != ftime:
+        ntime = os.path.getmtime(fname)
+        if ftime != ntime:
+            ftime = ntime
             VERSION = "Unknown"
             MANIFEST = {}
     except Exception:
@@ -50,9 +57,9 @@ def getVersion() -> str:
         # No version, or file change -> get version again
         LOGGER.debug(f"Read version from {fname} {ftime}<>{VERSION_TIME}")
 
-        with open(fname) as f:
+        with open(fname, encoding="utf_8") as infile:
             VERSION_TIME = ftime
-            MANIFEST = json.load(f)
+            MANIFEST = json.load(infile)
 
         if MANIFEST is not None:
             if "version" in MANIFEST.keys():
@@ -66,23 +73,23 @@ def getVersion() -> str:
 
 # Convert string to int if possible or return original string
 #  (Returning the original string is useful for named attributes)
-def str2int(s):
-    if not type(s) == str:
+def str2int(s):  # pylint: disable=too-many-return-statements
+    if not isinstance(s, str):
         return s
-    elif s.lower() == "false":
+    if s.lower() == "false":
         return 0
-    elif s.lower() == "true":
+    if s.lower() == "true":
         return 1
-    elif s.startswith("0x") or s.startswith("0X"):
+    if s.startswith("0x") or s.startswith("0X"):
         return int(s, 16)
-    elif s.startswith("0") and s.isnumeric():
+    if s.startswith("0") and s.isnumeric():
         return int(s, 8)
-    elif s.startswith("b") and s[1:].isnumeric():
+    if s.startswith("b") and s[1:].isnumeric():
         return int(s[1:], 2)
-    elif s.isnumeric():
+    if s.isnumeric():
         return int(s)
-    else:
-        return s
+    # By default, return the same value
+    return s
 
 
 # Convert string to best boolean representation
@@ -92,6 +99,14 @@ def str2bool(s):
     if s is True or s is False:
         return s
     return str2int(s) != 0
+
+
+def normalize_filename(filename: str) -> str:
+    """
+    Normalize filename so that slashes and other problematic
+    characters are replaced with hyphen
+    """
+    return "".join([c if re.match(r"\w", c) else "-" for c in filename])
 
 
 class RadioType(Enum):
@@ -199,25 +214,32 @@ def get_radio_version(app):
 # Get zigbee IEEE address (EUI64) for the reference.
 #  Reference can be entity, device, or IEEE address
 async def get_ieee(app, listener, ref):
+    # pylint: disable=too-many-return-statements
     # LOGGER.debug("Type IEEE: %s", type(ref))
-    if type(ref) == str:
+    if isinstance(ref, str):
         # Check if valid ref address
         if ref.count(":") == 7:
             return t.EUI64.convert(ref)
 
         # Check if network address
         nwk = str2int(ref)
-        if (type(nwk) == int) and nwk >= 0x0000 and nwk <= 0xFFF7:
+        if isinstance(nwk, int) and 0x0000 <= nwk <= 0xFFF7:
             device = app.get_device(nwk=nwk)
             if device is None:
                 return None
-            else:
-                LOGGER.debug("NWK addr 0x04x -> %s", nwk, device.ieee)
-                return device.ieee
+
+            # Device is found
+            LOGGER.debug("NWK addr 0x%04x -> %s", nwk, device.ieee)
+            return device.ieee
 
         # Todo: check if NWK address
         entity_registry = (
+            # Deprecated >= 2022.6.0
             await listener._hass.helpers.entity_registry.async_get_registry()
+            if HA_VERSION < "2022.6"
+            else listener._hass.helpers.entity_registry.async_get(
+                listener._hass
+            )
         )
         # LOGGER.debug("registry %s",entity_registry)
         registry_entity = entity_registry.async_get(ref)
@@ -229,7 +251,12 @@ async def get_ieee(app, listener, ref):
             return None
 
         device_registry = (
+            # Deprecated >= 2022.6.0
             await listener._hass.helpers.device_registry.async_get_registry()
+            if HA_VERSION < "2022.6"
+            else listener._hass.helpers.device_registry.async_get(
+                listener._hass
+            )
         )
         registry_device = device_registry.async_get(registry_entity.device_id)
         LOGGER.debug("registry_device %s", registry_device)
@@ -339,7 +366,7 @@ def get_cluster_from_params(
         params[p.EP_ID] = find_endpoint(dev, params[p.CLUSTER_ID])
 
     if params[p.EP_ID] not in dev.endpoints:
-        msg = f"Endpoint {params[p.EP_ID]} not found for '{dev.ieee!r}"
+        msg = f"Endpoint {params[p.EP_ID]} not found for '{dev.ieee!r}'"
         LOGGER.error(msg)
         raise Exception(msg)
 
@@ -353,7 +380,7 @@ def get_cluster_from_params(
         msg = "InCluster 0x{:04X} not found for '{}', endpoint {}".format(
             cluster_id, repr(dev.ieee), params[p.EP_ID]
         )
-        if cluster_id in dev.enddev.points[params[p.EP_ID]].out_clusters:
+        if cluster_id in dev.endpoints[params[p.EP_ID]].out_clusters:
             msg = f'"Using" OutCluster. {msg}'
             LOGGER.warning(msg)
             if "warnings" not in event_data:
@@ -379,7 +406,7 @@ def write_json_to_file(data, subdir, fname, desc, listener=None):
     if not os.path.isdir(out_dir):
         os.mkdir(out_dir)
 
-    file_name = os.path.join(out_dir, fname)
+    file_name = os.path.join(out_dir, normalize_filename(fname))
     save_json(file_name, data)
     LOGGER.debug(f"Finished writing {desc} in '{file_name}'")
 
@@ -396,12 +423,12 @@ def append_to_csvfile(
     if not os.path.isdir(out_dir):
         os.mkdir(out_dir)
 
-    file_name = os.path.join(out_dir, fname)
+    file_name = os.path.join(out_dir, normalize_filename(fname))
 
     import csv
 
-    with open(file_name, "w" if overwrite else "a") as f:
-        writer = csv.writer(f)
+    with open(file_name, "w" if overwrite else "a", encoding="utf_8") as out:
+        writer = csv.writer(out)
         writer.writerow(fields)
 
     if overwrite:
@@ -494,8 +521,8 @@ def attr_encode(attr_val_in, attr_type):  # noqa C901
         # Octet string requires length -> LVBytes
         compare_val = t.LVBytes(attr_val_in)
 
-        if type(attr_val_in) == str:
-            attr_val_in = bytes(attr_val_in, "utf-8")
+        if isinstance(attr_val_in, str):
+            attr_val_in = bytes(attr_val_in, "utf_8")
 
         if isinstance(attr_val_in, list):
             # Convert list to List of uint8_t
@@ -532,6 +559,14 @@ def attr_encode(attr_val_in, attr_type):  # noqa C901
         msg = None
 
     return attr_obj, msg, compare_val
+
+
+def isManf(manf, includeNone=False):
+    if manf is None:
+        return includeNone
+    return not (isinstance(manf, str) and manf == "") or (
+        isinstance(manf, int) and (manf == 0 or manf < 0)
+    )
 
 
 # Common method to extract and convert parameters.
@@ -576,6 +611,8 @@ def extractParams(  # noqa: C901
         p.WRITE_IF_EQUAL: False,
         p.CSV_FILE: None,
         p.CSV_LABEL: None,
+        p.DOWNLOAD: None,
+        p.PATH: None,
     }
 
     # Endpoint to send command to
@@ -615,8 +652,15 @@ def extractParams(  # noqa: C901
         params[p.MANF] = str2int(rawParams[P.MANF])
 
     manf = params[p.MANF]
-    if manf == "" or manf == 0:
-        params[p.MANF] = b""  # Not None, force empty manf
+    if not isManf(manf, True):
+        LOGGER.debug("Got manf '%s'", manf)
+        if hasattr(f.ZCLHeader, "NO_MANUFACTURER_ID"):
+            params[p.MANF] = f.ZCLHeader.NO_MANUFACTURER_ID
+        else:
+            # Forcing b"" not ok in call cases # Not None, force empty manf
+            params[p.MANF] = b""
+
+    LOGGER.debug("Final manf '%r'", params[p.MANF])
 
     # Get tries
     if P.TRIES in rawParams:
@@ -625,6 +669,9 @@ def extractParams(  # noqa: C901
     # Get expect_reply
     if P.EXPECT_REPLY in rawParams:
         params[p.EXPECT_REPLY] = str2int(rawParams[P.EXPECT_REPLY]) == 0
+
+    if P.DOWNLOAD in rawParams:
+        params[p.DOWNLOAD] = str2int(rawParams[P.DOWNLOAD]) != 0
 
     if P.FAIL_EXCEPTION in rawParams:
         params[p.FAIL_EXCEPTION] = str2int(rawParams[P.FAIL_EXCEPTION]) == 0
@@ -686,6 +733,9 @@ def extractParams(  # noqa: C901
     if P.OUTCSV in rawParams:
         params[p.CSV_FILE] = rawParams[P.OUTCSV]
 
+    if P.PATH in rawParams:
+        params[p.PATH] = rawParams[P.PATH]
+
     if P.CSVLABEL in rawParams:
         params[p.CSV_LABEL] = rawParams[P.CSVLABEL]
 
@@ -714,3 +764,11 @@ async def cluster_read_attributes(
 async def cluster__write_attributes(cluster, attrs, manufacturer=None):
     """Write cluster attributes from cluster, retryable"""
     return await cluster._write_attributes(attrs, manufacturer=manufacturer)
+
+
+def get_local_dir() -> str:
+    """Provide directory for local files that survive updates"""
+    local_dir = os.path.dirname(__file__) + "/local/"
+    if not os.path.isdir(local_dir):
+        os.mkdir(local_dir)
+    return local_dir
