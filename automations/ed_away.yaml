@@ -2,7 +2,7 @@
 alias: Sync input_boolean.ed_is_home with device_tracker
 trigger:
   platform: state
-  entity_id: device_tracker.life360_ed_williams
+  entity_id: device_tracker.eds_cell_phone
   from: home
   to: not_home
 

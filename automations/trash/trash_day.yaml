@@ -10,7 +10,7 @@ condition:
   state: "today"
   
 action:
-  service: notify.mobile_app_sm_n960u
+  service: notify.mobile_app_ed_s_cell_phone
   data:
     message: Did you take the trash out!
     title: Today is Trash Day

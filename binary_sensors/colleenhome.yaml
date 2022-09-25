@@ -3,4 +3,4 @@ platform: template
 sensors:
   colleenhome:
     friendly_name: Colleen is home
-    value_template: "{{ is_state('device_tracker.life360_colleen_williams', 'home') }}"
+    value_template: "{{ is_state('device_tracker.colleen_s_cell_phone', 'home') }}"

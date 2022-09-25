@@ -10,7 +10,7 @@ condition:
   state: "today"
   
 action:
-  service: notify.mobile_app_sm_n960u
+  service: notify.mobile_app_ed_s_cell_phone
   data:
     message: Do we have debris for the town!
     title: Today is Town Trash Day
