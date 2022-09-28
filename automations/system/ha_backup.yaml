@@ -4,7 +4,7 @@
     platform: time
     at: "04:00:00"
   condition:
-    condition: time # Perform backup every day except Mondays.
+    condition: time # Perform backup every day.
     weekday:
       - mon
       - tue
