@@ -14,9 +14,8 @@
       - sat
       - sun
   action:
-    service: 
-      auto_backup.backup_full
-      auto_backup.purge
-    data:
-      name: "HomeAssistant: {{ now().strftime('%A, %B %-d, %Y') }}"
-      keep_days: 10
+    - service: auto_backup.backup_full
+      data:
+        name: "HomeAssistant: {{ now().strftime('%A, %B %-d, %Y') }}"
+        keep_days: 10
+    - service: auto_backup.purge
