@@ -1,0 +1,10 @@
+
+alias: Sync input_boolean.trash_town with town_trash_day
+trigger:
+  platform: state
+  entity_id: sensor.stuben_trash_saturday
+  to: "today"
+
+action:
+  service: input_boolean.turn_on
+  entity_id: input_boolean.trash_town

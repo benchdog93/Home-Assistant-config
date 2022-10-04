@@ -6,7 +6,7 @@ trigger:
   
 condition:
 - condition: state
-  entity_id: sensor.town_trash_day
+  entity_id: sensor.stuben_trash_wednesday
   state: "today"
   
 action:

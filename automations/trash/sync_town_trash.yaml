@@ -2,7 +2,7 @@
 alias: Sync input_boolean.trash_town with town_trash_day
 trigger:
   platform: state
-  entity_id: sensor.town_trash_day
+  entity_id: sensor.stuben_trash_wednesday
   to: "today"
 
 action:

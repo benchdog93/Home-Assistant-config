@@ -1,0 +1,22 @@
+
+alias: Today is trash day 
+trigger:
+  - platform: time
+    at: '08:30:00'
+  
+condition:
+- condition: state
+  entity_id: sensor.stuben_trash_saturday
+  state: "today"
+  
+action:
+  service: notify.mobile_app_ed_s_cell_phone
+  data:
+    message: Do we have debris for the town!
+    title: Today is Town Trash Day
+    data:
+      actions:
+      - action: out_yes
+        title: 'Yes'
+      - action: out_no
+        title: 'No'
