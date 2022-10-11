@@ -1,5 +1,5 @@
 
-alias: Sync input_boolean.trash_day with hawkins_hurlbut
+alias: Sync hawkins_hurlbut
 trigger:
   platform: state
   entity_id: sensor.hawkins_hurlbut

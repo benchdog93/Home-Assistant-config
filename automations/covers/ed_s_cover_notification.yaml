@@ -6,15 +6,16 @@ trigger:
     to: open 
     for: 00:30:00
 action:
-  - service: notify.mobile_app_sm_n960u
+- service: script.notify_engine
+  data:
+    who: 'ed'
+    message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Close Door? Tap yes."
+    title:  "Ed's garage door has been left open"
     data:
-      message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Close Door? Tap yes."
-      title:  "Ed's garage door has been left open"
-      data:
-        actions:
-          - action: URI
-            title:  "Yes"
-            uri: '/lovelace/home'
-          - action: "close_nope"
-            title: "Nope"
+      actions:
+        - action: URI
+          title:  "Yes"
+          uri: '/lovelace/home'
+        - action: "close_nope"
+          title: "Nope"
 

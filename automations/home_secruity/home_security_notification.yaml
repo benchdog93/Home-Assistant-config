@@ -5,8 +5,9 @@ trigger:
   entity_id: input_boolean.alarm_triggered
   to: "on"
 action:
-  service: notify.mobile_app_sm_n960u
+- service: script.notify_engine
   data:
+    who: 'ed'
     message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Disarm system? Tap yes."
     title:  "Home security system has been activated "
     data:

@@ -1,5 +1,5 @@
 
-alias: Sync input_boolean.trash_town with town_trash_day
+alias: Sync town_trash_day
 trigger:
   platform: state
   entity_id: sensor.stuben_trash_wednesday
