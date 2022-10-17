@@ -2,7 +2,7 @@
 alias: Sync input_boolean.colleen_is_home with device_tracker
 trigger:
   platform: state
-  entity_id: device_tracker.colleen_williams
+  entity_id: device_tracker.sm_g991u1
   from: home
   to: not_home
 

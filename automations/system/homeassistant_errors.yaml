@@ -1,4 +1,5 @@
-alias: Count Home Assistant Errors
+
+alias: "Count Home Assistant Errors"
 trigger:
   platform: event
   event_type: system_log_event
@@ -6,4 +7,6 @@ trigger:
     level: ERROR
 action:
   service: counter.increment
-  entity_id: counter.homeassistant_errors
+  target:
+    entity_id: counter.error_counter
+

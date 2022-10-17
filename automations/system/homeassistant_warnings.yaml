@@ -1,4 +1,5 @@
-alias: Count Home Assistant Warnings
+
+alias: "Count Home Assistant Warnings"
 trigger:
   platform: event
   event_type: system_log_event
@@ -6,4 +7,6 @@ trigger:
     level: WARNING
 action:
   service: counter.increment
-  entity_id: counter.homeassistant_warnings
+  target:
+    entity_id: counter.homeassistant_warnings
+
