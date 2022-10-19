@@ -8,5 +8,5 @@ trigger:
 action:
   service: counter.increment
   target:
-    entity_id: counter.error_counter
+    entity_id: counter.homeassistant_errors
 

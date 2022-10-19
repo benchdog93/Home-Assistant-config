@@ -38,10 +38,7 @@ counter: !include_dir_merge_named counters
 default_config:
 calendar:
 ffmpeg:
-map:
-config:
 wake_on_lan:
-history:
 http:
 api:
 #  ip_ban_enabled: false

@@ -11,4 +11,4 @@
       double_press:
       - service: light.toggle
         target:
-          entity_id: light.livingroom_receptacle_3f626efe_on_off
+          entity_id: light.livingroom_plug_light

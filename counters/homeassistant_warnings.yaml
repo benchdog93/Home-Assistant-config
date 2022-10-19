@@ -1,4 +1,0 @@
-homeassistant_warnings:
-  name: Warnings
-  icon: mdi:alert
-  restore: false

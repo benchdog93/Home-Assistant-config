@@ -1,0 +1,9 @@
+
+alias: Stop/start charging ed's phone
+description: ''
+use_blueprint:
+  path: razvanmdobre/stop-start-charging-based-on-battery-level-when-home.yaml
+  input:
+    switch: switch.master_bed_plug
+    phone_battery: sensor.ed_s_cell_phone_battery_level
+    person_home: person.ed
