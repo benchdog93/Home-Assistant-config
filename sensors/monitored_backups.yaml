@@ -1,0 +1,6 @@
+
+platform: template
+sensors:
+  monitored_backups:
+    friendly_name: "Monitored Backups"
+    value_template: "{{ state_attr('sensor.auto_backup', 'monitored_backups') }}"

@@ -8,8 +8,9 @@ trigger:
   to: Online Battery Charging
 
 action:
-- service: notify.mobile_app_sm_n960u
+- service: script.notify_engine
   data:
+    who: 'ed'
     message: "Power restored, UPS battery charging"
 - service: input_boolean.turn_off
   data: {}

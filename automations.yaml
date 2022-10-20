@@ -1,11 +1,2 @@
-- id: '1666148704561'
-  alias: Breezeway-activated Light
-  description: ''
-  use_blueprint:
-    path: homeassistant/motion_light.yaml
-    input:
-      motion_entity: binary_sensor.back_door_doorbell
-      light_target:
-        device_id: 205cd91fc040eb445a0c1257b14a90a9
-      no_motion_wait: 300
+
 

@@ -7,8 +7,9 @@ trigger:
   to: On Battery Battery Discharging
 
 action:
-- service: notify.mobile_app_sm_n960u
+- service: script.notify_engine
   data:
+    who: 'ed'
     message: "Power Failure! UPS running!"
 
 - service: input_boolean.turn_on

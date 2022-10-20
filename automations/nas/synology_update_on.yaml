@@ -1,0 +1,10 @@
+
+alias: Sync synology update on
+trigger:
+  platform: state
+  entity_id: update.ewvisualarts_dsm_update
+  to: 'on'
+
+action:
+  service: input_boolean.turn_on  
+  entity_id: input_boolean.synology_update_available

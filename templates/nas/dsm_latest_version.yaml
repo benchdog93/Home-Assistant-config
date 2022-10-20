@@ -1,0 +1,5 @@
+
+sensors:
+  synology_latest_version:
+    friendly_name: "DSM Latest Version"
+    value_template: "{{ state_attr('update.ewvisualarts_dsm_update', 'latest_version') }}"

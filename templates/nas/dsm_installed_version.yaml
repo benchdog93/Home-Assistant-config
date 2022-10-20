@@ -1,0 +1,5 @@
+
+sensors:
+  synology_instaled_version:
+    friendly_name: "DSM Installed Version"
+    value_template: "{{ state_attr('update.ewvisualarts_dsm_update', 'installed_version') }}"
