@@ -1,0 +1,6 @@
+
+platform: template
+sensors:
+  backup_last_failure:
+    friendly_name: "Backup Last Failure"
+    value_template: "{{ state_attr('sensor.auto_backup', 'last_failure') }}"

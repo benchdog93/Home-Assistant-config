@@ -1,22 +1,46 @@
 
-alias: Today is trash day 
+alias: "Set up notification fo town trash day"
 trigger:
-  - platform: time
-    at: '08:30:00'
-  
+  platform: time
+  at: '08:30:00'
+  variables:
+    action_on: "{{ 'OFF_' ~ entity_id }}"
+    action_off: "{{ 'OFF_' ~ entity_id }}"
+    
 condition:
-- condition: state
+  condition: state
   entity_id: sensor.stuben_trash_wednesday
   state: "today"
-  
+
 action:
-  service: notify.mobile_app_ed_s_cell_phone
-  data:
-    message: Do we have debris for the town!
-    title: Today is Town Trash Day
+  - service: notify.mobile_app_ed_s_cell_phone
     data:
-      actions:
-      - action: out_yes
-        title: 'Yes'
-      - action: out_no
-        title: 'No'
+      message: "Do we have debris for the town!"
+      data:
+        actions:
+          - action: "{{ action_on }}"
+            title: 'No'
+          - action: "{{ action_off }}"
+            title: 'Yes'
+
+  - wait_for_trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "{{ action_on }}"
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "{{ action_off }}"
+
+  - choose:
+      - conditions: "{{ wait.trigger.event.data.action == action_on }}"
+        sequence:
+          - service: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.trash_town
+      - conditions: "{{ wait.trigger.event.data.action == action_off }}"
+        sequence:
+          - service: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.trash_town

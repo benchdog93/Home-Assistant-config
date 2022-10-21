@@ -1,14 +1,15 @@
 
-alias: Phone charge complete
-
-trigger:
-- platform: state
-  entity_id: switch.master_bed_plug
-  from: 'on'
-  to: 'off'
-
-action:
-- service: script.notify_engine
-  data:
-    who: 'ed'
-    message: "Phone is charged!"
+  alias: Ed's Phone Charge Completed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.master_bed_plug
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: notify.mobile_app_ed_s_cell_phone
+    data:
+      message: Phone charging has completed!
+  mode: single

@@ -1,21 +1,47 @@
 
-alias: "Notify apps when the garage door left open"
+# inside a automation actions or script sequence
+alias: "Set up notification for open garage door"
 trigger:
-    platform: state
-    entity_id: cover.ed_s 
-    to: open 
-    for: 00:30:00
+  platform: state
+  entity_id: cover.ed_s
+  to: open 
+  for: 00:30:00
+  variables:
+  # Including an id in the action allows us to identify this script run
+  # and not accidentally trigger for other notification actions
+    action_open: "{{ 'OPEN_' ~ entity_id }}"
+    action_close: "{{ 'CLOSE_' ~ entity_id }}"
 action:
-- service: script.notify_engine
-  data:
-    who: 'ed'
-    message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Close Door? Tap yes."
-    title:  "Ed's garage door has been left open"
+  - service: notify.mobile_app_ed_s_cell_phone
     data:
-      actions:
-        - action: URI
-          title:  "Yes"
-          uri: '/lovelace/home'
-        - action: "close_nope"
-          title: "Nope"
+      message: "Ed's garage door is left open. Do you want to close it?"
+      data:
+        actions:
+          - action: "{{ action_open }}"
+            title: Open
+          - action: "{{ action_close }}"
+            title: Close
 
+  - wait_for_trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          # waiting for the specific action avoids accidentally continuing
+          # for another script/automation's notification action
+          action: "{{ action_open }}"
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "{{ action_close }}"
+
+  - choose:
+      - conditions: "{{ wait.trigger.event.data.action == action_open }}"
+        sequence:
+          - service: cover.open_cover
+            target:
+              entity_id: cover.ed_s
+      - conditions: "{{ wait.trigger.event.data.action == action_close }}"
+        sequence:
+          - service: cover.close_cover
+            target:
+              entity_id: cover.ed_s

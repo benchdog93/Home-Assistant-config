@@ -1,0 +1,29 @@
+
+alias: sys_log_counter
+mode: queued
+trigger:
+  - platform: event
+    event_type: system_log_event
+    event_data:
+      level: WARNING
+  - platform: event
+    event_type: system_log_event
+    event_data:
+      level: ERROR
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: system_log
+      service: clear
+action:
+  - choose:
+      - conditions: "{{ trigger.event.event_type == 'system_log_event' }}"
+        sequence:
+          - service: counter.increment
+            target:
+              entity_id: counter.sys_log_counter
+      - conditions: "{{ trigger.event.event_type == 'call_service' }}"
+        sequence:
+          - service: counter.reset
+            target:
+              entity_id: counter.sys_log_counter

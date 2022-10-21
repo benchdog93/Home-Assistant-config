@@ -43,6 +43,7 @@ http:
 api:
 #  ip_ban_enabled: false
 #  login_attempts_threshold: 5
+
 websocket_api:
 system_log:
   fire_event: true
