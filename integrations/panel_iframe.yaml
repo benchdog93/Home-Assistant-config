@@ -1,6 +1,1 @@
-# Adding Panel_iFrame
-#panel_iframe:
-#  portainer:
-#    title: 'Portainer.io'
-#    url: !secret port_url
-#     icon: 'mdi:docker'
+

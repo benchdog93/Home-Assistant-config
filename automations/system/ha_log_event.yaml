@@ -1,9 +1,4 @@
 
-#####
-# Triggers when there is new warning or error
-# https://community.home-assistant.io/t/counter-warning-error-issue/85490/11
-#####
-
 alias: Count Home Assistant errors
 
 trigger:

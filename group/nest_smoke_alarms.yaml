@@ -1,0 +1,13 @@
+
+smoke_alarms:
+  name: Smoke Alarms
+  icon: mdi:outdoor-lamp
+  entities:
+    - binary_sensor.attic_protect
+    - binary_sensor.basement_protect
+    - binary_sensor.garage_protect
+    - binary_sensor.guest_room_protect
+    - binary_sensor.kitchen_protect
+    - binary_sensor.living_room_protect
+    - binary_sensor.master_bedroom_protect
+    - binary_sensor.office_protect

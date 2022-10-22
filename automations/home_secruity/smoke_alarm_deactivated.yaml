@@ -1,0 +1,11 @@
+
+alias: Sync group. nest_smake_alarm with input_boolean.smaoke_alarm 
+trigger:
+  platform: state
+  entity_id: group.smoke_alarms
+  from: 'on'
+  to: 'off'
+
+action:
+  service: input_boolean.turn_off 
+  entity_id: input_boolean.smoke_alarms

@@ -1,4 +1,3 @@
-
-smoke_alarm:
+smoke_alarms:
   name: Smoke Alarm
   icon: mdi:shield-home-outline
