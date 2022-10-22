@@ -1,19 +1,43 @@
 
-alias: "Notify apps when home security activated"
+alias: "Set up notification fo town trash day"
 trigger:
   platform: state
   entity_id: input_boolean.alarm_triggered
-  to: "on"
+  from: 'on'
+  to: 'off'
+  variables:
+    action_on: "{{ 'OFF_' ~ entity_id }}"
+    action_off: "{{ 'OFF_' ~ entity_id }}"
+
 action:
-- service: script.notify_engine
-  data:
-    who: 'ed'
-    message: "{{ as_timestamp(now()) | timestamp_custom('%I:%M%p', true) }} - Disarm system? Tap yes."
-    title:  "Home security system has been activated "
+  - service: notify.mobile_app_ed_s_cell_phone
     data:
-      actions:
-        - action: URI
-          title:  "Yes"
-          uri: '/lovelace/home'
-        - action: "close_nope"
-          title: "Nope"
+      message: "Disarm system?"
+      data:
+        actions:
+          - action: "{{ action_on }}"
+            title: 'No'
+          - action: "{{ action_off }}"
+            title: 'Yes'
+
+  - wait_for_trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "{{ action_on }}"
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "{{ action_off }}"
+
+  - choose:
+      - conditions: "{{ wait.trigger.event.data.action == action_on }}"
+        sequence:
+          - service: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.disarmed
+      - conditions: "{{ wait.trigger.event.data.action == action_off }}"
+        sequence:
+          - service: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.disarmed
