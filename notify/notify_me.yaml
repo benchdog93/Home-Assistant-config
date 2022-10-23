@@ -1,6 +1,6 @@
 
 platform: group
-name: Me
+name: Ed
 services:
   - service: mobile_app_ed_s_cell_phone
   - service: ed_s_email

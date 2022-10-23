@@ -4,7 +4,7 @@ trigger:
   platform: state
   entity_id: cover.colleen_s
   to: open 
-  for: 00:02:00
+  for: 00:30:00
   variables:
     action_open: "{{ 'OPEN_' ~ entity_id }}"
     action_close: "{{ 'CLOSE_' ~ entity_id }}"
