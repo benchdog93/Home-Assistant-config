@@ -3,7 +3,7 @@ alias: "Arm Home Night Actitvation"
 
 description: ''
 trigger:
-- platform: time
+  platform: time
   at: '23:00:00'
 
 condition:

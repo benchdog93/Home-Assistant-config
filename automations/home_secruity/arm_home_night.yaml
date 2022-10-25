@@ -1,8 +1,9 @@
 
-alias: "Activate Arm Home Night"
+
+alias: "Activate Arm Night"
 trigger:
   platform: state
-  entity_id: input_boolean.alarm_night
+  entity_id: input_boolean.alarm_night 
   from: "off"
   to: "on"
 
