@@ -1,219 +1,1045 @@
-2022-10-22 21:04:45.832 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration average which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.835 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration nodered which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.838 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration lovelace_gen which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.840 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration myenergi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.844 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration alexa_media which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.851 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hpprinter which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.854 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.858 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration alarmo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.861 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration holidays which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.864 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration media_player_template which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.869 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration myq which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.873 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration mail_and_packages which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.876 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration garbage_collection which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.879 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration pirateweather which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:04:45.886 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration auto_backup which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2022-10-22 21:05:02.425 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-22 21:05:02.510 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-22 21:05:04.334 WARNING (MainThread) [homeassistant.components.weather] custom_components.pirateweather.weather::DarkSkyWeather is overriding deprecated methods on an instance of WeatherEntity, this is not valid and will be unsupported from Home Assistant 2023.1. Please report it to the custom integration author.
-2022-10-22 21:05:05.748 WARNING (SyncWorker_9) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: /custom_components/mail_and_packages/mail_none.gif
-2022-10-22 21:05:07.121 WARNING (MainThread) [homeassistant.helpers.frame] Detected integration that uses pressure utility. This is deprecated since 2022.10 and will stop working in Home Assistant 2023.4, it should be updated to use unit_conversion.PressureConverter instead. Please report issue to the custom integration author for pirateweather using this method at custom_components/pirateweather/weather.py, line 169: return round(convert_pressure(pressure, PRESSURE_HPA, PRESSURE_INHG), 2)
-2022-10-22 21:05:15.150 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform pirateweather is taking over 10 seconds.
-2022-10-22 21:05:17.163 WARNING (MainThread) [homeassistant.config_entries] Config entry 'GS108Tv3-785549' for upnp integration not ready yet: Device not discovered: uuid:fb8e67ba-7dba-11e7-be55-94a67e785549::urn:schemas-upnp-org:device:InternetGatewayDevice:1; Retrying in background
-2022-10-22 21:05:17.592 WARNING (MainThread) [homeassistant.setup] Setup of automation is taking over 10 seconds.
-2022-10-22 21:05:20.260 ERROR (MainThread) [homeassistant.components.sensor] Platform ecobee does not generate unique IDs. ID 411962146048-ei:0-temperature already exists - ignoring sensor.living_room_temperature
-2022-10-22 21:05:42.017 WARNING (MainThread) [homeassistant.components.binary_sensor] Setup of binary_sensor platform homekit_controller is taking over 10 seconds.
-2022-10-22 21:05:42.023 WARNING (MainThread) [homeassistant.components.camera] Setup of camera platform homekit_controller is taking over 10 seconds.
-2022-10-22 21:05:42.030 WARNING (MainThread) [homeassistant.components.climate] Setup of climate platform ecobee is taking over 10 seconds.
-2022-10-22 21:05:42.036 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform nut is taking over 10 seconds.
-2022-10-22 21:05:42.042 WARNING (MainThread) [homeassistant.setup] Setup of mobile_app is taking over 10 seconds.
-2022-10-22 21:05:42.088 ERROR (MainThread) [homeassistant.components.nut] Timeout fetching NUT resource status data
-2022-10-22 21:05:42.130 WARNING (MainThread) [homeassistant.config_entries] Config entry 'benchdog93@gmail.com' for life360 integration not ready yet; Retrying in background
-2022-10-22 21:05:42.646 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2022-10-22 21:05:42.652 ERROR (MainThread) [custom_components.mail_and_packages] Error updating sensor data: 
-2022-10-22 21:05:42.662 WARNING (MainThread) [homeassistant.config_entries] Config entry 'imap.gmail.com' for mail_and_packages integration not ready yet: None; Retrying in background
-2022-10-22 21:05:47.887 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for spare-light @ 192.168.1.115: Error connecting to ('192.168.1.115', 6053): [Errno 113] Connect call failed ('192.168.1.115', 6053)
-2022-10-22 21:05:47.893 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for office-network @ 192.168.1.71: Error connecting to ('192.168.1.71', 6053): [Errno 113] Connect call failed ('192.168.1.71', 6053)
-2022-10-22 21:05:59.937 WARNING (SyncWorker_6) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
-2022-10-22 21:06:12.252 WARNING (MainThread) [homeassistant.components.media_player] Updating alexa_media media_player took longer than the scheduled update interval 0:00:10
-2022-10-22 21:06:29.487 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2022-10-22 21:06:29.500 ERROR (MainThread) [custom_components.mail_and_packages] Error updating sensor data: 
-2022-10-22 21:12:54.958 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-22 21:12:54.989 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-23 01:54:21.137 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2022-10-23 01:54:21.353 WARNING (SyncWorker_1) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
-2022-10-23 01:54:27.733 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:54:27.739 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:54:57.735 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:54:57.737 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:55:27.737 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:55:27.740 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:55:57.738 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:55:57.740 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:56:27.738 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:56:27.740 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:56:57.739 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:56:57.741 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:57:27.741 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:57:27.743 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:57:57.742 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:57:57.745 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:58:27.743 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:58:27.747 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:58:57.744 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:58:57.748 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:59:27.745 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 01:59:27.748 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:31:25.040 ERROR (MainThread) [custom_components.mail_and_packages] Timeout fetching Mail and Packages (imap.gmail.com) data
-2022-10-23 02:31:25.164 WARNING (SyncWorker_2) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: unavailable
-2022-10-23 02:31:28.970 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:31:28.973 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:31:58.971 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:31:58.976 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:32:28.972 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:32:28.976 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:32:58.974 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:32:58.979 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:33:28.976 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:33:28.978 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:33:58.977 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:33:58.981 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:34:28.979 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:34:28.981 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:34:58.979 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:34:58.984 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:35:28.980 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:35:28.984 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:35:58.982 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:35:58.989 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:36:28.983 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 02:36:28.994 WARNING (MainThread) [custom_components.mail_and_packages.camera] Update to update camera image. Unavailable.
-2022-10-23 03:24:58.223 WARNING (MainThread) [homeassistant.components.synology_dsm.common] Connection error during update, fallback by reloading the entry
-2022-10-23 04:50:54.660 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 04:50:54.710 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 04:50:54.713 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 04:51:08.859 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 04:51:08.870 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 04:51:08.873 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 04:52:00.963 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 04:52:00.970 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 04:52:00.974 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 05:06:33.922 WARNING (MainThread) [zigpy.appdb] Discarding _save_device_last_seen event
-2022-10-23 05:06:33.947 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
+2022-10-27 16:47:22.306 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration average which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.308 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration nodered which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.310 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration lovelace_gen which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.316 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration myenergi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.318 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration alexa_media which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.319 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hpprinter which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.320 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.321 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration alarmo which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.323 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration holidays which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.323 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration media_player_template which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.325 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration myq which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.329 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration mail_and_packages which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.330 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration garbage_collection which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:22.332 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration auto_backup which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2022-10-27 16:47:37.332 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-27 16:47:37.349 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-27 16:47:38.472 WARNING (MainThread) [homeassistant.components.integration.sensor] sensor.office_fan_circuit_consumption could not restore last state unknown: [<class 'decimal.ConversionSyntax'>]
+2022-10-27 16:47:40.169 WARNING (SyncWorker_5) [homeassistant.components.local_file.camera] Could not read camera mail_usps image from file: /custom_components/mail_and_packages/mail_none.gif
+2022-10-27 16:47:47.481 WARNING (MainThread) [homeassistant.config_entries] Config entry 'benchdog93@gmail.com' for life360 integration not ready yet; Retrying in background
+2022-10-27 16:47:51.608 WARNING (MainThread) [homeassistant.setup] Setup of automation is taking over 10 seconds.
+2022-10-27 16:47:51.978 ERROR (MainThread) [homeassistant.components.sensor] Platform ecobee does not generate unique IDs. ID 411962146048-ei:0-temperature already exists - ignoring sensor.living_room_temperature
+2022-10-27 16:48:16.423 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform garbage_collection is taking over 10 seconds.
+2022-10-27 16:48:16.426 WARNING (MainThread) [homeassistant.components.climate] Setup of climate platform ecobee is taking over 10 seconds.
+2022-10-27 16:48:16.440 WARNING (MainThread) [homeassistant.components.camera] Setup of camera platform homekit_controller is taking over 10 seconds.
+2022-10-27 16:48:16.441 WARNING (MainThread) [homeassistant.components.binary_sensor] Setup of binary_sensor platform homekit_controller is taking over 10 seconds.
+2022-10-27 16:48:16.442 WARNING (MainThread) [homeassistant.components.switch] Setup of switch platform homekit_controller is taking over 10 seconds.
+2022-10-27 16:48:16.443 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform openweathermap is taking over 10 seconds.
+2022-10-27 16:48:16.443 WARNING (MainThread) [homeassistant.components.weather] Setup of weather platform openweathermap is taking over 10 seconds.
+2022-10-27 16:48:16.444 WARNING (MainThread) [homeassistant.setup] Setup of mobile_app is taking over 10 seconds.
+2022-10-27 16:48:16.446 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform accuweather is taking over 10 seconds.
+2022-10-27 16:48:16.447 WARNING (MainThread) [homeassistant.components.weather] Setup of weather platform accuweather is taking over 10 seconds.
+2022-10-27 16:48:16.559 WARNING (MainThread) [homeassistant.config_entries] Config entry '' for github integration not ready yet: Timeout of 20 reached while waiting for https://api.github.com/graphql; Retrying in background
+2022-10-27 16:48:16.563 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/VzBoT3D/VzBoT-UserMods/events
+2022-10-27 16:48:22.558 WARNING (MainThread) [aioesphomeapi.reconnect_logic] Can't connect to ESPHome API for spare-light @ 192.168.1.115: Error connecting to ('192.168.1.115', 6053): [Errno 113] Connect call failed ('192.168.1.115', 6053)
+2022-10-27 16:48:46.682 WARNING (MainThread) [homeassistant.components.media_player] Updating alexa_media media_player took longer than the scheduled update interval 0:00:10
+2022-10-27 16:48:47.553 WARNING (MainThread) [homeassistant.helpers.entity] Update of media_player.colleen_s_echo_dot is taking over 10 seconds
+2022-10-27 16:48:58.234 WARNING (MainThread) [homeassistant.components.media_player] Updating alexa_media media_player took longer than the scheduled update interval 0:00:10
+2022-10-27 16:48:58.612 WARNING (MainThread) [homeassistant.components.media_player] Updating webostv media_player took longer than the scheduled update interval 0:00:10
+2022-10-27 17:40:22.155 ERROR (MainThread) [aiohttp.server] Error handling request
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 52, in scan_loop
-    await self.scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 63, in scan
-    await self._scan_task
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 86, in _scan
-    await device.neighbors.scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/neighbor.py", line 96, in scan
-    return await self._scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/neighbor.py", line 107, in _scan
-    status, rsp = await self._device.zdo.Mgmt_Lqi_req(idx, tries=3, delay=1)
-  File "/usr/local/lib/python3.10/site-packages/zigpy/util.py", line 131, in retry
-    r = await func()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/device.py", line 297, in request
-    await self._application.request(
-  File "/usr/local/lib/python3.10/site-packages/zigpy/application.py", line 654, in request
-    await self.send_packet(
-  File "/usr/local/lib/python3.10/site-packages/zigpy_znp/zigbee/application.py", line 1026, in send_packet
-    response = await self._send_request_raw(
-  File "/usr/local/lib/python3.10/site-packages/zigpy_znp/zigbee/application.py", line 901, in _send_request_raw
-    response = await self._znp.request(
-AttributeError: 'NoneType' object has no attribute 'request'
-2022-10-23 05:21:44.570 WARNING (MainThread) [zigpy.appdb] Discarding _save_device_last_seen event
-2022-10-23 05:21:44.576 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
+  File "/usr/local/lib/python3.10/site-packages/aiohttp/web_protocol.py", line 334, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 551, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: 400, message="Bad status line 'Invalid method encountered'"
+2022-10-27 19:01:20.725 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:01:21.005 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:10:59.376 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:10:59.638 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:10:59.909 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:00.289 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:00.340 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:00.677 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:00.928 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:01.166 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:01.406 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:01.660 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:01.921 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:02.224 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:02.536 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:02.780 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:03.017 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:03.324 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:03.611 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:03.869 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:04.134 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:04.418 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:04.690 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:04.930 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:05.204 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:05.521 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:05.798 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:06.027 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:06.307 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:06.503 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:06.742 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:06.973 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:07.260 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:07.514 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:07.792 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:08.035 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:08.330 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:08.607 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:08.823 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:09.108 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:09.369 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:09.653 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:09.923 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:10.234 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:10.580 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:10.865 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:11.180 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:11.498 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:11.773 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:12.045 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:12.360 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:12.626 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:12.907 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:13.137 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:13.373 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:13.592 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:13.849 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:14.132 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:14.379 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:14.634 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:14.879 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:15.156 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:15.451 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:15.791 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:16.049 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:16.284 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:16.541 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:16.801 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:17.052 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:17.325 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:17.579 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:17.817 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:18.080 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:18.324 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:18.585 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:18.841 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:19.131 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:19.411 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:19.623 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:19.892 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:20.164 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:20.498 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:20.805 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:21.064 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:21.372 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:21.677 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:21.951 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:22.273 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:22.538 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:23.054 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:23.340 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:23.580 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:23.772 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:24.030 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:24.318 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:24.563 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:24.786 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:25.037 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:25.307 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:25.565 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:25.796 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:26.030 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:26.282 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:26.554 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:26.800 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:27.151 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:27.509 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:27.823 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:28.096 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:28.530 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:28.812 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:29.099 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:29.420 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:29.680 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:29.983 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:30.188 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:30.390 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:30.637 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:30.976 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:31.247 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:31.496 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:31.746 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:32.014 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:32.298 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:32.609 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:32.976 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:33.251 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:33.524 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:33.767 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:34.007 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:34.270 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:34.572 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:35.438 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:35.696 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:35.983 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:36.286 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:36.553 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:36.798 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:37.038 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:37.310 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:37.573 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:37.855 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:38.110 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:38.362 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:38.667 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:38.945 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:39.243 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:39.488 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:39.748 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:40.073 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:40.443 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:40.697 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:40.969 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:42.018 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:42.322 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:42.597 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:42.842 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:43.104 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:43.376 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:43.693 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:43.895 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:44.137 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:44.402 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:11:44.637 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:47:58.580 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:41.661 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:41.881 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:42.163 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:42.388 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:42.627 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:42.864 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:43.169 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:43.399 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:43.631 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:43.857 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:44.085 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:44.306 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:44.564 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:44.863 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:45.155 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:45.391 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:45.674 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:45.921 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:46.165 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:46.389 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:46.689 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:46.933 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:47.152 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:47.457 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:47.733 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:47.973 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:48.223 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:48.454 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 19:50:48.708 ERROR (MainThread) [frontend.js.latest.202210100] :0:0 ResizeObserver loop completed with undelivered notifications.
+2022-10-27 22:47:17.681 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-27 22:47:17.789 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-27 22:48:57.224 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced devices switch.office_light_relay or it is/they are currently not available
+2022-10-27 22:49:02.594 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced devices light.eds_chair_light or it is/they are currently not available
+2022-10-27 22:49:09.736 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced devices switch.office_light_relay or it is/they are currently not available
+2022-10-27 22:56:29.259 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced devices light.eds_chair_light or it is/they are currently not available
+2022-10-27 22:56:33.472 WARNING (MainThread) [homeassistant.helpers.service] Unable to find referenced devices switch.office_light_relay or it is/they are currently not available
+2022-10-28 01:51:42.476 WARNING (MainThread) [homeassistant.helpers.entity] Updating state for sensor.hawkins_hurlbut (<class 'custom_components.garbage_collection.sensor.WeeklyCollection'>) took 0.425 seconds. Please report it to the custom integration author.
+2022-10-28 04:26:40.055 ERROR (MainThread) [homeassistant.components.life360] Error fetching life360 (benchdog93@gmail.com) data: 
+2022-10-28 04:26:44.940 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
+2022-10-28 04:26:48.175 ERROR (MainThread) [custom_components.myq] Unexpected error fetching myq devices data: 'ServerDisconnectedError' object has no attribute 'errno'
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 52, in scan_loop
-    await self.scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 63, in scan
-    await self._scan_task
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 86, in _scan
-    await device.neighbors.scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/neighbor.py", line 96, in scan
-    return await self._scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/neighbor.py", line 107, in _scan
-    status, rsp = await self._device.zdo.Mgmt_Lqi_req(idx, tries=3, delay=1)
-  File "/usr/local/lib/python3.10/site-packages/zigpy/util.py", line 131, in retry
-    r = await func()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/device.py", line 297, in request
-    await self._application.request(
-  File "/usr/local/lib/python3.10/site-packages/zigpy/application.py", line 654, in request
-    await self.send_packet(
-  File "/usr/local/lib/python3.10/site-packages/zigpy_znp/zigbee/application.py", line 1026, in send_packet
-    response = await self._send_request_raw(
-  File "/usr/local/lib/python3.10/site-packages/zigpy_znp/zigbee/application.py", line 901, in _send_request_raw
-    response = await self._znp.request(
-AttributeError: 'NoneType' object has no attribute 'request'
-2022-10-23 05:22:37.313 WARNING (MainThread) [zigpy.appdb] Discarding _save_device_last_seen event
-2022-10-23 05:22:37.319 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
+  File "/usr/local/lib/python3.10/site-packages/pymyq/request.py", line 136, in _send_request
+    resp = await websession.request(
+  File "/usr/local/lib/python3.10/site-packages/aiohttp/client.py", line 559, in _request
+    await resp.start(conn)
+  File "/usr/local/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 898, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+  File "/usr/local/lib/python3.10/site-packages/aiohttp/streams.py", line 616, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 52, in scan_loop
-    await self.scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 63, in scan
-    await self._scan_task
-  File "/usr/local/lib/python3.10/site-packages/zigpy/topology.py", line 86, in _scan
-    await device.neighbors.scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/neighbor.py", line 96, in scan
-    return await self._scan()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/neighbor.py", line 107, in _scan
-    status, rsp = await self._device.zdo.Mgmt_Lqi_req(idx, tries=3, delay=1)
-  File "/usr/local/lib/python3.10/site-packages/zigpy/util.py", line 131, in retry
-    r = await func()
-  File "/usr/local/lib/python3.10/site-packages/zigpy/device.py", line 297, in request
-    await self._application.request(
-  File "/usr/local/lib/python3.10/site-packages/zigpy/application.py", line 654, in request
-    await self.send_packet(
-  File "/usr/local/lib/python3.10/site-packages/zigpy_znp/zigbee/application.py", line 1026, in send_packet
-    response = await self._send_request_raw(
-  File "/usr/local/lib/python3.10/site-packages/zigpy_znp/zigbee/application.py", line 901, in _send_request_raw
-    response = await self._znp.request(
-AttributeError: 'NoneType' object has no attribute 'request'
-2022-10-23 05:38:32.643 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 05:38:32.652 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 05:38:32.655 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 05:38:52.533 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 05:38:52.546 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 05:38:52.550 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 05:39:54.284 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 05:39:54.298 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 05:39:54.305 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 05:44:04.096 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 05:44:04.103 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 05:44:04.109 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 05:44:27.532 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 05:44:27.534 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 05:44:27.536 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 05:44:45.531 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 05:44:45.535 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 05:44:45.537 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 06:19:52.062 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 06:19:52.065 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 06:19:52.078 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 06:20:33.461 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 06:20:33.467 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 06:20:33.470 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 06:21:41.057 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 06:21:41.061 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 06:21:41.064 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 07:07:18.903 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 07:07:18.911 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 07:07:18.917 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 07:07:31.515 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 07:07:31.518 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 07:07:31.520 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 07:07:44.783 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'command' when rendering '{{ trigger.event.data.command }}'
-2022-10-23 07:07:44.787 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'cluster_id' when rendering '{{ trigger.event.data.cluster_id }}'
-2022-10-23 07:07:44.790 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'endpoint_id' when rendering '{{ trigger.event.data.endpoint_id }}'
-2022-10-23 08:30:00.025 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'entity_id' is undefined when rendering '{{ 'OFF_' ~ entity_id }}'
-2022-10-23 08:30:00.048 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'entity_id' is undefined when rendering '{{ 'OFF_' ~ entity_id }}'
-2022-10-23 08:30:00.078 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'entity_id' is undefined when rendering '{{ 'ON_' ~ entity_id }}'
-2022-10-23 08:30:00.087 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'entity_id' is undefined when rendering '{{ 'OFF_' ~ entity_id }}'
-2022-10-23 08:30:00.101 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'entity_id' is undefined when rendering '{{ 'OFF_' ~ entity_id }}'
-2022-10-23 08:30:00.111 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'entity_id' is undefined when rendering '{{ 'OFF_' ~ entity_id }}'
-2022-10-23 09:30:34.373 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-23 09:30:34.378 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-23 09:30:46.948 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-23 09:30:46.969 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
-2022-10-23 09:30:49.023 ERROR (MainThread) [homeassistant.components.hassio.handler] Client error on /homeassistant/restart request Server disconnected
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 205, in _async_refresh
+    self.data = await self._async_update_data()
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 164, in _async_update_data
+    return await self.update_method()
+  File "/config/custom_components/myq/__init__.py", line 37, in async_update_data
+    return await myq.update_device_info()
+  File "/usr/local/lib/python3.10/site-packages/pymyq/api.py", line 576, in update_device_info
+    await self.accounts.get(account_id).update()
+  File "/usr/local/lib/python3.10/site-packages/pymyq/account.py", line 194, in update
+    await self._get_devices()
+  File "/usr/local/lib/python3.10/site-packages/pymyq/account.py", line 99, in _get_devices
+    _, devices_resp = await self._api.request(
+  File "/usr/local/lib/python3.10/site-packages/pymyq/api.py", line 250, in request
+    return await call_method(
+  File "/usr/local/lib/python3.10/site-packages/pymyq/request.py", line 228, in request_json
+    resp = await self._send_request(
+  File "/usr/local/lib/python3.10/site-packages/pymyq/request.py", line 174, in _send_request
+    if err.errno in (54, 104) and attempt == 0:
+AttributeError: 'ServerDisconnectedError' object has no attribute 'errno'
+2022-10-28 04:26:48.360 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/BeardedTinker/Home-Assistant_Config/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:26:48.432 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/fluidd-core/fluidd/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.348 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/benchdog93/Home-Assistant-config/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.357 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/BeardedTinker/SolarWS/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.360 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/BeardedTinker/SolarWS/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.367 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/fluidd-core/FluiddPI/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.370 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/mainsail-crew/moonraker-timelapse/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.379 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/VzBoT3D/VzBoT-UserMods/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.383 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/supermerill/SuperSlicer/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:06.386 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/th33xitus/kiauh/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:11.918 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/BeardedTinker/Home-Assistant_Config/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:27:49.054 ERROR (MainThread) [homeassistant.components.life360] Error fetching life360 (benchdog93@gmail.com) data: 
+2022-10-28 04:28:04.786 ERROR (MainThread) [homeassistant.components.uptimerobot] Error fetching uptimerobot data: Request timeout for 'https://api.uptimerobot.com/v2/getMonitors'
+2022-10-28 04:28:18.032 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/VzBoT3D/VzBoT-UserMods/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:28:18.041 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/VzBoT3D/VzBoT-Vz330/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:28:18.045 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/jordanruthe/KlipperScreen/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:28:18.056 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/EtteGit/EnragedRabbitProject/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:28:23.068 ERROR (MainThread) [homeassistant.components.openweathermap.weather_update_coordinator] Error fetching openweathermap data: HTTPSConnectionPool(host='api.openweathermap.org', port=443): Max retries exceeded with url: /data/2.5/onecall?APPID=d8e627e727e3af13fdea3ae64c6e2197&lang=en&lon=-75.2242556&lat=43.3529213 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa9fbae36d0>: Failed to establish a new connection: [Errno -3] Try again'))
+2022-10-28 04:28:23.185 ERROR (MainThread) [homeassistant.helpers.template_entity] TemplateError('ValueError: Template error: float got invalid input 'unavailable' when rendering template '{{ (states('sensor.openweathermap_wind_speed') | float * 2.2369) | round(2) | default(0, true) }}' but no default was specified') while processing template 'Template("{{ (states('sensor.openweathermap_wind_speed') | float * 2.2369) | round(2) | default(0, true) }}")' for attribute '_attr_native_value' in entity 'sensor.wind_speed'
+2022-10-28 04:28:23.201 ERROR (MainThread) [homeassistant.helpers.template_entity] TemplateError('ValueError: Template error: float got invalid input 'unavailable' when rendering template '{{ (states('sensor.openweathermap_rain') | float / 25.4) | round(2) | default(0, true) }}' but no default was specified') while processing template 'Template("{{ (states('sensor.openweathermap_rain') | float / 25.4) | round(2) | default(0, true) }}")' for attribute '_attr_native_value' in entity 'sensor.rain_fall_accumulation'
+2022-10-28 04:28:23.214 ERROR (MainThread) [homeassistant.helpers.template_entity] TemplateError('ValueError: Template error: float got invalid input 'unavailable' when rendering template '{{ (states('sensor.openweathermap_snow') | float / 25.4) | round(2) | default(0, true) }}' but no default was specified') while processing template 'Template("{{ (states('sensor.openweathermap_snow') | float / 25.4) | round(2) | default(0, true) }}")' for attribute '_attr_native_value' in entity 'sensor.snow_fall_accumulation'
+2022-10-28 04:28:33.006 ERROR (SyncWorker_11) [custom_components.mail_and_packages.helpers] Network error while connecting to server: [Errno -3] Try again
+2022-10-28 04:28:33.052 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 151, in _handle_refresh_interval
+    await self._async_refresh(log_failures=True, scheduled=True)
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 283, in _async_refresh
+    self.async_update_listeners()
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 110, in async_update_listeners
+    update_callback()
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 348, in _handle_coordinator_update
+    self.async_write_ha_state()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 533, in async_write_ha_state
+    self._async_write_ha_state()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 574, in _async_write_ha_state
+    attr.update(self.extra_state_attributes or {})
+  File "/config/custom_components/mail_and_packages/sensor.py", line 129, in extra_state_attributes
+    attr[ATTR_ORDER] = data[AMAZON_ORDER]
+KeyError: 'amazon_order'
+2022-10-28 04:28:50.165 ERROR (MainThread) [homeassistant.components.github] Error fetching jordanruthe/KlipperScreen data: Request exception for 'https://api.github.com/graphql' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:28:53.121 WARNING (MainThread) [homeassistant.components.synology_dsm.common] Connection error during update, fallback by reloading the entry
+2022-10-28 04:28:56.595 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:28:56.600 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:28:59.187 ERROR (MainThread) [custom_components.myq] Unexpected error fetching myq devices data: 'ServerDisconnectedError' object has no attribute 'errno'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pymyq/request.py", line 136, in _send_request
+    resp = await websession.request(
+  File "/usr/local/lib/python3.10/site-packages/aiohttp/client.py", line 559, in _request
+    await resp.start(conn)
+  File "/usr/local/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 898, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+  File "/usr/local/lib/python3.10/site-packages/aiohttp/streams.py", line 616, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 205, in _async_refresh
+    self.data = await self._async_update_data()
+  File "/usr/src/homeassistant/homeassistant/helpers/update_coordinator.py", line 164, in _async_update_data
+    return await self.update_method()
+  File "/config/custom_components/myq/__init__.py", line 37, in async_update_data
+    return await myq.update_device_info()
+  File "/usr/local/lib/python3.10/site-packages/pymyq/api.py", line 544, in update_device_info
+    accounts = await self._get_accounts()
+  File "/usr/local/lib/python3.10/site-packages/pymyq/api.py", line 511, in _get_accounts
+    _, accounts_resp = await self.request(
+  File "/usr/local/lib/python3.10/site-packages/pymyq/api.py", line 250, in request
+    return await call_method(
+  File "/usr/local/lib/python3.10/site-packages/pymyq/request.py", line 228, in request_json
+    resp = await self._send_request(
+  File "/usr/local/lib/python3.10/site-packages/pymyq/request.py", line 174, in _send_request
+    if err.errno in (54, 104) and attempt == 0:
+AttributeError: 'ServerDisconnectedError' object has no attribute 'errno'
+2022-10-28 04:29:26.596 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:29:26.600 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:29:56.598 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:29:56.605 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:30:26.600 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:30:26.603 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:30:28.441 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/Klipper3d/klipper/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:30:33.655 ERROR (SyncWorker_4) [pyecobee] Error connecting to ecobee while attempting to get thermostats. Possible connectivity outage.
+HTTPSConnectionPool(host='api.ecobee.com', port=443): Max retries exceeded with url: /1/thermostat?json=%7B%22selection%22%3A+%7B%22selectionType%22%3A+%22registered%22%2C+%22includeRuntime%22%3A+%22true%22%2C+%22includeSensors%22%3A+%22true%22%2C+%22includeProgram%22%3A+%22true%22%2C+%22includeEquipmentStatus%22%3A+%22true%22%2C+%22includeEvents%22%3A+%22true%22%2C+%22includeWeather%22%3A+%22true%22%2C+%22includeSettings%22%3A+%22true%22%7D%7D (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa9a904b910>: Failed to establish a new connection: [Errno -3] Try again'))
+2022-10-28 04:30:56.600 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:30:56.604 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:31:26.602 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:31:26.606 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:31:53.483 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/BeardedTinker/Home-Assistant_Config/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:31:53.500 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Request exception for 'https://api.github.com/repos/fluidd-core/fluidd/events' with - Cannot connect to host api.github.com:443 ssl:default [Try again]
+2022-10-28 04:31:56.603 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:31:56.606 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:32:26.604 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:32:26.611 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:32:56.608 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:32:56.614 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:32:59.351 ERROR (MainThread) [homeassistant.components.version] Error fetching version data: Error fetching version information from supervisor Cannot connect to host version.home-assistant.io:443 ssl:default [Try again]
+2022-10-28 04:33:26.609 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:33:26.613 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:33:56.611 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:33:56.617 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:34:26.611 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:34:26.618 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:34:42.053 ERROR (MainThread) [homeassistant.components.life360] Error fetching life360 (benchdog93@gmail.com) data: 
+2022-10-28 04:34:56.613 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:34:56.616 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:35:26.614 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:35:26.617 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:35:29.786 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/supermerill/SuperSlicer/events
+2022-10-28 04:35:29.790 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/th33xitus/kiauh/events
+2022-10-28 04:35:29.795 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/VzBoT3D/VzBoT-UserMods/events
+2022-10-28 04:35:29.802 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/BeardedTinker/SolarWS/events
+2022-10-28 04:35:29.807 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/fluidd-core/FluiddPI/events
+2022-10-28 04:35:29.815 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/BeardedTinker/SolarWS/events
+2022-10-28 04:35:29.821 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/mainsail-crew/moonraker-timelapse/events
+2022-10-28 04:35:29.827 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/benchdog93/Home-Assistant-config/events
+2022-10-28 04:35:32.785 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/BeardedTinker/Home-Assistant_Config/events
+2022-10-28 04:35:38.785 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/VzBoT3D/VzBoT-Vz330/events
+2022-10-28 04:35:38.789 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/jordanruthe/KlipperScreen/events
+2022-10-28 04:35:38.796 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/VzBoT3D/VzBoT-UserMods/events
+2022-10-28 04:35:39.787 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/EtteGit/EnragedRabbitProject/events
+2022-10-28 04:35:48.785 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/Klipper3d/klipper/events
+2022-10-28 04:35:56.618 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:35:56.621 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:36:05.052 ERROR (MainThread) [homeassistant.components.life360] Error fetching life360 (benchdog93@gmail.com) data: 
+2022-10-28 04:36:26.618 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:36:26.621 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:36:30.786 ERROR (MainThread) [homeassistant.components.github] Error fetching th33xitus/kiauh data: Timeout of 20 reached while waiting for https://api.github.com/graphql
+2022-10-28 04:36:56.619 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:36:56.625 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:37:13.785 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/BeardedTinker/Home-Assistant_Config/events
+2022-10-28 04:37:13.788 ERROR (MainThread) [homeassistant.components.github] An error occurred while processing new events - Timeout of 20 reached while waiting for https://api.github.com/repos/fluidd-core/fluidd/events
+2022-10-28 04:37:26.619 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:37:26.624 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:37:56.621 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:37:56.624 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:38:26.622 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:38:26.627 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:38:56.628 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:38:56.635 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:39:26.681 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:39:26.688 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:39:56.675 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:39:56.686 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:40:26.678 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:40:26.701 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:40:56.678 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:40:56.688 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:41:26.680 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:41:26.684 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:41:56.682 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:41:56.687 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:42:26.684 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:42:26.690 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:42:56.684 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:42:56.690 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 04:43:26.685 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_usps_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 146, in update_file_path
+    image = self._coordinator.data[ATTR_IMAGE_NAME]
+KeyError: 'image_name'
+2022-10-28 04:43:26.691 ERROR (MainThread) [homeassistant.helpers.entity] Update for camera.mail_amazon_delivery_camera fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 515, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 710, in async_device_update
+    raise exc
+  File "/config/custom_components/mail_and_packages/camera.py", line 210, in async_update
+    self.update_file_path()
+  File "/config/custom_components/mail_and_packages/camera.py", line 159, in update_file_path
+    image = self._coordinator.data[ATTR_AMAZON_IMAGE]
+KeyError: 'amazon_image'
+2022-10-28 07:14:17.243 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-28 07:14:17.283 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-28 07:14:24.545 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-28 07:14:24.562 WARNING (MainThread) [homeassistant.components.template.config] The entity definition format under template: differs from the platform configuration format. See https://www.home-assistant.io/integrations/template#configuration-for-trigger-based-template-sensors
+2022-10-28 07:14:34.786 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /homeassistant/restart request

@@ -1,8 +1,8 @@
 
 ewva_circuit_daily_consumption:
-  source: sensor.ewva_circuit_consumption
+  source: sensor.office_fan_circuit_consumption
   cycle: daily
 
 ewva_circuit_monthly_consumption:
-  source: sensor.ewva_circuit_consumption
+  source: sensor.office_fan_circuit_consumption
   cycle: monthly

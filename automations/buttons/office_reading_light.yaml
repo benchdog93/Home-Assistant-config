@@ -1,3 +1,4 @@
+
 alias: ZHA - Sonoff SNZB-01
 description: ''
 use_blueprint:
@@ -7,8 +8,8 @@ use_blueprint:
     single_press:
     - service: light.toggle
       target:
-        device_id: 5e9b64594060bb2fdff9e3a85a548f79
+        entity_id: light.eds_chair_light
     double_press:
     - service: switch.toggle
       target:
-        device_id: e0576bb5aaf737e1a9e458968561c085
+        entity_id: switch.office_light_relay

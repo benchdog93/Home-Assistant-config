@@ -1,0 +1,6 @@
+
+platform: integration
+source: sensor.office_light_power
+name: Office Light Circuit Consumption
+unit_prefix: k
+round: 2

@@ -1,6 +1,0 @@
-
-platform: integration
-source: sensor.desktop_power
-name: Desktop Circuit Consumption
-unit_prefix: k
-round: 2
