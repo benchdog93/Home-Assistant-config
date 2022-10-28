@@ -4,9 +4,8 @@ alias: Disarm Night Someone is Up
 description: 'Disarms security system someone is up'
 
 trigger:
-_ platform: state
-  entity_id: input_boolean.someone_is_up
-  from: 'off'
+- platform: state
+  entity_id: binary_sensor.living_room_protect_3
   to: "on"
 
 condition:
