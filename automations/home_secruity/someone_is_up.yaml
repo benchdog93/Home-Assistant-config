@@ -5,8 +5,8 @@ description: 'Disarms security system someone is up'
 
 trigger:
 _ platform: state
-  entity_id: binary_sensor.living_room_protect_3
-  from: "off"
+  entity_id: input_boolean.someone_is_up
+  from: 'off'
   to: "on"
 
 condition:
