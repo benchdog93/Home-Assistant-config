@@ -235,5 +235,5 @@ switch:
     name: ${channel_2} Relay
     pin: GPIO15
     icon: "mdi:electric-switch"
-    restore_mode: restore_default_ON
+    restore_mode: restore_default_OFF
 

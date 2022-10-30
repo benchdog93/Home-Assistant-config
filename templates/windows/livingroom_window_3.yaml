@@ -2,9 +2,9 @@ binary_sensor:
   - name: Livingroom Window 3
     device_class: opening
     state: >
-      {{ is_state("binary_sensor.livingroom_window_3_ias_zone", "on") }}
+      {{ is_state("binary_sensor.livingroom_window_3_iaszone", "on") }}
     icon: >
-      {% if is_state("binary_sensor.livingroom_window_3_ias_zone", "on") %}
+      {% if is_state("binary_sensor.livingroom_window_3_iaszone", "on") %}
         mdi:window-open
       {% else %}
         mdi:window-closed  

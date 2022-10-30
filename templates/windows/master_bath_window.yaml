@@ -2,9 +2,9 @@ binary_sensor:
   - name: Master Bath Window 
     device_class: opening
     state: >
-      {{ is_state("binary_sensor.ewelink_ds01_37269f23_ias_zone", "on") }}
+      {{ is_state("binary_sensor.master_bath_window_iaszone", "on") }}
     icon: >
-      {% if is_state("binary_sensor.ewelink_ds01_37269f23_ias_zone", "on") %}
+      {% if is_state("binary_sensor.master_bath_window_iaszone", "on") %}
         mdi:window-open
       {% else %}
         mdi:window-closed  

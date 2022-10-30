@@ -1,0 +1,296 @@
+substitutions:  
+  disp_name: Meter
+  update_time: 10s
+  Name: Energy 6c
+  Name1: Main
+  Name2: House
+  Name3: Shop
+
+esphome:
+  name: energy-6c
+  platform: ESP32
+  board: nodemcu-32s
+
+api:
+  
+wifi:
+  ssid: !secret wifi_iot_ssid
+  password: !secret wifi_iot_password
+  manual_ip:
+    static_ip: 192.168.1.88
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    dns1: 192.168.1.1
+  ap:
+    ssid: "${Name} Hotspot"
+    password: !secret esphome_fallback_ap_password
+
+captive_portal:
+
+web_server:
+  port: 80
+
+logger:
+
+ota:
+  password: !secret esphome_password
+
+spi:
+  clk_pin: 18
+  miso_pin: 19
+  mosi_pin: 23
+
+text_sensor:
+  - platform: template
+    name: ${Name} Uptime
+    id: uptime_human
+    icon: mdi:clock-start
+
+  - platform: version
+    name: ${Name} ESPHome Version
+    
+  - platform: wifi_info
+    ip_address:
+      name: ${Name} IP
+    ssid:
+      name: ${Name} SSID
+    bssid:
+      name: ${Name} BSSID
+
+sensor:
+  - platform: wifi_signal
+    name: ${Name} WiFi
+    update_interval: 60s
+
+  - platform: uptime
+    name: Uptime Sensor
+    id: uptime_sensor
+    update_interval: 60s
+    on_raw_value:
+      then:
+        - text_sensor.template.publish:
+            id: uptime_human
+            state: !lambda |-
+              int seconds = round(id(uptime_sensor).raw_state);
+              int days = seconds / (24 * 3600);
+              seconds = seconds % (24 * 3600);
+              int hours = seconds / 3600;
+              seconds = seconds % 3600;
+              int minutes = seconds /  60;
+              seconds = seconds % 60;
+              return (
+                (days ? to_string(days) + "d " : "") +
+                (hours ? to_string(hours) + "h " : "") +
+                (minutes ? to_string(minutes) + "m " : "") +
+                (to_string(seconds) + "s")
+              ).c_str();
+
+
+  - platform: atm90e32
+    cs_pin: 5
+ 
+    phase_a:
+      voltage:
+        name: ${disp_name} Volts A
+        id: ic1Volts
+        accuracy_decimals: 1
+      current:
+        name: ${Name1} CT1 Amps
+        id: ct1Amps
+
+      gain_voltage: 7275
+      gain_ct: 15420
+
+    phase_b:
+      current:
+        name: ${Name2} CT2 Amps
+        id: ct2Amps
+      gain_ct: 32498
+
+    phase_c:
+      current:
+        name: ${Name3} CT3 Amps
+        id: ct3Amps
+      gain_ct: 32498
+
+    frequency:
+      name: ${disp_name} Freq A
+    line_frequency: 60Hz
+    gain_pga: 1X
+    update_interval: ${update_time}
+
+
+  - platform: atm90e32
+    cs_pin: 4
+
+    phase_a:
+      voltage:
+        name: ${disp_name} Volts B
+        id: ic2Volts
+        accuracy_decimals: 1
+      current:
+        name: ${Name3} CT4 Amps
+        id: ct4Amps
+      gain_voltage: 7230
+      gain_ct: 32498
+
+    phase_b:
+      current:
+        name: ${Name2} CT5 Amps
+        id: ct5Amps
+      gain_ct: 32498
+     
+    phase_c:
+      current:
+        name: ${Name1} CT6 Amps
+        id: ct6Amps
+      gain_ct: 8650
+
+    frequency:
+      name: ${disp_name} Freq B
+    line_frequency: 60Hz
+    gain_pga: 1X
+    update_interval: ${update_time} 
+
+
+  - platform: template
+    name: ${Name1} CT1 Watts
+    id: ct1Watts
+    lambda: return id(ct1Amps).state * id(ic1Volts).state;
+    accuracy_decimals: 0
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}        
+
+  - platform: template
+    name: ${Name2} CT2 Watts
+    id: ct2Watts
+    lambda: return id(ct2Amps).state * id(ic1Volts).state;
+    accuracy_decimals: 0
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}        
+
+  - platform: template
+    name: ${Name3} CT3 Watts
+    id: ct3Watts
+    lambda: return id(ct3Amps).state * id(ic1Volts).state;
+    accuracy_decimals: 0
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}    
+
+  - platform: template
+    name: ${Name3} CT4 Watts
+    id: ct4Watts
+    lambda: return id(ct4Amps).state * id(ic2Volts).state;
+    accuracy_decimals: 0
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}     
+
+  - platform: template
+    name: ${Name2} CT5 Watts
+    id: ct5Watts
+    lambda: return id(ct5Amps).state * id(ic2Volts).state;
+    accuracy_decimals: 0
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}       
+
+  - platform: template
+    name: ${Name1} CT6 Watts
+    id: ct6Watts
+    lambda: return id(ct6Amps).state * id(ic2Volts).state;
+    accuracy_decimals: 0
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}     
+
+####### Main ###########
+
+  - platform: template
+    name: ${Name1} Total Amps
+    id: ${Name1}totalAmps
+    lambda: return id(ct1Amps).state + id(ct6Amps).state;
+    accuracy_decimals: 2
+    unit_of_measurement: A
+    icon: "mdi:flash"
+    update_interval: ${update_time}         
+
+  - platform: template
+    name: ${Name1} Total Watts
+    id: ${Name1}totalWatts
+    lambda: return id(${Name1}totalAmps).state * id(ic2Volts).state;
+    accuracy_decimals: 1
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}             
+
+  - platform: total_daily_energy
+    name: ${Name1} Total kWh
+    power_id: ${Name1}totalWatts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
+####### House #########
+
+  - platform: template
+    name: ${Name2} Total Amps
+    id: ${Name2}totalAmps
+    lambda: return id(ct2Amps).state + id(ct5Amps).state;
+    accuracy_decimals: 2
+    unit_of_measurement: A
+    icon: "mdi:flash"
+    update_interval: ${update_time}         
+
+  - platform: template
+    name: ${Name2} Total Watts
+    id: ${Name2}totalWatts
+    lambda: return id(${Name2}totalAmps).state * id(ic2Volts).state;
+    accuracy_decimals: 1
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}             
+
+  - platform: total_daily_energy
+    name: ${Name2} Total kWh
+    power_id: ${Name2}totalWatts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
+######## Shop ###########
+
+  - platform: template
+    name: ${Name3} Total Amps
+    id: ${Name3}totalAmps
+    lambda: return id(ct3Amps).state + id(ct4Amps).state;
+    accuracy_decimals: 2
+    unit_of_measurement: A
+    icon: "mdi:flash"
+    update_interval: ${update_time}         
+
+  - platform: template
+    name: ${Name3} Total Watts
+    id: ${Name3}totalWatts
+    lambda: return id(${Name3}totalAmps).state * id(ic2Volts).state;
+    accuracy_decimals: 1
+    unit_of_measurement: W
+    icon: "mdi:flash-circle"
+    update_interval: ${update_time}             
+
+  - platform: total_daily_energy
+    name: ${Name3} Total kWh
+    power_id: ${Name3}totalWatts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    
+switch:
+  - platform: restart
+    name: ${disp_name} Restart  
+time:
+  - platform: sntp
+    id: sntp_time  

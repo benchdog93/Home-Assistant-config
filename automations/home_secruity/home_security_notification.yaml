@@ -1,12 +1,12 @@
 
-alias: "Set up notification fo town trash day"
+alias: "home security activated notification"
 trigger:
   platform: state
   entity_id: input_boolean.alarm_triggered
   from: 'on'
   to: 'off'
   variables:
-    action_on: "{{ 'OFF_' ~ entity_id }}"
+    action_on: "{{ 'ON_' ~ entity_id }}"
     action_off: "{{ 'OFF_' ~ entity_id }}"
 
 action:
