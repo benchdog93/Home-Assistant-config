@@ -1,0 +1,9 @@
+platform: rest
+name: VzBot_power
+resource: "http://192.168.1.5:7125/machine/device_power/device?device=VzBot Power"
+body_on: '{"action": "on"}'
+body_off: '{"action": "off"}'
+headers:
+  Content-Type: 'application/json'
+is_on_template: >-
+  {{ 'result' in value_json and (value_json.result.values() | list | first == "on") }}

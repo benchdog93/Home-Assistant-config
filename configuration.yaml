@@ -41,6 +41,8 @@ calendar:
 ffmpeg:
 wake_on_lan:
 http:
+  cors_allowed_origins:
+    - http://192.168.1.5/#/
 api:
 #  ip_ban_enabled: false
 #  login_attempts_threshold: 5
