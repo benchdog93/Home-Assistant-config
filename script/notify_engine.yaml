@@ -15,20 +15,24 @@ notify_engine:
             notify.family
           {% endif %}
       data:
-        title: "{{ title }}"
-        message: "{{ value1 }} {{ value2 }} {{ value3 }}"
-        target: "{{ target_id }}"
+        title: "{{ title | default }}"
+        message: "{{ value1 | default }} {{ value2 | default }} {{ value3 | default }}"
+        target: "{{ target_id | default }}"
         data:
+          subtitle: "{{ subtitle | default }}"
+          subject: "{{ subtitle | default }}"
           attachment:
-            url: "{{ clickAction }}"
-            content-type: "{{ content_type }}"
+            url: "{{ clickAction | default }}"
+            content-type: "{{ content_type | default }}"
             hide-thumbnail: false
-          clickAction: "{{ clickAction }}"
+          url: "{{ clickAction | default }}"  
+          clickAction: "{{ clickAction | default }}"
           apns_headers:
-            'apns-collapse-id': "{{ tag_id }}"
-          tag: "{{ tag_id }}"
-          group: "{{ group }}"
-          sticky: "{{ sticky }}"
-          color: "{{ color }}"
-          channel: "{{ channel_id }}"
-          importance: "{{ importance_id }}"
+            'apns-collapse-id': "{{ tag_id | default }}"
+          group: "{{ group | default }}"
+          tag: "{{ tag_id | default }}"
+          importance: "{{ importance_id | default }}"
+          color: "{{ color | default }}"
+          sticky: "{{ sticky | default }}"
+          timeout: "{{ timeout_sec | default }}"
+          entity_id: "{{ camera_entity | default }}"

@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  samba_total_backups_succeeded:
+    unique_id: sensor.samba_total_backups_succeeded
+    friendly_name: "Total Backups Succeeded"
+    value_template: "{{ state_attr('sensor.samba_backup', 'total_backups_succeeded') }}"

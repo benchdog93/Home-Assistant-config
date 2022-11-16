@@ -1,5 +1,6 @@
 
-alias: desk_button
+id: '1667773985909'
+alias: Desk Button
 description: ''
 use_blueprint:
   path: denperss/SNZB-01.yaml
@@ -7,10 +8,16 @@ use_blueprint:
     remote: b50eca51510dca053fac9dec481a2eca
     single_press:
     - service: switch.toggle
+      data: {}
       target:
         entity_id: switch.office_light_relay
     double_press:
     - service: switch.toggle
+      data: {}
       target:
         entity_id: switch.office_picture_lights_relay
-
+    hold:
+    - service: switch.toggle
+      data: {}
+      target:
+        entity_id: switch.office_fan_relay

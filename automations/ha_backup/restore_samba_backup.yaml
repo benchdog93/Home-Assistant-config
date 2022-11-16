@@ -1,0 +1,8 @@
+
+alias: Restore Samba Backup sensor on startup
+description: ''
+use_blueprint:
+  path: thomasmauerer/restore_samba_backup_sensor.yaml
+  input:
+    addon: 15d21743_samba_backup
+mode: single

@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  samba_total_backups_failed:
+    unique_id: sensor.samba_total_backups_failed
+    friendly_name: "Total Backups Failed"
+    value_template: "{{ state_attr('sensor.samba_backup', 'total_backups_failed') }}"

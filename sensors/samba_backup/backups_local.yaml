@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  samba_backups_local:
+    unique_id: sensor.samba_backups_local
+    friendly_name: "Local Backups"
+    value_template: "{{ state_attr('sensor.samba_backup', 'backups_local') }}"

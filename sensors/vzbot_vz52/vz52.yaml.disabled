@@ -1,0 +1,18 @@
+
+platform: rest
+name: VZ52
+resource: "http://192.168.1.5:7125/printer/objects/query?heater_bed&extruder&print_stats&toolhead&display_status&virtual_sdcard&gcode_move&filament_switch_sensor filament_sensor"
+json_attributes_path: "$.result.status"
+json_attributes:
+  - heater_bed
+  - extruder
+  - print_stats
+  - toolhead
+  - display_status
+  - virtual_sdcard
+  - gcode_move
+  - "filament_switch_sensor filament_sensor"
+value_template: >-
+  {{ 'OK' if ('result' in value_json) else None }}
+force_update: true
+scan_interval: 1

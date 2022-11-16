@@ -1,0 +1,12 @@
+
+alias: VzBot VZ 52 Button
+description: ''
+use_blueprint:
+  path: denperss/SNZB-01.yaml
+  input:
+    remote: 06d17a9e5c37dfc20567d7339e87d597
+    single_press:
+    - service: switch.toggle
+      data: {}
+      target:
+        entity_id: switch.vzbot_vz52

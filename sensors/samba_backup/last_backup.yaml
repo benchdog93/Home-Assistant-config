@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  samba_last_backup:
+    unique_id: sensor.samba_last_backup
+    friendly_name: "Last Backup"
+    value_template: "{{ state_attr('sensor.samba_backup', 'last_backup') }}"

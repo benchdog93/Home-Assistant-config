@@ -1,0 +1,13 @@
+
+alias: Reload VZ52
+description: ''
+trigger:
+- platform: state
+  entity_id:
+  - sensor.vz52
+  to: unavailable
+condition: []
+action:
+- service: rest.reload
+  data: {}
+mode: single

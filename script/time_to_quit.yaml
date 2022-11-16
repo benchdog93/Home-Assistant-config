@@ -1,4 +1,5 @@
 
+
 timetoquit:
   sequence:
     - service: media_player.volume_set
@@ -21,3 +22,4 @@ timetoquit:
           "Hey, look at the time, it's late",
           "Did you take the cat out?",
           ] | random }}
+

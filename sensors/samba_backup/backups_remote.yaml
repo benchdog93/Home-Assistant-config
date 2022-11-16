@@ -1,0 +1,7 @@
+
+platform: template
+sensors:
+  samba_backups_remote:
+    unique_id: sensor.samba_backups_remote
+    friendly_name: "Remote Backups"
+    value_template: "{{ state_attr('sensor.samba_backup', 'backups_remote') }}"

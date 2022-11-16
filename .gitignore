@@ -27,6 +27,12 @@ __pycache__
 .google.token
 deps
 node-red
+addons
+share
+backup
+media
+ssl
+
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 .config_entries.json

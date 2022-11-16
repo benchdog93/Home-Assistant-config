@@ -1,0 +1,26 @@
+
+alias: HA Backup
+description: ''
+trigger:
+  platform: time
+  at: 04:00:00
+condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+action:
+  service: hassio.addon_stdin
+  data:
+    addon: 15d21743_samba_backup
+    input:
+      command: trigger
+      backup_name: "Daily Backup: {{ now().strftime('%A, %B %-d, %Y') }}"
+mode: single
+
+

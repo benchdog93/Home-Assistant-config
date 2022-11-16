@@ -1,4 +1,4 @@
 
 synology_update_available:
   name: Synology Update Available 
-  icon: phu:nas-v2
+  icon: cil:synology-nas

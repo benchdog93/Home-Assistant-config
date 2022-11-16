@@ -1,6 +1,0 @@
-
-platform: template
-sensors:
-  purgeable_backups:
-    friendly_name: "Purgeable Backups"
-    value_template: "{{ state_attr('sensor.auto_backup', 'purgeable_backups') }}"

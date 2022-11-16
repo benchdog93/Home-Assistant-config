@@ -1,0 +1,10 @@
+
+platform: template
+sensors:
+  vz52_printer_filament:
+    unique_id: sensor.vz52_printer_filament
+    friendly_name: "Filament Detected"
+    icon_template: mdi:printer-3d-nozzle-alert
+    device_class: motion
+    value_template: >-
+      {{ states.sensor.vz52.attributes["filament_switch_sensor filament_sensor"]["filament_detected"] }}

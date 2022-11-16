@@ -35,14 +35,13 @@ switch: !include_dir_merge_named switches
 utility_meter: !include_dir_merge_named utility_meters
 counter: !include_dir_merge_named counters
 
-
 default_config:
 calendar:
 ffmpeg:
 wake_on_lan:
 http:
   cors_allowed_origins:
-    - http://192.168.1.5/#/
+    - http://192.168.1.5/
 api:
 #  ip_ban_enabled: false
 #  login_attempts_threshold: 5
@@ -50,6 +49,10 @@ api:
 websocket_api:
 system_log:
   fire_event: true
+
+tts:
+  - platform: google_translate
+    service_name: google_say
 
 camera:
   - platform: local_file
