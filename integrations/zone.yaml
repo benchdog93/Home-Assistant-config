@@ -1,0 +1,6 @@
+
+zone:
+  - name: Home
+    latitude: !secret lat
+    longitude: !secret long
+    radius: 400

@@ -12,13 +12,6 @@ homeassistant:
       - !secret internal_ip
       - !secret external_ip
 
-zone:
-  - name: Home
-    latitude: !secret lat
-    longitude: !secret long
-    radius: 400
-
-
 binary_sensor manual: !include_dir_list binary_sensors
 group: !include_dir_merge_named group/
 automation: !include_dir_list automations
@@ -26,7 +19,6 @@ script: !include_dir_merge_named script/
 input_boolean: !include_dir_merge_named input_boolean/
 input_button: !include_dir_merge_named input_buttons/
 template: !include_dir_list templates
-scene: !include scenes.yaml
 sensor: !include_dir_list sensors
 frontend: !include frontend.yaml
 recorder: !include recorder.yaml
@@ -34,36 +26,3 @@ notify: !include_dir_list notify
 switch: !include_dir_merge_named switches
 utility_meter: !include_dir_merge_named utility_meters
 counter: !include_dir_merge_named counters
-
-default_config:
-calendar:
-ffmpeg:
-wake_on_lan:
-http:
-  cors_allowed_origins:
-    - http://192.168.1.5/
-api:
-#  ip_ban_enabled: false
-#  login_attempts_threshold: 5
-
-websocket_api:
-system_log:
-  fire_event: true
-
-tts:
-  - platform: google_translate
-    service_name: google_say
-
-camera:
-  - platform: local_file
-    file_path: /custom_components/mail_and_packages/mail_none.gif
-    name: mail_usps
-
-weather:
-#  - platform: pirateweather
-#    api_key: !secret privateweather
-#    # Additional optional values:
-#    latitude: !secret lat
-#    longitude: !secret long
-#    mode: "hourly"
-#    name: Pirate Weather

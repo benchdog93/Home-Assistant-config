@@ -1,0 +1,4 @@
+
+websocket_api:
+system_log:
+  fire_event: true

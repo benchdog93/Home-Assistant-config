@@ -1,0 +1,9 @@
+
+weather:
+#  - platform: pirateweather
+#    api_key: !secret privateweather
+#    # Additional optional values:
+#    latitude: !secret lat
+#    longitude: !secret long
+#    mode: "hourly"
+#    name: Pirate Weather
