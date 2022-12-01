@@ -1,0 +1,16 @@
+
+platform: rest
+name: vz52_file_metadata
+scan_interval: 5
+resource_template: "{% if states(('sensor.VZ52')) != 'OK' %}
+                      http://192.168.1.5:7125/server/files/metadata?filename={{ states(('sensor.vz52_current_print')) }}
+                      {% else %}
+                      https://dsewvisualarts.com:8123/local/no_preview.json
+                      {% endif %}"
+json_attributes_path: "$.result"
+json_attributes:
+  - layer_height
+  - object_height
+  - thumbnails
+value_template: 'OK'
+  

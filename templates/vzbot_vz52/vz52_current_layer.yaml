@@ -1,0 +1,7 @@
+
+sensors:
+  vz52_current_layer:
+    unique_id: sensor.vz52_current_layer
+    friendly_name: "Current Layer"
+    value_template: >-
+      {{ (states("sensor.vz52_current_height")|float / states("sensor.vz52_layer_height")|float)|round(0) if is_state('sensor.vz52', 'OK') else None }}

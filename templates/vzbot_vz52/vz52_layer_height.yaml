@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_layer_height:
+    unique_id: sensor.vz52_layer_height
+    friendly_name: "Layer Height"
+    unit_of_measurement: "mm"
+    icon_template: mdi:arrow-collapse-vertical
+    value_template: >-
+      {{ states.sensor.vz52_file_metadata.attributes["layer_height"] | float if is_state('sensor.vz52', 'OK') else None }}

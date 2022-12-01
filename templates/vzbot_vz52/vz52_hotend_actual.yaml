@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_nozzle_actual:
+    friendly_name: Actual Hotend Temperature 
+    unique_id: sensor.vz52_nozzle_actual
+    icon_template: mdi:thermometer
+    value_template: >-
+      {{ states.sensor.vz52.attributes['extruder']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}

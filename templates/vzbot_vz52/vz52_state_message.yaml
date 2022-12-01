@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_state_message:
+    unique_id: sensor.vz52_state_message
+    friendly_name: "State Message"
+    icon_template: mdi:message-check-outline
+    value_template: >-
+      {{ states.sensor.vz52.attributes["webhooks"]["state_message"] if is_state('sensor.vz52', 'OK') else None }}

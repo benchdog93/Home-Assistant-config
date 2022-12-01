@@ -229,7 +229,13 @@ async def async_set_values(old_values, event, competition, competitor, lang, ind
         new_values["date"] = competition["date"]
     except:
         new_values["date"] = event["date"]
-    new_values["kickoff_in"] = arrow.get(new_values["date"]).humanize(locale=lang)
+    try:
+        new_values["kickoff_in"] = arrow.get(new_values["date"]).humanize(locale=lang)
+    except:
+        try:
+            new_values["kickoff_in"] = arrow.get(new_values["date"]).humanize(locale=lang[:2])
+        except:
+            new_values["kickoff_in"] = arrow.get(new_values["date"]).humanize()
 
     try:
         new_values["venue"] = competition["venue"]["fullName"]
@@ -243,7 +249,7 @@ async def async_set_values(old_values, event, competition, competitor, lang, ind
             new_values["location"] = competition["venue"]["address"]["city"]
         except:
             try:
-                new_values["location"] = competition["venue"]["address"]
+                new_values["location"] = competition["venue"]["address"]["summary"]
             except:
                 new_values["location"] = None
 

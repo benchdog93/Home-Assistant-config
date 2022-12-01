@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_bed_saturation_temp:
+    unique_id: sensor.vz52_bed_saturation_temp
+    friendly_name: Bed Saturated Temoerature
+    icon_template: mdi:thermometer
+    unit_of_measurement: "°C"
+    value_template: >-
+      {{ states.sensor.vz52.attributes['temperature_sensor bed_edge']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}

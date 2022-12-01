@@ -3,3 +3,25 @@ camera:
   - platform: local_file
     file_path: /custom_components/mail_and_packages/mail_none.gif
     name: mail_usps
+
+#  - platform: generic
+#    name: vz52 GCode Preview
+#    still_image_url: >
+#      {% if states.sensor.gcode_preview.attributes["relative_path"] == "" %}
+#          https://dsewvisualarts.com:8123/local/no_preview.png
+#      {% else %}
+#          http://192.168.1.5:7125/server/files/gcodes/{{ states.sensor.gcode_preview.attributes["relative_path"] }}
+#      {% endif %}
+#    scan_interval: 5
+#    content_type: image/png
+
+#  - platform: generic
+#    name: "VZ52_Thumbnail"
+#    still_image_url: http://192.168.x.x:7125/server/files/gcodes/{{ states.sensor.klipper_preview_path.attributes["relative_path"] if is_state('sensor.vz52', 'OK') else None }}
+#    verify_ssl: false
+
+#  - platform: generic
+#    name: vz52_camera
+#    still_image_url: http://192.168.1.5/webcam/?action=snapshot
+#    mjpeg_url: http://192.168.1.5/webcam/?action=stream
+

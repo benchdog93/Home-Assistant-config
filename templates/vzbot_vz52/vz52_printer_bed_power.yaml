@@ -1,0 +1,10 @@
+
+sensors:
+  vz52_printer_bed_power:
+    unique_id: sensor.vz52_printer_bed_power
+    friendly_name: "Bed Power"
+    unit_of_measurement: "%"
+    icon_template: mdi:power-cycle
+    value_template: >-
+      {{ ((states.sensor.vz52.attributes["heater_bed"]["power"]  | float) * 100) | round(0) if is_state('sensor.vz52', 'OK') else None }}'
+      

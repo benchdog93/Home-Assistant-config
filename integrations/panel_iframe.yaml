@@ -1,6 +1,17 @@
 
-panel_iframe:
-  network:
-    title: "Network Performance"
-    url: "http://192.168.1.25:8123/api/hassio_ingress/0KkW1XszVNjqvAj1QpLhm11hGw34w7TKg9O5XDnBDNs/d/7EVehhoMz/network-performance?orgId=1&from=1667534400000&to=1667595437484"
-    icon: "mdi:network-outline"
+  panel_iframe:
+
+#    weather:
+#      title: "Weather"
+#      url: "https://dsewvisualarts.com:8123/api/hassio_ingress/0KkW1XszVNjqvAj1QpLhm11hGw34w7TKg9O5XDnBDNs/d/Ri15Pn27k/weather?orgId=1&refresh=15m"
+#      icon: "mdi:weather-cloudy-clock"
+
+#    home_energy:
+#      title: "Home Energy"
+#      url: "https://dsewvisualarts.com:8123/api/hassio_ingress/0KkW1XszVNjqvAj1QpLhm11hGw34w7TKg9O5XDnBDNs/d/F8CAmmt7k/energy?orgId=1"
+#      icon: "mdi:home-lightning-bolt-outline"
+
+#    power_consumption:
+#      title: "Power"
+#      url: "https://dsewvisualarts.com:8123/api/hassio_ingress/0KkW1XszVNjqvAj1QpLhm11hGw34w7TKg9O5XDnBDNs/d/2S4WkZ_Gk/power-consumption?orgId=1"
+#      icon: "mdi:file-powerpoint-box-outline"

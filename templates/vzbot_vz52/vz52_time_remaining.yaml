@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_time_remaining:
+    unique_id: sensor.vz52_time_remaining
+    friendly_name: "T-remaining"
+    icon_template: mdi:clock-end
+    value_template: >-
+      {{ (((states.sensor.vz52.attributes['print_stats']['print_duration'] / states.sensor.vz52.attributes['display_status']['progress'] - states.sensor.vz52.attributes['print_stats']['print_duration']) if states.sensor.vz52.attributes['display_status']['progress'] > 0 else 0) | timestamp_custom('%H:%M:%S', 0)) if is_state('sensor.vz52', 'OK') else None }}

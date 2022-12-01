@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_layer_progress:
+    unique_id: sensor.vz52_layer_progress
+    friendly_name: "Layer Progress"
+    icon_template: mdi:layers-triple-outline
+    value_template: >-
+      {{ [(states("sensor.vz52_current_height")|float / states("sensor.vz52_layer_height")|float)|round(0), " / ", (states("sensor.vz52_object_height")|float / states("sensor.vz52_layer_height")|float)|round(0)] | join if is_state('sensor.vz52', 'OK') else None }}
+    

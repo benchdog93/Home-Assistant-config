@@ -1,0 +1,10 @@
+
+sensors:
+  vz52_bedtemp:
+    unique_id: sensor.vz52_bedtemp
+    friendly_name: >-
+      Bed
+      {{ ["(target ", (states.sensor.vz52.attributes['heater_bed']['target'] | float | round(1)), "°C)"] | join if states.sensor.vz52.attributes['display_status']['progress'] < 1 if is_state('sensor.vz52', 'OK') else None }}
+    icon_template: mdi:radiator
+    value_template: >-
+      {{ states.sensor.vz52.attributes['heater_bed']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}

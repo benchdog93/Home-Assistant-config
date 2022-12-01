@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_state:
+    unique_id: sensor.vz52_state
+    friendly_name: "Status"
+    icon_template: mdi:printer-3d
+    value_template: >-
+      {{ states.sensor.vz52.attributes['print_stats']['state'] if is_state('sensor.vz52', 'OK') else None }}
+      

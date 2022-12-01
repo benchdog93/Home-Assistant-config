@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_bed_actual:
+    unique_id: sensor.vz_bed_actual
+    friendly_name: Actual Bed Temperature
+    icon_template: mdi:thermometer
+    value_template: >-
+      {{ states.sensor.vz52.attributes['heater_bed']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}
+      

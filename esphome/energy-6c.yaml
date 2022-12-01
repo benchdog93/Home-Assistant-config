@@ -86,70 +86,70 @@ sensor:
               ).c_str();
 
 
-- platform: atm90e32
-  cs_pin: 5
+  - platform: atm90e32
+    cs_pin: 5
 
-  phase_a:
-    voltage:
-      name: ${disp_name} Volts A
-      id: ic1Volts
-      accuracy_decimals: 1
-    current:
-      name: ${Name1} CT1 Amps
-      id: ct1Amps
-    gain_voltage: 7275
-    gain_ct: 38498
+    phase_a:
+      voltage:
+        name: ${disp_name} Volts A
+        id: ic1Volts
+        accuracy_decimals: 1
+      current:
+        name: ${Name1} CT1 Amps
+        id: ct1Amps
+      gain_voltage: 7275
+      gain_ct: 38498
 
-  phase_b:
-    current:
-      name: ${Name2} CT2 Amps
-      id: ct2Amps
-    gain_ct:  38498
+    phase_b:
+      current:
+        name: ${Name2} CT2 Amps
+        id: ct2Amps
+      gain_ct:  38498
 
-  phase_c:
-    current:
-      name: ${Name3} CT3 Amps
-      id: ct3Amps
-    gain_ct: 32498
+    phase_c:
+      current:
+        name: ${Name3} CT3 Amps
+        id: ct3Amps
+      gain_ct: 32498
 
-  frequency:
-    name: ${disp_name} Freq A
-  line_frequency: 60Hz
-  gain_pga: 1X
-  update_interval: ${update_time}
+    frequency:
+      name: ${disp_name} Freq A
+    line_frequency: 60Hz
+    gain_pga: 1X
+    update_interval: ${update_time}
 
 
-- platform: atm90e32
-  cs_pin: 4
+  - platform: atm90e32
+    cs_pin: 4
 
-  phase_a:
-    voltage:
-      name: ${disp_name} Volts B
-      id: ic2Volts
-      accuracy_decimals: 1
-    current:
-      name: ${Name3} CT4 Amps
-      id: ct4Amps
-    gain_voltage: 7230
-    gain_ct: 32498
+    phase_a:
+      voltage:
+        name: ${disp_name} Volts B
+        id: ic2Volts
+        accuracy_decimals: 1
+      current:
+        name: ${Name3} CT4 Amps
+        id: ct4Amps
+      gain_voltage: 7230
+      gain_ct: 32498
 
-  phase_b:
-    current:
-      name: ${Name2} CT5 Amps
-      id: ct5Amps
-    gain_ct: 38498
+    phase_b:
+      current:
+        name: ${Name2} CT5 Amps
+        id: ct5Amps
+      gain_ct: 38498
 
-  phase_c:
-    current:
-      name: ${Name1} CT6 Amps
-      id: ct6Amps
-    gain_ct: 38498
+    phase_c:
+      current:
+        name: ${Name1} CT6 Amps
+        id: ct6Amps
+      gain_ct: 38498
 
-  frequency:
-    name: ${disp_name} Freq B
-  line_frequency: 60Hz
-  gain_pga: 1X
-  update_interval: ${update_time} 
+    frequency:
+      name: ${disp_name} Freq B
+    line_frequency: 60Hz
+    gain_pga: 1X
+    update_interval: ${update_time} 
 
   - platform: template
     name: ${Name1} CT1 Watts

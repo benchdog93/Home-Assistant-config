@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_pi_super_8_temp:
+    unique_id: sensor.vz52_pi_super_∞_temp
+    friendly_name: Super ∞ RasPi MCUs 
+    icon_template: mdi:thermometer
+    value_template: >-
+      {{ [(states.sensor.vz52.attributes['temperature_sensor mcu']['temperature'] | float | round(1) | string), " / ", (states.sensor.vz52.attributes['temperature_sensor raspberry_pi']['temperature'] | float | round(1) | string)] | join if is_state('sensor.vz52', 'OK') else None }}

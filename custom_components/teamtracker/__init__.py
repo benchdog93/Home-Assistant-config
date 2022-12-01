@@ -501,8 +501,18 @@ async def async_get_universal_event_attributes(event, team_index, oppo_index, la
     new_values["state"] = event["status"]["type"]["state"].upper()
     new_values["event_name"] = event["shortName"]
     new_values["date"] = event["date"]
-    new_values["kickoff_in"] = arrow.get(event["date"]).humanize(locale=lang)
-    new_values["venue"] = event["competitions"][0]["venue"]["fullName"]
+    try:
+        new_values["kickoff_in"] = arrow.get(event["date"]).humanize(locale=lang)
+    except:
+        try:
+            new_values["kickoff_in"] = arrow.get(event["date"]).humanize(locale=lang[:2])
+        except:
+            new_values["kickoff_in"] = arrow.get(event["date"]).humanize()
+    try:
+        new_values["venue"] = event["competitions"][0]["venue"]["fullName"]
+    except:
+        new_values["venue"] = None
+        
     try:
         new_values["location"] = "%s, %s" % (event["competitions"][0]["venue"]["address"]["city"], event["competitions"][0]["venue"]["address"]["state"])
     except:

@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_raspi_mcu_temp:
+    unique_id: sensor.vz52_raspi_mcu_temp
+    friendly_name: RasPi MCU 
+    icon_template: mdi:thermometer
+    value_template: >-
+      {{ states.sensor.vz52.attributes['temperature_sensor raspberry_pi']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}

@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_mcu_super_8_temp:
+    unique_id: sensor.vz52_mcu_super_∞_temp
+    friendly_name: MCU Super ∞ 
+    icon_template: mdi:thermometer
+    value_template: >-
+     {{ states.sensor.vz52.attributes['temperature_sensor mcu']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}

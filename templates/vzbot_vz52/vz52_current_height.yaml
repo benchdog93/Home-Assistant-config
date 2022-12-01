@@ -1,0 +1,11 @@
+
+sensors:
+  vz52_current_height:
+    unique_id: sensor:vz52_current_hieght
+    friendly_name: "Current Height"
+    unit_of_measurement: "mm"
+    icon_template: mdi:arrow-collapse-down
+    value_template: >-
+      {{ states.sensor.vz52.attributes['gcode_move']['gcode_position'][2]  | float | round(2) if is_state('sensor.vz52', 'OK') else None}}
+    
+    

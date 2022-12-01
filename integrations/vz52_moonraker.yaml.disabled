@@ -1,0 +1,280 @@
+
+####################################
+# Moonraker integration #
+####################################
+
+# put http://192.168.1.5:7125/server/files/gcodes/{{ states.sensor.vz52_klipper_preview_path.attributes["relative_path"] if is_state('sensor.vz52', 'OK') else None }} in UI General Camera integration
+#camera:
+#  - platform: generic
+#    name: "Ender_3_v2_Thumbnail"
+#    still_image_url: http://192.168.x.x:7125/server/files/gcodes/{{ states.sensor.klipper_preview_path.attributes["relative_path"] if is_state('sensor.vz52', 'OK') else None }}
+#    verify_ssl: false
+
+   http://192.168.1.5/webcam?action=stream
+
+sensor:
+
+  - platform: rest
+    name: vz52
+    resource: "http://192.168.1.5:7125/printer/objects/query?heater_bed&extruder&print_stats&toolhead&display_status&virtual_sdcard&gcode_move&webhooks&temperature_sensor mcu&temperature_sensor raspberry_pi&temperature_sensor Chamber&temperature_sensor bed_edge&filament_switch_sensor filament_sensor"
+    json_attributes_path: "$.result.status"
+    json_attributes:
+      - heater_bed
+      - extruder
+      - print_stats
+      - toolhead
+      - display_status
+      - virtual_sdcard
+      - gcode_move
+      - webhooks
+      - temperature_sensor mcu
+      - temperature_sensor raspberry_pi
+      - temperature_sensor bed_edge
+      - temperature_sensor Chamber
+      - "filament_switch_sensor Filament"
+    value_template: >-
+      {{ 'OK' if ('result' in value_json) else None }}
+    force_update: true
+    scan_interval: 1
+
+  - platform: rest
+    name: vz52_file_metadata
+    scan_interval: 5
+    resource_template: "{% if states(('sensor.VZ52')) != 'unavailable' %}
+                          http://192.168.1.5:7125/server/files/metadata?filename={{ states(('sensor.vz52_current_print')) }}
+                          {% else %}
+                          https://dsewvisualarts.com:8123/local/no_preview.json
+                          {% endif %}"
+    json_attributes_path: "$.result"
+    json_attributes:
+      - layer_height
+      - object_height
+      - thumbnails
+    value_template: >-
+      {{ 'OK' if ('result' in value_json) else None }}
+
+
+  - platform: rest
+    name: vz52_klipper_preview_path
+    scan_interval: 5
+    resource_template: "{% if states(('sensor.VZ52')) != 'unavailable' %}
+                          http://192.168.1.5:7125/server/files/metadata?filename={{ states(('sensor.vz52_current_print')) }}
+                          {% else %}
+                          https://dsewvisualarts.com:8123/local/no_preview.json
+                          {% endif %}"
+    json_attributes_path: "$.result.thumbnails.[2]"
+    json_attributes:
+      - relative_path
+      - width
+      - height
+      - size
+    value_template: >-
+      {{ 'OK' if ('result' in value_json) else None }}
+
+
+  - platform: template
+    sensors:
+
+      vz52_state:
+        unique_id: sensor.vz52_state
+        friendly_name: "Status"
+        icon_template: mdi:printer-3d
+        value_template: >-
+          {{ states.sensor.vz52.attributes['print_stats']['state'] if is_state('sensor.vz52', 'OK') else None }}
+
+      vz52_current_print:
+        unique_id: sensor.vz52_current_print
+        friendly_name: "Current Print"
+        icon_template: mdi:video-3d
+        value_template: >-
+          {{ states.sensor.vz52.attributes['print_stats']['filename'] if states('sensor.vz52') != 'unknown' else None }}
+
+      vz52_current_progress:
+        unique_id: sensor.vz52_current_progress
+        friendly_name: "Progress"
+        unit_of_measurement: '%'
+        icon_template: mdi:file-percent
+        value_template: >-
+          {{ (states.sensor.vz52.attributes['display_status']['progress'] * 100) | round(1) if is_state('sensor.vz52', 'OK') else None }}
+
+      vz52_printer_bed_power:
+        unique_id: sensor.vz52_printer_bed_power
+        friendly_name: "Bed Power"
+        unit_of_measurement: "%"
+        icon_template: mdi:power-cycle
+        value_template: >-
+          {{ ((states.sensor.vz52.attributes["heater_bed"]["power"]  | float) * 100) | round(0) if is_state('sensor.vz52', 'OK') else None }}'
+
+      vz52_hotend_power:
+        friendly_name: Hotend Power
+        unique_id: sensor.vz52_hotend_power
+        icon_template: mdi:power-cycle
+        unit_of_measurement: '%'
+        value_template: >-
+          {{ ((states.sensor.vz52.attributes["extruder"]["power"]  | float) * 100) | round(0) if is_state('sensor.vz52', 'OK') else None }}
+
+
+      vz52_print_time:
+        unique_id: sensor.vz52_print_time
+        friendly_name: "T-elapsed"
+        icon_template: mdi:clock-start
+        value_template: >-
+          {{ states.sensor.vz52.attributes['print_stats']['print_duration'] | timestamp_custom("%H:%M:%S", 0) if is_state('sensor.vz52', 'OK') else None }}
+
+      vz52_time_remaining:
+        unique_id: sensor.vz52_time_remaining
+        friendly_name: "T-remaining"
+        icon_template: mdi:clock-end
+        value_template: >-
+          {{ (((states.sensor.vz52.attributes['print_stats']['print_duration'] / states.sensor.vz52.attributes['display_status']['progress'] - states.sensor.vz52.attributes['print_stats']['print_duration']) if states.sensor.vz52.attributes['display_status']['progress'] > 0 else 0) | timestamp_custom('%H:%M:%S', 0)) if is_state('sensor.vz52', 'OK') else None }}
+
+      vz52_eta:
+        unique_id: sensor.vz52_eta
+        friendly_name: "T-ETA"
+        icon_template: mdi:clock-outline
+        value_template: >-
+          {{ (as_timestamp(now()) + 2 * 60 * 60 + ((states.sensor.vz52.attributes['print_stats']['print_duration'] / states.sensor.vz52.attributes['display_status']['progress'] - states.sensor.vz52.attributes['print_stats']['print_duration']) if states.sensor.vz52.attributes['display_status']['progress'] > 0 else 0)) | timestamp_custom("%H:%M:%S", 0) if is_state('sensor.vz52', 'OK') else None }}
+
+      vz52_nozzletemp:
+        unique_id: sensor.vz52_nozzletemp
+        friendly_name: >-
+          Nozzle
+          {{ ["(target ", (states.sensor.vz52.attributes['extruder']['target'] | float | round(1)), "°C)"] | join if states.sensor.vz52.attributes['display_status']['progress'] < 1 if is_state('sensor.vz52', 'OK') else None }}
+        icon_template: mdi:printer-3d-nozzle-heat
+        value_template: >-
+          {{ states.sensor.vz52.attributes['extruder']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}
+
+      vz52_bedtemp:
+        unique_id: sensor.vz52_bedtemp
+        friendly_name: >-
+          Bed
+          {{ ["(target ", (states.sensor.vz52.attributes['heater_bed']['target'] | float | round(1)), "°C)"] | join if states.sensor.vz52.attributes['display_status']['progress'] < 1 if is_state('sensor.vz52', 'OK') else None }}
+        icon_template: mdi:radiator
+        value_template: >-
+          {{ states.sensor.vz52.attributes['heater_bed']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_bed_actual:
+          unique_id: sensor.vz_bed_actual
+          friendly_name: Actual Bed Temperature
+          icon_template: mdi:thermometer
+          value_template: >-
+            {{ states.sensor.vz52.attributes['heater_bed']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_bed_target:
+          friendly_name: Bed Target
+          unique_id: sensor.vz52_bed_target
+          icon_template: mdi:thermometer
+          value_template: >-
+            {{ states.sensor.vz52.attributes['heater_bed']['target'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_nozzle_actual:
+          friendly_name: Actual Hotend Temperature
+          unique_id: sensor.vz52_nozzle_actual
+          icon_template: mdi:thermometer
+          value_template: >-
+            {{ states.sensor.vz52.attributes['extruder']['temperature'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_nozzle_target:
+          friendly_name: Hotend Target
+          unique_id: sensor.vz52_nozzle_target
+          icon_template: mdi:thermometer
+          value_template: >-
+            {{ states.sensor.vz52.attributes['extruder']['target'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_pi_super_∞_temp:
+          unique_id: sensor.vz52_pi_super_∞_temp
+          friendly_name: RasPi Super ∞ MCUs
+          icon_template: mdi:thermometer
+          value_template: >-
+            {{ [(states.sensor.vz52.attributes['temperature_sensor mcu']['temperature'] | float | round(1) | string), " / ", (states.sensor.vz52.attributes['temperature_sensor raspberry_pi']['temperature'] | float | round(1) | string)] | join if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_current_height:
+          unique_id: sensor:vz52_current_hieght
+          friendly_name: "Current Height"
+          unit_of_measurement: "mm"
+          icon_template: mdi:arrow-collapse-down
+          value_template: >-
+            {{ states.sensor.vz52.attributes['gcode_move']['gcode_position'][2]  | float | round(2) if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_state_message:
+          unique_id: sensor.vz52_state_message
+          friendly_name: "State Message"
+          icon_template: mdi:message-check-outline
+          value_template: >-
+            {{ states.sensor.vz52.attributes["webhooks"]["state_message"] if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_height_progress:
+          unique_id: sensor.vz52_height_progress
+          friendly_name: "Height Progress"
+          icon_template: mdi:arrow-expand-vertical
+          value_template: >-
+            {{ [(states.sensor.vz52.attributes["gcode_move"]["gcode_position"][2]  | float | round(2) | string), " / ", (states.sensor.vz52_file_metadata.attributes["object_height"] | float | string)] | join if is_state('sensor.vz52', 'OK') else None }}
+
+
+        vz52_layer_progress:
+          unique_id: sensor.vz52_layer_progress
+          friendly_name: "Layer Progress"
+          icon_template: mdi:layers-triple-outline
+          value_template: >-
+            {{ [(states("sensor.vz52_current_height")|float / states("sensor.vz52_layer_height")|float)|round(0), " / ", (states("sensor.vz52_object_height")|float / states("sensor.vz52_layer_height")|float)|round(0)] | join if is_state('sensor.vz52', 'OK') else None }}
+
+
+        vz52_layer_height:
+          unique_id: sensor.vz52_layer_height
+          friendly_name: "Layer Height"
+          unit_of_measurement: "mm"
+          icon_template: mdi:arrow-collapse-vertical
+          value_template: >-
+            {{ states.sensor.vz52_file_metadata.attributes["layer_height"] | float if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_object_height:
+          unique_id: sensor.vz52_object_height
+          friendly_name: "Object Height"
+          unit_of_measurement: "mm"icon_template: mdi:arrow-expand-vertical
+          value_template: >-
+            {{ states.sensor.vz52_file_metadata.attributes["object_height"] | float if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_current_layer:
+          unique_id: sensor.vz52_current_layer
+          friendly_name: "Current Layer"
+          value_template: >-
+            {{ (states("sensor.vz52_current_height")|float / states("sensor.vz52_layer_height")|float)|round(0) if is_state('sensor.vz52', 'OK') else None }}
+
+        vz52_total_layers:
+          unique_id: sensor.vz52_total_layers
+          friendly_name: "Total Layers"
+          value_template: >-
+            {{ (states("sensor.vz52_object_height")|float / states("sensor.vz52_layer_height")|float)|round(0) if is_state('sensor.vz52', 'OK') else None }}
+
+#      3d_printer_object_thumbnails:
+#        friendly_name: "Object Thumbnails"
+#        value_template: '{{ states.sensor.Ender3v2_file_metadata.attributes["thumbnails"][2]["relative_path"] }}'
+#        icon_template: mdi:image
+
+binary_sensor:
+  - platform: template
+    sensors:
+      vz52_printer_filament:
+        unique_id: sensor.vz52_printer_filament
+        friendly_name: "Filament Detected"
+        icon_template: mdi:printer-3d-nozzle-alert
+        value_template: >-
+          {{ states.sensor.vz52.attributes["filament_switch_sensor filament_sensor"]["filament_detected"] if is_state('sensor.vz52', 'OK') else None }}
+
+
+rest_command:
+  3d_printer_emergency_stop:
+    url: "http://192.168.x.x:7125/printer/emergency_stop"
+    method: post
+  3d_printer_firmware_restart:
+    url: "http://192.168.x.x:7125/printer/firmware_restart"
+    method: post
+  3d_printer_cancel:
+    url: "http://192.168.x.x:7125/printer/print/cancel"
+    method: post
+  3d_printer_pause:
+    url: "http://192.168.x.x:7125/printer/print/pause"
+    method: post
+  3d_printer_resume:
+    url: "http://192.168.x.x:7125/printer/print/resume"
+    method: post

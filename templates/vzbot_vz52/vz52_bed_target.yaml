@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_bed_target:
+    friendly_name: Bed Target
+    unique_id: sensor.vz52_bed_target
+    icon_template: mdi:thermometer
+    value_template: >-
+      {{ states.sensor.vz52.attributes['heater_bed']['target'] | float | round(1) if is_state('sensor.vz52', 'OK') else None }}  

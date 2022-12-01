@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_height_progress:
+    unique_id: sensor.vz52_height_progress
+    friendly_name: "Height Progress"
+    icon_template: mdi:arrow-expand-vertical
+    value_template: >-
+      {{ [(states.sensor.vz52.attributes["gcode_move"]["gcode_position"][2]  | float | round(2) | string), " / ", (states.sensor.vz52_file_metadata.attributes["object_height"] | float | string)] | join if is_state('sensor.vz52', 'OK') else None }}
+    

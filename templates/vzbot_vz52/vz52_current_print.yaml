@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_current_print:
+    unique_id: sensor.vz52_current_print
+    friendly_name: Current Print
+    icon_template: mdi:video-3d
+    value_template: >-
+      {{ states.sensor.vz52.attributes['print_stats']['filename'] if is_state('sensor.vz52', 'OK') else None }}
+      

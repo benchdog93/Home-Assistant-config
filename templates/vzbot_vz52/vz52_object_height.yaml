@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_object_height:
+    unique_id: sensor.vz52_object_height
+    friendly_name: "Object Height"
+    unit_of_measurement: "mm"
+    icon_template: mdi:arrow-expand-vertical
+    value_template: >-
+      {{ states.sensor.vz52_file_metadata.attributes["object_height"] | float if is_state('sensor.vz52', 'OK') else None }}

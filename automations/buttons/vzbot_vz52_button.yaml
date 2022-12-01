@@ -9,4 +9,4 @@ use_blueprint:
     - service: switch.toggle
       data: {}
       target:
-        entity_id: switch.vzbot_vz52
+        entity_id: switch.vz52_plug_relay

@@ -1,0 +1,9 @@
+
+sensors:
+  vz52_hotend_power:
+    friendly_name: Hotend Power
+    unique_id: sensor.vz52_hotend_power
+    unit_of_measurement: '%'
+    icon_template: mdi:power-cycle
+    value_template: >-
+      {{ ((states.sensor.vz52.attributes["extruder"]["power"]  | float) * 100) | round(0) if is_state('sensor.vz52', 'OK') else None }}

@@ -1,0 +1,8 @@
+
+sensors:
+  vz52_print_total_duration:
+    unique_id: sensor.vz52_print_total_duration
+    friendly_name: "TT-elapsed"
+    icon_template: mdi:clock-start
+    value_template: >-
+      {{ states.sensor.vz52.attributes['print_stats']['total_duration'] | timestamp_custom("%H:%M:%S", 0) if is_state('sensor.vz52', 'OK') else None }}
