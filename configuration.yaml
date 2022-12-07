@@ -2,6 +2,7 @@ homeassistant:
   packages: !include_dir_named integrations
   customize: !include_dir_merge_named customize/
   unit_system: imperial
+  country: US
   time_zone: America/New_York
   external_url: !secret external_url
   internal_url: !secret internal_url

@@ -21,6 +21,6 @@ action:
     input:
       command: trigger
       backup_name: "Daily Backup: {{ now().strftime('%A, %B %-d, %Y') }}"
-mode: single
+
 
 
