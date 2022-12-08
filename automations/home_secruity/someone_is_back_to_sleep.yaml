@@ -1,0 +1,22 @@
+
+alias: Arm Night Someone is Back to Sleep
+
+description: 'Rearm Home Security System'
+
+trigger:
+- platform: state
+  entity_id: binary_sensor.living_room_protect_3
+  to: "off"
+  for:
+    minutes: 15
+
+condition:
+- condition: time
+  after: "23:00:00"
+  before: "07:00:00"
+
+action:
+- service: input_boolean.turn_on
+  entity_id: input_boolean.alarm_night
+
+mode: single
