@@ -1,9 +1,9 @@
 
-  panel_iframe:
+#  panel_iframe:
 
-#    weather:
-#      title: "Weather"
-#      url: "https://dsewvisualarts.com:8123/api/hassio_ingress/0KkW1XszVNjqvAj1QpLhm11hGw34w7TKg9O5XDnBDNs/d/Ri15Pn27k/weather?orgId=1&refresh=15m"
+#    uptime_kuma:
+#      title: "Uptime Kuma"
+#      url: "http://dsewvisualarts.com:3001/dashboard"
 #      icon: "mdi:weather-cloudy-clock"
 
 #    home_energy:

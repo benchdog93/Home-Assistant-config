@@ -1,2 +1,7 @@
 
+
 calendar:
+  - platform: caldav
+    username: !secret dsm_username
+    password: !secret dsm_password
+    url: !secret cal_dav_url

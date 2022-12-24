@@ -6,7 +6,7 @@ substitutions:
   SSID_PWD: !secret wifi_iot_password
   FB_PWD: !secret esphome_fallback_ap_password
   ESP_PWD: !secret esphome_password
-  #IP_Addr: 192.168.1.66
+  IP_Addr: 192.168.1.66
 
 esphome:
   name: ${device}
@@ -16,11 +16,11 @@ esphome:
 wifi:
   ssid: ${SSID}
   password: ${SSID_PWD}
-  #manual_ip:
-  #  static_ip: ${IP_Addr}
-  #  gateway: 192.168.1.1
-  #  subnet: 255.255.255.0
-  #  dns1: 192.168.1.1
+  manual_ip:
+    static_ip: ${IP_Addr}
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    dns1: 192.168.1.1
   ap:
     ssid: "${Name} Hotspot"
     password: ${FB_PWD}

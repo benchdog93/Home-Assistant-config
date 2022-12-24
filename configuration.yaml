@@ -27,3 +27,5 @@ notify: !include_dir_list notify
 switch: !include_dir_merge_named switches
 utility_meter: !include_dir_merge_named utility_meters
 counter: !include_dir_merge_named counters
+mqtt: !include_dir_list mqtt
+
