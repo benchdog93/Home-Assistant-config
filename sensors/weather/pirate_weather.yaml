@@ -1,0 +1,19 @@
+
+platform: pirateweather
+api_key: !secret privateweather
+scan_interval: '00:15:00'
+monitored_conditions:
+  - temperature
+  - precip_probability
+  - precip_type
+  - humidity
+  - cloud_cover
+  - nearest_storm_distance
+  - precip_intensity
+  - wind_speed
+  - wind_gust
+  - wind_bearing
+  - snow
+  - rain
+  - dew_point
+  - feels_like_temperature

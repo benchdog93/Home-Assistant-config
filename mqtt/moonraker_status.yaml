@@ -1,0 +1,9 @@
+
+sensor:
+  - name: "Moonraker Status"
+    unique_id: sensor.moonraker_status
+    state_topic: "VzBot VZ.52/moonraker/status/state"
+    value_template: "{{ value_json.server }}"
+    json_attributes_topic: "VzBot VZ.52/moonraker/status/attributes"
+    
+# {"server": "online"}

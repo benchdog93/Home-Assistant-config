@@ -10,8 +10,8 @@ homeassistant:
     - type: homeassistant
     - type: trusted_networks
       trusted_networks:
-      - !secret internal_ip
-      - !secret external_ip
+        - !secret internal_ip
+        - !secret external_ip
 
 binary_sensor manual: !include_dir_list binary_sensors
 group: !include_dir_merge_named group/
@@ -27,5 +27,4 @@ notify: !include_dir_list notify
 switch: !include_dir_merge_named switches
 utility_meter: !include_dir_merge_named utility_meters
 counter: !include_dir_merge_named counters
-mqtt: !include_dir_list mqtt
-
+mqtt: !include_dir_merge_named mqtt

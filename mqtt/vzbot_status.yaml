@@ -1,0 +1,12 @@
+
+sensor:
+  - name: "VzBot Status"
+    unique_id: sensor.vzbot_status
+    state_topic: "VzBot VZ.52/klipper/status/state"
+    value_template: "{{ value_json.status }}"
+    json_attributes_topic: "VzBot VZ.52/klipper/status/attributes"
+
+
+# VzBot VZ.52/klipper/status
+# {"eventtime": 556.357327279, "status": {"heater_bed": {"temperature": 21.65}, "extruder": {"temperature": 20.73}, "toolhead": {"estimated_print_time": 564.082492577381}, "temperature_sensor Chamber": {"temperature": 22.15}, "temperature_sensor bed_edge": {"temperature": 22.06}, "temperature_sensor mcu": {"temperature": 33.45}, "temperature_sensor raspberry_pi": {"temperature": 43.33}}}
+# {"eventtime": 3016.654228646, "status": {"heater_bed": {"temperature": 21.57}, "toolhead": {"estimated_print_time": 3024.430169607143}, "temperature_sensor Chamber": {"temperature": 22.33}, "temperature_sensor mcu": {"temperature": 35.5}, "temperature_sensor raspberry_pi": {"temperature": 44.3}}}   

@@ -1,0 +1,10 @@
+sensor:
+  - name: "vzbot extruder"
+    unique_id: sensor.vzbot_extruder
+    state_topic: "VzBot VZ.52/klipper/extruder/infojson"
+    value_template: "{{ value_json.extruder }}"
+    availability:
+      - topic: "VzBot VZ.52/moonraker/status"
+    payload_available: "online"
+    payload_not_available: "offline"
+    json_attributes_topic: "VzBot VZ.52/klipper/extruder/attributes"

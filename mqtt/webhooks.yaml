@@ -1,0 +1,12 @@
+sensor:
+  - name: "vzbot webhooks"
+    unique_id: sensor.vzbot_webhooks
+    state_topic: "homeassistant/sensor/VzBot VZ.52/klipper/webhooks/state"
+    value_template: "{{ value_json.webhooks }}"
+    availability:
+      - topic: "VzBot VZ.52/moonraker/status"
+    payload_available: "online"
+    payload_not_available: "offline"
+    json_attributes_topic: "homeassistant/sensor/VzBot VZ.52/klipper/VzBot_VZ.52_klipper_webhooks/attributes"
+
+
